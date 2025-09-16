@@ -1,0 +1,91 @@
+# OneBit_OLED by Jihoon Kim
+# Based on OneBit_VFD by chronicallyoffline <ben@chronicallyoffline.xyz>
+# CC BY-SA 3.0
+# Credits to Chuck Lardo and D0-0K for inspiration and assets reused under CC-BY-SA and GPL V3 respectively.
+# 2025-06-19 v1.2
+
+# Disable Status Bar
+%wd
+
+# Disable Title
+#%?Lt<|>
+
+
+
+# Preload Font
+%Fl(2,31-LanaPixel.fnt)
+%Fl(3,73-LanaPixel.fnt)
+
+# Preload Images
+%xl(battery,battery.bmp,0,0,12)
+%xl(playmodes,playmodes.bmp,0,0,9)
+%xl(usb,usb.bmp,0,0)
+%xl(L,lock.bmp)
+
+#__USB screen
+%?if(%cs, =, 21)<%VI(clearScreen)%Vd(usb)|%VI(menu)%Vd(info)>
+
+#__Clear Screen
+%Vi(clearScreen,0,0,1,1,-)
+
+# Display Viewports
+
+# Menu
+%Vi(menu,30,75,420,210,-)
+%?if(%ss(0,1,%St(background color)),=,7)<%Vf(4c4c4c)|%Vf(7f7f7f)>
+
+# Menu Title
+%Vl(info,37,19,150,22,2)
+%?if(%ss(0,1,%St(background color)),=,7)<%Vf(4c4c4c)|%Vf(7f7f7f)>
+%al%s%Lt
+
+# Clock
+%Vl(info,309,19,75,22,2)
+%?if(%ss(0,1,%St(background color)),=,7)<%Vf(4c4c4c)|%Vf(7f7f7f)>
+%ar%?cf<%cH|%cl>:%cM%?cf<| %cp>
+
+# Battery (numerical)
+#%Vl(info,409,25,40,19,2)
+#%ar%bl%%
+
+#__Now Playing
+%Vl(info,72,316,348,24,2)
+%?or(%if(%ss(0,1,%St(background color)),>,7),%if(%ss(0,1,%St(background color)),>=,a),%if(%ss(2,1,%St(background color)),>,7),%if(%ss(2,1,%St(background color)),>=,a),%if(%ss(4,1,%St(background color)),>,7),%if(%ss(4,1,%St(background color)),>=,a))<%Vf(000000)|%Vf(ffffff)>
+%?if(%mp, >, 1)<%al%s%?it<%it|%fn>%?ia< - %ia>%?id< - %id>%?iy< %(%ss(0,4, %iy)%)>|>
+
+# Playback Icons
+%Vl(info,40,319,19,19,-)
+%Vf(-)
+%?if(%mp, >, 1)<%xd(playmodes,%mp)|>
+
+# Hold
+%Vl(info,393,24,13,18,-)
+%Vf(-)
+%?mh<%xd(L)>
+
+# Battery viewport selector (flash when low, animates when charging)
+%?bc<%Vd(battCharging)|%?if(%bl,>=,15)<%Vd(batt)|%Vd(lowBatt)>>
+
+# Battery (graphical)
+%Vl(batt,415,25,34,15,-)
+%Vf(-)
+%?if(%bl, =, 100)<%xd(battery,11)|%?if(%bl,>=,90)<%xd(battery,10)|%?if(%bl,>=,80)<%xd(battery,9)|%?if(%bl,>=,70)<%xd(battery,8)|%?if(%bl,>=,60)<%xd(battery,7)|%?if(%bl,>=,50)<%xd(battery,6)|%?if(%bl,>=,40)<%xd(battery,5)|%?if(%bl,>=,30)<%xd(battery,4)|%?if(%bl,>=,20)<%xd(battery,3)|%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>>>>>>>>>>
+
+%Vl(lowBatt,415,25,34,15,-)
+%Vf(-)
+%t(1)%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>;%t(1)%xd(battery,12)
+
+%Vl(battCharging,415,25,34,15,-)
+%Vf(-)
+#%Vd(batt);%?if(%bl,>=,20)<%t(0)>%xd(battery,3);%?if(%bl,>=,40)<%t(0)>%xd(battery,5);%?if(%bl,>=,60)<%t(0)>%xd(battery,7);%?if(%bl,>=,80)<%t(0)>%xd(battery,9);%xd(battery,11)
+%t(1)%?if(%bl, =, 100)<%xd(battery,11)|%?if(%bl,>=,90)<%xd(battery,10)|%?if(%bl,>=,80)<%xd(battery,9)|%?if(%bl,>=,70)<%xd(battery,8)|%?if(%bl,>=,60)<%xd(battery,7)|%?if(%bl,>=,50)<%xd(battery,6)|%?if(%bl,>=,40)<%xd(battery,5)|%?if(%bl,>=,30)<%xd(battery,4)|%?if(%bl,>=,20)<%xd(battery,3)|%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>>>>>>>>>>;%t(1)%?if(%bl, =, 100)<%xd(battery,11)|%?if(%bl,>=,90)<%xd(battery,10)|%?if(%bl,>=,80)<%xd(battery,9)|%?if(%bl,>=,70)<%xd(battery,9)|%?if(%bl,>=,60)<%xd(battery,8)|%?if(%bl,>=,50)<%xd(battery,7)|%?if(%bl,>=,40)<%xd(battery,7)|%?if(%bl,>=,30)<%xd(battery,6)|%?if(%bl,>=,20)<%xd(battery,5)|%?if(%bl,>=,10)<%xd(battery,5)|%xd(battery,4)>>>>>>>>>>;%t(1)%?if(%bl,>=,90)<%xd(battery,11)|%?if(%bl,>=,80)<%xd(battery,10)|%?if(%bl,>=,70)<%xd(battery,10)|%?if(%bl,>=,60)<%xd(battery,10)|%?if(%bl,>=,50)<%xd(battery,9)|%?if(%bl,>=,40)<%xd(battery,9)|%?if(%bl,>=,30)<%xd(battery,9)|%?if(%bl,>=,20)<%xd(battery,8)|%?if(%bl,>=,10)<%xd(battery,8)|%xd(battery,8)>>>>>>>>>;%t(1)%xd(battery,11)
+
+#__USB
+%Vl(usb,45,45,390,195,-)
+%xd(usb)
+
+%Vl(usb,30,270,420,-,3)
+%acUSB CONNECTED
+
+%Vl(usb,30,315,420,-,2)
+%acEject Before Disconnecting

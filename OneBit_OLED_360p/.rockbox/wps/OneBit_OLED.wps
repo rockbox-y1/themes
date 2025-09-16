@@ -1,0 +1,179 @@
+# OneBit_OLED by Jihoon Kim
+# Based on OneBit_VFD by chronicallyoffline <ben@chronicallyoffline.xyz>
+# CC BY-SA 3.0
+# Credits to Chuck Lardo and D0-0K for inspiration and assets reused under CC-BY-SA and GPL V3 respectively.
+# 2025-06-19 v1.2
+
+
+# Disable Status Bar
+%wd
+
+# Clear Backdrop
+%X(d)
+
+# Preload Fonts
+%Fl(3,62-LanaPixel.fnt)
+%Fl(5,31-LanaPixel.fnt)
+%Fl(6,73-LanaPixel.fnt)
+
+# Preload Images
+%xl(battery,battery.bmp,0,0,12)
+%xl(playmodes,playmodes.bmp,0,0,9)
+%xl(volbg,volbg.bmp,0,0)
+%xl(vol,vol.bmp,0,0)
+%xl(R,repeat_status.bmp,4)
+%xl(S,shuffle_status.bmp)
+%xl(L,lock.bmp)
+
+
+# Display Viewports
+#%?mh<%Vd(lockscreen)|%Vd(metadata)>
+
+
+# Light/Dark theme selector
+%?or(%if(%ss(0,1,%St(background color)),>,7),%if(%ss(0,1,%St(background color)),>=,a),%if(%ss(2,1,%St(background color)),>,7),%if(%ss(2,1,%St(background color)),>=,a),%if(%ss(4,1,%St(background color)),>,7),%if(%ss(4,1,%St(background color)),>=,a))<%Vd(darkFg)%?C<%Vd(albumArtDark)|%Vd(noAlbumArtDark)>%?ps<%Vd(repeatModeDark)|%?mm<%Vd(noRepeatDark)|%Vd(repeatModeDark)>>%?mv(3)<%Vd(volume)|%Vd(progDark)>|%Vd(lightFg)%?C<%Vd(albumArtLight)|%Vd(noAlbumArtLight)>%?ps<%Vd(repeatModeLight)|%?mm<%Vd(noRepeatLight)|%Vd(repeatModeLight)>>%?mv(3)<%Vd(volume)|%Vd(progLight)>>
+
+
+# Album Art
+%Cl(15,7,195,195,r,c)
+%?C<%Vd(albumArt)>
+%Vl(albumArt,240,75,210,210,-)
+%Cd
+
+#######################
+##### Play Screen #####
+#######################
+
+# Playback Mode Icons
+%V(30,22,19,19,-)
+%Vf(-)
+%xd(playmodes,%mp)
+
+# Track Number (repeat)
+%Vl(repeatModeDark,81,19,150,30,5)%Vf(5f605f)
+%al%pp OF %pe
+%Vl(repeatModeLight,81,19,150,30,5)%Vf(9C9E9C)
+%al%pp OF %pe
+
+# Track Number (no repeat)
+%Vl(noRepeatDark,67,19,150,30,5)%Vf(5f605f)
+%al%pp OF %pe
+%Vl(noRepeatLight,67,19,150,30,5)%Vf(9C9E9C)
+%al%pp OF %pe
+
+# Repeat
+%Vl(repeatModeDark,52,22,19,19,-)
+%Vf(-)
+%t(5)%?mm<%?ps<%xd(S)>|%xd(R,%mm,-1)>;%t(5)%?ps<%xd(S)|%?mm<|%xd(R,%mm,-1)>>
+%Vl(repeatModeLight,52,22,19,19,-)
+%Vf(-)
+%t(5)%?mm<%?ps<%xd(S)>|%xd(R,%mm,-1)>;%t(5)%?ps<%xd(S)|%?mm<|%xd(R,%mm,-1)>>
+
+# Clock
+%Vl(darkFg,309,19,75,19,5)%Vf(5f605f)
+%ar%?cf<%cH|%cl>:%cM%?cf<| %cp>
+%Vl(lightFg,309,19,75,19,5)%Vf(9C9E9C)
+%ar%?cf<%cH|%cl>:%cM%?cf<| %cp>
+
+# Hold
+%V(393,24,13,18,-)
+%Vf(-)
+%?mh<%xd(L)>
+
+# Battery viewport selector (flash when low, animates when charging)
+%?bc<%Vd(battCharging)|%?if(%bl,>=,15)<%Vd(batt)|%Vd(lowBatt)>>
+
+# Battery (graphical)
+%Vl(batt,415,25,34,15,-)
+%Vf(-)
+%?if(%bl, =, 100)<%xd(battery,11)|%?if(%bl,>=,90)<%xd(battery,10)|%?if(%bl,>=,80)<%xd(battery,9)|%?if(%bl,>=,70)<%xd(battery,8)|%?if(%bl,>=,60)<%xd(battery,7)|%?if(%bl,>=,50)<%xd(battery,6)|%?if(%bl,>=,40)<%xd(battery,5)|%?if(%bl,>=,30)<%xd(battery,4)|%?if(%bl,>=,20)<%xd(battery,3)|%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>>>>>>>>>>
+
+%Vl(lowBatt,415,25,34,15,-)
+%Vf(-)
+%t(1)%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>;%t(1)%xd(battery,12)
+
+%Vl(battCharging,415,25,34,15,-)
+%Vf(-)
+#%Vd(batt);%?if(%bl,>=,20)<%Vd(batt)|%xd(battery,3)>;%?if(%bl,>=,40)<%Vd(batt)|%xd(battery,5)>;%?if(%bl,>=,60)<%Vd(batt)|%xd(battery,7)>;%?if(%bl,>=,80)<%Vd(batt)|%xd(battery,9)>;%xd(battery,11)
+%t(1)%?if(%bl, =, 100)<%xd(battery,11)|%?if(%bl,>=,90)<%xd(battery,10)|%?if(%bl,>=,80)<%xd(battery,9)|%?if(%bl,>=,70)<%xd(battery,8)|%?if(%bl,>=,60)<%xd(battery,7)|%?if(%bl,>=,50)<%xd(battery,6)|%?if(%bl,>=,40)<%xd(battery,5)|%?if(%bl,>=,30)<%xd(battery,4)|%?if(%bl,>=,20)<%xd(battery,3)|%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>>>>>>>>>>;%t(1)%?if(%bl, =, 100)<%xd(battery,11)|%?if(%bl,>=,90)<%xd(battery,10)|%?if(%bl,>=,80)<%xd(battery,9)|%?if(%bl,>=,70)<%xd(battery,9)|%?if(%bl,>=,60)<%xd(battery,8)|%?if(%bl,>=,50)<%xd(battery,7)|%?if(%bl,>=,40)<%xd(battery,7)|%?if(%bl,>=,30)<%xd(battery,6)|%?if(%bl,>=,20)<%xd(battery,5)|%?if(%bl,>=,10)<%xd(battery,5)|%xd(battery,4)>>>>>>>>>>;%t(1)%?if(%bl,>=,90)<%xd(battery,11)|%?if(%bl,>=,80)<%xd(battery,10)|%?if(%bl,>=,70)<%xd(battery,10)|%?if(%bl,>=,60)<%xd(battery,10)|%?if(%bl,>=,50)<%xd(battery,9)|%?if(%bl,>=,40)<%xd(battery,9)|%?if(%bl,>=,30)<%xd(battery,9)|%?if(%bl,>=,20)<%xd(battery,8)|%?if(%bl,>=,10)<%xd(battery,8)|%xd(battery,8)>>>>>>>>>;%t(1)%xd(battery,11)
+
+# Track Artist or Title
+%Vl(noAlbumArtDark,30,75,-30,40,3)
+%?ia<%Vf(5f605f)|%Vf(000000)>
+%aL%s%?ia<%ia|%?it<%it|%fn>>
+%Vl(noAlbumArtLight,30,75,-30,40,3)
+%?ia<%Vf(9C9E9C)|%Vf(ffffff)>
+%aL%s%?ia<%ia|%?it<%it|%fn>>
+
+%Vl(albumArtDark,30,75,210,40,3)
+%?ia<%Vf(5f605f)|%Vf(000000)>
+%aL%s%?ia<%ia|%?it<%it|%fn>>
+%Vl(albumArtLight,30,75,210,40,3)
+%?ia<%Vf(9C9E9C)|%Vf(ffffff)>
+%aL%s%?ia<%ia|%?it<%it|%fn>>
+
+# Track Title
+%Vl(noAlbumArtDark,30,115,-30,40,3)
+%Vf(000000)
+%aL%s%?ia<%it>
+%Vl(noAlbumArtLight,30,115,-30,40,3)
+%Vf(ffffff)
+%aL%s%?ia<%it>
+
+%Vl(albumArtDark,30,115,210,40,3)%Vf(000000)
+%aL%s%?ia<%it>
+%Vl(albumArtLight,30,115,210,40,3)%Vf(ffffff)
+%aL%s%?ia<%it>
+
+# Album Title and ID3 Year
+#%V(157,172,292,22,5)%Vf(9C9E9C)
+%Vl(noAlbumArtDark,30,172,-30,22,5)%Vf(5f605f)
+%aL%s%?id<%id|Unknown Album> %(%?iy<%ss(0,4, %iy)|?>%)
+%Vl(noAlbumArtLight,30,172,-30,22,5)%Vf(9C9E9C)
+%aL%s%?id<%id|Unknown Album> %(%?iy<%ss(0,4, %iy)|?>%)
+
+%Vl(albumArtDark,30,172,210,22,5)%Vf(5f605f)
+%aL%s%?id<%id|Unknown Album> %(%?iy<%ss(0,4, %iy)|?>%)
+%Vl(albumArtLight,30,172,210,22,5)%Vf(9C9E9C)
+%aL%s%?id<%id|Unknown Album> %(%?iy<%ss(0,4, %iy)|?>%)
+
+# Codec & Bitrate
+#%V(157,199,292,22,5)
+%Vl(darkFg,30,199,210,22,5)%Vf(676767)
+%aL%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPACK|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUDIO|WMAVOICE|MUSEPACK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?> %?fv<~>%fbkbps
+
+%Vl(lightFg,30,199,210,22,5)%Vf(989898)
+%aL%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPACK|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUDIO|WMAVOICE|MUSEPACK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?> %?fv<~>%fbkbps
+
+# Volume Level Text
+%Vl(volume,405,316,45,22,5)%Vf(05cffc)
+%ac%?if(%pv, >, 0)<+|>%pvdB
+
+%Vl(volume,30,316,45,22,5)%Vf(05cffc)
+%alVOL-
+
+# Volume Bar
+%Vl(volume,90,328,300,3,-)%Vf(05cffc)
+%pv(0,0,300,3,vol,backdrop,volbg)
+
+# Time Elapsed
+%Vl(progDark,30,316,45,22,5)%Vf(000000)
+%al%?if(%pc,<,600)< |>%pc
+%Vl(progLight,30,316,45,22,5)%Vf(ffffff)
+%al%?if(%pc,<,600)< |>%pc
+
+# Progress Bar
+%Vl(progDark,81,325,318,7,-)
+%Vf(-)
+%pb(-,0,-,6)
+# Progress Bar
+%Vl(progLight,81,325,318,7,-)
+%Vf(-)
+%pb(-,0,-,6)
+
+# Total Track Time
+%Vl(progDark,405,316,45,22,5)%Vf(000000)
+%ar%pt 
+%Vl(progLight,405,316,45,22,5)%Vf(ffffff)
+%ar%pt 
+
