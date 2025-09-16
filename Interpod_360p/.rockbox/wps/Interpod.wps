@@ -1,0 +1,222 @@
+# ┌─────────────────────────────────────────────────────────────────────────┐
+# │   d888888b d8b   db d888888b d88888b d8888b. d8888b.  .d88b.  d8888b.   │
+# │     `88'   888o  88 `~~88~~' 88'     88  `8D 88  `8D .8P  Y8. 88  `8D   │
+# │      88    88V8o 88    88    88ooooo 88oobY' 88oodD' 88    88 88   88   │
+# │      88    88 V8o88    88    88~~~~~ 88`8b   88~~~   88    88 88   88   │
+# │     .88.   88  V888    88    88.     88 `88. 88      `8b  d8' 88  .8D   │
+# │   Y888888P VP   V8P    YP    Y88888P 88   YD 88       `Y88P'  Y8888D'   │
+# │                                                                         │
+# │                                                                         │
+# │                              Rockbox Theme                              │
+# │   Rev. 17                                         by Christian Soffke   │
+# │   2023-06-10                                                 CC-BY-SA   │
+# │                                                                         │
+# │   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓  │
+# │   ┃                                                                  ┃  │
+# │   ┃             Designed for and tested with iPod Video              ┃  │
+# │   ┃                                                                  ┃  │
+# │   ┃       Originally loosely based on David Barkan's AMusicPod       ┃  │
+# │   ┃                                                                  ┃  │
+# │   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛  │
+# └─────────────────────────────────────────────────────────────────────────┘
+#
+#
+#	Disable status bar
+%wd
+#
+#	Load needed fonts
+%Fl(3,22-Inter-Bold.fnt)
+%Fl(8,30-Inter-SemiBold.fnt)
+%Fl(9,29-InterVariable.fnt)
+#
+#	Preload icons
+%xl(P,playerStatus.bmp,0,0,4)
+%xl(A,holdSlider.bmp,0,0,2)
+%xl(B,batteryStatus.bmp,0,4,10)
+%xl(R,repeat.bmp,30,0)
+%xl(X,repeatOne.bmp,7,0)
+%xl(Y,repeatShuffle.bmp,7,0)
+%xl(Z,repeatAB.bmp,1,0)
+%xl(S,shuffle.bmp,63,0)
+%xl(L,losslessIndicator.bmp,0,0)
+%xl(vbd,vb_backdrop.bmp,0,0)
+%xl(pbi,pb_backdrop.bmp,0,0)
+%xl(pbd,pb_active_backdrop.bmp,0,0)
+%xl(speaker_loud,speaker_loud.bmp,405,1)
+%xl(speaker_too_loud,speaker_too_loud.bmp,450,1)
+#
+#
+# ---------
+# Logic:
+# ---------
+#
+#	Display battery percentage
+%?if(%St(battery display), =, numeric)<%Vd(batterytext)>
+#
+#	Display lock icon if hold slider is engaged
+%?mh<%Vd(lock)|%Vd(unlocked)>
+#
+# 	Display volume bar while adjusting volume
+%?mv(1.2)<%Vd(volumebar)|%Vd(timeprogresslossless)%?if(%mp,<,4)<%Vd(pb)|%Vd(pb_active)>>
+#
+#       Sleep Timer
+%?bs<%Vd(sleeptimer)>
+#
+#
+# ---------
+# Viewports:
+# ---------
+%V(0,0,-,-,-)%VB
+# 	Load Backdrop
+%x(WPSBackdrop,wpsBackdrop.bmp,0,0)
+#
+%V(142,12,-142,195,-)%VB
+%Vf(000000)
+%Vb(EAEAEA)
+%Cl(0,0,195,195,c,c)
+%?C<|%x(AlbumPlaceholder,albumPlaceholder.bmp,0,0)>
+%Cd
+#
+#
+%V(0,0,-,-,-)
+#
+# 	Player Status Icon, in upper left corner
+%V(4,7,22,24,-)
+%Vf(000000)
+%Vb(f8f8f8)
+# 	Display appropriate icon (P) for the current state
+#
+# 	Player Status:
+#		Stop, 
+#		Play, 
+#		Pause, 
+#		Fast Forward, 
+#		Rewind, 
+#		Recording, 
+#		Recording paused, 
+#		FM Radio playing, 
+#		FM Radio muted
+%?mp<|%xd(Pa)|%xd(Pb)|%xd(Pc)|%xd(Pd)|>
+#
+#
+# 	Battery Icon in upper right corner
+%V(-48,0,-,30,3)
+%Vf(000000)
+%Vb(f8f8f8)
+%?bp<%?bl<%xd(Ba)|%xd(Ba)|%xd(Ba)|%xd(Bb)|%xd(Bb)|%xd(Bb)|%xd(Bb)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Be)|%xd(Be)>|%?bl<%xd(Bf)|%xd(Bf)|%xd(Bf)|%xd(Bg)|%xd(Bg)|%xd(Bg)|%xd(Bg)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bj)|%xd(Bj)>>
+#
+#
+# 	Hold Slider Icon, to the right of the player status icon
+%Vl(lock,36,10,13,18,-)
+%Vb(f8f8f8)
+%xd(Ab)
+#
+#	Unlocked Hold slider
+%Vl(unlocked,36,10,13,18,-)
+%Vb(f8f8f8)
+#
+#	Battery percentage
+%Vl(batterytext,-105,7,57,22,3)
+%Vf(000000)
+%Vb(f8f8f8)
+%?if(%bl, =, 100)<CGD|%bl %%>
+#
+#
+#	Sleep Timer
+%Vl(sleeptimer,55,7,79,22,3)
+%Vf(000000)
+%Vb(f8f8f8)
+%bs
+#
+# --------------------------------------
+# -----------  Song Info   -------------
+# --------------------------------------
+#
+# 	Repeat Mode and Shuffle indicators
+#	displayed in the upper right corner, below title bar
+%V(-118,-145,-,45,-)
+%Vf(6f6f6f)
+%Vb(f8f8f8)
+%?mm<|%xd(Ra)|%xd(Ra)%xd(X)|%xd(Ra)%xd(Y)|%xd(Ra)%xd(Z)>
+%?if(%ps, =, s)<%xd(S)|>
+#
+# 	Position in Playlist and number of items in total 
+#	(displayed in upper left corner, below title bar)
+%V(27,-150,180,21,3)
+%Vf(6f6f6f)
+%Vb(f8f8f8)
+%al%pp %Sx(of) %pe
+#
+# 	Album Art
+%V(142,12,-142,195,-)
+%?C<%x(AlbumFramed,albumFramed.bmp,0,0)>
+#
+#	Current Track or filename
+%V(27,-123,-30,33,8)
+%Vf(000000)
+%Vb(f8f8f8)
+%s%al%?it<%it|%fn>
+#
+#	Current Artist
+%V(27,-90,-30,33,9)
+%Vf(f24e61)
+%Vb(f8f8f8)
+%al%s%?ia<%t(5)%?if(%ig,=,Classical)<%?ic<By %ic - >%ia|%ia>|%?it<%fn>>;%s%?id<%t(5)%id|%t(0)>
+#
+#
+# --------------------------------------------------
+# ----- Progress Bar and Lossless Indicator   ------
+# --------------------------------------------------
+#
+#	Progress Bar
+%Vl(pb,30,-48,-30,6,-)
+%Vf(9E9EA6)
+%Vb(E0E0E0)
+%pb(0,0,-,6,image,pb.bmp,backdrop,pbi)
+#
+#
+%Vl(pb_active,30,-51,-30,13,-)
+%Vf(9E9EA6)
+%Vb(E0E0E0)
+%pb(0,0,-,13,image,pb_active.bmp,backdrop,pbd)
+#
+#	Time Current
+%Vl(timeprogresslossless,27,-33,130,-,3)
+%Vf(6f6f6f)
+%Vb(f8f8f8)
+%s%al%pc
+#
+#	Display lossless indicator for lossless filetypes
+#
+#	4 = AIFF
+#	5 = WAV
+#	7 = FLAC
+#	11 = ALAC
+#	13 = Shorten
+#
+%Vl(timeprogresslossless,180,-28,99,16,-)
+%Vb(f8f8f8)
+%?or(%if(%fc, =, 4),%if(%fc, =, 5),%if(%fc, =, 7),%if(%fc, =, 11),%if(%fc, =, 13))<%xd(L)>
+#
+#
+#	Time Remaining
+%Vl(timeprogresslossless,-130,-33,-30,-,3)
+%Vf(6f6f6f)
+%Vb(f8f8f8)
+%s%ar-%pr
+#
+#
+# --------------------------------------
+# ----------   Volume Bar   ------------
+# --------------------------------------
+#
+#
+%Vl(volumebar,0,-42,-,27,-)
+%Vf(ededed)
+%Vb(ededed)
+%x(speaker_mute,speaker_mute.bmp,58,6)
+%pv(87,9,306,13,vb.bmp,backdrop,vbd)
+%xd(speaker_loud)
+%?if(%pv, >, 0)<%xd(speaker_too_loud)>
+#
+#

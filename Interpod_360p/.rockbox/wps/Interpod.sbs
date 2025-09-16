@@ -1,0 +1,263 @@
+# ┌─────────────────────────────────────────────────────────────────────────┐
+# │   d888888b d8b   db d888888b d88888b d8888b. d8888b.  .d88b.  d8888b.   │
+# │     `88'   888o  88 `~~88~~' 88'     88  `8D 88  `8D .8P  Y8. 88  `8D   │
+# │      88    88V8o 88    88    88ooooo 88oobY' 88oodD' 88    88 88   88   │
+# │      88    88 V8o88    88    88~~~~~ 88`8b   88~~~   88    88 88   88   │
+# │     .88.   88  V888    88    88.     88 `88. 88      `8b  d8' 88  .8D   │
+# │   Y888888P VP   V8P    YP    Y88888P 88   YD 88       `Y88P'  Y8888D'   │
+# │                                                                         │
+# │                                                                         │
+# │                              Rockbox Theme                              │
+# │   Rev. 17                                         by Christian Soffke   │
+# │   2023-06-10                                                 CC-BY-SA   │
+# │                                                                         │
+# │   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓  │
+# │   ┃                                                                  ┃  │
+# │   ┃             Designed for and tested with iPod Video              ┃  │
+# │   ┃                                                                  ┃  │
+# │   ┃       Originally loosely based on David Barkan's AMusicPod       ┃  │
+# │   ┃                                                                  ┃  │
+# │   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛  │
+# └─────────────────────────────────────────────────────────────────────────┘
+#
+#	Load needed fonts
+%Fl(3,22-Inter-Bold.fnt)
+%Fl(5,24-Inter-SemiBold.fnt)
+%Fl(9,24-InterVariable.fnt)
+#
+#	Preload icons
+%xl(P,playerStatus.bmp,0,0,4)
+%xl(A,holdSlider.bmp,0,0,2)
+%xl(S,sleep.bmp,0,0)
+%xl(L,busyIndicator.bmp,0,0,16)
+%xl(B,batteryStatus.bmp,0,4,10)
+%xl(M,usbBackdrop.bmp,0,0)
+%xl(vbd,vb_backdrop.bmp,0,0)
+%xl(speaker_loud,speaker_loud.bmp,0,0)
+%xl(speaker_too_loud,speaker_too_loud.bmp,0,0)
+#
+#
+#
+#
+# ---------
+# Logic:
+# ---------
+#
+# 	Display bar on bottom with album art, track info or volume indicator as necessary
+%?mp<%Vd(bottombarsmall)%?mv(1.2)<%?if(%pv, >, 0)<%Vd(volumebar_small_clip)|%Vd(volumebar_small_noclip)>|%Vd(filledbottombarsmall)>|%Vd(bottombar)%?mv(1.2)<%?C<%Vd(albumart)|%Vd(volume_left)>%Vd(volumebar)|%?C<%Vd(albumart)%Vd(currenttrack)|%Vd(currenttrackshiftedleft)>>>
+#
+# 	Set up UI Viewport 
+# 	Use larger viewport if nothing is playing
+%?mp<%VI(mainlarge)|%VI(main)>
+#
+#	Display battery percentage
+#	Show busy indicator (on the left or right, depending on whether battery percentage is displayed)
+%?if(%St(battery display), =, numeric)<%?lh<%Vd(busyindicatorleft)>%Vd(title)%Vd(batterytext)|%Vd(titlewide)%?lh<%Vd(busyindicator)>>
+#
+#	Display lock icon if hold slider is engaged
+%?mh<%Vd(lock)|%Vd(unlocked)>
+#
+#
+#	Sleep Timer Icon
+%?bs<%Vd(sleeptimericon)>
+#
+#
+# ---------
+# Viewports:
+# ---------
+#
+%V(0,0,-,39,-)
+%Vf(ededed)
+%Vb(ededed)
+%dr(0,36,-,1,E3E3E3)
+%dr(0,37,-,1,F3F3F3)
+#
+#
+# 	Title bar text, centered, at the top 
+#
+# 	Scrolling, displays centered
+#
+# 	(Current screen (cs) values:)
+#
+# 		1 Menus
+#		2 WPS
+#	 	3 Recording screen
+#	 	4 FM Radio screen
+#	 	5 Current Playlist screen
+#	 	6 Settings menus
+#	 	7 File browser
+#	 	8 Database browser
+#	 	9 Plugin browser
+#	 	10 Quickscreen
+#	 	11 Pitchscreen
+#	 	12 Setting chooser
+#	 	13 Playlist Catalogue Viewer
+#	 	14 Plugin
+#	 	15 Context menu
+#	 	16 System Info screen
+#	 	17 Time and Date Screen
+#	 	18 Bookmark browser
+#	 	19 Shortcuts menu
+#	 	20 Track Info screen
+#
+%Vl(title,111,7,-111,25,3)
+%Vf(000000)
+%Vb(ededed)
+%s%ac%?cs<Rockbox||Recording|FM Radio|%Lt|%Lt|%Lt|%Lt|%Lt|%?cf<%cH:%cM|%cl:%cM %cP>|%Lt|%Lt|%Lt|%Lt|%?if(%Lt, =,Context Menu)<Perform Action...|%Lt>|%Lt|%Lt|%Lt|%Lt|%Lt|Rockbox>
+#
+#
+# Title bar text - when battery percentage is not displayed
+#
+%Vl(titlewide,84,7,-84,25,3)
+%Vf(000000)
+%Vb(ededed)
+%s%ac%?cs<Rockbox||Recording|FM Radio|%Lt|%Lt|%Lt|%Lt|%Lt|%?cf<%cH:%cM|%cl:%cM %cP> - %?if(%bl, =, 100)<CGD|%bl%%>|%Lt|%Lt|%Lt|%Lt|%?if(%Lt, =,Context Menu)<Perform Action...|%Lt>|%Lt|%Lt|%Lt|%Lt|%Lt|Rockbox>
+#
+#	Smaller viewport to make room for larger bar on bottom
+%Vi(main,3,40,-3,-55,-)
+%Vf(000000)
+%Vb(ffffff)
+#
+#	Larger Viewport if nothing is playing
+%Vi(mainlarge,3,40,-3,-18,-)
+%Vf(000000)
+%Vb(ffffff)
+#
+#
+#	USB screen
+%?if(%cs, =, 21)<%xd(M)>
+#
+#
+# 	Hold Slider Icon, to the right of the player status icon
+%Vl(lock,36,10,13,18,-)
+%Vb(ededed)
+%xd(Ab)
+#
+#	Unlocked Hold slider
+%Vl(unlocked,36,10,13,18,-)
+%Vb(ededed)
+#
+#	Battery percentage
+%Vl(batterytext,-105,7,57,22,3)
+%Vf(000000)
+%Vb(ededed)
+%?if(%bl, =, 100)<CGD|%bl %%>
+#
+#	Sleep Timer icon
+%Vl(sleeptimericon,63,10,13,18,-)
+%Vb(ededed)
+%xd(S)
+#
+#
+# 	Player Status Icon, in upper left corner
+%V(4,7,22,24,-)
+%Vf(000000)
+%Vb(ededed)
+# 	Display appropriate icon (P) for the current state
+#
+# 	Player Status:
+#		Stop, 
+#		Play, 
+#		Pause, 
+#		Fast Forward, 
+#		Rewind, 
+#		Recording, 
+#		Recording paused, 
+#		FM Radio playing, 
+#		FM Radio muted
+%?mp<|%xd(Pa)|%xd(Pb)|%xd(Pc)|%xd(Pd)|>
+#
+#
+# 	Battery Icon in upper right corner
+%V(-48,0,-,30,3)
+%Vf(000000)
+%Vb(ededed)
+%?bp<%?bl<%xd(Ba)|%xd(Ba)|%xd(Ba)|%xd(Bb)|%xd(Bb)|%xd(Bb)|%xd(Bb)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Be)|%xd(Be)>|%?bl<%xd(Bf)|%xd(Bf)|%xd(Bf)|%xd(Bg)|%xd(Bg)|%xd(Bg)|%xd(Bg)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bj)|%xd(Bj)>>
+#
+#
+%Vl(busyindicator,-75,13,13,13,-)
+%Vb(ededed)
+%t(0.1)%xd(La);%t(0.1)%xd(Lb);%t(0.1)%xd(Lc);%t(0.1)%xd(Ld);%t(0.1)%xd(Le);%t(0.1)%xd(Lf);%t(0.1)%xd(Lg);%t(0.1)%xd(Lh);%t(0.1)%xd(Li);%t(0.1)%xd(Lj);%t(0.1)%xd(Lk);%t(0.1)%xd(Ll);%t(0.1)%xd(Lm);%t(0.1)%xd(Ln);%t(0.1)%xd(Lo);%t(0.1)%xd(Lp)
+#
+%Vl(busyindicatorleft,87,13,13,13,-)
+%Vb(ededed)
+%t(0.1)%xd(La);%t(0.1)%xd(Lb);%t(0.1)%xd(Lc);%t(0.1)%xd(Ld);%t(0.1)%xd(Le);%t(0.1)%xd(Lf);%t(0.1)%xd(Lg);%t(0.1)%xd(Lh);%t(0.1)%xd(Li);%t(0.1)%xd(Lj);%t(0.1)%xd(Lk);%t(0.1)%xd(Ll);%t(0.1)%xd(Lm);%t(0.1)%xd(Ln);%t(0.1)%xd(Lo);%t(0.1)%xd(Lp)
+#
+#
+# -----------  Bar on bottom -----------
+# -----------  of screen   -------------
+# --------------------------------------
+#
+%Vl(bottombar,0,-54,-,-,-)
+%Vf(000000)
+%Vb(ededed)
+#
+%dr(0,0,-,1,F6F6F6)
+%dr(0,1,-,1,E9E9E9)
+#
+%Vl(bottombarsmall,0,-16,-,-,-)
+%Vf(ededed)
+%Vb(ededed)
+#
+%dr(0,0,-,1,F6F6F6)
+%dr(0,1,-,1,E9E9E9)
+#
+#
+# 	Album Art
+%Vl(albumart,12,-49,45,45,-)
+%Vf(000000)
+%Vb(ebeeee)
+%Cl(0,0,45,45)
+%Vf(000000)
+%Vb(ededed)
+%Cd
+#
+#	Current Track
+%Vl(currenttrack,72,-39,-7,-,5)
+%Vf(000000)
+%Vb(ededed)
+%s%al%?it<%it|%fn>
+%dr(0,25,-,-,ededed)
+#
+#	Current Track shifted left
+%Vl(currenttrackshiftedleft,10,-39,-7,-,5)
+%Vf(000000)
+%Vb(ededed)
+%s%al%?it<%it|%fn>
+#
+# --------------------------------------
+# --------   Volume Indicators   -------
+# --------------------------------------
+#
+%Vl(volume_left,58,-36,12,19,-)
+%Vf(ededed)
+%Vb(ededed)
+%x(speaker_mute,speaker_mute.bmp,0,0)
+
+%Vl(volumebar,87,-33,306,13,-)
+%Vf(ededed)
+%Vb(ededed)
+%pv(0,0,-,-,vb.bmp,backdrop,vbd)
+#
+%Vl(volumebar,405,-40,28,25,-)
+%Vf(ededed)
+%Vb(ededed)
+%xd(speaker_loud)
+#
+%Vl(volumebar,450,-40,6,27,-)
+%Vf(ededed)
+%Vb(ededed)
+%?if(%pv, >, 0)<%xd(speaker_too_loud)> 
+#
+#
+%Vl(volumebar_small_noclip,87,-9,-87,3,-)
+%Vf(6E6E6E)
+%pv(0,0,-,3,noborder)
+#
+%Vl(volumebar_small_clip,87,-9,-87,3,-)
+%Vf(ED230D)
+%pv(0,0,-,3,noborder)
+#
+%Vl(filledbottombarsmall,87,-9,-87,3,-)
+%Vf(000000)
+%Vb(ededed)

@@ -1,0 +1,159 @@
+#
+#      `....            `..           `..
+#    `..    `..         `..       `.  `..
+#  `..        `..`. `...`..         `.`. `.
+#  `..        `.. `..   `.. `..  `..  `..
+#  `..        `.. `..   `..   `..`..  `..
+#    `..     `..  `..   `..   `..`..  `..
+#      `....     `...   `.. `..  `..   `..
+#
+#                  Orbit 1.7
+#              Chris Soffke 2025
+#                   CC-BY-SA
+#
+#           inspired by Jihoon Kim's
+#                   Horizon
+#
+%Fl(3,22-Inter-Bold.fnt)
+%Fl(4,24-Inter-SemiBold.fnt)
+%Fl(8,30-Inter-SemiBold.fnt)
+#
+%xl(R,repeat.bmp,130,1)
+%xl(X,repeatOne.bmp,113,0)
+%xl(Y,repeatShuffle.bmp,113,0)
+%xl(Z,repeatAB.bmp,104,0)
+%xl(S,shuffle.bmp,0,1)
+%xl(vb_backdrop,vb_wps_backdrop.bmp,0,0)
+%xl(pb_playing_backdrop,playing.bmp,0,0)
+%xl(pb_paused_backdrop,paused.bmp,0,0)
+%xl(pb_volume_backdrop,volume.bmp,0,0)
+%xl(B,batt_status.bmp,0,0,10)
+#
+%wd
+#
+# Logic
+# =====
+#
+%?mh<%Vd(lock)>
+%?or(%if(%St(single mode),!=,off),%if(%St(party mode),!=,off))<%Vd(mode)>
+%?bs<%Vd(sleep)>
+%?mv(1.5)<%Vd(volume)|%?if(%mp,=,3)<%Vd(paused)|%Vd(playing)>>
+%?and(%pE(15),%It)<%?pE(0.1)<%Vd(curr_track)|%Vd(next_track)>|%Vd(curr_track)>
+%?if(%St(battery display), =,numeric)<%Vd(track_s)%Vd(battery_pct)|%Vd(track_l)>
+#
+# Background
+# ==========
+#
+%V(0,0,-,-,-)%VB
+%x(bd,backdrop_sbs.bmp,0,0)
+#
+%Vl(curr_track,240,-78,-,-46,-)%VB
+%x(ct,curr_track.bmp,0,0)
+%Vl(curr_track,453,-46,-,-,-)%VB
+%x(c,corner.bmp,0,0)
+#
+%Vl(next_track,240,-78,-,-46,-)%VB
+%x(nt,next_track.bmp,0,0)
+%Vl(next_track,453,-46,-,-,-)%VB
+%x(cn,corner_next.bmp,0,0)
+#
+%V(0,45,240,-46,-)%VB
+%Vb(F7F7F7)
+%Cl(-52,0,300,300,c,c)
+%?C<|%x(albumPlaceholder,albumPlaceholder.bmp,0,0)>
+%Cd
+#
+# Main Area
+# =========
+#
+%V(0,0,-,-,-)
+#
+%Vl(lock,13,12,13,18,-)
+%x(lock,lock.bmp,0,0)
+#
+%Vl(sleep,-48,4,-27,33,-)
+%x(sleep,sleep.bmp,0,7)
+#
+%Vl(sleep,-142,9,-60,22,3)
+%Vf(000000)
+%al%bs
+#
+%Vl(mode,27,9,138,24,3)
+%Vf(6f6f6f)
+%ac%?if(%St(party mode),!=,off)<party mode|%St(single mode)>
+#
+# Album Art
+# =========
+#
+%Vl(playing,0,45,240,-42,-)
+%pb(0,0,240,273,pb_playing.bmp,horizontal,backdrop,pb_playing_backdrop)
+#
+%Vl(paused,0,45,240,-42,-)
+%pb(0,0,240,273,pb_paused.bmp,horizontal,backdrop,pb_paused_backdrop)
+#
+%Vl(volume,0,45,240,-42,-)
+%pb(0,0,240,273,pb_volume.bmp,horizontal,backdrop,pb_volume_backdrop)
+#
+%Vl(volume,25,274,145,12,-)
+%pv(0,0,-,-,vb_wps.bmp,backdrop,vb_backdrop)
+%?if(%pv, >, 0)<%pv(0,0,-,-,vb_wps_too_loud.bmp,backdrop,vb_backdrop)>
+#
+# Track Info
+# ==========
+#
+# Repeat/Shuffle
+%V(243,103,-,22,-)
+%?if(%ps, =, s)<%xd(S)|>
+%?mm<|%xd(R)|%xd(R)%xd(X)|%xd(R)%xd(Y)|%xd(R)%xd(Z)>
+#
+# Position in playlist
+%V(243,133,-18,25,4)
+%Vf(292829)
+%pp %Sx(of) %pe
+#
+# Album
+%V(243,162,-18,31,8)
+%Vf(000000)
+%s%al%id
+#
+# Artist
+%V(243,195,-18,31,8)
+%Vf(6b6d6b)
+%s%al%ia
+#
+# Progress
+%V(243,232,-18,31,4)
+%Vf(292829)
+%al%pc%ar-%pr
+#
+# Footer
+# ======
+#
+# Redraw next track area & bottom-right corner
+#
+%Vl(curr_track,240,-78,-,-46,-)
+%Vl(curr_track,453,-46,-,-,-)
+#
+%Vl(next_track,240,-78,-,-46,-)
+%Vl(next_track,453,-46,-,-,-)
+%Vl(next_track,-217,-70,-,25,3)
+%Vf(D4D4D4)
+%al%It
+#
+# -- if battery percentage is displayed
+%Vl(track_s,34,-39,-130,25,3)
+%Vf(000000)
+%s%al%?it<%it|%fn>
+#
+# -- otherwise
+%Vl(track_l,34,-39,-79,25,3)
+%Vf(000000)
+%s%al%?it<%it|%fn>
+#
+#
+%V(-73,-40,40,28,-)
+%?bp<%?bl<%xd(Ba)|%xd(Ba)|%xd(Ba)|%xd(Bb)|%xd(Bb)|%xd(Bb)|%xd(Bb)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Be)|%xd(Be)>|%?bl<%xd(Bf)|%xd(Bf)|%xd(Bf)|%xd(Bg)|%xd(Bg)|%xd(Bg)|%xd(Bg)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bj)|%xd(Bj)>>
+#
+%Vl(battery_pct,-130,-39,57,25,3)
+%Vf(000000)
+ %?if(%bl, =, 100)<CGD|%bl %%>

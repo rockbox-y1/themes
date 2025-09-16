@@ -1,0 +1,183 @@
+# ┌─────────────────────────────────────────────────────────────────────────┐
+# │     db   d8b   db d888888b d8888b. d88888b d8888b.  .d88b.  d8888b.     │
+# │     88   I8I   88   `88'   88  `8D 88'     88  `8D .8P  Y8. 88  `8D     │
+# │     88   I8I   88    88    88   88 88ooooo 88oodD' 88    88 88   88     │
+# │     Y8   I8I   88    88    88   88 88~~~~~ 88~~~   88    88 88   88     │
+# │     `8b d8'8b d8'   .88.   88  .8D 88.     88      `8b  d8' 88  .8D     │
+# │      `8b8' `8d8'  Y888888P Y8888D' Y88888P 88       `Y88P'  Y8888D'     │
+# │                                                                         │
+# │                                                                         │
+# │                              Rockbox Theme                              │
+# │   Rev. 14                                         by Christian Soffke   │
+# │   2024-03-24                                                 CC-BY-SA   │
+# │                                                                         │
+# └─────────────────────────────────────────────────────────────────────────┘
+#
+#	Load needed fonts
+%Fl(3,22-Inter-Bold.fnt)
+%Fl(8,30-Inter-SemiBold.fnt)
+#
+#	Preload icons
+%xl(P,playerStatus.bmp,0,0,4)
+%xl(L,busyIndicator.bmp,0,6,16)
+%xl(B,batteryStatus.bmp,0,0,10)
+%xl(speaker_too_loud,speaker_too_loud.bmp,0,0)
+%xl(vb_backdrop,vb_backdrop.bmp,0,0)
+%xl(usb_backdrop,usbBackdrop.bmp,0,5)
+#
+%X(backdrop_sbs.bmp)
+#
+#
+# ---------
+# Logic:
+# ---------
+#
+# 	Display bar on bottom with album art, player status, track info,
+#   or volume indicator, as necessary.
+#   Display battery icon and battery percentage, unless setting is disabled.
+#   Shorten track title if necessary due to displayed battery percentage.
+#
+%Vd(battery_icon)
+%?or(%if(%St(battery display), =,numeric),%if(%cs,=,10))<%Vd(batterytext)>
+%?mv(1.5)<%?C<%Vd(albumart)|%Vd(volume_left)>%Vd(volumebar)|%?or(%if(%St(battery display), =,numeric),%if(%cs,=,10))<%?mp<%Vd(nothing_playing)|%Vd(albumart)%Vd(trackshort)|%Vd(paused)%Vd(trackshort)>|%?mp<%Vd(nothing_playing)|%Vd(albumart)%Vd(tracklong)|%Vd(paused)%Vd(tracklong)>>>
+#
+#
+#   Display activity indicator
+%?lh<%Vd(busyindicator)>
+#
+%?bs<%Vd(sleeptimericon)>
+#	Lock icon instead of title / Sleep Timer icon requires shorter title
+%?mh<%Vd(locked)|%?bs<%Vd(titleshort)|%Vd(titlelong)>>
+#
+#
+# ---------
+# Viewports:
+# ---------
+#
+# 	Title bar
+# 	(Current screen (cs) values:)
+#
+# 		1 Menus
+#		2 WPS
+#	 	3 Recording screen
+#	 	4 FM Radio screen
+#	 	5 Current Playlist screen
+#	 	6 Settings menus
+#	 	7 File browser
+#	 	8 Database browser
+#	 	9 Plugin browser
+#	 	10 Quickscreen
+#	 	11 Pitchscreen
+#	 	12 Setting chooser
+#	 	13 Playlist Catalogue Viewer
+#	 	14 Plugin
+#	 	15 Context menu
+#	 	16 System Info screen
+#	 	17 Time and Date Screen
+#	 	18 Bookmark browser
+#	 	19 Shortcuts menu
+#	 	20 Track Info screen
+#
+%Vl(titleshort,10,4,-60,33,8)
+%Vf(f24e61)
+%Vb(f8f8f8)
+%s%al%?cs<Rockbox||Recording|FM Radio|%Lt|%Lt|%Lt|%Lt|%Lt|%?mp<|%?cf<%cH:%cM|%cl:%cM %cP>>|%Lt|%Lt|%Lt|%Lt|%?if(%Lt, =,Context Menu)<Perform Action...|%Lt>|%Lt|%Lt|%Lt|%Lt|%Lt|Rockbox>
+#
+%Vl(titleshort,-60,4,-48,33,-)
+%Vb(f8f8f8)
+#
+%Vl(titlelong,10,4,-39,33,8)
+%Vf(f24e61)
+%Vb(f8f8f8)
+%s%al%?cs<Rockbox||Recording|FM Radio|%Lt|%Lt|%Lt|%Lt|%Lt|%?mp<|%?cf<%cH:%cM|%cl:%cM %cP>>|%Lt|%Lt|%Lt|%Lt|%?if(%Lt, =,Context Menu)<Perform Action...|%Lt>|%Lt|%Lt|%Lt|%Lt|%Lt|Rockbox>
+#
+%Vl(titlelong,-39,4,-27,33,-)
+%Vb(f8f8f8)
+#
+# UI Viewport
+%Vi(-,3,40,-3,-55,-)
+%Vf(000000)
+%Vb(f8f8f8)
+#
+#
+#
+#	USB screen
+%?if(%cs, =, 21)<%xd(usb_backdrop)>
+#
+#
+#	Sleep Timer icon
+%Vl(sleeptimericon,-48,4,-27,33,-)
+%Vb(f8f8f8)
+%x(sleep,sleep.bmp,0,7)
+#
+# Lock Icon
+%Vl(locked,9,9,22,22,-)
+%Vb(F7F7F7)
+%x(lock,lock.bmp,4,3)
+#
+#	Battery percentage
+%Vl(batterytext,-130,-39,57,25,3)
+%Vf(000000)
+%Vb(F7F7F7)
+ %?if(%bl, =, 100)<CGD|%bl %%>
+#
+# 	Battery Icon
+%Vl(battery_icon,-73,-40,40,28,-)
+%Vb(F7F7F7)
+%?bp<%?bl<%xd(Ba)|%xd(Ba)|%xd(Ba)|%xd(Bb)|%xd(Bb)|%xd(Bb)|%xd(Bb)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bc)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Bd)|%xd(Be)|%xd(Be)>|%?bl<%xd(Bf)|%xd(Bf)|%xd(Bf)|%xd(Bg)|%xd(Bg)|%xd(Bg)|%xd(Bg)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bh)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bi)|%xd(Bj)|%xd(Bj)>>
+#
+#
+#
+%Vl(busyindicator,-27,4,-10,33,-)
+%Vb(f8f8f8)
+%t(0.1)%xd(La);%t(0.1)%xd(Lb);%t(0.1)%xd(Lc);%t(0.1)%xd(Ld);%t(0.1)%xd(Le);%t(0.1)%xd(Lf);%t(0.1)%xd(Lg);%t(0.1)%xd(Lh);%t(0.1)%xd(Li);%t(0.1)%xd(Lj);%t(0.1)%xd(Lk);%t(0.1)%xd(Ll);%t(0.1)%xd(Lm);%t(0.1)%xd(Ln);%t(0.1)%xd(Lo);%t(0.1)%xd(Lp)
+#
+# 	Album Art
+%Vl(albumart,31,-45,36,36,-)
+%Vb(ebeeee)
+%?C<|%x(AlbumPlaceholder,albumPlaceholder_small.bmp,0,0)>
+%Cl(0,0,36,36)
+%Vb(ededed)
+%Cd
+#
+%Vl(nothing_playing,27,-39,-130,25,3)
+%Vf(929292)
+%Vb(F7F7F7)
+%?cf<%cH:%cM|%cl:%cM %cP>%?and(%if(%St(battery display), !=,numeric),%if(%cs,!=,10))< - %?if(%bl, =, 100)<CGD|%bl%%>>
+#
+%Vl(paused,34,-39,31,25,-)
+%Vb(F7F7F7)
+%x(pause_small,pause_small.bmp,12,6)
+#
+#	Current Track or filename  ----- if battery percentage is displayed
+%Vl(trackshort,78,-39,-130,25,3)
+%Vf(000000)
+%Vb(F7F7F7)
+%s%al%?it<%it|%fn>
+#
+#
+#	Current Track or filename ------ otherwise
+%Vl(tracklong,78,-39,-79,25,3)
+%Vf(000000)
+%Vb(F7F7F7)
+%s%al%?it<%it|%fn>
+#
+%Vl(tracklong,-79,-39,-73,25,3)
+%Vb(F7F7F7)
+#
+# --------------------------------------
+# --------   Volume Indicators   -------
+# --------------------------------------
+#
+%Vl(volume_left,58,-36,12,19,-)
+%x(speaker_mute,speaker_mute.bmp,0,0)
+#
+%Vl(volumebar,87,-33,126,13,-)
+%pv(0,0,-,-,vb.bmp,backdrop,vb_backdrop)
+#
+%Vl(volumebar,225,-40,28,25,-)
+%x(speaker_loud,speaker_loud.bmp,0,0)
+#
+%Vl(volumebar,262,-40,6,27,-)
+%?if(%pv, >, 0)<%xd(speaker_too_loud)>
+#

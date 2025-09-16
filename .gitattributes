@@ -6,6 +6,7 @@
 *.icons filter=lfs diff=lfs merge=lfs -text
 *.fms filter=lfs diff=lfs merge=lfs -text
 *.txt filter=lfs diff=lfs merge=lfs -text
+*.py filter=lfs diff=lfs merge=lfs -text
 *.cfg !text !filter !merge !diff
 *.wps !text !filter !merge !diff
 *.fms !text !filter !merge !diff
