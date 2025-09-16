@@ -1,0 +1,92 @@
+# Theme by Guillaume Cocatre-Zilgien <gcocatre@gmail.com>
+# CC-BY-SA
+
+# Disable Status Bar
+%wd
+
+# Clear Backdrop
+%X(d)
+
+# Preload Font
+%Fl(2,21-ChicagoFLF.fnt)
+
+# Preload Images
+%xl(battery,battery.bmp,0,0,5)
+%xl(playmodes,playmodes.bmp,0,0,9)
+
+# Menu
+%Vi(-,0,51,480,256,-)
+
+# Display Viewports
+%?if(%mp, =, 1)<%?if(%bc, =, c)<%Vd(usb)|%?if(%bp, =, p)<%Vd(usb)|%Vd(playbackmode)>>|%Vd(playbackmode)>
+%?if(%Lt, =, themes)<%Vd(themetitle)|%?if(%St(background color), =, 0000a5)<%?if(%St(foreground color), =, a5a6a5)<%Vd(msboxtitle)|%Vd(title)>|%?if(%St(background color), =, 0000A5)<%?if(%St(foreground color), =, A5A6A5)<%Vd(msboxtitle)|%Vd(title)>|%Vd(title)>>>
+%?if(%St(battery display), =, numeric)<%Vd(batteryn)|%?if(%bc, =, c)<%Vd(batteryn)|%?if(%bp, =, p)<%Vd(batteryn)|%Vd(batteryg)>>>
+%Vd(topbar)
+# Playback stopped
+%?if(%mp, =, 1)<%?if(%Lt, =, themes)<%Vd(arrows)%Vd(themesurl)|%Vd(date)>|>
+# Playback not stopped, playing music
+%?if(%mp, >, 1)<%?if(%mp, <=, 7)<%?if(%ig, =, Chamber Music)<%Vd(arrows)%Vd(composer)|%?if(%ig, =, Classical)<%Vd(arrows)%Vd(composer)|%?if(%ig, =, Opera)<%Vd(arrows)%Vd(composer)|%?if(%ig, =, Sonata)<%Vd(arrows)%Vd(composer)|%?if(%ig, =, Symphony)<%Vd(arrows)%Vd(composer)|%Vd(arrows)%Vd(metadata)>>>>>|>|>
+# Playback not stopped, listening to the radio
+%?if(%mp, >, 1)<%?if(%mp, >=, 8)<%Vd(arrows)%Vd(radio)|>|>
+%Vd(bottombar)
+
+# Playback Mode Icons
+%Vl(playbackmode,9,9,19,19,-)
+%xd(playmodes,%mp)
+
+# USB
+%Vl(usb,9,9,51,21,2)
+%alUSB
+
+# Menu Title
+%Vl(title,60,9,360,21,2)
+%ac%?if(%mh, =, h)<[ |>%?if(%lh, =, h)<…|>%?Lt<%Lt|Rockbox>%?if(%lh, =, h)<…|>%?if(%mh, =, h)< ]|>
+
+# MS-BOX Menu Title
+%Vl(msboxtitle,60,9,360,21,2)
+%ac%?if(%mh, =, h)<[ |>%?if(%lh, =, h)<…|>%?Lt<%?if(%Lt, =, Rockbox)<MS-BOX|%Lt>|MS-BOX>%?if(%lh, =, h)<…|>%?if(%mh, =, h)< ]|>
+
+# Theme Menu Title
+%Vl(themetitle,60,9,360,21,2)
+%ac%?if(%mh, =, h)<[ |>%?if(%lh, =, h)<…|>PodTwo r91%?if(%lh, =, h)<…|>%?if(%mh, =, h)< ]|>
+
+# Battery (graphical)
+%Vl(batteryg,433,9,37,18,-)
+%?if(%bl, >, 88)<%xd(battery,5)|%?if(%bl, >, 63)<%xd(battery,4)|%?if(%bl, >, 38)<%xd(battery,3)|%?if(%bl, >, 13)<%xd(battery,2)|%xd(battery,1)>>>>
+
+# Battery (numerical)
+%Vl(batteryn,420,9,51,21,2)
+%ar%bl%%
+
+# Top Bar Separator Line
+%Vl(topbar,0,36,480,3,-)
+%dr(0,0,480,3)
+
+# Bottom Bar Separator Line
+%Vl(bottombar,0,321,480,3,-)
+%dr(0,0,480,3)
+
+# Song Metadata
+%Vl(arrows,7,333,28,21,2)
+%al%>%>
+
+%Vl(metadata,36,333,408,21,2)
+%s%ac%?it<“%it”|%fn>%?ia<%, by %ia|%?iA<%, by %iA|>>
+
+%Vl(composer,36,333,408,21,2)
+%s%ac%?it<“%it”|%fn>%?ic<%, by %ic|%?ia<%, by %ia|%?iA<%, by %iA|>>>
+
+%Vl(arrows,451,333,28,21,2)
+%al%<%<
+
+# Radio Name and Frequency
+%Vl(radio,36,333,408,21,2)
+%s%ac %?Tn<%Tn %(%tf FM%)|%?ty<%ty %(%tf FM%)|FM Radio %(%tf MHz%)>>
+
+# Date / Time
+%Vl(date,9,333,462,21,2)
+%al%?cu<Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday>, %?cm<January|February|March|April|May|June|July|August|September|October|November|December> %ce, %cY%ar%?cf<%cH:%cM|%cl:%cM %cP>
+
+# Themes URL
+%Vl(themesurl,36,333,408,21,2)
+%s%ac http://caudec.net/rockbox/ 

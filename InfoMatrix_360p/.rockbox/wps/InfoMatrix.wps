@@ -1,0 +1,192 @@
+######################################################################################################################
+#                                                                                                                    #
+#                     #######     ######     ######   ####  #### #######     ######  ####   ####                     #
+#                     ########   ########   ########  ####  #### #########  ######## ####   ####                     #
+#                     #### #### ####  #### ####  #### #### ####  #### #### ####  #### #### ####                      #
+#                     ####  ### ####  #### ####  #### #### ####  #### #### ####  #### #### ####                      #
+#                     ####  ### ####  #### ####  #### ########   #### #### ####  ####  #######                       #
+#                     #### #### ####  #### ####  #### ########   #### #### ####  ####  #######                       #
+#                     ########  ####  #### ####  #### #######    ########  ####  ####   #####                        #
+#                     ########  ####  #### ####       #######    ########  ####  ####   #####                        #
+#                     ########  ####  #### ####       #######    ######### ####  ####   #####                        #
+#                     #### #### ####  #### ####  #### ########   #### #### ####  ####  #######                       #
+#                     #### #### ####  #### ####  #### ########   #### #### ####  ####  #######                       #
+#                     #### #### ####  #### ####  #### #### ####  #### #### ####  #### #### ####                      #
+#                     #### #### ####  #### ####  #### #### ####  #### #### ####  #### #### ####                      #
+#                     #### ####  ########   ########  ####  #### #########  ######## ####   ####                     #
+#                     #### ####   ######     ######   ####  #### ########    ######  ####   ####                     #
+#                                                                                                                    #
+#                                      OPEN     SOURCE     JUKEBOX     FIRMWARE                                      #
+#                                                                                                                    #
+######################################################################################################################
+# THEME       : InfoMatrix                                                                                           #
+# Version     : 1.0 (28 JAN 2020)                                                                                    #
+# TARGET(S)   : Apple iPod Video / Classic (Originally for iPod Nano 1G / 2G)                                        #
+# AUTHOR      : yuuiko (Forum Name)  - Contact: (yyuuiko@icloud.com)                                                 #
+# LICENSE     : CC-BY-SA                                                                                             #
+# COPYRIGHT   : ©c.yu (yuuiko) (2020)                                                                                #
+######################################################################################################################
+#-- Status Bar Disabler
+%wd
+#
+#-- Backdrop
+%X(Backdrop - WPS.bmp)
+#
+#-- PreLoad Fonts
+%Fl(2,14-ChicagoFLF.fnt)
+%Fl(3,12-ChicagoFLF.fnt)
+#
+#-- Album Art Handler
+%V(10,10,217,217,-)
+%Cl(0,0,217,217)
+%?C<%Cd|>
+#
+%V(6,6,1,226,-)#left
+%dr(0,0,-,-)
+%V(7,6,223,1,-)#top
+%dr(0,0,-,-)
+%V(7,231,223,1,-)#bottom
+%dr(0,0,-,-)
+%V(231,6,1,226,-)#right
+%dr(0,0,-,-)
+#
+%V(237,6,7,1,-)#voltop
+%dr(0,0,-,-)
+%V(237,231,7,1,-)#volbototm
+%dr(0,0,-,-)
+%V(231,237,1,7,-)#pbright
+%dr(0,0,-,-)
+%V(6,237,1,7,-)#pbleft
+%dr(0,0,-,-)
+#
+#----SONG Info------------------------------------------------------------------------------------------------------
+#
+#-- Now Playing (TrackName)
+%V(255,9,211,28,-)
+%s%aL%?it<%it|%?fn<%fn|Unkwn Track>>
+#
+#-- Now Playing (Artist)
+%V(255,46,211,21,2)
+%s%aL%?ia<%ia|Unkwn %Sx(Artist)>
+#%?in<%s%aL%t(8)%?ia<%ia|Unkwn %Sx(Artist)>;%s%aL%t(4)%?in<Track %in|Track N/A>|%s%aL%?ia<%ia|Unkwn %Sx(Artist)>>
+#
+#-- Now Playing (Album/Year)
+%V(255,75,211,21,2)
+%s%aL%?id<%id|Unkwn Album>
+#%?iy<%s%aL%t(8)%?id<%id|Unkwn Album>;%s%aL%t(4)%?iy<%iy|Year N/A>|%s%aL%?id<%id|Unkwn Album>>
+#If <Year is Available (Album <-> Year) | else if no year is available (Album Only)>
+#
+#----ALBUM Info ------------------------------------------------------------------------------------------------------
+#
+#-- Current Track Num
+%V(255,112,211,28,-)
+%s%aL%?in<Track %in|Track ->
+#
+#-- Album Year
+%V(255,144,211,21,2)
+%s%aL%?iy<Year: %iy|Year:  ---->
+#
+#----VOLUME / File-----------------------------------------------------------------------------------------------------
+#
+#--Volume / File Type Handler
+%?mv(2.0)<%Vd(d)|%Vd(c)>
+#
+#-- File Type / Track Number
+%Vl(c,255,180,211,28,-)
+%s%al%fc
+#
+#-- "VOLUME" label
+%Vl(d,255,180,211,28,-)
+%Sx(Volume)
+#
+#-- Vol DB / File Bitrate
+%V(255,210,211,21,2)
+%?mv(2.0)<%pvdB|%s%aL%?fv<avg %fb kbps|%fb kbps>>
+#
+#-- Volume Bar
+%xl(J,Volume Slider.bmp,0,0)
+%V(237,7,7,226,-)
+%pv(0,0,7,226,Volume Bar.bmp,vertical,slider,J)
+#
+#----Clock/Next--------------------------------------------------------------------------------------------------------
+#
+#-- Playlist Number / Time
+%V(255,258,211,28,-)
+%?if(%pp, =, %pe)<%pp %Sx(of) %pe|%t(5)%aL%pp %Sx(of) %pe;%t(3)%aL%?cf<%cH:%cM|%cl:%cM %cP>;%t(4)%s%ca%, %cb %ce>
+#
+#-- Next Track (TrackName)
+%V(255,294,211,21,2)
+%?mm<%?if(%pp, =, %pe)<%s%ca%, %ce %cb|%s%aL%?It<Next: %It|%?Fn<Next: %Fn|Unknown Track>>>|%s%aL%?It<Next: %It|%?Fn<Next: %Fn|Unknown Track>>|%s%aL%?It<Next: %It|%?Fn<Next: %Fn|Unknown Track>>|%s%aL%?It<Next: %It|%?Fn<Next: %Fn|Unknown Track>>|%s%aL%?It<Next: %It|%?Fn<Next: %Fn|Unknown Track>>>
+#
+#-- Next Track (Artist)
+%V(255,325,211,21,2)
+%?mm<%?if(%pp, =, %pe)<%aL%?cf<%cH:%cM|%cl:%cM %cP>|%?Ia<%s%aLBy: %Ia|Unknown Artist>>|%?Ia<%s%aLBy: %Ia|Unknown Artist>|%?Ia<%s%aLBy: %Ia|Unknown Artist>|%?Ia<%s%aLBy: %Ia|Unknown Artist>|%?Ia<%s%aLBy: %Ia|Unknown Artist>>
+#
+#----Progress----------------------------------------------------------------------------------------------------------
+#
+#-- Progress Bar
+%xl(I,Progress Slider.bmp,0,0)
+%V(7,237,223,7,-)
+%pb(0,0,223,7,Progress Bar.bmp,slider,I)
+#
+#-- Current Track Time
+%V(9,258,90,28,-)
+%al%pc
+#
+#-- Remaining Track Time
+%V(138,258,90,28,-)
+%ar-%pr
+#
+#----Icon Bar----------------------------------------------------------------------------------------------------------
+#
+#-- Preloaded Images - ICON BAR
+%xl(A,Playback Icons.bmp,0,0,4)
+%V(162,321,24,24,-)
+%?mm<|%xd(Aa)|%xd(Ab)|%xd(Ac)|%xd(Ad)>
+#
+%xl(B,Shuffle Icon.bmp,0,0)
+%V(124,321,24,24,-)
+%?ps<%xd(B)>
+#
+#%?mh<%Vd(H)|%?lh<%Vd(L)|>>
+#%?mh<%Vd(H)>
+#%?lh<%Vd(L)>
+#
+%xl(C,Hold Icon.bmp,0,0)
+%V(13,321,24,24,-)
+%?mh<%xd(C)>
+#
+%xl(F,Disk Access Icons.bmp,0,0,6)
+%V(51,321,24,24,-)
+%?lh<%t(0.1)%xd(Fa);%t(0.1)%xd(Fb);%t(0.1)%xd(Fc);%t(0.1)%xd(Fd);%t(0.1)%xd(Fe);%t(0.1)%xd(Ff)>
+#
+%xl(D,PlayStatus Icons.bmp,0,0,5)
+%V(202,321,24,24,-)
+%?mp<%xd(Dc)|%xd(Da)|%xd(Db)|%xd(Dd)|%xd(De)>
+#
+%xl(E,Battery Icons.bmp,0,0,18)
+%V(88,321,24,24,-)
+%?bp<%?bc<%t(1.0)%xd(Ea);%t(1.0)%xd(Ec)|%xd(Ed)>|%?bl<%xd(Ee)|%xd(Ef)|%xd(Eg)|%xd(Eh)|%xd(Ei)|%xd(Ej)|%xd(Ek)|%xd(El)|%xd(Em)|%xd(En)|%xd(Eo)|%xd(Ep)|%xd(Eq)|%xd(Er)>>
+#
+######################################################################################################################
+#                                                                                                                    #
+# SPECIAL THANKS:                                                                                                    #
+# Rockbox Team: Rockbox.org/                                                                                         #
+#                                                                                                                    #
+# CREDITS:                                                                                                           #
+#     "Clear 16x16" icon set is based on the "Tango 12x12x16 Grayscale" remote icons by various authors.             #
+#      I heavily modified the icons, and completely redid it's viewers icons.                                        #
+#     see https://www.rockbox.org/wiki/IconSets for full credits.                                                    #
+#                                                                                                                    #
+#     Thanks to Jason Pinto's iPod Nano 1G/2G port of Humberto Santana's "Apl Inspirat" Theme!                       #
+#     As my first Rockbox theme, the annotations in "Apl Inspirat" helped a heeap!                                   #
+#                                                                                                                    #
+#     As for what I did, I made everything else. WPS, SBS Backdrops, theme icons, iconset and all.                   #
+#                                                                                                                    #
+#                                                                                                                    #
+######################################################################################################################
+######################################################################################################################
+#                                                                                                                    #
+# THANK YOU FOR DOWNLOADING, I HOPE YOU ENJOY!                                                                       #
+#                                                                                                                    #
+######################################################################################################################

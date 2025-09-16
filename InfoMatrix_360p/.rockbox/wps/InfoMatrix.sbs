@@ -1,0 +1,166 @@
+######################################################################################################################
+#                                                                                                                    #
+#                     #######     ######     ######   ####  #### #######     ######  ####   ####                     #
+#                     ########   ########   ########  ####  #### #########  ######## ####   ####                     #
+#                     #### #### ####  #### ####  #### #### ####  #### #### ####  #### #### ####                      #
+#                     ####  ### ####  #### ####  #### #### ####  #### #### ####  #### #### ####                      #
+#                     ####  ### ####  #### ####  #### ########   #### #### ####  ####  #######                       #
+#                     #### #### ####  #### ####  #### ########   #### #### ####  ####  #######                       #
+#                     ########  ####  #### ####  #### #######    ########  ####  ####   #####                        #
+#                     ########  ####  #### ####       #######    ########  ####  ####   #####                        #
+#                     ########  ####  #### ####       #######    ######### ####  ####   #####                        #
+#                     #### #### ####  #### ####  #### ########   #### #### ####  ####  #######                       #
+#                     #### #### ####  #### ####  #### ########   #### #### ####  ####  #######                       #
+#                     #### #### ####  #### ####  #### #### ####  #### #### ####  #### #### ####                      #
+#                     #### #### ####  #### ####  #### #### ####  #### #### ####  #### #### ####                      #
+#                     #### ####  ########   ########  ####  #### #########  ######## ####   ####                     #
+#                     #### ####   ######     ######   ####  #### ########    ######  ####   ####                     #
+#                                                                                                                    #
+#                                      OPEN     SOURCE     JUKEBOX     FIRMWARE                                      #
+#                                                                                                                    #
+######################################################################################################################
+# THEME       : InfoMatrix                                                                                           #
+# Version     : 1.0 (## ### ####)                                                                                    #
+# TARGET(S)   : Apple iPod Video / Classic (Originally for iPod Nano 1G / 2G)                                        #
+# AUTHOR      : yuuiko (Forum Name)  - Contact: (yyuuiko@icloud.com)                                                 #
+# LICENSE     : CC-BY-SA                                                                                             #
+# COPYRIGHT   : ©c.yu (yuuiko) (2020)                                                                                #
+######################################################################################################################
+#
+#-- Status Bar Disabler
+#%wd
+#
+#-- Title Bar Disabler
+%?Lt<|>
+#
+#-- Preloaded Images
+%xl(A,Battery Icons.bmp,0,0,18)
+%xl(B,Disk Access Icons.bmp,0,0,6)
+%xl(C,Hold Icon.bmp,0,0)
+%xl(D,PlayStatus Icons.bmp,0,0,5)
+%xl(E,Shuffle Icon.bmp,0,0)
+%xl(F,Playback Icons.bmp,0,0,4)
+%xl(G,Volume Icons.bmp,0,0,14)
+%xl(H,Backdrop - SBS.bmp,0,0)
+%xl(I,Quickscreen - SBS.bmp,0,0)
+%xl(J,Context - SBS.bmp,0,0)
+%xl(K,Plugin - SBS.bmp,0,0)
+#
+#-- Backdrops
+%X(Backdrop - SBS.bmp) 
+#
+#Conditional Backdrops
+%VB(0,0,176,132,-)
+%?if(%cs, !=, 10)<%xd(H)>
+%?if(%cs, !=, 15)<%xd(H)>
+%?if(%cs, !=, 14)<%xd(H)>
+%?if(%cs, !=, 12)<%xd(H)>
+%?if(%cs, =, 10)<%xd(I)> #Quick
+%?if(%cs, =, 15)<%xd(J)> #Context
+%?if(%cs, =, 14)<%xd(K)> #Plugin
+#
+#-- UI Viewports
+#Preload
+%Vi(x,0,37,478,285,-)# Main
+%Vi(y,58,25,366,306,-)# Quick
+%Vi(z,70,96,333,226,-)# Context
+#
+#Display
+%?if(%cs, !=, 10)<%VI(x)> #Not QuickMenu
+%?if(%cs, !=, 15)<%VI(x)> #Not ContextMenu
+%?if(%cs, !=, 12)<%VI(x)> #Not Settings Menu
+%?if(%cs, =, 10)<%VI(y)> #QuickMenu
+%?if(%cs, =, 15)<%VI(z)> #ContextMenu
+#
+#---------------------------------------------------------------------------------------------------------------------
+#
+# Handler - Shift Menu Title on Icon
+%?if(%cs, !=, 14)<%?if(%cs, !=, 15)<%?mh<%Vd(b)%Vd(d)|%?lh<%Vd(b)%Vd(c)|%Vd(a)>>>># !plugin
+%?if(%cs, =, 14)<%?if(cs, !=, 15)<%?mh<%Vd(g)%Vd(d)|%?lh<%Vd(g)%Vd(c)|%Vd(f)>>>>#   -plugin menu
+#
+# Handler - Toggle Context Menu Title
+%?if(%cs, =, 15)<%Vd(e)> #Context
+#
+# Handler - Disable UI for specialty screens
+%?if(%cs, !=, 15)<%Vd(h)>>
+#
+#
+#--TOP BAR LEFT-----------------------------------------------------------------------------------------------------------
+#
+#-- Menu Title (a)
+%Vl(a,3,3,367,28,-)
+%?if(%cs, !=, 8)<%?if(%cs, !=, 7)<%s%al%Lt>>#  #Not ContextMenu or FilesMenu or QuickMenu
+%?if(%cs, =, 7)<%s%alFiles: %Lt>#              #Files Menu
+%?if(%cs, =, 8)<%s%alDatabase>#                #Database Menu
+%?if(%cs, =, 10)<%s%alQuickScreen>#            #QuickScreen
+#
+#-- Menu Title (Shifted) (b)
+%Vl(b,34,3,337,28,-)
+%?if(%cs, !=, 8)<%?if(%cs, !=, 7)<%s%al%Lt>>#  #Not ContextMenu or FilesMenu or QuickMenu
+%?if(%cs, =, 7)<%s%alFiles: %Lt>#              #Files Menu
+%?if(%cs, =, 8)<%s%alDatabase>#                #Database Menu
+%?if(%cs, =, 10)<%s%alQuickScreen>#            #QuickScreen
+#
+#-- Menu Title (Plugin Menu) (f)
+%Vl(f,3,3,367,28,-)%Vf(FFE784)%Vb(3A1C00)
+%s%al%Lt
+#
+#-- Menu Title (Plugin Menu) (Shifted) (g)
+%Vl(g,34,3,337,28,-)%Vf(FFE784)%Vb(3A1C00)
+%s%al%Lt
+#
+#-- Context Menu Title (e)
+%Vl(e,75,63,349,28,-)
+%s%al%Lt #ContextMenu
+#
+#-- Disk Access Icons (c)
+%Vl(c,4,4,24,24,-)
+%t(0.1)%xd(Ba);%t(0.1)%xd(Bb);%t(0.1)%xd(Bc);%t(0.1)%xd(Bd);%t(0.1)%xd(Be);%t(0.1)%xd(Bf)
+#
+#-- Hold Icon (d)
+%Vl(d,4,4,24,24,-)
+%?mh<%xd(C)|>
+#
+#--TOP BAR RIGHT-------------------------------------------------------------------------------------------------------
+#
+#-- Clock / Battery Percent
+%Vl(h,379,3,67,28,-)
+%?if(%cs, !=, 14)<%ar%t(4)%?cf<%cH:%cM|%cl:%cM>;%t(4)%ar%bl%%>
+#
+#-- Clock (Plugin Screen)
+#--%Vl(f,360,3,90,28,-)%Vf(FFE784)%Vb(3A1C00)
+%Vl(f,379,3,67,28,-)%Vf(FFE784)%Vb(3A1C00)
+%ar%t(4)%?cf<%cH:%cM|%cl:%cM>;%t(4)%ar%bl%%
+#
+#-- Battery Icons
+%Vl(h,451,4,24,24,-)
+%?bp<%?bc<%t(1.0)%xd(Ab);%t(1.0)%xd(Ac)|%xd(Ad)>|%?bl<%xd(Ae)|%xd(Af)|%xd(Ag)|%xd(Ah)|%xd(Ai)|%xd(Aj)|%xd(Ak)|%xd(Al)|%xd(Am)|%xd(An)|%xd(Ao)|%xd(Ap)|%xd(Aq)|%xd(Ar)>>
+#
+#---------------------------------------------------------------------------------------------------------------------
+#
+#-- Play & Pause Icons (Bottom Bar)
+%Vl(h,4,331,24,24,-)
+%?mp<%xd(Dc)|%xd(Da)|%xd(Db)|%xd(Dd)|%xd(De)>
+#
+#-- Now Playing Ticker (Bottom Bar)
+%Vl(h,34,330,337,28,-)
+%s%al%?ia<%?it<%it - %ia|%fn - %ia>|%it>
+#
+#-- Shuffle Icon
+%Vl(h,385,331,24,24,-)
+%?ps<%xd(E)>
+#
+#-- Playback Icons
+%Vl(h,418,331,24,24,-)
+%?mm<|%xd(Fa)|%xd(Fb)|%xd(Fc)|%xd(Fd)>
+#
+#-- Volume Icons
+%Vl(h,451,331,24,24,-)
+%?pv<%xd(Ga)|%xd(Gb)|%xd(Gc)|%xd(Gd)|%xd(Ge)|%xd(Gf)|%xd(Gg)|%xd(Gh)|%xd(Gi)|%xd(Gj)|%xd(Gk)|%xd(Gl)|%xd(Gm)|%xd(Gn)>
+#
+#
+######################################################################################################################
+#                                                                                                                    #
+# CREDITS AT .WPS FILE                                                                                               #
+#                                                                                                                    #
+######################################################################################################################

@@ -1,0 +1,49 @@
+#
+#__BONES
+#__by__CHUCK_LARDO
+#__licence__CC-BY-SA 4.0
+#__version__1.1
+#__2024
+#__target resolution 320x240
+#__tested on iPod Classic (6th Gen) and HiFi Walker H2
+#
+#__SBS File
+#
+#__Status Bar Off
+%wd
+#
+#__Title Bar Off
+%?Lt<|>
+#
+#__Preload Fonts
+%Fl(2,22-ProFont.fnt)
+%Fl(3,35-ProFont.fnt)
+#
+#__Preload Images
+%xl(X,bg_skull.bmp,0,0)
+#
+#__UI Viewport
+%Vi(-,45,90,390,180,3)%Vf(-)%Vb(-)
+#
+#__Hold indicator
+%V(45,45,-,-,3)
+%?mh<xxx|>
+#
+#
+#__USB screen
+%?if(%cs, =, 21)<%Vd(usbScreen)>
+#
+#__Clear Screen
+%Vl(usbScreen,0,0,480,360,-)
+#
+#__USB Text
+%Vl(usbScreen,45,45,390,-,3)
+%acUSB%Vs(invert)
+#
+%Vl(usbScreen,45,300,390,-,2)
+%ac! EJECT BEFORE DISCONNECTING !
+#
+#__Skull
+%Vl(usbScreen,45,90,390,195,-)
+%xd(X)
+#

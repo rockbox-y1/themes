@@ -1,0 +1,133 @@
+#
+#__BONES
+#__by__CHUCK_LARDO
+#__licence__CC-BY-SA 4.0
+#__version__1.1
+#__2024
+#__target resolution 320x240
+#__tested on iPod Classic (6th Gen) and HiFi Walker H2
+#
+#__WPS File
+#
+#
+#__Hide The Status Bar
+%wd
+#
+#__Preload Fonts
+%Fl(2,22-ProFont.fnt)
+%Fl(3,29-ProFont.fnt)
+%Fl(4,44-ProFont.fnt)
+%Fl(5,71-ProFont.fnt)
+#
+#__Preload Images
+%xl(PBB,pb_back.bmp,0,0)
+%xl(PB,pb.bmp,0,0)
+%xl(VBB,vb_back.bmp,0,0)
+%xl(VB,vb.bmp,0,0)
+%xl(BBB,bb_back.bmp,0,0)
+%xl(BB,bb.bmp,0,0)
+%xl(T,stop_icon.bmp,0,0)
+%xl(L,play_icon.bmp,0,0)
+%xl(Z,pause_icon.bmp,0,0)
+#
+#
+#__Show Main Display unless Hold Switch is on
+%?mh<%Vd(holdScreen)|%Vd(mainDisplay)>
+#
+#
+###__Main Display__###
+#
+#__Clear Screen
+%Vl(mainDisplay,0,0,480,360,-)
+#
+#__Track Number
+%Vl(mainDisplay,45,60,180,-,2)
+%alTRACK %in
+#
+#__Shuffle
+%Vl(mainDisplay,-165,60,120,-,2)
+%ac%?ps<SHUFFLE ON>%Vs(invert)
+#
+#__Track Title
+%Vl(mainDisplay,45,90,390,-,4)
+%s%it
+#
+#__Artist/Album
+%Vl(mainDisplay,45,135,390,-,3)
+%s%t(6)%ia;%s%t(6)%id
+#
+#__File Type
+%Vl(mainDisplay,45,180,90,-,2)
+%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|A52|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|?>
+#
+#__Repeat
+%Vl(mainDisplay,255,180,150,-,2)
+%ar%?mm<|REPEAT|REPEAT|REPEAT|REPEAT> %?mm<|ALL|ONE|SHUFFLE|A-B>
+#
+#__Play/Pause Icons
+%Vl(mainDisplay,-61,183,16,16,-)
+%?mp<%xd(T)|%xd(L)|%xd(Z)>
+#
+#__Volume Bar
+%Vl(mainDisplay,45,217,-,-,-)
+%pv(0,0,330,16,VB,backdrop,VBB)
+#
+#__Volume Text
+%Vl(mainDisplay,375,214,60,-,2)
+%ar%pvdb
+#
+#__Track Progress Bar
+%Vl(mainDisplay,45,247,-,-,-)
+%pb(0,0,390,31,PB,backdrop,PBB)
+#
+#__Time Elapsed
+%Vl(mainDisplay,45,285,90,22,2)
+%al%pc
+#
+#__Time Total
+%Vl(mainDisplay,-135,285,90,22,2)
+%ar%pt
+#
+#
+###__Hold Screen__###
+#
+#__Clear Screen
+%Vl(holdScreen,0,0,480,360,-)
+#
+#
+#__Time
+%Vl(holdScreen,45,105,240,90,5)
+%?cf<%cH|%cI>:%cM
+#
+#__xxx
+%Vl(holdScreen,-165,150,120,33,3)
+%ar%?cf<xxx|%cP>
+#
+#__Line
+%Vl(holdScreen,45,232,390,1,-)
+%dr(0,0,390,1)
+#
+#__Battery Label
+%Vl(holdScreen,45,45,60,21,2)
+%alBATT
+#
+#__Battery Bar
+%Vl(holdScreen,105,48,270,16,-)
+%bl(0,0,180,11,BB,backdrop,BBB)
+#
+#__Battery %
+%Vl(holdScreen,375,45,60,21,2)
+%ar%bl%%
+#
+#__Song/Artist
+%Vl(holdScreen,45,255,390,22,2)
+%s%ia - %it
+#
+#__Play/Pause Icons
+%Vl(holdScreen,45,298,16,16,-)
+%?mp<%xd(T)|%xd(L)|%xd(Z)>
+#
+#__Time Remaining
+%Vl(holdScreen,-165,292,120,22,2)
+%ar-%pr
+#

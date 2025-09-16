@@ -1,0 +1,133 @@
+#
+#__SNAZZ
+#__by__Jihoon_Kim_
+#__based_on_SPAZZ_by_CHUCK_LARDO
+#__licence__CC-BY-SA 4.0
+#__version__1.0
+#__2025
+#__target resolution 320x240
+#__tested on Surfans F20
+#
+#__WPS File
+#
+#
+#__Hide The Status Bar
+%wd
+#
+#__Preload Fonts
+%Fl(2,18-KodeMono-SemiBold.fnt)
+%Fl(3,22-KodeMono-SemiBold.fnt)
+%Fl(4,35-KodeMono-SemiBold.fnt)
+%Fl(5,44-KodeMono-SemiBold.fnt)
+%Fl(6,108-KodeMono-Bold.fnt)
+#
+#
+#__Preload Images
+%xl(P,bb_rbd_123.bmp,1,4)
+%xl(PBB,pb_back.bmp,0,0)
+%xl(PB,pb.bmp,0,0)
+%xl(BBB,bb_back.bmp,0,0)
+%xl(BB,bb.bmp,0,0)
+%xl(T,stop_icon.bmp,0,0)
+%xl(L,play_icon.bmp,0,0)
+%xl(Z,pause_icon.bmp,0,0)
+%xl(F,forward_icon.bmp,0,0)
+%xl(R,rewind_icon.bmp,0,0)
+%xl(O,off.bmp,36,0)
+%xl(N,on.bmp,36,0)
+#
+#
+#__Show Volume Bar unless Hold Switch is on
+%?mh<%Vd(holdBar)|%Vd(volumeBar)>
+#
+#
+###__Main Display__###
+#
+#__Clear Screen
+%V(0,0,480,360,-)
+#
+#__Playtime Text
+%V(30,30,97,45,4)
+%ac-%pr
+#
+#__Hold
+%V(135,30,120,45,4)
+%?mh<%acLOCKED%Vs(invert)|>
+#
+#__Playlist Size
+#%V(105,30,75,45,4)
+#%ac%pe
+#
+#__Shuffle
+%V(262,27,70,16,2)
+SHF%?ps<%xd(N)|%xd(O)>
+#
+#__Repeat
+%V(262,49,70,16,2)
+%?mm<RPT%xd(O)|RPT%xd(N)|RP1%xd(N)|RND%xd(N)|A-B%xd(N)>
+#
+#__Volume BAR
+%V(-139,25,109,13,-)
+%pv(0,0,-,-,BB,backdrop,BBB)
+#
+#__Battery/Vol Screen Selector
+%?mv(3)<%Vd(volChange)|%?bp<%Vd(batCharge)|%Vd(bat)>>
+#
+#__Battery/Vol Text
+%Vl(bat,-139,42,109,25,3)
+%ac%t(8)%xd(P) %bl%%%Vs(invert);%ac%?if(%bt, =, -1)<%t(0)|%t(8)%xd(P)  %bt%Vs(invert)>
+%Vl(batCharge,-139,42,109,25,3)
+%ac%t(8)CHARGING%Vs(invert);%t(8)%ac%xd(P) %bl%%%Vs(invert)
+%Vl(volChange,-139,42,109,25,3)
+%acVOL %pv
+#
+#__Track Progress Bar
+#__Line
+%V(30,79,420,1,-)
+%dr(0,0,420,1)
+#
+#__Slider
+%V(30,81,420,7,-)
+%pb(0,0,420,7,PBB,slider,PB)
+#
+#__Line
+%V(30,88,420,1,-)
+%dr(0,0,420,1)
+#
+#__Artist
+%V(30,99,310,48,5)
+%al%s%?ia<%ia|NO TAG>
+#
+#__Track Title
+%V(30,150,303,25,3)
+%al%s%?it<%it|%fn>
+#
+#__Channels
+%V(-139,102,109,25,3)
+%ac%?St(channels)<STEREO|MONO|CUSTOM|LEFT|RIGHT|KARAOKE>
+#
+#__File Info
+%V(-139,136,109,36,4)
+%t(8)%ac%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>%Vs(invert);%t(8)%ac%?fv<~>%fbk%Vs(invert);%t(8)%ac%fkkHz%Vs(invert)
+#
+#__Peak Meter Bars
+%V(30,193,420,-,6)
+%pm
+#
+#__Next Up Selector
+%?pE(20)<%?pS(10)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
+#
+#__Play/Pause Icons
+%V(30,321,31,16,-)
+%?mp<%xd(T)|%xd(L)|%xd(Z)|%xd(F)|%xd(R)>
+#
+#__Track Time / Playlist position / Playtime & (Manual/Auto) Score
+%Vl(curInfo,64,316,385,-,3)
+%al%pp_%pe%ar%rpx %rr | %ra
+#
+#__Next Up
+%Vl(nextInfo,63,316,33,30,3)
+%ac→%Vs(invert)
+%Vl(nextInfo,96,316,352,30,3)
+%ac%s%?Ia<%Ia%?It< - %It>|%Fn> %Vs(invert)
+#

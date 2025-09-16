@@ -1,0 +1,73 @@
+#
+#__SPAZZ
+#__by__CHUCK_LARDO
+#__licence__CC-BY-SA 4.0
+#__version__1.1
+#__2025
+#__target resolution 320x240
+#__tested on iPod Classic (6th Gen) and HiFi Walker H2
+#
+#__SBS File
+#
+#__Status Bar Off
+%wd
+#
+#__Title Bar Off
+%?Lt<|>
+#
+#__Preload Fonts
+%Fl(2,18-KodeMono-SemiBold.fnt)
+%Fl(3,22-KodeMono-SemiBold.fnt)
+%Fl(4,35-KodeMono-SemiBold.fnt)
+%Fl(5,42-KodeMono-SemiBold.fnt)
+%Fl(6,108-KodeMono-Bold.fnt)
+#
+#__Preload Images
+%xl(T,stop_icon.bmp,0,0)
+%xl(L,play_icon.bmp,0,0)
+%xl(Z,pause_icon.bmp,0,0)
+%xl(F,forward_icon.bmp,0,0)
+%xl(R,rewind_icon.bmp,0,0)
+%xl(U,usb_noise.bmp,0,0,3)
+#
+#__USB screen
+%?if(%cs, =, 21)<%VI(clearScreen)%Vd(usb)|%VI(menuViewport)%Vd(info)>
+#
+#__Clear Screen
+%Vi(clearScreen,0,0,1,1,-)
+#
+#__Time
+%Vl(info,30,30,145,36,5)
+%al%?cf<%cH:%cM:%cS|%?cl<1|2|3|4|5|6|7|8|9|10|11|12>:%cM%cP>
+#
+#__Hold
+%Vl(info,30,7,420,30,4)
+%ar%?mh<-|>
+#
+#__Day
+%Vl(info,175,46,274,24,3)
+%ar%?cu<Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday>_%?cm<January|February|March|April|May|June|July|August|September|October|November|December>_%cd
+#
+#__Line
+%Vl(info,30,85,420,1,-)
+%dr(0,0,420,1)
+#
+#__UI Viewport
+%Vi(menuViewport,30,103,420,195,4)
+#
+#__Line
+%Vl(info,30,300,420,1,-)
+%dr(0,0,420,1)
+#
+#__Play/Pause Icons
+%Vl(info,30,321,31,16,-)
+%?mp<%xd(T)|%xd(L)|%xd(Z)|%xd(F)|%xd(R)>
+#
+#__Now Playing
+%Vl(info,64,316,385,24,3)
+%al%s%ia - %it
+#
+#__USB
+%Vl(usb,0,0,480,360,6)
+%?bp<%t(0.1)%xd(Ua);%t(0.1)%xd(Ub);%t(0.1)%xd(Uc)>
+#
