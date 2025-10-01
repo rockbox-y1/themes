@@ -1,0 +1,85 @@
+#iLike Theme for 320x240
+#By: Alan Brito
+#Ported from the 176x132 version by Hayden Pearce
+#Licensed CC-BY-SA 3.0
+%wd
+%X(Backdrop.bmp)
+%Fl(2,27-Adobe-Helvetica-Bold.fnt)
+%xl(A,AA Bottom.bmp,16,235)
+%xl(B,AA Left.bmp,16,91)
+%xl(C,AA Right.bmp,166,91)
+%xl(D,Battery Icon.bmp,0,0,26)
+%xl(E,Disk Access.bmp,0,0,6)
+%xl(F,Hold Icon.bmp,0,0)
+%xl(G,Playmode Icon.bmp,0,0,4)
+%xl(H,Repeat Icon.bmp,0,0,4)
+%xl(I,Shuffle Icon.bmp,0,0)
+%xl(J,Volume Left.bmp,18,270)
+%xl(K,Volume Right.bmp,424,270)
+%xl(L,Volumebar Shadow Left.bmp,43,295)
+%xl(M,Volumebar Shadow Right.bmp,417,295)
+%?C<%Vd(a)%xd(A)%xd(B)%xd(C)|%Vd(b)>
+%?lh<%Vd(c)|%Vd(e)>
+%?mv(2.0)<%Vd(g)%xd(J)%xd(K)%xd(L)%xd(M)|%Vd(d)%Vd(f)>
+#            Track Name
+%ax%Vl(a,180,90,285,27,2)%Vf(000000)%Vb(FFFFFF)
+#    %ax%Vl(a,180,105,285,27,2)%Vf(000000)%Vb(FFFFFF)
+#
+%s%al%?pE(10)<%Sx(Next Track:)|%?it<%it|%fn>>
+#            Artist Name
+%ax%Vl(a,180,135,285,27,2)%Vf(000000)%Vb(FFFFFF)
+#    %ax%Vl(a,180,150,285,27,2)%Vf(000000)%Vb(FFFFFF)
+#
+%s%al%?pE(10)<%?It<%It|%Fn>|%?ia<%ia|%?d(3)<%d(2)|%?Sr<kbps%fb %fc|%fc %fbkbps>>>>
+%Vl(b,15,105,450,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%ac%?pE(10)<%Sx(Next Track:)|%?it<%it|%fn>>
+#
+%Vl(b,15,195,450,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%ac%?pE(10)<%?Ia<%Ia|%?D(3)<%D(2)|%?Sr<kbps%Fb %Fc|%Fc %Fbkbps>>>|%?id<%id|%?d(3)<%d(3)|%?Sr<kHz%fk|%fkkHz>>>>
+%V(429,9,37,18,-)%Vf(000000)%Vb(FFFFFF)
+%?bp<%?bc<%t(1.0)%xd(Da);%t(1.0)%xd(Db)|%xd(Dc)>|%?bl<%xd(Dd)|%xd(Dd)|%xd(De)|%xd(Df)|%xd(Dg)|%xd(Dh)|%xd(Di)|%xd(Dj)|%xd(Dk)|%xd(Dl)|%xd(Dm)|%xd(Dn)|%xd(Do)|%xd(Dp)|%xd(Dq)|%xd(Dr)|%xd(Ds)|%xd(Dt)|%xd(Du)|%xd(Dv)|%xd(Dw)|%xd(Dx)|%xd(Dy)|%xd(Dz)>>
+#           Volumebar
+%Vl(g,43,273,381,22,-)%Vf(000000)%Vb(FFFFFF)
+%pv(0,0,381,22,Volumebar.bmp)
+#    %pv(0,0,254,22,Volumebar.bmp)
+#
+%Vl(c,18,6,24,24,-)%Vf(000000)%Vb(FFFFFF)
+%t(0.1)%xd(Ea);%t(0.1)%xd(Eb);%t(0.1)%xd(Ec);%t(0.1)%xd(Ed);%t(0.1)%xd(Ee);%t(0.1)%xd(Ef)
+%V(54,7,15,19,-)%Vf(000000)%Vb(FFFFFF)
+%?mh<%xd(F)|%?mr<%xd(F)>>%?Tp<|>
+#           Progress Bar
+%Vl(d,30,273,420,22,-)%Vf(000000)%Vb(FFFFFF)
+%pb(0,0,420,22,Progress Bar.bmp)
+#
+%ax%V(22,51,240,27,2)%Vf(8489B5)%Vb(FFFFFF)
+#    %ax%V(22,51,240,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%al%?Sr<%pe %Sx(of) %pp|%pp %Sx(of) %pe>
+%ax%V(378,51,28,30,-)%Vf(000000)%Vb(FFFFFF)
+
+%?mm<|%xd(Ha)|%xd(Hb)|%t(1.0)%xd(Hc);%t(1.0)%xd(Ha)|%xd(Hd)>
+%ax%V(420,51,28,30,-)%Vf(000000)%Vb(FFFFFF)
+%?ps<%xd(I)>
+%V(75,6,330,27,2)%Vf(000000)%Vb(FFFFFF)
+#%s%ac%?bp<%?bc<Charging|Charged>|%Sx(Now Playing)>
+%s%ac%t(10.0)%?bp<%?bc<Charging|Charged>|%Sx(Now Playing)>;%s%ac%t(10.0)%?cf<%cH:%cM|%cl:%cM %cP>
+#
+%Vl(f,30,309,420,27,2)%Vf(8489B5)%Vb(FFFFFF)
+#    %Vl(f,30,309,420,27,2)%Vf(000000)%Vb(FFFFFF)
+%al%pc%ar-%pr
+#
+%Vl(b,15,150,450,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%ac%?pE(10)<%?It<%It|%Fn>|%?ia<%ia|%?d(3)<%d(2)|%?Sr<kbps%fb %fc|%fc %fbkbps>>>>
+
+%Vl(e,16,6,27,22,-)%Vf(000000)%Vb(FFFFFF)
+%?mp<|%xd(Ga)|%xd(Gb)|%xd(Gc)|%xd(Gd)||||>
+#           Album Name
+%ax%Vl(a,180,180,285,27,2)%Vf(000000)%Vb(FFFFFF)
+#    %ax%Vl(a,180,195,285,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%al%?pE(10)<%?Ia<%Ia|%?D(3)<%D(2)|%?Sr<kbps%Fb %Fc|%Fc %Fbkbps>>>|%?id<%id|%?d(3)<%d(3)|%?Sr<kHz%fk|%fkkHz>>>>
+#           Album Art
+%ax%Vl(a,22,91,144,144,-)%Vf(000000)%Vb(FFFFFF)
+%Cl(0,0,144,144,c,c)
+%Cd
+#          Year %iy
+%ax%Vl(a,180,225,285,27,2)%Vf(8489B5)%Vb(FFFFFF)
+%al%iy
