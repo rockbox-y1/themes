@@ -1,0 +1,23 @@
+#iLike Theme for 320x240
+#By: Alan Brito
+#Ported from the 176x132 version by Hayden Pearce
+#Licensed CC-BY-SA 3.0
+%wd
+%?Lt<>
+%Fl(2,27-Adobe-Helvetica-Bold.fnt)
+%xl(A,Battery Icon.bmp,0,0,26)
+%xl(B,Disk Access.bmp,0,0,6)
+%xl(C,Hold Icon.bmp,0,0)
+%xl(D,Playmode Icon.bmp,0,0,4)
+%?lh<%Vd(a)|%Vd(b)>
+%V(54,7,15,19,-)%Vf(000000)%Vb(FFFFFF)
+%?mh<%xd(C)|%?mr<%xd(C)>>
+%V(75,6,330,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%ac%t(10.0)%?bp<%?bc<Charging|Charged>|%?cs<%?if(%Tp, =, 1)<Innioasis Y1|iPod>||%?Rp<%Sx(Recording)>|%?tp<%Sx(FM Radio)>|%Sx(Playlist)>>;%t(10.0)%ac%?cf<%cH:%cM|%cl:%cM %cP>
+%Vi(-,0,36,480,324,1)%Vf(000000)%Vb(FFFFFF)
+%Vl(a,18,6,24,24,-)%Vf(000000)%Vb(FFFFFF)
+%t(0.1)%xd(Ba);%t(0.1)%xd(Bb);%t(0.1)%xd(Bc);%t(0.1)%xd(Bd);%t(0.1)%xd(Be);%t(0.1)%xd(Bf)
+%V(429,9,37,18,-)%Vf(000000)%Vb(FFFFFF)
+%?bp<%?bc<%t(1.0)%xd(Aa);%t(1.0)%xd(Ab)|%xd(Ac)>|%?bl<%xd(Ad)|%xd(Ad)|%xd(Ae)|%xd(Af)|%xd(Ag)|%xd(Ah)|%xd(Ai)|%xd(Aj)|%xd(Ak)|%xd(Al)|%xd(Am)|%xd(An)|%xd(Ao)|%xd(Ap)|%xd(Aq)|%xd(Ar)|%xd(As)|%xd(At)|%xd(Au)|%xd(Av)|%xd(Aw)|%xd(Ax)|%xd(Ay)|%xd(Az)>>
+%Vl(b,16,6,27,22,-)%Vf(000000)%Vb(FFFFFF)
+%?mp<|%xd(Da)|%xd(Db)|%xd(Dc)|%xd(Dd)|%?Rp<%xd(Da)>|%?Rp<%xd(Db)>|%?tp<%xd(Da)>|%?tp<%xd(Db)>>
