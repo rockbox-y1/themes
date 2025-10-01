@@ -1,0 +1,190 @@
+#######################################################################
+# THEME       : FreshOS	                                              #
+# Version     : 1.0 (20 SEP 2020)                                     #
+# TARGET(S)   : Apple iPod Video / Classic                            #
+# AUTHOR      : yuuiko (Forum Name)  - Contact: (yyuuiko@icloud.com)  #
+# LICENSE     : CC-BY-SA                                              #
+# COPYRIGHT   : ©c.yu (yuuiko) (2020)                                 #
+#######################################################################
+%?Lt<|>
+%xl(A,Battery Icons.bmp,0,0,25)
+%xl(B,Disk Access Icons.bmp,0,0,6)
+%xl(C,Hold Icon.bmp,0,0,2)
+%xl(D,PlayStatus Icons.bmp,0,0,10)
+%xl(E,Backdrop - LOCK.bmp,0,0)
+%xl(F,Backdrop - SBSNH.bmp,0,0)
+%xl(G,Backdrop - LIST.bmp,0,0)
+%xl(H,Backdrop - SBS.bmp,0,0)
+%xl(I,Quickscreen - SBS.bmp,0,0)
+%xl(J,Context - SBS.bmp,0,0)
+%xl(K,Plugin - SBS.bmp,0,0)
+%xl(L,Backdrop - REC.bmp,0,0)
+%xl(N,BatTree Icons.bmp,0,0,23)
+%xl(O,Backdrop - USB.bmp,0,-22,2)
+%xl(M,Backdrop - USB3.bmp,0,0,2)
+%xl(P,Backdrop - HOME.bmp,0,0)
+%xl(Q,clock12.bmp,0,0,24)
+%xl(R,clock34.bmp,0,0,24)
+%xl(S,clock56.bmp,0,0,24)
+%xl(T,clock78.bmp,0,0,24)
+%xl(U,clock910.bmp,0,0,24)
+%xl(V,clock1112.bmp,0,0,24)
+%xl(W,WG NP.bmp,0,0,8)
+%xl(X,USB Battery.bmp,0,0,23)
+%Fl(6,32-SF-Pro-Display-Regular.fnt)
+%Fl(2,21-SFCompactText-Regular.fnt)
+%Fl(3,32-SF-Pro-Display-Bold.fnt)
+%Fl(4,42-SF-Pro-Display-Regular.fnt)
+%Fl(5,90-SF-Pro-Display-Regular.fnt)
+%X(Backdrop - HOME.bmp)
+%VB(0,0,176,132,-)
+%?if(%cs, !=, 10)<%?if(%cs, !=, 15)<%?if(%cs, !=, 14)<%?if(%cs, !=, 3)<%?if(%cs, !=, 21)<%?if(%cs, !=, 7)<%?if(%cs, !=, 8)<%?if(%cs, !=, 1)<%?mh<%xd(F)|%xd(F)>>>>>>>>>
+%?if(%cs, =, 10)<%xd(I)> #Quick
+%?if(%cs, =, 15)<%xd(J)> #Context
+%?if(%cs, =, 14)<%xd(K)> #Plugin
+%?if(%cs, =, 3)<%xd(L)> #Plugin
+%?if(%cs, =, 21)<%t(3)%xd(Ma)%Vd(x)%Vd(R);%t(20)%xd(Mb)%Vd(O)%Vd(S);%t(37)%xd(Ma)%Vd(x)%Vd(R);> #USB - UNFREE
+%?if(%cs, =, 1)<%?mh<%xd(E)|%xd(P)>> #HOME
+%?if(%cs, =, 7)<%?mh<%xd(G)%Vd(p)|%xd(H)%Vd(O)%Vd(i)>> #Database
+%?if(%cs, =, 8)<%?mh<%xd(G)%Vd(p)|%xd(H)%Vd(O)%Vd(i)>> #FILE
+%Vi(x,0,43,471,285,-)# Main
+%Vi(y,58,30,366,306,-)%Vf(FFFFFF)# Quick
+%Vi(z,52,99,376,202,-)# Context
+%Vi(r,0,37,478,267,-)# Record
+%Vi(u,0,0,1,1,-)%Vf(000000)# USB
+%Vi(w,0,43,231,316,6)# Home
+%?if(%cs, !=, 10)<%?if(%cs, !=, 15)<%?if(%cs, !=, 3)<%?if(%cs, !=, 21)<%?if(%cs, !=, 1)<%?mh<%VI(u)|%VI(x)>>>>>>
+%?if(%cs, =, 10)<%VI(y)%Vf(FFFFFF)> #QuickMenu + Toggle Context Menu Title
+%?if(%cs, =, 15)<%VI(z)%Vd(e)> #ContextMenu
+%?if(%cs, =, 3)<%VI(r)%Vd(r)> #Recording
+%?if(%cs, =, 21)<%t(3)%Vd(s)%VI(u)%Vd(x);%t(20)%Vd(S)%VI(u)%Vd(O);%t(37)%Vd(s)%VI(u)%Vd(x);> #USB
+%?if(%cs, =, 1)<%?mh<%VI(u)%Vd(l)%Vd(q)|%VI(w)%Vd(m)%Vd(q)>> #Home
+%?if(%cs, !=, 14)<%?if(%cs, !=, 15)<%?mh<%Vd(b)%Vd(d)|%?lh<%Vd(b)%Vd(c)|%Vd(a)>>>># !plugin
+%?if(%cs, =, 14)<%?if(cs, !=, 15)<%?mh<%Vd(f)%Vd(d)|%?lh<%Vd(f)%Vd(c)|%Vd(f)%Vd(d)>>>>#   -plugin menu
+%?if(%cs, !=, 1)<%?if(%cs, !=, 8)<%?if(%cs, !=, 7)<%?if(%cs, !=, 10)<%?if(%cs, !=, 15)<%?if(%cs, !=, 21)<%Vd(I)>>>>>># --NP ticker
+%?if(%cs, !=, 10)<%?if(%cs, !=, 15)<%?if(%cs, !=, 21)<%Vd(h)>>>#clock, battery
+%?if(%cs, =, 7)<%?mh<|%Vd(i)>># --NP bar
+%?if(%cs, =, 8)<%?mh<|%Vd(i)>># --NP bar
+%Vl(a,7,1,328,31,3)%Vf(FF005A)
+%?if(%cs, !=, 8)<%?if(%cs, !=, 7)<%s%al%Lt>>#Not ContextMenu or FilesMenu or QuickMenu
+%?if(%cs, =, 1)<%s%aliPod>#       	      #Main Menu
+%?if(%cs, =, 7)<%s%al%Lt>#               #Files Menu
+%?if(%cs, =, 8)<%s%al%Lt>#                      #Database Menu
+%?if(%cs, =, 10)<%s%alQuickscreen>#             #QuickScreen
+%?if(%cs, =, 21)<%t(5)%s%alConnected to USB.>#       #USB
+%Vl(b,37,1,309,31,3)%Vf(FF005A)
+%?if(%cs, !=, 8)<%?if(%cs, !=, 7)<%?if(%cs, !=, 1)<%s%al%Lt>>>#   #not ContextMenu or FilesMenu or QuickMenu
+%?if(%cs, =, 7)<%?mh<|%s%al%Lt>>#               #Files Menu
+%?if(%cs, =, 8)<%?mh<|%s%al%Lt>>#                      #Database Menu
+%?if(%cs, =, 1)<%siPod>#             #Main Menu
+%?if(%cs, =, 10)<%s%alQuickScreen>#             #QuickScreen
+%?if(%cs, =, 21)<%s%alConnected to USB.>#       #USB
+%Vl(f,34,1,330,31,3)%Vf(0072FF)
+%s%al%Lt
+%Vl(e,52,57,349,31,3)%Vf(FF005A)
+%s%al%Lt #ContextMenu
+%Vl(c,4,6,24,24,-)
+%t(0.1)%xd(Ba);%t(0.1)%xd(Bb);%t(0.1)%xd(Bc);%t(0.1)%xd(Bd);%t(0.1)%xd(Be);%t(0.1)%xd(Bf)
+%Vl(d,4,6,24,24,-)
+%?if(%cs, =, 14)<%?mh<%xd(Ca)|%xd(Cb)>|%?mh<%xd(Ca)|>>
+%Vl(h,340,1,76,31,3)%Vb(000000)
+%?if(%cs, !=, 1)<%?if(%cs, !=, 14)<%ar%t(4)%?cf<%cH:%cM|%cl:%cM>;%t(4)%ar%bl%%>>%?if(%cs, =, 1)<%?mh<|%ar%?cf<%cH:%cM|%cl:%cM>>>
+%Vl(f,340,1,76,31,3)%Vb(000000)
+%ar%t(4)%?cf<%cH:%cM|%cl:%cM>;%t(4)%ar%bl%%
+%V(426,6,46,22,-)
+%?bp<%xd(Ay)|%?bl<%xd(Al)|%xd(Ak)|%xd(Aj)|%xd(Ai)|%xd(Ah)|%xd(Ag)|%xd(Af)|%xd(Ae)|%xd(Ad)|%xd(Ac)|%xd(Ab)|%xd(Aa)>|%?bp<%?bc<%?bl<%xd(Ax)|%xd(Aw)|%xd(Av)|%xd(Au)|%xd(At)|%xd(As)|%xd(Ar)|%xd(Aq)|%xd(Ap)|%xd(Ao)|%xd(An)|%xd(Am)>|%xd(Ay)>|%?bl<%xd(Al)|%xd(Ak)|%xd(Aj)|%xd(Ai)|%xd(Ah)|%xd(Ag)|%xd(Af)|%xd(Ae)|%xd(Ad)|%xd(Ac)|%xd(Ab)|%xd(Aa)>>>
+###########%Vl(x,0,0,480,360,-)
+
+%Vl(O,0,33,480,327,-)%Vf(770040)
+%Vl(i,12,331,24,24,-)
+%t(0.1)%?mp<%xd(Dc)|%xd(Da)|%xd(Db)|%xd(Dd)|%xd(De)|%xd(Df)|%xd(Dg)|%xd(Dh)|%xd(Di)>;%t(99)%?mp<%xd(Dc)|%xd(Da)|%xd(Db)|%xd(Dd)|%xd(De)|%xd(Df)|%xd(Dg)|%xd(Dh)|%xd(Di)>;
+%Vl(I,12,331,24,24,-)
+%?mp<%xd(Dc)|%xd(Da)|%xd(Db)|%xd(Dd)|%xd(De)|%xd(Df)|%xd(Dg)|%xd(Dh)|%xd(Di)>
+%Vl(i,39,327,397,31,-)
+%s%al%?mp<|%?it<%?ia<%it - %ia|%it>|%?ia<%fn - %ia|%fn>>|%?it<%?ia<%it - %ia|%it>|%?ia<%fn - %ia|%fn>>|Fast Forward|Rewind|Recording|Recording Paused|%?tx<%tf - %ty - %tz|Listening to %tf>|FM Paused>
+%Vl(m,0,33,480,327,-)%Vf(601D3A)
+
+
+
+
+
+
+
+   scroll the
+   clickwheel.
+%Vl(m,258,61,210,52,4)%Vf(FFFFFF)%Vb(000000)
+%ac%?cu<Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday>
+%Vl(m,385,148,60,34,-)%Vf(FF005A)
+%ac%cb
+%Vl(m,385,180,60,31,-)%Vf(FFFFFF)
+%ac%ce
+%Vl(m,258,244,96,103,-)
+%?bp<%xd(Nw)|%?bl<%xd(Nl)|%xd(Nm)|%xd(Nn)|%xd(No)|%xd(Np)|%xd(Nq)|%xd(Nr)|%xd(Ns)|%xd(Nt)|%xd(Nu)|%xd(Nv)>|%?bp<%?bc<%?bl<%xd(Na)|%xd(Nb)|%xd(Nc)|%xd(Nd)|%xd(Ne)|%xd(Nf)|%xd(Ng)|%xd(Nh)|%xd(Ni)|%xd(Nj)|%xd(Nk)>|%xd(Nw)>|%?bl<%xd(Nl)|%xd(Nm)|%xd(Nn)|%xd(No)|%xd(Np)|%xd(Nq)|%xd(Nr)|%xd(Ns)|%xd(Nt)|%xd(Nu)|%xd(Nv)>>>>
+%Vl(m,270,276,72,31,-)%Vf(FFFFFF)%Vb(000000)
+%ac%bl%%
+%Vl(m,265,136,81,81,-)
+%?if(%cl, =, 1)<%?cM<%xd(Qa)|%xd(Qa)|%xd(Qa)|%xd(Qa)|%xd(Qa)|%xd(Qb)|%xd(Qb)|%xd(Qb)|%xd(Qb)|%xd(Qb)|%xd(Qc)|%xd(Qc)|%xd(Qc)|%xd(Qc)|%xd(Qc)|%xd(Qd)|%xd(Qd)|%xd(Qd)|%xd(Qd)|%xd(Qd)|%xd(Qe)|%xd(Qe)|%xd(Qe)|%xd(Qe)|%xd(Qe)|%xd(Qf)|%xd(Qf)|%xd(Qf)|%xd(Qf)|%xd(Qf)|%xd(Qg)|%xd(Qg)|%xd(Qg)|%xd(Qg)|%xd(Qg)|%xd(Qh)|%xd(Qh)|%xd(Qh)|%xd(Qh)|%xd(Qh)|%xd(Qi)|%xd(Qi)|%xd(Qi)|%xd(Qi)|%xd(Qi)|%xd(Qj)|%xd(Qj)|%xd(Qj)|%xd(Qj)|%xd(Qj)|%xd(Qk)|%xd(Qk)|%xd(Qk)|%xd(Qk)|%xd(Qk)|%xd(Ql)|%xd(Ql)|%xd(Ql)|%xd(Ql)|%xd(Ql)>>
+%?if(%cl, =, 2)<%?cM<%xd(Qm)|%xd(Qm)|%xd(Qm)|%xd(Qm)|%xd(Qm)|%xd(Qn)|%xd(Qn)|%xd(Qn)|%xd(Qn)|%xd(Qn)|%xd(Qo)|%xd(Qo)|%xd(Qo)|%xd(Qo)|%xd(Qo)|%xd(Qp)|%xd(Qp)|%xd(Qp)|%xd(Qp)|%xd(Qp)|%xd(Qq)|%xd(Qq)|%xd(Qq)|%xd(Qq)|%xd(Qq)|%xd(Qr)|%xd(Qr)|%xd(Qr)|%xd(Qr)|%xd(Qr)|%xd(Qs)|%xd(Qs)|%xd(Qs)|%xd(Qs)|%xd(Qs)|%xd(Qt)|%xd(Qt)|%xd(Qt)|%xd(Qt)|%xd(Qt)|%xd(Qu)|%xd(Qu)|%xd(Qu)|%xd(Qu)|%xd(Qu)|%xd(Qv)|%xd(Qv)|%xd(Qv)|%xd(Qv)|%xd(Qv)|%xd(Qw)|%xd(Qw)|%xd(Qw)|%xd(Qw)|%xd(Qw)|%xd(Qx)|%xd(Qx)|%xd(Qx)|%xd(Qx)|%xd(Qx)>>
+%?if(%cl, =, 3)<%?cM<%xd(Ra)|%xd(Ra)|%xd(Ra)|%xd(Ra)|%xd(Ra)|%xd(Rb)|%xd(Rb)|%xd(Rb)|%xd(Rb)|%xd(Rb)|%xd(Rc)|%xd(Rc)|%xd(Rc)|%xd(Rc)|%xd(Rc)|%xd(Rd)|%xd(Rd)|%xd(Rd)|%xd(Rd)|%xd(Rd)|%xd(Re)|%xd(Re)|%xd(Re)|%xd(Re)|%xd(Re)|%xd(Rf)|%xd(Rf)|%xd(Rf)|%xd(Rf)|%xd(Rf)|%xd(Rg)|%xd(Rg)|%xd(Rg)|%xd(Rg)|%xd(Rg)|%xd(Rh)|%xd(Rh)|%xd(Rh)|%xd(Rh)|%xd(Rh)|%xd(Ri)|%xd(Ri)|%xd(Ri)|%xd(Ri)|%xd(Ri)|%xd(Rj)|%xd(Rj)|%xd(Rj)|%xd(Rj)|%xd(Rj)|%xd(Rk)|%xd(Rk)|%xd(Rk)|%xd(Rk)|%xd(Rk)|%xd(Rl)|%xd(Rl)|%xd(Rl)|%xd(Rl)|%xd(Rl)>>
+%?if(%cl, =, 4)<%?cM<%xd(Rm)|%xd(Rm)|%xd(Rm)|%xd(Rm)|%xd(Rm)|%xd(Rn)|%xd(Rn)|%xd(Rn)|%xd(Rn)|%xd(Rn)|%xd(Ro)|%xd(Ro)|%xd(Ro)|%xd(Ro)|%xd(Ro)|%xd(Rp)|%xd(Rp)|%xd(Rp)|%xd(Rp)|%xd(Rp)|%xd(Rq)|%xd(Rq)|%xd(Rq)|%xd(Rq)|%xd(Rq)|%xd(Rr)|%xd(Rr)|%xd(Rr)|%xd(Rr)|%xd(Rr)|%xd(Rs)|%xd(Rs)|%xd(Rs)|%xd(Rs)|%xd(Rs)|%xd(Rt)|%xd(Rt)|%xd(Rt)|%xd(Rt)|%xd(Rt)|%xd(Ru)|%xd(Ru)|%xd(Ru)|%xd(Ru)|%xd(Ru)|%xd(Rv)|%xd(Rv)|%xd(Rv)|%xd(Rv)|%xd(Rv)|%xd(Rw)|%xd(Rw)|%xd(Rw)|%xd(Rw)|%xd(Rw)|%xd(Rx)|%xd(Rx)|%xd(Rx)|%xd(Rx)|%xd(Rx)>>
+%?if(%cl, =, 5)<%?cM<%xd(Sa)|%xd(Sa)|%xd(Sa)|%xd(Sa)|%xd(Sa)|%xd(Sb)|%xd(Sb)|%xd(Sb)|%xd(Sb)|%xd(Sb)|%xd(Sc)|%xd(Sc)|%xd(Sc)|%xd(Sc)|%xd(Sc)|%xd(Sd)|%xd(Sd)|%xd(Sd)|%xd(Sd)|%xd(Sd)|%xd(Se)|%xd(Se)|%xd(Se)|%xd(Se)|%xd(Se)|%xd(Sf)|%xd(Sf)|%xd(Sf)|%xd(Sf)|%xd(Sf)|%xd(Sg)|%xd(Sg)|%xd(Sg)|%xd(Sg)|%xd(Sg)|%xd(Sh)|%xd(Sh)|%xd(Sh)|%xd(Sh)|%xd(Sh)|%xd(Si)|%xd(Si)|%xd(Si)|%xd(Si)|%xd(Si)|%xd(Sj)|%xd(Sj)|%xd(Sj)|%xd(Sj)|%xd(Sj)|%xd(Sk)|%xd(Sk)|%xd(Sk)|%xd(Sk)|%xd(Sk)|%xd(Sl)|%xd(Sl)|%xd(Sl)|%xd(Sl)|%xd(Sl)>>
+%?if(%cl, =, 6)<%?cM<%xd(Sm)|%xd(Sm)|%xd(Sm)|%xd(Sm)|%xd(Sm)|%xd(Sn)|%xd(Sn)|%xd(Sn)|%xd(Sn)|%xd(Sn)|%xd(So)|%xd(So)|%xd(So)|%xd(So)|%xd(So)|%xd(Sp)|%xd(Sp)|%xd(Sp)|%xd(Sp)|%xd(Sp)|%xd(Sq)|%xd(Sq)|%xd(Sq)|%xd(Sq)|%xd(Sq)|%xd(Sr)|%xd(Sr)|%xd(Sr)|%xd(Sr)|%xd(Sr)|%xd(Ss)|%xd(Ss)|%xd(Ss)|%xd(Ss)|%xd(Ss)|%xd(St)|%xd(St)|%xd(St)|%xd(St)|%xd(St)|%xd(Su)|%xd(Su)|%xd(Su)|%xd(Su)|%xd(Su)|%xd(Sv)|%xd(Sv)|%xd(Sv)|%xd(Sv)|%xd(Sv)|%xd(Sw)|%xd(Sw)|%xd(Sw)|%xd(Sw)|%xd(Sw)|%xd(Sx)|%xd(Sx)|%xd(Sx)|%xd(Sx)|%xd(Sx)>>
+%?if(%cl, =, 7)<%?cM<%xd(Ta)|%xd(Ta)|%xd(Ta)|%xd(Ta)|%xd(Ta)|%xd(Tb)|%xd(Tb)|%xd(Tb)|%xd(Tb)|%xd(Tb)|%xd(Tc)|%xd(Tc)|%xd(Tc)|%xd(Tc)|%xd(Tc)|%xd(Td)|%xd(Td)|%xd(Td)|%xd(Td)|%xd(Td)|%xd(Te)|%xd(Te)|%xd(Te)|%xd(Te)|%xd(Te)|%xd(Tf)|%xd(Tf)|%xd(Tf)|%xd(Tf)|%xd(Tf)|%xd(Tg)|%xd(Tg)|%xd(Tg)|%xd(Tg)|%xd(Tg)|%xd(Th)|%xd(Th)|%xd(Th)|%xd(Th)|%xd(Th)|%xd(Ti)|%xd(Ti)|%xd(Ti)|%xd(Ti)|%xd(Ti)|%xd(Tj)|%xd(Tj)|%xd(Tj)|%xd(Tj)|%xd(Tj)|%xd(Tk)|%xd(Tk)|%xd(Tk)|%xd(Tk)|%xd(Tk)|%xd(Tl)|%xd(Tl)|%xd(Tl)|%xd(Tl)|%xd(Tl)>>
+%?if(%cl, =, 8)<%?cM<%xd(Tm)|%xd(Tm)|%xd(Tm)|%xd(Tm)|%xd(Tm)|%xd(Tn)|%xd(Tn)|%xd(Tn)|%xd(Tn)|%xd(Tn)|%xd(To)|%xd(To)|%xd(To)|%xd(To)|%xd(To)|%xd(Tp)|%xd(Tp)|%xd(Tp)|%xd(Tp)|%xd(Tp)|%xd(Tq)|%xd(Tq)|%xd(Tq)|%xd(Tq)|%xd(Tq)|%xd(Tr)|%xd(Tr)|%xd(Tr)|%xd(Tr)|%xd(Tr)|%xd(Ts)|%xd(Ts)|%xd(Ts)|%xd(Ts)|%xd(Ts)|%xd(Tt)|%xd(Tt)|%xd(Tt)|%xd(Tt)|%xd(Tt)|%xd(Tu)|%xd(Tu)|%xd(Tu)|%xd(Tu)|%xd(Tu)|%xd(Tv)|%xd(Tv)|%xd(Tv)|%xd(Tv)|%xd(Tv)|%xd(Tw)|%xd(Tw)|%xd(Tw)|%xd(Tw)|%xd(Tw)|%xd(Tx)|%xd(Tx)|%xd(Tx)|%xd(Tx)|%xd(Tx)>>
+%?if(%cl, =, 9)<%?cM<%xd(Ua)|%xd(Ua)|%xd(Ua)|%xd(Ua)|%xd(Ua)|%xd(Ub)|%xd(Ub)|%xd(Ub)|%xd(Ub)|%xd(Ub)|%xd(Uc)|%xd(Uc)|%xd(Uc)|%xd(Uc)|%xd(Uc)|%xd(Ud)|%xd(Ud)|%xd(Ud)|%xd(Ud)|%xd(Ud)|%xd(Ue)|%xd(Ue)|%xd(Ue)|%xd(Ue)|%xd(Ue)|%xd(Uf)|%xd(Uf)|%xd(Uf)|%xd(Uf)|%xd(Uf)|%xd(Ug)|%xd(Ug)|%xd(Ug)|%xd(Ug)|%xd(Ug)|%xd(Uh)|%xd(Uh)|%xd(Uh)|%xd(Uh)|%xd(Uh)|%xd(Ui)|%xd(Ui)|%xd(Ui)|%xd(Ui)|%xd(Ui)|%xd(Uj)|%xd(Uj)|%xd(Uj)|%xd(Uj)|%xd(Uj)|%xd(Uk)|%xd(Uk)|%xd(Uk)|%xd(Uk)|%xd(Uk)|%xd(Ul)|%xd(Ul)|%xd(Ul)|%xd(Ul)|%xd(Ul)>>
+%?if(%cl, =, 10)<%?cM<%xd(Um)|%xd(Um)|%xd(Um)|%xd(Um)|%xd(Um)|%xd(Un)|%xd(Un)|%xd(Un)|%xd(Un)|%xd(Un)|%xd(Uo)|%xd(Uo)|%xd(Uo)|%xd(Uo)|%xd(Uo)|%xd(Up)|%xd(Up)|%xd(Up)|%xd(Up)|%xd(Up)|%xd(Uq)|%xd(Uq)|%xd(Uq)|%xd(Uq)|%xd(Uq)|%xd(Ur)|%xd(Ur)|%xd(Ur)|%xd(Ur)|%xd(Ur)|%xd(Us)|%xd(Us)|%xd(Us)|%xd(Us)|%xd(Us)|%xd(Ut)|%xd(Ut)|%xd(Ut)|%xd(Ut)|%xd(Ut)|%xd(Uu)|%xd(Uu)|%xd(Uu)|%xd(Uu)|%xd(Uu)|%xd(Uv)|%xd(Uv)|%xd(Uv)|%xd(Uv)|%xd(Uv)|%xd(Uw)|%xd(Uw)|%xd(Uw)|%xd(Uw)|%xd(Uw)|%xd(Ux)|%xd(Ux)|%xd(Ux)|%xd(Ux)|%xd(Ux)>>
+%?if(%cl, =, 11)<%?cM<%xd(Va)|%xd(Va)|%xd(Va)|%xd(Va)|%xd(Va)|%xd(Vb)|%xd(Vb)|%xd(Vb)|%xd(Vb)|%xd(Vb)|%xd(Vc)|%xd(Vc)|%xd(Vc)|%xd(Vc)|%xd(Vc)|%xd(Vd)|%xd(Vd)|%xd(Vd)|%xd(Vd)|%xd(Vd)|%xd(Ve)|%xd(Ve)|%xd(Ve)|%xd(Ve)|%xd(Ve)|%xd(Vf)|%xd(Vf)|%xd(Vf)|%xd(Vf)|%xd(Vf)|%xd(Vg)|%xd(Vg)|%xd(Vg)|%xd(Vg)|%xd(Vg)|%xd(Vh)|%xd(Vh)|%xd(Vh)|%xd(Vh)|%xd(Vh)|%xd(Vi)|%xd(Vi)|%xd(Vi)|%xd(Vi)|%xd(Vi)|%xd(Vj)|%xd(Vj)|%xd(Vj)|%xd(Vj)|%xd(Vj)|%xd(Vk)|%xd(Vk)|%xd(Vk)|%xd(Vk)|%xd(Vk)|%xd(Vl)|%xd(Vl)|%xd(Vl)|%xd(Vl)|%xd(Vl)>>
+%?if(%cl, =, 12)<%?cM<%xd(Vm)|%xd(Vm)|%xd(Vm)|%xd(Vm)|%xd(Vm)|%xd(Vn)|%xd(Vn)|%xd(Vn)|%xd(Vn)|%xd(Vn)|%xd(Vo)|%xd(Vo)|%xd(Vo)|%xd(Vo)|%xd(Vo)|%xd(Vp)|%xd(Vp)|%xd(Vp)|%xd(Vp)|%xd(Vp)|%xd(Vq)|%xd(Vq)|%xd(Vq)|%xd(Vq)|%xd(Vq)|%xd(Vr)|%xd(Vr)|%xd(Vr)|%xd(Vr)|%xd(Vr)|%xd(Vs)|%xd(Vs)|%xd(Vs)|%xd(Vs)|%xd(Vs)|%xd(Vt)|%xd(Vt)|%xd(Vt)|%xd(Vt)|%xd(Vt)|%xd(Vu)|%xd(Vu)|%xd(Vu)|%xd(Vu)|%xd(Vu)|%xd(Vv)|%xd(Vv)|%xd(Vv)|%xd(Vv)|%xd(Vv)|%xd(Vw)|%xd(Vw)|%xd(Vw)|%xd(Vw)|%xd(Vw)|%xd(Vx)|%xd(Vx)|%xd(Vx)|%xd(Vx)|%xd(Vx)>>
+%Vl(p,0,0,480,360,-)
+
+%Vl(p,12,54,24,24,3)%Vf(FFFFFF)
+%?mp<%xd(Dc)|%xd(Da)|%xd(Db)|%xd(Dd)|%xd(De)|%xd(Df)|%xd(Dg)|%xd(Dh)|%xd(Di)>
+%Vl(p,39,49,412,31,3)%Vf(FFFFFF)
+%s%al%?mp<Not Playing|%?it<%?ia<%it - %ia|%it>|%?ia<%fn - %ia|%fn>>|%?it<%?ia<%it - %ia|%it>|%?ia<%fn - %ia|%fn>>|Fast Forward|Rewind|Recording|Recording Paused|%?tx<%tf - %ty - %tz|Listening to %tf>|FM Paused>
+%Vl(p,12,91,457,31,-)# PLAYING NEXT TEXT
+Playing Next
+%Vl(p,12,123,457,237,-)# PLAYLIST VIEWER
+%Vp(1, • %?it<%?ia<%it - %ia|%it>|%?ia<%fn - %ia|%fn>>)
+%Vl(l,0,0,480,360,-)
+
+%Vl(l,12,45,300,90,5)%Vf(FFFFFF)%Vb(000000)
+%al%?cf<%cH:%cM|%cl:%cM>
+%Vl(l,12,135,450,60,4)%Vf(FFFFFF)%Vb(000000)
+%al%?cu<Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday>, %ce %?cm<January|February|March|April|May|June|July|August|September|October|November|December>
+%Vl(l,258,244,96,103,-)
+%?bp<%xd(Xw)|%?bl<%xd(Xl)|%xd(Xm)|%xd(Xn)|%xd(Xo)|%xd(Xp)|%xd(Xq)|%xd(Xr)|%xd(Xs)|%xd(Xt)|%xd(Xu)|%xd(Xv)>|%?bp<%?bc<%?bl<%xd(Xa)|%xd(Xb)|%xd(Xc)|%xd(Xd)|%xd(Xe)|%xd(Xf)|%xd(Xg)|%xd(Xh)|%xd(Xi)|%xd(Xj)|%xd(Xk)>|%xd(Xw)>|%?bl<%xd(Xl)|%xd(Xm)|%xd(Xn)|%xd(Xo)|%xd(Xp)|%xd(Xq)|%xd(Xr)|%xd(Xs)|%xd(Xt)|%xd(Xu)|%xd(Xv)>>>>
+%Vl(l,270,276,72,31,-)%Vf(FFFFFF)%Vb(000000)
+%ac%bl%%
+%Vl(q,369,244,96,103,-)
+%Cl(0,0,96,96)
+%Cd
+%?C<%?mh<%Cd%?mp<|%xd(We)|%xd(Wf)||||||>|%Cd%?mp<|%xd(Wa)|%xd(Wb)||||||>>|%?mh<%?mp<|%xd(Wg)|%xd(Wh)||||||>|%?mp<|%xd(Wc)|%xd(Wd)||||||>>>
+%Vl(s,0,33,480,327,-)
+
+%Vl(R,0,33,480,327,-)
+
+%Vl(s,0,33,480,327,-)
+%t(3)%xd(Oa);%t(20)%xd(Ob);%t(37)%xd(Oa); #USB
+%xd(Oa)
+%Vl(s,12,45,300,90,5)%Vf(FFFFFF)%Vb(000000)
+%t(3)%al%?cf<%cH:%cM|%cl:%cM>;%t(20);%t(37)%al%?cf<%cH:%cM|%cl:%cM>; #USB
+%Vl(s,12,135,450,60,4)%Vf(FFFFFF)%Vb(000000)
+%t(3)%al%?cu<Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday>, %ce %?cm<January|February|March|April|May|June|July|August|September|October|November|December>;%t(20);%t(37)%al%?cu<Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday>, %ce %?cm<January|February|March|April|May|June|July|August|September|October|November|December>; #USB
+%Vl(s,258,244,96,103,-)
+%t(3)%?bp<%xd(Xw)|%?bl<%xd(Xl)|%xd(Xm)|%xd(Xn)|%xd(Xo)|%xd(Xp)|%xd(Xq)|%xd(Xr)|%xd(Xs)|%xd(Xt)|%xd(Xu)|%xd(Xv)>|%?bp<%?bc<%?bl<%xd(Xa)|%xd(Xb)|%xd(Xc)|%xd(Xd)|%xd(Xe)|%xd(Xf)|%xd(Xg)|%xd(Xh)|%xd(Xi)|%xd(Xj)|%xd(Xk)>|%xd(Xw)>|%?bl<%xd(Xl)|%xd(Xm)|%xd(Xn)|%xd(Xo)|%xd(Xp)|%xd(Xq)|%xd(Xr)|%xd(Xs)|%xd(Xt)|%xd(Xu)|%xd(Xv)>>>>;%t(20);%t(37)%?bp<%xd(Xw)|%?bl<%xd(Xl)|%xd(Xm)|%xd(Xn)|%xd(Xo)|%xd(Xp)|%xd(Xq)|%xd(Xr)|%xd(Xs)|%xd(Xt)|%xd(Xu)|%xd(Xv)>|%?bp<%?bc<%?bl<%xd(Xa)|%xd(Xb)|%xd(Xc)|%xd(Xd)|%xd(Xe)|%xd(Xf)|%xd(Xg)|%xd(Xh)|%xd(Xi)|%xd(Xj)|%xd(Xk)>|%xd(Xw)>|%?bl<%xd(Xl)|%xd(Xm)|%xd(Xn)|%xd(Xo)|%xd(Xp)|%xd(Xq)|%xd(Xr)|%xd(Xs)|%xd(Xt)|%xd(Xu)|%xd(Xv)>>>>;
+%Vl(s,270,276,72,31,-)%Vf(FFFFFF)%Vb(000000)
+%t(3)%ac%bl%%;%t(20);%t(37)%ac%bl%%; #USB
+%Vl(r,39,304,79,22,2)
+%s%al%?mp<Record|8|7|6|5|Pause|Resume|Pause|2|1|0>
+%Vl(r,165,304,79,22,2)
+%s%al%?mp<Exit|8|7|6|5|Stop|Stop|Stop|Stop|2|1>
+%Vl(r,280,304,79,22,2)
+Adjust
+%Vl(r,384,304,79,22,2)
+%s%al%?mp<Record|8|7|6|5|Split|Split|Split|2|1|0>
+#
+###################################################################
+#                                                                 #
+# CREDITS AT .WPS FILE                                            #
+#                                                                 #
+###################################################################

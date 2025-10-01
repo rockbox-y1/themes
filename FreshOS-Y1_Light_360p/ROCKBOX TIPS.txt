@@ -1,0 +1,54 @@
+
+
+
+  A Few RockBox Tips For You!
+
+===============================================================================================
+
+
+  Essential Controls
+
+
+  Hold MENU to access the "QuickMenu" - Rockbox's "Control Centre"
+
+  Hold SELECT on list item elements to view the Context Menu. You can manage up next here.
+
+  If you want to charge while using the iPod, Hold PLAY as you plug in the connector. 
+  The iPod will just charge and not switch to the USB screen, allowing you to use it while charging.
+
+  On the MAIN MENU, press PLAY to quickly jump to Now Playing.
+
+
+===============================================================================================
+
+
+  FreshOS adds extra functionality to the Hold Switch!
+
+
+- Hold on the [Main Menu] to see a lock screen.
+
+- Hold in the [Files] or [Database] menus to view what's Playing Next (avoid "hovering" over a list item that scrolls).
+
+- Hold on the [While Playing Screen] to view artwork.
+
+
+===============================================================================================
+
+
+  Customisation
+
+
+  Edit Main Menu Order
+  You can edit the main menu list items
+    Head to [Plugins → Applications → main_menu_config.rock]
+    Select a menu item to edit
+    To finish and save, select any menu item and hit [Save and Exit]
+
+
+  Edit QuickScreen Controls
+  You can edit the toggles on the QuickScreen [hold menu to see it]
+    Head to the settings, and [hold Select] on an item with a green switch icon.
+    You can then choose where to put it in the QuickScreen.
+
+
+===============================================================================================

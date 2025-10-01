@@ -1,0 +1,94 @@
+#__Die Bahn
+#__by__Jihoon_Kim_
+#__licence__CC-BY-SA 4.0
+#__version__1.6
+#__2025
+#__target resolution 320x240
+#__tested on Surfans F20
+
+# Draw backdrop (white stripe for bottom info)
+%V(0,0,-,-,-)
+%dr(0,330,-,-)
+
+# Hide the status bar
+%wd
+
+# Font preload
+%Fl(3,22-Pragmatica.fnt)
+%Fl(4,24-Pragmatica-Bold.fnt)
+%Fl(5,27-Pragmatica-Bold.fnt)
+
+# Bitmap preload
+%xl(I,info_icons.bmp,3)
+%xl(PBK,playback_status.bmp,1,2,3)
+%xl(SPK,speaker.bmp)
+
+# Menu title
+%V(15,13,324,27,5)
+%al%s%?Lt<%Lt|%?if(%Sx(Rockbox),=,<ERR>)<Rockbox|%Sx(Rockbox)>>
+
+# Top Info Display Selector
+%?mv(3)<%Vd(volume)|%Vd(infobox)>
+
+# Top Info (Clock, Battery)
+%Vl(infobox,-132,15,120,24,4)
+%t(4)%xd(I)%ar%?cf<%cH|%cl>:%cM%?cf<| %cp>;%t(3)%?bp<%xd(Ic)|%xd(Ib)>%ar%bl%%;%t(2)%?bp<%xd(Ic)%ar%bl%%|%xd(Ib)%ar%bt>
+
+# Top Info (Volume)
+%Vl(volume,-132,15,22,22,-)
+%xd(SPK)
+%Vl(volume,-102,22,90,9,-)
+%pv(0,0,-,5)
+
+# List Viewport definition
+%Vi(-,0,51,480,279,-)
+%Lb(listItem,480,279)
+
+# Previous menu entries
+%Vl(listItem,48,9,-,24,4)
+%?if(%LN,>,3)<%LT(-3)|>
+%Vl(listItem,48,43,-,24,4)
+%?if(%LN,>,2)<%LT(-2)|>
+%Vl(listItem,48,78,-,24,4)
+%?if(%LN,>,1)<%LT(-1)|>
+
+# Previous menu entry ticks
+%Vl(listItem,18,15,12,12,-)
+%?if(%LN,>,3)< %Vs(invert)|>
+%Vl(listItem,18,49,12,12,-)
+%?if(%LN,>,2)< %Vs(invert)|>
+%Vl(listItem,18,85,12,12,-)
+%?if(%LN,>,1)< %Vs(invert)|>
+
+# Next menu entries
+%Vl(listItem,48,172,-,24,4)
+%?LT(1,nowrap)<%LT(1)|>
+%Vl(listItem,48,207,-,24,4)
+%?LT(2,nowrap)<%LT(2)|>
+%Vl(listItem,48,241,-,24,4)
+%?LT(3,nowrap)<%LT(3)|>
+
+# Next menu entry ticks
+%Vl(listItem,18,178,12,12,-)
+%?LT(1,nowrap)< %Vs(invert)|>
+%Vl(listItem,18,213,12,12,-)
+%?LT(2,nowrap)< %Vs(invert)|>
+%Vl(listItem,18,247,12,12,-)
+%?LT(3,nowrap)< %Vs(invert)|>
+
+# Selected menu background
+%Vl(listItem,0,114,480,45,-)
+%dr(0,0,-,-)
+
+# Vertical stripe for previous/next menu entries
+%Vl(listItem,22,0,3,279,-)
+%dr(0,0,-,-)
+
+# Selected menu entry title
+%Vl(listItem,6,123,468,27,5)
+%s      %LT%Vs(invert)
+
+# Bottom information bar
+# Play status, current & next song title
+%V(-,333,-,22,3)
+%s%al %?mp<Stop|Playing: |On Pause: |>%?it<%it|%fn>%?mp<.|%,  %ar%?if(%Sx(Next:),=,<ERR>)<Next:|%Sx(Next:)> %?It<%It|%Fn> >%Vs(invert)
