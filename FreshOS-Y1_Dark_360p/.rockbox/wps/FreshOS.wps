@@ -1,0 +1,105 @@
+######################################################################################################################
+# THEME       : iPodOS                                                                                               #
+# Version     : 1.0 (17 AUG 2020)                                                                                    #
+# TARGET(S)   : Apple iPod Video / Classic (Originally for iPod Nano 1G / 2G)                                        #
+# AUTHOR      : yuuiko (Forum Name)  - Contact: (yyuuiko@icloud.com)                                                 #
+# LICENSE     : CC-BY-SA                                                                                             #
+# COPYRIGHT   : ©c.yu (yuuiko) (2020)                                                                                #
+######################################################################################################################
+%wd
+%X(Backdrop - WPS.bmp)
+%Fl(2,21-SFCompactText-Regular.fnt)
+%xl(w,wpsCornerTL.bmp,0,0)
+%xl(x,wpsCornerTR.bmp,339,0)
+%xl(y,wpsCornerBL.bmp,0,339)
+%xl(z,wpsCornerBR.bmp,339,339)
+%V(120,0,360,360,-)
+%Cl(0,0,360,360)
+%?mh<%Cd%?C<%xd(w)%xd(x)%xd(y)%xd(z)|>|%Cd%?C<%xd(w)%xd(x)%xd(y)%xd(z)|>> #refresh art on Hold
+%?mv(1.0)<|%Cd> #refresh art on Vol
+%?mv(1.0)<%Cd|> #refresh art on Vol
+%?mv(1.0)<%Vd(A)%Vd(D)%Vd(N)|%?C<%?mh<%Vd(H)|%Vd(N)>|%Vd(N)>%Vd(B)> #switch VI
+%Vl(H,109,204,10,117,-)%Vf(000000)#left
+%dr(0,0,-,-)
+%Vl(N,120,214,15,94,-)%Vf(000000)#left
+%dr(0,0,-,-)
+%Vl(N,120,204,303,10,-)%Vf(000000)#top
+%dr(0,0,-,-)
+%Vl(N,120,304,303,12,-)%Vf(000000)#bottom
+%dr(0,0,-,-)
+%Vl(N,423,204,7,112,-)%Vf(000000)#right
+%dr(0,0,-,-)
+%Vl(N,430,205,3,109,-)%Vf(000000)#right
+%dr(0,0,-,-)
+%Vl(N,433,207,1,106,-)%Vf(000000)#right
+%dr(0,0,-,-)
+%Vl(N,435,210,1,100,-)%Vf(000000)#right
+%dr(0,0,-,-)
+%Vl(N,130,211,293,36,-)%Vf(FFFFFF)%Vb(000000)
+%s%aL%?it<%it|%?fn<%fn|Unknown Track>>
+%Vl(N,130,243,293,66,-)%Vb(000000)
+%?in<%s%aL%t(8)%?ia<%ia|Unknown %Sx(Artist)>;%s%aL%t(4)%?in<Track %in|Track N/A>|%s%aL%?ia<%ia|Unknown %Sx(Artist)>>
+%?iy<%s%aL%t(8)%?id<%id|Unknown Album>;%s%aL%t(4)%?iy<%iy|Year N/A>|%s%aL%?id<%id|Unknown Album>>
+%xl(H,fileinfo.bmp,0,0)
+%Vl(D,105,34,15,46,-)
+%xd(H)
+%Vl(D,120,34,54,46,2)%Vf(000000)%Vb(FFFFFF)
+%al%fc
+%al%fb
+%Vl(D,174,36,3,43,-)%Vf(FFFFFF)#right
+%dr(0,0,-,-)
+%Vl(D,177,37,1,40,-)%Vf(FFFFFF)#right
+%dr(0,0,-,-)
+%Vl(D,178,40,1,34,-)%Vf(FFFFFF)#right
+%dr(0,0,-,-)
+%xl(I,wpsProgress.bmp,0,0,20)
+%xl(G,wpsVolume.bmp,0,0,21)
+%V(21,18,78,78,-)
+%?mv(1.0)<%?pv<%xd(Ga)|%xd(Gb)|%xd(Gc)|%xd(Gd)|%xd(Ge)|%xd(Gf)|%xd(Gg)|%xd(Gh)|%xd(Gi)|%xd(Gj)|%xd(Gk)|%xd(Gl)|%xd(Gm)|%xd(Gn)|%xd(Go)|%xd(Gp)|%xd(Gq)|%xd(Gr)|%xd(Gs)|%xd(Gt)|%xd(Gu)>|%?px<%xd(Ia)|%xd(Ib)|%xd(Ic)|%xd(Id)|%xd(Ie)|%xd(If)|%xd(Ig)|%xd(Ih)|%xd(Ii)|%xd(Ij)|%xd(Ik)|%xd(Il)|%xd(Im)|%xd(In)|%xd(Io)|%xd(Ip)|%xd(Iq)|%xd(Ir)|%xd(Is)|%xd(It)>>
+%Vl(B,12,112,96,28,-)%Vf(ff005a)
+%ac%pc
+%Vl(A,12,112,96,28,-)%Vf(74FA9E)
+%ac%pvdb
+%V(12,139,96,28,-)
+%?mv(1.0)<%ac|%ac%pr>
+%V(12,243,96,63,-)
+%?if(%pe, <, 100)<%?if(%pp, <, 10)<%t(5)%ac%pp %Sx(of) %pe;%t(3)%ac%?cf<%cH:%cM|%cl:%cM>;%t(4)%ac%?cf<%cH:%cM|%cl:%cM>|%t(5)%ac%pp;%t(3)%ac%?cf<%cH:%cM|%cl:%cM>;%t(4)%ac%?cf<%cH:%cM|%cl:%cM>>|%t(5)%ac%pp;%t(3)%ac%?cf<%cH:%cM|%cl:%cM>%t(4)%ac%?cf<%cH:%cM|%cl:%cM>>
+%?if(%pe, <, 100)<%?if(%pp, <, 10)<%t(5)   ;%t(3)%ac%ca;%t(4)%ac%cb %ce|%t(5)%ac%pe;%t(3)%ac%ca;%t(4)%ac%cb %ce>|%t(5)%ac%pe;%t(3)%ac%ca;%t(4)%ac%cb %ce>
+%?ps<%Vd(r)|%Vd(R)>
+%?mm<%Vd(S)|%Vd(s)|%Vd(s)|%Vd(s)|%Vd(s)>
+%xl(A,Repeat Icons.bmp,0,0,4)
+%Vl(R,48,195,27,22,-)
+%?mm<|%xd(Aa)|%xd(Ab)|%xd(Ac)|%xd(Ad)>
+%Vl(r,67,195,27,22,-)
+%?mm<|%xd(Aa)|%xd(Ab)|%xd(Ac)|%xd(Ad)>
+%xl(B,Shuffle Icon.bmp,0,0)
+%Vl(S,48,195,27,22,-)
+%?ps<%xd(B)>
+%Vl(s,30,195,27,22,-)
+%?ps<%xd(B)>
+%xl(C,Hold Icon.bmp,0,0)
+%V(6,6,24,24,-)
+%?mh<%xd(C)>
+%xl(D,PlayStatus Icons.bmp,0,0,10)
+%V(49,45,24,24,-)
+%?mv(1.0)<%xd(Dj)|%?mp<%xd(Dc)|%xd(Da)|%xd(Db)|%xd(Dd)|%xd(De)>>
+%?lh<%Vd(W)|%Vd(I)>
+%xl(F,Disk Access Icons.bmp,0,0,6)
+%Vl(W,15,321,24,24,-)
+%?lh<%t(0.1)%xd(Fa);%t(0.1)%xd(Fb);%t(0.1)%xd(Fc);%t(0.1)%xd(Fd);%t(0.1)%xd(Fe);%t(0.1)%xd(Ff)>
+%xl(E,Battery Icons.bmp,0,0,25)
+%Vl(W,57,321,46,22,-)
+###########%?St(usb charging)<%?bp<%xd(Ey)|%?bl<%xd(El)|%xd(Ek)|%xd(Ej)|%xd(Ei)|%xd(Eh)|%xd(Eg)|%xd(Ef)|%xd(Ee)|%xd(Ed)|%xd(Ec)|%xd(Eb)|%xd(Ea)>>|%?bp<%?bc<%?bl<%xd(Ex)|%xd(Ew)|%xd(Ev)|%xd(Eu)|%xd(Et)|%xd(Es)|%xd(Er)|%xd(Eq)|%xd(Ep)|%xd(Eo)|%xd(En)|%xd(Em)>|%xd(Ey)>|%?bl<%xd(El)|%xd(Ek)|%xd(Ej)|%xd(Ei)|%xd(Eh)|%xd(Eg)|%xd(Ef)|%xd(Ee)|%xd(Ed)|%xd(Ec)|%xd(Eb)|%xd(Ea)>>>
+###########%Vl(I,39,321,46,22,-)
+###########%?St(usb charging)<%?bp<%xd(Ey)|%?bl<%xd(El)|%xd(Ek)|%xd(Ej)|%xd(Ei)|%xd(Eh)|%xd(Eg)|%xd(Ef)|%xd(Ee)|%xd(Ed)|%xd(Ec)|%xd(Eb)|%xd(Ea)>>|%?bp<%?bc<%?bl<%xd(Ex)|%xd(Ew)|%xd(Ev)|%xd(Eu)|%xd(Et)|%xd(Es)|%xd(Er)|%xd(Eq)|%xd(Ep)|%xd(Eo)|%xd(En)|%xd(Em)>|%xd(Ey)>|%?bl<%xd(El)|%xd(Ek)|%xd(Ej)|%xd(Ei)|%xd(Eh)|%xd(Eg)|%xd(Ef)|%xd(Ee)|%xd(Ed)|%xd(Ec)|%xd(Eb)|%xd(Ea)>>>
+
+###############################################################
+#                                                             #
+# SPECIAL THANKS:                                             #
+# Rockbox Team: Rockbox.org/                                  #
+# My Patreon supporters! patreon.com/yuuiko                   #
+#                                                             #
+# CREDITS:                                                    #
+#     I pretty much made everything myself *shameless plug*   #
+#                                                             #
+###############################################################
