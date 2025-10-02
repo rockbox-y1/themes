@@ -86,8 +86,6 @@
 #
 #__Track Progress Bar (solid bg + colored fill)
 %V(15,336,450,12,4)     # x,y,w,h, flags=4 → fill bg
-%Vb(ACC64A)            # background color (bar background)
-%Vf(415811)            # foreground color (progress fill)
 %pb(0,0,450,12)         # progress bar fills this viewport
 #
 #__Title/Album Indicator
