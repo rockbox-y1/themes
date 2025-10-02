@@ -51,7 +51,7 @@ def resize_bmp(input_path, output_path, factor, filter_bg, filter_icon):
     width = get_width(input_path)
     bit_depth = get_bit_depth(input_path)
     magick_filter = "Point"
-    os.system(f"mkdir -p {'/'.join(str(output_path).split('/')[:-1])}")
+    os.system(f"mkdir -p \"{'/'.join(str(output_path).split('/')[:-1])}\"")
     if bit_depth != 1:
         if width <= 32:
             os.system(f"magick '{input_path}' -filter Point -resize {int(factor[0]*100)}% '{output_path}'")
