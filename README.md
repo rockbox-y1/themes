@@ -20,6 +20,7 @@ Noted authors are only noted for the most recent edits, for more details see the
 - Orbit: Chris Soffke
 - PodOne: Guillaume Cocatre-Zilgien
 - PodTwo: Guillaume Cocatre-Zilgien
+- SNARTY: Simon Andén
 - SNAZZ: Jihoon Kim
 - SNAZZ2: Jihoon Kim
 - SNAZZ3: Vera B
