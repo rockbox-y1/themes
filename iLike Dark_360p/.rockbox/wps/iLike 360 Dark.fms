@@ -1,0 +1,52 @@
+#iLike 360 Dark Theme for 480x360
+#By: Alan Brito, modified by elinks59
+#Ported from the 176x132 version by Hayden Pearce
+#Licensed CC-BY-SA 3.0
+%wd
+%X(iLike 360 Dark Backdropw.bmp)
+%Fl(2,27-Adobe-Helvetica-Bold.fnt)
+%xl(A,AA Bottom.bmp,16,235)
+%xl(B,AA Left.bmp,16,91)
+%xl(C,AA Right.bmp,166,91)
+%xl(D,Battery Icon.bmp,0,0,26)
+%xl(E,Disk Access.bmp,0,0,6)
+%xl(F,Hold Icon.bmp,0,0)
+%xl(G,Playmode Icon.bmp,0,0,4)
+%xl(H,Stereo Icon.bmp,0,0)
+%xl(I,Volume Left.bmp,18,270)
+%xl(J,Volume Right.bmp,424,270)
+%xl(K,Volumebar Shadow Left.bmp,43,295)
+%xl(L,Volumebar Shadow Right.bmp,417,295)
+%xl(M,Radio Icon.bmp,0,0)
+%?lh<%Vd(a)|%Vd(b)>
+%xd(A)%xd(B)%xd(C)
+%?mv(2.0)<%Vd(g)%xd(I)%xd(J)%xd(K)%xd(L)|%Vd(e)%Vd(f)>
+%V(429,9,37,18,-)%Vf(000000)%Vb(FFFFFF)
+%?bp<%?bc<%t(1.0)%xd(Da);%t(1.0)%xd(Db)|%xd(Dc)>|%?bl<%xd(Dd)|%xd(Dd)|%xd(De)|%xd(Df)|%xd(Dg)|%xd(Dh)|%xd(Di)|%xd(Dj)|%xd(Dk)|%xd(Dl)|%xd(Dm)|%xd(Dn)|%xd(Do)|%xd(Dp)|%xd(Dq)|%xd(Dr)|%xd(Ds)|%xd(Dt)|%xd(Du)|%xd(Dv)|%xd(Dw)|%xd(Dx)|%xd(Dy)|%xd(Dz)>>
+%Vl(a,18,6,24,24,-)%Vf(000000)%Vb(FFFFFF)
+%t(0.1)%xd(Ea);%t(0.1)%xd(Eb);%t(0.1)%xd(Ec);%t(0.1)%xd(Ed);%t(0.1)%xd(Ee);%t(0.1)%xd(Ef)
+%V(54,7,15,19,-)%Vf(000000)%Vb(FFFFFF)
+%?mh<%xd(F)|%?mr<%xd(F)>>
+%Vl(b,16,6,27,22,-)%Vf(000000)%Vb(FFFFFF)
+%?mp<|||||||%xd(Ga)|%xd(Gb)>
+%ax%V(22,51,240,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%al%?tm<%Sx(Scan)|%?Sr<%Tc %Sx(of) %Ti %Sx(Preset)|%Sx(Preset) %Ti %Sx(of) %Tc>>
+%ax%V(22,91,144,144,-)%Vf(000000)%Vb(FFFFFF)
+%Cl(0,0,144,144,c,c)
+%?C<%Cd|%xd(M)>
+%ax%V(180,105,285,27,2)%Vf(000000)%Vb(FFFFFF)
+%al%tf Mhz
+%Vl(g,43,273,381,22,-)%Vf(000000)%Vb(FFFFFF)
+%pv(0,0,254,15,Volumebar.bmp)
+%ax%V(180,150,285,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%al%?Tn<%Tn|%?ty<%ty|>>
+%ax%V(180,195,285,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%al%?tz<%tz|%?tt<Tuned|tune>>
+%V(75,6,330,27,2)%Vf(000000)%Vb(FFFFFF)
+%s%ac%t(10.0)%?bp<%?bc<Charging|Charged>|%Sx(FM Radio)>;%t(10.0)%ac%?cf<%cH:%cM|%cl:%cM %cP>
+%ax%V(421,54,25,21,-)%Vf(000000)%Vb(FFFFFF)
+%?ts<%xd(H)|>
+%Vl(e,30,273,420,22,-)%Vf(000000)%Vb(FFFFFF)
+%pb(0,0,420,22,Progress Bar.bmp)
+%Vl(f,30,309,420,27,2)%Vf(000000)%Vb(FFFFFF)
+%al%ta%ar%tb

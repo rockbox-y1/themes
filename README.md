@@ -12,6 +12,7 @@ Noted authors are only noted for the most recent edits, for more details see the
 - iClassic\_Dark-MOD: u/CarlosPixel\_
 - iClassic\_Square\_Reworked: u/CarlosPixel\_
 - iLike: u/elinks59
+- iLike 360 Dark: u/elinks59
 - iMMXX: FCorp
 - InfoMatrix: yuuiko
 - Interpod: Christian Soffke
