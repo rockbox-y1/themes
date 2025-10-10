@@ -2,6 +2,10 @@
 #By: Alan Brito, modified by elinks59
 #Ported from the 176x132 version by Hayden Pearce
 #Licensed CC-BY-SA 3.0
+#
+#             480x360 Port:
+#              u/elinks59
+
 %wd
 %X(iLike 360 Dark BackdropW.bmp)
 %Fl(2,27-Adobe-Helvetica-Bold.fnt)

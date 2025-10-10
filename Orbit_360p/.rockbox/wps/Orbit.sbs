@@ -14,6 +14,9 @@
 #           inspired by Jihoon Kim's
 #                   Horizon
 #
+#             480x360 Port:
+#    https://github.com/rockbox-y1 2025
+
 %Fl(3,22-Inter-Bold.fnt)
 %Fl(8,30-Inter-SemiBold.fnt)
 #

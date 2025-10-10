@@ -5,6 +5,8 @@
 #__2025
 #__target resolution 320x240
 #__tested on Surfans F20
+#             480x360 Port:
+#    https://github.com/rockbox-y1 2025
 
 # Draw backdrop (white stripe for bottom info)
 %V(0,0,-,-,-)
