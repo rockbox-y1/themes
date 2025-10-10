@@ -7,6 +7,9 @@
 #__target resolution 320x240
 #__tested on Surfans F20
 #
+#             480x360 Port:
+#    https://github.com/rockbox-y1 2025
+
 %wd
 %Fl(3,27-Cantarell-Regular.fnt)
 %Fl(4,27-Cantarell-Bold.fnt)

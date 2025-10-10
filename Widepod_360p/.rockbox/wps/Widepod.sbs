@@ -12,6 +12,8 @@
 # │   2024-03-24                                                 CC-BY-SA   │
 # │                                                                         │
 # └─────────────────────────────────────────────────────────────────────────┘
+#             480x360 Port:
+#    https://github.com/rockbox-y1 2025
 #
 #	Load needed fonts
 %Fl(3,22-Inter-Bold.fnt)
