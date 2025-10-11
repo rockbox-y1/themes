@@ -9,8 +9,8 @@ Noted authors are only noted for the most recent edits, for more details see the
 - FreshOS-Y1\_Light: u/elinks59
 - Horizon: Jihoon Kim
 - iClassic\_v1.2: Humberto Santana
-- iClassic\_Dark-MOD: u/CarlosPixel\_
-- iClassic\_Square\_Reworked: u/CarlosPixel\_
+- iClassic\_v1.3: u/CarlosPixel\_
+- iClassic\_v1.3_Dark: u/CarlosPixel\_
 - iLike: u/elinks59
 - iLike 360 Dark: u/elinks59
 - iMMXX: FCorp
