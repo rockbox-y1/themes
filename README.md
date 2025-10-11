@@ -27,4 +27,5 @@ Noted authors are only noted for the most recent edits, for more details see the
 - SNAZZ3: Vera B
 - SNAZZx90: DillMillz
 - SPAZZ: CHUCK\_LARDO
+- Themify: Dook
 - Widepod: Christian Soffke
