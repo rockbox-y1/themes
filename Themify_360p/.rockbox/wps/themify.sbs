@@ -57,6 +57,12 @@
 %?mh<|%dr(0,6,16,24)>
 %?mh<|%dr(41,6,8,24)>
 %?mh<|%dr(48,6,83,2)>
+
+# %?mh<|%dr(x,y,x_width,y_width)>
+
+%?mh<|%dr(15,1,5,35)>
+%?mh<|%dr(130,1,5,35)>
+%?mh<|%dr(48,28,83,2)>
 %?mh<|%dr(131,6,265,24)>
 %?mh<|%dr(414,6,9,24)>
 %?mh<|%dr(441,6,9,24)>
@@ -152,10 +158,10 @@
 %Vl(Quickscreen,319,45,18,21,-)
 %xd(QuickLock,%mh)
 #
-%Vl(Quickscreen,327,19,75,24,-)
+%Vl(Quickscreen,326,19,75,24,-)
 %?bp<%xd(ChargingIcon,%bl)|%xd(BatteryIcon,%bl)>
 #
-%Vl(Quickscreen,402,22,51,21,4)%Vb(-)%Vf(-)%Vs(invert)
+%Vl(Quickscreen,401,22,51,21,4)%Vb(-)%Vf(-)%Vs(invert)
 %?or(%if(%bl, <, 22),%if(%bl, =, 31),%if(%bl, =, 41),%if(%bl, =, 51),%if(%bl, =, 61),%if(%bl, =, 71),%if(%bl, =, 81),%if(%bl, =, 91))<%ac|%al>%?if(%bl, =, 100)<CGD|%bl%%>
 #
 %Vl(Quickscreen,369,64,90,237,-)

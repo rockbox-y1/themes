@@ -22,7 +22,7 @@
 %xl(TRalbumOverlay,overlay01.bmp,216,0)
 %xl(MRalbumOverlay,overlay02.bmp,216,225)
 %xl(BRalbumOverlay,overlay03.bmp,216,298)
-%xl(statusbackground,statuspill.bmp,379,20)
+%xl(statusbackground,statuspill.bmp,380,20)
 %xl(statusextra,extrastatuspill.bmp,272,20,3)
 %xl(playbackground,playbackdrop.bmp,288,210)
 %xl(sliderback,playersliderback.bmp)
@@ -49,11 +49,14 @@
 %xd(playbackground)
 #
 #Draws the Status background around the icons.
+#%dr(x,y,x_width,y_width)
+#%dr(412,20,10,100)
 %dr(400,20,79,10)
-%dr(400,54,79,10)
+%dr(400,54,79,11)
 %dr(469,30,10,24)
 %dr(438,30,10,24)
-%dr(412,30,7,24)
+%dr(412,30,10,24)
+%dr(479,20,20,45)
 #
 %?C<|%xd(MusicIcon)>
 #Background progress bar
