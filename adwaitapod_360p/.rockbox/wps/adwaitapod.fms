@@ -1,0 +1,154 @@
+#
+#
+#                              $?$?$?$?$∙
+#                              ?$?$?$?'
+#                              $?$?$'
+#                              ?$?'
+#                              $'
+#               '08080808080808∙:.:.:.;
+#                '0808080808080 ':.:.:.
+#                  '80808080808   '.:.;
+#                    '080808080     ':.
+#                      '8080808       `
+#                        '08080      
+#                          '808
+#                            '0
+#
+#                   adwaitapod - version 3.4
+#                         Dook  2023
+#                          CC-BY-SA
+#
+#                      changelog v3.0:
+#  Full Rebuild and Redesign. New Quickscreen, Lockscreen and Miniplayer. 
+#  Improved RAM usage, reduced total filesize. Added User Preference Settings,
+#  Always on Display, Homescreen Widgets and theme info in system.
+#
+#  (v) Check the wiki to find out more about extra Wallpapers & Fonts (v)
+#                     https://d00k.net/adw
+#-------------------------------------------------------------------  
+%wd
+%Fl(3,28-SF-Pro-Display-Regular.fnt)
+%Fl(4,18-Cantarell-Bold.fnt)
+%Fl(5,20-Cantarell-Regular.fnt)
+%Fl(6,20-Cantarell-Bold.fnt)
+%Fl(7,66-Cantarell-Light.fnt,16)
+#-- Icons --#
+%xl(PlayIcon,PlayStatus.bmp,13)
+%xl(HoldIcon,HoldStatus.bmp,3,1)
+%xl(SleepIcon,SleepStatus.bmp,3,1)
+%xl(SleepIconDark,SleepStatusDark.bmp,3,1)
+%xl(L,LoadingStatus.bmp,18)
+%xl(I,LoadingStatusDark.bmp,18)
+%xl(BatteryIcon,BatteryStatus.bmp,18)
+%xl(ChargingIcon,ChargeStatus.bmp,16)
+%xl(BatteryIconDark,BatteryStatusDark.bmp,18)
+%xl(ChargingIconDark,ChargeStatusDark.bmp,16)
+%xl(BatteryIconAOD,BatteryStatusAOD.bmp,18)
+%xl(ChargingIconAOD,ChargeStatusAOD.bmp,16)
+#--- Player Elements ---#
+%xl(PlayerSlider,PlayerSlider.bmp)
+%xl(SliderBackdrop,SliderBackdrop.bmp)
+%xl(TLoverlay,WpsTL.bmp)
+%xl(TRoverlay,WpsTR.bmp,177,0)
+%xl(BLoverlay,WpsBL.bmp,0,177)
+%xl(BRoverlay,WpsBR.bmp,177,177)
+%xl(BackdropL,FmsBackdropL.bmp,121,0)
+%xl(BackdropR,FmsBackdropR.bmp,334,0)
+%xl(BackdropT,FmsBackdropT.bmp,145,0)
+%xl(BackdropB,FmsBackdropB.bmp,145,198)
+#--- Background assets ---#
+%xl(RadioFallback,RadioFallback.bmp,145,9)
+%xl(ButtonL,RadioButtonLeft.bmp,9,322)
+%xl(ButtonR,RadioButtonRight.bmp,373,322)
+#-- Volume Slider Overlay --#
+%xl(VolumeBackdrop,VolumeBackdrop.bmp)
+%xl(VolumeIcons,VolumePromptIcons.bmp,6)
+%xl(VolumeSliderBackdrop,VolumeSliderBackdrop.bmp)
+%xl(VolumeSliderEnd,VolumeSliderEnd.bmp)
+#--- Lockscreen Images ---#
+%xl(Lockscreen,Wallpaper.bmp)
+%xl(LockPlayIcon,NotifPlayIcon.bmp,3)
+%xl(NotificationMusic,NotifMusic.bmp,21,18)
+%xl(NotificationBackdrop,Notification.bmp,24,225)
+#
+#------------ Background Layer ------------#
+%V(0,0,-,-,-)%VB
+%Cl(145,9,189,189)
+# Logic order: Lockscreen Preference -> Lockscreen Style Preference -> Album Art logic
+%?if(%St(battery display), =, graphic)<%?mh<%?if(%St(backlight on button hold), =, off)<%dr(0,0,-,-,ffffff)|%xd(Lockscreen)%?mp<|%xd(NotificationBackdrop)>>|%Cd>|%Cd>
+#
+%?if(%St(battery display), =, graphic)<%?mh<|%?C<%xd(BackdropL)%xd(BackdropR)%xd(BackdropT)%xd(BackdropB)|%xd(RadioFallback)>%dr(0,273,-,1,dcdcdc)%xd(ButtonL)%xd(ButtonR)>|%?C<%xd(BackdropL)%xd(BackdropR)%xd(BackdropT)%xd(BackdropB)|%xd(RadioFallback)>%dr(0,273,-,1,dcdcdc)%xd(ButtonL)%xd(ButtonR)>
+#
+#------------ Foreground Layer ------------#
+%V(0,0,-,-,-)
+#
+%?if(%St(battery display), =, graphic)<%?if(%St(backlight on button hold), !=, off)<%?mh<%Vd(Lockscreen)>>>
+%?if(%St(battery display), =, graphic)<%?if(%St(backlight on button hold), =, off)<%?mh<%Vd(AlwaysOnDisplay)>>>
+#-- Refresh Song info after volume pop-up --#
+%?if(%St(battery display), =, graphic)<%?mh<|%Vd(Player)%?mv(1.5)<%Vd(info)|%Vd(info)>>|%Vd(Player)%?mv(1.5)<%Vd(info)|%Vd(info)>>
+#
+#-- Icon Stuff --#
+%Vl(Player,36,6,24,24,-)%?mh<%xd(HoldIcon,%mh)|%xd(SleepIcon,%bs)>
+%Vl(Player,66,6,24,24,-)%?mh<%xd(SleepIcon,%bs)|>
+%Vl(Player,6,6,24,24,-)%xd(PlayIcon,%mp)
+%Vl(Player,454,6,21,24,-)%?bp<%xd(ChargingIcon,%bl)|%xd(BatteryIcon,%bl)>
+#
+%Vl(Player,424,6,24,24,-)
+%?lh<%t(0.1)%xd(La);%t(0.1)%xd(Lb);%t(0.1)%xd(Lc);%t(0.1)%xd(Ld);%t(0.1)%xd(Le);%t(0.1)%xd(Lf);%t(0.1)%xd(Lg);%t(0.1)%xd(Lh);%t(0.1)%xd(Li);%t(0.1)%xd(Lj);%t(0.1)%xd(Lk);%t(0.1)%xd(Ll)>
+#
+%Vl(Player,145,9,189,189,-)
+# If Set to Numerical, turn off rounded corners #
+%?if(%St(volume display), =, graphic)<%?C<%xd(TLoverlay)%xd(TRoverlay)%xd(BLoverlay)%xd(BRoverlay)>>
+#
+%Vl(Player,15,204,-15,42,6)%ac%s%?tm<%?tx<%ty|FM Radio>|%Tn>
+%Vl(Player,15,235,-15,31,5)%ac%s%?tx<%tz|adwaitapod>
+#
+%Vl(Player,13,322,88,30,4)
+%s%ac%?ts<%Sx(Stereo)|%Sx(Mono)>
+%Vl(Player,378,322,88,30,4)
+%s%ac%?tm<%Sx(Scan)|%Sx(Preset)>
+%Vl(Player,58,288,363,21,-)
+%pb(0,0,363,21,Slider.bmp,slider,PlayerSlider,backdrop,SliderBackdrop)
+%Vl(info,150,321,180,37,6)
+%ac%tf MHz
+#
+#--- Volume Overlay ---#
+%?mv(1.2)<%Vd(volume)|>
+%Vl(volume,105,277,270,67,-)%xd(VolumeBackdrop)
+%Vl(volume,126,295,36,31,-)
+%?if(%pv, =, -90)<%xd(VolumeIcons,1)>%?and(%if(%pv, <=, -60),%if(%pv, >, -90))<%xd(VolumeIcons,2)>%?and(%if(%pv, <=, -30),%if(%pv, >, -60))<%xd(VolumeIcons,3)>%?if(%pv, >, -30)<%xd(VolumeIcons,4)>
+%Vl(volume,174,307,175,7,-)
+%?if(%pv, =, -90)<%xd(VolumeSliderBackdrop)|%pv(0,0,117,5,VolumeSlider.bmp,slider,VolumeSliderEnd,backdrop,VolumeSliderBackdrop)>
+#
+#------------ Lockscreen Layer ------------#
+%Vl(Lockscreen,0,0,-,-,-)
+%Vl(LockRefresh,6,45,262,310,-)
+%Vl(Lockscreen,6,6,24,24,-)%xd(SleepIconDark,%bs)
+%Vl(Lockscreen,454,6,21,24,-)%?bp<%xd(ChargingIconDark,%bl)|%xd(BatteryIconDark,%bl)>
+%Vl(Lockscreen,424,6,24,24,-)
+%?lh<%t(0.1)%xd(Ia);%t(0.1)%xd(Ib);%t(0.1)%xd(Ic);%t(0.1)%xd(Id);%t(0.1)%xd(Ie);%t(0.1)%xd(If);%t(0.1)%xd(Ig);%t(0.1)%xd(Ih);%t(0.1)%xd(Ii);%t(0.1)%xd(Ij);%t(0.1)%xd(Ik);%t(0.1)%xd(Il)>
+#
+%Vl(Lockscreen,0,48,-,82,7)%Vf(ffffff)%ac%?cf<%cH:%cM|%cl:%cM %cP>
+%Vl(Lockscreen,0,151,-,30,3)%Vf(ffffff)%ac%?if(%ss(0,7,%St(lang)), =, english)<%?cu<Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday>|%ca> %?or(%if(%ss(0,7,%St(lang)), =, chinese),%if(%St(lang), =, magyar),%if(%St(lang), =, lietuviu),%if(%St(lang), =, japanese),%if(%St(lang), =, korean))<%cb %cd|%?if(%St(lang), =, english-us)<%cb %cd|%cd %cb>>
+#
+#---Notification---#
+%Vl(Lockscreen,24,225,432,112,-)%xd(NotificationMusic)
+%Vl(Lockscreen,391,270,18,21,-)%?mp<|||||||%xd(LockPlayIcon,1)|%xd(LockPlayIcon,2)>
+%Vl(Lockscreen,139,244,237,30,4)%Vf(ffffff)%al%s%?tm<%?tx<%ty|FM Radio>|%Tn>
+%Vl(Lockscreen,139,274,237,33,3)%Vf(ffffff)%al%s%?tx<%tz|adwaitapod>
+#
+#------------ Always on Display ------------#
+%Vl(AlwaysOnDisplay,0,0,-,-,-)
+%Vl(AlwaysOnDisplay,6,6,24,24,-)%xd(SleepIcon,%bs)
+%Vl(AlwaysOnDisplay,396,6,21,24,-)%?bp<%xd(ChargingIconAOD,%bl)|%xd(BatteryIconAOD,%bl)>
+%Vl(AlwaysOnDisplay,420,4,54,25,4)%Vf(000000)
+%?or(%if(%bl, <, 22),%if(%bl, =, 31),%if(%bl, =, 41),%if(%bl, =, 51),%if(%bl, =, 61),%if(%bl, =, 71),%if(%bl, =, 81),%if(%bl, =, 91))<%ac|%al>%?if(%bl, =, 100)<CGD|%bl%%>
+#
+%Vl(AlwaysOnDisplay,366,6,24,24,-)
+%?lh<%t(0.1)%xd(La);%t(0.1)%xd(Lb);%t(0.1)%xd(Lc);%t(0.1)%xd(Ld);%t(0.1)%xd(Le);%t(0.1)%xd(Lf);%t(0.1)%xd(Lg);%t(0.1)%xd(Lh);%t(0.1)%xd(Li);%t(0.1)%xd(Lj);%t(0.1)%xd(Lk);%t(0.1)%xd(Ll)>
+#
+%Vl(AlwaysOnDisplay,0,48,-,82,7)%Vf(000000)%ac%?cf<%cH:%cM|%cl:%cM %cP>
+%Vl(AlwaysOnDisplay,0,151,-,30,3)%Vf(000000)%ac%?if(%ss(0,7,%St(lang)), =, english)<%?cu<Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday>|%ca> %?or(%if(%ss(0,7,%St(lang)), =, chinese),%if(%St(lang), =, magyar),%if(%St(lang), =, lietuviu),%if(%St(lang), =, japanese),%if(%St(lang), =, korean))<%cb %cd|%?if(%St(lang), =, english-us)<%cb %cd|%cd %cb>>
+#
+%Vl(AlwaysOnDisplay,15,244,-15,30,4)%Vf(000000)%ac%s%?tm<%?tx<%ty|FM Radio>|%Tn>
+%Vl(AlwaysOnDisplay,15,274,-15,33,3)%Vf(000000)%ac%s%?tx<%tz|adwaitapod>
