@@ -1,0 +1,160 @@
+#
+#
+#                              $?$?$?$?$∙
+#                              ?$?$?$?'
+#                              $?$?$'
+#                              ?$?'
+#                              $'
+#               '08080808080808∙:.:.:.;
+#                '0808080808080 ':.:.:.
+#                  '80808080808   '.:.;
+#                    '080808080     ':.
+#                      '8080808       `
+#                        '08080      
+#                          '0808
+#               
+#              '0
+#
+#                   adwaitapod - version 3.4
+#                         Dook  2023
+#                          CC-BY-SA
+#
+#            
+#           changelog v3.0:
+#  Full Rebuild and Redesign.
+#  New Quickscreen, Lockscreen and Miniplayer.
+#  Improved RAM usage, reduced total filesize.
+#  Added User Preference Settings,
+#  Always on Display, Homescreen Widgets and theme info in system.
+#
+#                         480x360 Port:
+#           https://github.com/davidcharles283-collab 2025
+#               Scaled fonts + Fixed list item corners:
+#                  https://github.com/rockbox-y1 2025
+#
+#  (v) Check the wiki to find out more about extra Wallpapers & Fonts (v)
+#                     https://d00k.net/adw
+#-------------------------------------------------------------------  
+%wd
+%Fl(3,20-Cantarell-Regular.fnt,11)
+%Fl(4,27-Cantarell-Regular.fnt)
+%Fl(5,27-Cantarell-Bold.fnt)
+%Fl(6,30-Cantarell-Regular.fnt)
+%Fl(7,30-Cantarell-Bold.fnt)
+%Fl(8,99-Cantarell-Regular.fnt,16)
+#-- Icons --#
+%xl(PlayIcon,PlayStatus.bmp,9)
+%xl(SleepIcon,SleepStatus.bmp,2,1)
+%xl(L,LoadingStatus.bmp,12)
+%xl(BatteryIcon,BatteryStatus.bmp,12)
+%xl(ChargingIcon,ChargeStatus.bmp,11)
+%xl(ShuffleIcon,ShuffleStatus.bmp,2)
+%xl(RepeatIcon,RepeatStatus.bmp,5)
+%xl(LosslessIcon,LosslessIcon.bmp)
+%xl(ExplicitIcon,ExplicitIcon.bmp)
+#-- Playtime Slider --#
+%xl(PlayerSlider,PlayerSlider.bmp)
+%xl(SliderBackdrop3Digits,SliderBackdrop.bmp)
+%xl(SliderBackdrop4Digits,SliderBackdrop4Digits.bmp)
+%xl(SliderBackdrop5Digits,SliderBackdrop5Digits.bmp)
+%xl(SliderBackdrop6Digits,SliderBackdrop6Digits.bmp)
+#-- Album Art --#
+%xl(TLoverlay,WpsTL.bmp)
+%xl(TRoverlay,WpsTR.bmp,207,0)
+%xl(BLoverlay,WpsBL.bmp,0,207)
+%xl(BRoverlay,WpsBR.bmp,207,207)
+%xl(BackdropL,WpsBackdropL.bmp,103,0)
+%xl(BackdropR,WpsBackdropR.bmp,349,0)
+%xl(BackdropT,WpsBackdropT.bmp,130,0)
+%xl(BackdropB,WpsBackdropB.bmp,130,228)
+%xl(PlayerFallback,PlayerFallback.bmp,130,9)
+#-- Volume Slider Overlay --#
+%xl(VolumeBackdrop,VolumeBackdrop.bmp)
+%xl(VolumeIcons,VolumePromptIcons.bmp,4)
+%xl(VolumeSliderBackdrop,VolumeSliderBackdrop.bmp)
+%xl(VolumeSliderEnd,VolumeSliderEnd.bmp)
+#
+#------------ Background Layer ------------#
+%V(0,0,-,-,-)%VB
+%Cl(130,9,219,219)
+%?if(%St(battery display), =, graphic)<%dr(0,295,-,1,4a494a)%Cd%?C<%xd(BackdropL)%xd(BackdropR)%xd(BackdropT)%xd(BackdropB)|%xd(PlayerFallback)>>
+#
+#------------ Foreground Layer ------------#
+%V(0,0,-,-,-)
+#-- Refresh Song info after volume pop-up --#
+%?if(%St(battery display), =, graphic)<%Vd(Player)%?mv(1.5)<%Vd(info)|%Vd(info)>>
+#-- Choose the right sized slider based on the total playtime --#
+%?if(%St(battery display), =, graphic)<%?if(%pt, >=, 36000)<%Vd(Playtime6Digits)|%?if(%pt, >=, 3600)<%Vd(Playtime5Digits)|%?if(%pt, >=, 600)<%Vd(Playtime4Digits)|%Vd(Playtime3Digits)>>>>
+#
+#-- Icon Stuff --#
+%Vl(Player,36,6,24,24,-)%xd(SleepIcon,%bs)
+%Vl(Player,6,6,24,24,-)%xd(PlayIcon,%mp)
+%Vl(Player,454,6,21,24,-)%?bp<%xd(ChargingIcon,%bl)|%xd(BatteryIcon,%bl)>
+#
+%Vl(Player,424,6,24,24,-)
+%?lh<%t(0.1)%xd(La);%t(0.1)%xd(Lb);%t(0.1)%xd(Lc);%t(0.1)%xd(Ld);%t(0.1)%xd(Le);%t(0.1)%xd(Lf);%t(0.1)%xd(Lg);%t(0.1)%xd(Lh);%t(0.1)%xd(Li);%t(0.1)%xd(Lj);%t(0.1)%xd(Lk);%t(0.1)%xd(Ll)>
+#
+#-- Album Art --#
+%Vl(Player,130,9,219,219,-)
+# If Set to Numerical, turn off rounded corners #
+%?if(%St(volume display), =, graphic)<%?C<%xd(TLoverlay)%xd(TRoverlay)%xd(BLoverlay)%xd(BRoverlay)>>
+#
+#-- Song Info --#
+%Vl(Player,15,228,-15,42,7)
+%s%ac%?it<%it|%fn>
+#
+#-- Toggle the Secondary info according to user preference --#
+%Vl(info,15,259,-15,31,6)
+%s%ac%?it<%?if(%St(statusbar), =,off)<%t(6)%ia;%t(6)%id;%t(0)>%?if(%St(statusbar), =,top)<%id>%?if(%St(statusbar), =,bottom)<%ia>|%d(1)>
+#
+%Vl(Player,15,331,24,21,-)%xd(ShuffleIcon,%ps)
+%Vl(Player,441,330,25,24,-)%xd(RepeatIcon,%mm)
+#
+# If playtime is too large, pick a smaller slider size #
+%Vl(Playtime3Digits,3,301,48,24,3)
+%ar%pc
+%Vl(Playtime3Digits,58,304,363,21,-)
+%pb(0,0,363,21,Slider.bmp,slider,PlayerSlider,backdrop,SliderBackdrop3Digits)
+%Vl(Playtime3Digits,429,301,48,24,3)
+%al%pt
+#
+%Vl(Playtime4Digits,3,301,60,24,3)
+%ar%pc
+%Vl(Playtime4Digits,70,304,339,21,-)
+%pb(0,0,339,21,Slider.bmp,slider,PlayerSlider,backdrop,SliderBackdrop4Digits)
+%Vl(Playtime4Digits,417,301,60,24,3)
+%al%pt
+#
+%Vl(Playtime5Digits,3,301,79,24,3)
+%ar%pc
+%Vl(Playtime5Digits,90,304,300,21,-)
+%pb(0,0,300,21,Slider.bmp,slider,PlayerSlider,backdrop,SliderBackdrop5Digits)
+%Vl(Playtime5Digits,397,301,79,24,3)
+%al%pt
+#
+%Vl(Playtime6Digits,3,301,91,24,3)
+%ar%pc
+%Vl(Playtime6Digits,102,304,276,21,-)
+%pb(0,0,276,21,Slider.bmp,slider,PlayerSlider,backdrop,SliderBackdrop6Digits)
+%Vl(Playtime6Digits,385,301,91,24,3)
+%al%pt
+#
+%Vl(info,358,204,24,24,-)
+%?or(%if(%fc, =, 4),%if(%fc, =, 5),%if(%fc, =, 7),%if(%fc, =, 11),%if(%fc, =, 13))<%xd(LosslessIcon)>
+#
+%Vl(info,97,204,24,24,-)
+%?if(%ss(0, 8, %iC), =,explicit)<%xd(ExplicitIcon)>
+#
+%Vl(info,52,327,198,27,5)%Vf(BDBABD)%?if(%pe, !=, 1)<%ar%pp %Sx(of)>
+%Vl(info,256,327,172,27,5)%Vf(BDBABD)
+%?if(%pe, !=, 1)<%al%pe>
+#--- Volume Overlay ---#
+%?mv(1.2)<%Vd(volume)|>
+%Vl(volume,105,277,270,67,-)%xd(VolumeBackdrop)
+%Vl(volume,126,295,36,31,-)
+%?if(%pv, =, -99)<%xd(VolumeIcons,1)>
+%?and(%if(%pv, <=, -60),%if(%pv, >, -99))<%xd(VolumeIcons,2)>
+%?and(%if(%pv, <=, -30),%if(%pv, >, -60))<%xd(VolumeIcons,3)>
+%?if(%pv, >, -30)<%xd(VolumeIcons,4)>
+%Vl(volume,174,307,175,7,-)
+%?if(%pv, =, -99)<%xd(VolumeSliderBackdrop)|%pv(0,0,175,5,VolumeSlider.bmp,slider,VolumeSliderEnd,backdrop,VolumeSliderBackdrop)>
