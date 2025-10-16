@@ -1,0 +1,275 @@
+#
+#
+#                              $?$?$?$?$∙
+#                              ?$?$?$?'
+#                              $?$?$'
+#                              ?$?'
+#                              $'
+#               '0808080a8080808∙:.:.:.;
+#                '0808080808080 ':.:.:.
+#                  '80808080808   '.:.;
+#                    '080808080     ':.
+#                      '8080808       `
+#                        '08080      
+#                          '0808
+#               
+#              '0
+#
+#                   adwaitapod - version 3.4
+#                         Dook  2023
+#                          CC-BY-SA
+#
+#                         480x360 Port:
+#           https://github.com/davidcharles283-collab 2025
+#               Scaled fonts + Fixed list item corners:
+#                  https://github.com/rockbox-y1 2025
+#
+#           changelog v3.0:
+#  Full Rebuild and Redesign.
+#  New Quickscreen, Lockscreen and Miniplayer.
+#  Improved RAM usage, reduced total filesize.
+#  Added User Preference Settings,
+#  Always on Display, Homescreen Widgets and theme info in system.
+#
+#  (v) Check the wiki to find out more about extra Wallpapers & Fonts (v)
+#                     https://d00k.net/adw
+#-------------------------------------------------------------------  
+%Fl(3,27-Cantarell-Bold.fnt)
+%Fl(4,27-Cantarell-Regular.fnt)
+%Fl(5,99-Cantarell-Regular.fnt,16)
+%Fl(7,150-Adwaitapod-Icons.fnt,2)
+%Fl(9,1-Cantarell-Regular.fnt,11)
+#--- Icons ---#
+%xl(SleepIcon,SleepStatus.bmp,2,1)
+%xl(L,LoadingStatus.bmp,12)
+%xl(BatteryIcon,BatteryStatus.bmp,12)
+%xl(ChargingIcon,ChargeStatus.bmp,11)
+%xl(ShuffleIcon,ShuffleStatus.bmp,2)
+%xl(RepeatIcon,RepeatStatus.bmp,5)
+%xl(VolumeIcons,VolumeIcons.bmp,4)
+%xl(HomeIcons,HomeIcons.bmp,6)
+#--- Miniplayer Elements ---#
+%xl(MiniPlayerMode,MiniPlayerMode.bmp,291,52,2)
+%xl(MiniPlayIcon,PlayIcon.bmp,2)
+%xl(TLoverlay,AlbumTL.bmp)
+%xl(TRoverlay,AlbumTR.bmp,162,0)
+%xl(BLoverlay,AlbumBL.bmp,0,162)
+%xl(BRoverlay,AlbumBR.bmp,162,162)
+%xl(RecordingButton,RecordingButton.bmp,2)
+%xl(RecBack,RecordingSlider.bmp)
+%xl(RecDisplays,RecordingDisplays.bmp,288,316)
+%xl(RecSliderEnd,SliderEnd.bmp)
+#--- Menu Overlays ---#
+%xl(LRounded,LabelEdgeLeft.bmp)
+%xl(RHalfWidthRound,LabelEdgeRight.bmp,256,0)
+%xl(RFullWidthRound,LabelEdgeRight2.bmp,462,0)
+#--- Quickscreen Items ---#
+%xl(ButtonEnd,QuickButtonEnd.bmp,2)
+%xl(ButtonLeft,QuickButtonLeft.bmp,166,0,2)
+%xl(ButtonRight,QuickButtonRight.bmp,166,0,2)
+%xl(ButtonUp,QuickButtonUp.bmp,166,0,2)
+%xl(ButtonDown,QuickButtonDown.bmp,166,0,2)
+%xl(Icons,QuickScreenIcons.bmp,15,16,2)
+%xl(BackButton,QuickBackButton.bmp,402,21)
+%xl(BatteryBackdrop,QuickBatteryBackdrop.bmp,21,21)
+%xl(SleepBackdrop,QuickSleepBackdrop.bmp,153,21)
+%xl(Slider,QuickSlider.bmp)
+%xl(SliderBack,QuickSliderBack.bmp)
+#--- UI Toolkit ---#
+%xl(BoxTop,BoxTop.bmp)
+%xl(BoxBottom,BoxBottom.bmp)
+%xl(BoxTopSmall,BoxTopSmall.bmp)
+%xl(BoxBottomSmall,BoxBottomSmall.bmp)
+%xl(RadioButton,RadioButton.bmp,2)
+%xl(LargeButtonLeft,LargeButtonLeft.bmp,2)
+%xl(LargeButtonRight,LargeButtonRight.bmp,163,0,2)
+%xl(LargeSliderBack,LargeSliderBackdrop.bmp)
+%xl(LargeSlider,LargeSliderTop.bmp)
+%xl(LargeSliderFallback,LargeSliderFallback.bmp)
+%xl(AlbumArtConfig,AlbumArtConfig.bmp,4)
+%xl(AdwaitaIcon,AdwaitaIcon.bmp)
+%xl(ClockMinutes,Minutes.bmp,60)
+%xl(ClockHours,Hours.bmp,283,115,12)
+#
+#------------ Background Layer ------------#
+%V(0,0,-,-,4)%VB
+%?if(%cs, =, 1)<%?mp<%xd(ClockHours,%cl)|%Cl(291,52,174,174)%Cd%?C<|%xd(MiniPlayerMode,1)>>>
+%?if(%cs, =, 1)<%?mp<%?mm<%dr(285,300,187,48,424142)|%dr(285,300,187,48,3982e7)>%?ps<%dr(285,243,187,48,3982e7)|%dr(285,243,187,48,424142)>|>>
+%?if(%cs, =, 10)<%dr(0,0,-,-,313031)%xd(BackButton)%xd(BatteryBackdrop)%?bs<%xd(SleepBackdrop)>>
+%?and(%if(%cs, !=, 10),%if(%cs, !=, 1))<%dr(0,0,-,36,313031)%dr(0,36,-,1,212021)>
+%?if(%cs, =, 1)<%dr(0,0,-,36,313031)%dr(0,36,-,1,212021)>
+%?if(%cs, =, 3)<%xd(MiniPlayerMode,2)%dr(274,46,1,304,212021)%xd(RecDisplays)>
+#--- Quickscreen Button Logic ---#
+%?if(%cs, =, 10)<%?and(%if(%St(qs left),=,shuffle),%if(%St(qs right),=,repeat))<%?ps<%dr(49,210,138,57,3982e7)|%dr(49,210,138,57,424142)>%?mm<%dr(49,282,138,57,424142)|%dr(49,282,138,57,3982e7)>>>
+#------------ Foreground Layer ------------#
+%V(0,0,-,43,4)
+#-- Screen Logic --#
+%?if(%cs, =, 1)<%VI(HalfWidth)%Vd(HalfWidth)%Vd(PageTitle)>
+%?and(%if(%cs, !=, 10),%if(%cs, !=, 3),%if(%cs, !=, 1),%if(%Lt, !=, %Sx(Volume Display)),%if(%Lt, !=, %Sx(Status Bar)),%if(%Lt, !=, %Sx(Battery Display)),%if(%Lt, !=, %Sx(Scroll Bar)))<%VI(FullWidth)%Vd(FullWidth)%Vd(PageTitle)>
+%?if(%cs, =, 10)<|%Vd(StatusBar)>
+%?if(%cs, =, 10)<%VI(Empty)>
+%?if(%cs, =, 1)<%?if(%mp, =, 1)<%Vd(HomescreenWidget)|%Vd(Miniplayer)%?mp<|%Vd(MiniMusic)|%Vd(MiniMusic)|||||%Vd(MiniRadio)>>>>
+%?if(%cs, =, 3)<%Vd(Record)%VI(HalfWidth)>
+%?if(%cs, =, 10)<%Vd(Quickscreen)%?and(%if(%St(qs left),=,shuffle),%if(%St(qs right),=,repeat))<%Vd(QuickButtons)|%VI(QuickDefault)>>
+%?and(%if(%Lt, =, %Sx(Status Bar)),%if(%cs, =, 12))<%Lb(SecTextButtons,24,24)%Vd(SecTextConfig)%Vd(UserConfigTitle)>
+%?and(%if(%Lt, =, %Sx(Volume Display)),%if(%cs, =, 12))<%Lb(AlbumArtButtons,24,24)%Vd(AlbumArtConfig)%Vd(UserConfigTitle)>
+%?and(%if(%Lt, =, %Sx(Scroll Bar)),%if(%cs, =, 12))<%Lb(ScrollButtons,24,24)%Vd(ScrollBarConfig)%Vd(UserConfigTitle)>
+%?and(%if(%cs, =, 16),%if(%Lt, =, %Sx(System)))<%Vd(SysInfo)>
+#
+# 13 offset to prevent OOB in Quickscreen.
+# without it, causes a crash on some devices.
+%Vi(Empty,270,0,132,91,9)%Vf(313031)
+%Vi(FullWidth,6,43,-6,-,-)
+%Vi(HalfWidth,6,43,262,-,-)
+%Vl(HalfWidth,274,46,1,304,-)%dr(0,0,-,-,4a494a)
+# Rounded corners look terrible with scrollbars, so work around em.
+# First part turns off rounded corners if our default font isnt used.
+%Vl(HalfWidth,6,43,262,312,-)%?if(%ss(3, 20, %St(font)), =, Cantarell-Regular)<%?if(%St(scrollbar),!=,left)<%xd(LRounded)>%?if(%St(scrollbar),!=,right)<%xd(RHalfWidthRound)>>
+%Vl(FullWidth,6,43,-6,312,-)%?if(%ss(3, 20, %St(font)), =, Cantarell-Regular)<%?if(%St(scrollbar),!=,left)<%xd(LRounded)>%?if(%St(scrollbar),!=,right)<%xd(RFullWidthRound)>>
+#
+# Album Art causes SB bottom line to dissapear, use this as a fallback.
+%Vl(StatusBar,0,34,-,3,-)%dr(0,0,-,1,313031)%dr(0,1,-,1,212021)
+#
+%Vl(PageTitle,66,4,348,30,3)%s%ac%?cs<%?cf<%cH:%cM|%cl:%cM %cP>|%Lt>
+#
+%Vl(StatusBar,6,6,24,24,-)%xd(SleepIcon,%bs)
+%Vl(StatusBar,454,6,21,24,-)%?bp<%xd(ChargingIcon,%bl)|%xd(BatteryIcon,%bl)>
+%Vl(StatusBar,424,6,24,24,-)
+%?lh<%t(0.1)%xd(La);%t(0.1)%xd(Lb);%t(0.1)%xd(Lc);%t(0.1)%xd(Ld);%t(0.1)%xd(Le);%t(0.1)%xd(Lf);%t(0.1)%xd(Lg);%t(0.1)%xd(Lh);%t(0.1)%xd(Li);%t(0.1)%xd(Lj);%t(0.1)%xd(Lk);%t(0.1)%xd(Ll)>
+#
+#------------ Homescreen Widgets ------------#
+#--- Date and Time
+%Vl(HomescreenWidget,283,42,195,33,4)%s%al%?if(%ss(0,7,%St(lang)), =, english)<%?cu<Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday>|%ca>
+#-- Select the correct date format depending on the country --#
+%Vl(HomescreenWidget,283,75,195,30,3)%s%al%?or(%if(%ss(0,7,%St(lang)), =, chinese),%if(%St(lang), =, magyar),%if(%St(lang), =, lietuviu),%if(%St(lang), =, japanese),%if(%St(lang), =, korean))<%cY %cb %ce|%?if(%St(lang), =, english-us)<%cb %ce %cY|%ce %cb %cY>>
+#
+%Vl(HomescreenWidget,283,115,129,60,-)%xd(ClockHours,%cl)
+%Vl(HomescreenWidget,283,115,60,60,-)%?if(%cM, =, 0)<%xd(ClockMinutes,60)|%xd(ClockMinutes,%cM)>
+#
+%Vl(HomescreenWidget,351,114,129,30,3)
+%?and(%if(%ck, <=,11),%if(%ck, >,4))<Morning|%?and(%if(%ck, <=,16),%if(%ck, >,11))<Afternoon|%?and(%if(%ck, <=,21),%if(%ck, >,16))<Evening|%?or(%if(%ck, <=,4),%if(%ck, >,20))<Night>>>>
+%Vl(HomescreenWidget,351,144,129,30,4)%al%?cf<%cH:%cM|%cl:%cM %cP>
+#--- Buttons and Sliders
+%Vl(HomescreenWidget,285,190,187,48,-)
+%?if(%pv, =, -99)<%xd(LargeSliderBack)|%?if(%pv, <=, -78)<%xd(LargeSliderFallback)%xd(LargeSliderBack)|%pv(0,0,187,42,LargeSlider.bmp,backdrop,LargeSliderBack,slider,LargeSlider)>>
+%Vl(HomescreenWidget,295,201,24,21,-)%?if(%pv, =, -99)<%xd(HomeIcons,1)|%xd(HomeIcons,2)>
+#
+%Vl(HomescreenWidget,285,243,187,48,-)%?ps<%dr(0,0,-,-,3982e7)%xd(LargeButtonLeft,2)%xd(LargeButtonRight,2)|%dr(0,0,-,-,424142)%xd(LargeButtonLeft,1)%xd(LargeButtonRight,1)>
+%Vl(HomescreenWidget,300,256,24,21,-)%xd(HomeIcons,%ps,2)
+%Vl(HomescreenWidget,333,252,115,28,3)%?ps<%Vf(ffffff)|%Vf(-)>%s%Sx(Shuffle)
+#
+%Vl(HomescreenWidget,285,300,187,48,-)%?mm<%dr(0,0,-,-,424142)%xd(LargeButtonLeft,1)%xd(LargeButtonRight,1)|%dr(0,0,-,-,3982e7)%xd(LargeButtonLeft,2)%xd(LargeButtonRight,2)>
+%Vl(HomescreenWidget,300,313,24,21,-)%?mm<%xd(HomeIcons,5)|%xd(HomeIcons,6)>
+%Vl(HomescreenWidget,333,309,115,28,3)%?mm<%Vf(-)|%Vf(ffffff)>%s%Sx(Repeat)
+#
+#---- Miniplayer ----#
+%Vl(Miniplayer,291,52,174,174,-)
+%?if(%St(volume display), =, graphic)<%?C<%xd(TLoverlay)%xd(TRoverlay)%xd(BLoverlay)%xd(BRoverlay)>>
+#
+%Vl(MiniMusic,280,234,195,30,3)%s%ac%?it<%it|%fn>
+%Vl(MiniMusic,280,262,195,33,4)
+%s%ac%?it<%?if(%St(statusbar), =,off)<%t(6)%ia;%t(6)%id;%t(0)>%?if(%St(statusbar), =,top)<%id>%?if(%St(statusbar), =,bottom)<%ia>|%d(1)>
+#
+%Vl(MiniRadio,280,234,195,30,3)%ac%s%?tm<%?tx<%ty|FM Radio>|%Tn>
+%Vl(MiniRadio,280,262,195,33,4)%ac%s%?tx<%tz|adwaitapod>
+#
+%Vl(MiniMusic,292,315,24,21,-)%xd(ShuffleIcon,%ps)
+%Vl(MiniMusic,439,315,25,24,-)%xd(RepeatIcon,%mm)
+%Vl(Miniplayer,333,303,90,45,-)
+%?mp<|%xd(MiniPlayIcon,1)|%xd(MiniPlayIcon,2)|||||%xd(MiniPlayIcon,1)|%xd(MiniPlayIcon,2)>
+#
+#------------ Quickscreen Layer ------------#
+%Vl(Quickscreen,39,34,21,24,-)
+%?bp<%xd(ChargingIcon,%bl)|%xd(BatteryIcon,%bl)>
+#
+%Vl(Quickscreen,63,33,54,25,3)
+%?or(%if(%bl, <, 22),%if(%bl, =, 31),%if(%bl, =, 41),%if(%bl, =, 51),%if(%bl, =, 61),%if(%bl, =, 71),%if(%bl, =, 81),%if(%bl, =, 91))<%ac|%al>%?if(%bl, =, 100)<CGD|%bl%%>
+
+#
+%Vl(Quickscreen,168,36,21,22,-)%xd(SleepIcon,%bs)
+%Vl(Quickscreen,195,33,64,25,3)
+%al%?if(%ss(0, 2, %bs, number), >, 9)<%al%ss(0,5,%bs)|%al%ss(0,4,%bs)>
+
+#
+#Sliders
+%Vl(Quickscreen,33,102,36,21,-)
+%?if(%pv, =, -99)<%xd(VolumeIcons,1)>
+%?and(%if(%pv, <=, -60),%if(%pv, >, -98))<%xd(VolumeIcons,2)>
+%?and(%if(%pv, <=, -30),%if(%pv, >, -60))<%xd(VolumeIcons,3)>
+%?if(%pv, >, -30)<%xd(VolumeIcons,4)>
+%Vl(Quickscreen,78,102,363,21,-)%pv(0,0,363,21,Slider.bmp,slider,Slider,backdrop,SliderBack)
+
+#--- Default Quickscreen ---#
+%Vi(QuickDefault,4,210,-4,129,3)
+#
+#--- Experimental Custom Buttons ---#
+#-- Left --#
+%Vl(QuickButtons,21,210,211,57,-)
+%?ps<%dr(0,0,-,-,3982e7)%xd(ButtonEnd,2)%xd(ButtonLeft,2)|%dr(0,0,-,-,424142)%xd(ButtonEnd,1)%xd(ButtonLeft,1)>
+%Vl(QuickButtons,36,228,24,21,-)%xd(HomeIcons,%ps,2)
+%Vl(QuickButtons,67,223,120,28,3)%s%?ps<%Vf(ffffff)|%Vf(-)>%?ps<%Sx(Shuffle)|%Sx(Shuffle)>
+#-- Right --#
+%Vl(QuickButtons,21,282,211,57,-)
+%?mm<%xd(ButtonEnd,1)%xd(ButtonRight,1)|%xd(ButtonEnd,2)%xd(ButtonRight,2)>%?mm<%dr(0,0,-,-,424142)|%dr(0,0,-,-,3982e7)>
+%Vl(QuickButtons,36,300,24,21,-)%?mm<%xd(HomeIcons,5)|%xd(HomeIcons,6)>
+%Vl(QuickButtons,67,295,120,28,3)%s%?mm<%Vf(-)|%Vf(ffffff)>%Sx(Repeat) %?mm<|%Sx(All)|%Sx(One)|%Sx(Shuffle)|%Sx(A-B)>
+#------------ Recording Screen Layer ------------#
+%Vl(Record,66,4,348,30,3)%ac%Sx(Recording)
+%Vl(Record,291,219,45,45,-)%?if(%mp, =, 6)<%xd(RecordingButton,1)|%xd(RecordingButton,2)>
+%Vl(Record,345,226,-,30,3)%al%Rh:%Rn:%Rs
+%Vl(Record,288,316,82,30,3)%ac%?Re<PCM|Aiff|Wav|MP3>
+%Vl(Record,385,316,82,30,3)%ac%?Rf<16|48|32|48|44|32|24|22|16|12|11|8>kHz
+%Vl(Record,300,277,150,21,-)%pR(0,0,100,14,Slider.bmp,backdrop,RecBack,slider,RecSliderEnd)
+#
+#------------ User Config UI ------------#
+%Vl(UserConfigTitle,66,4,348,30,3)%acPreferences
+#
+%Vl(SecTextConfig,18,52,-18,30,3)%VB%al%Sx(Music) Secondary Text %Sx(Settings)
+%Vl(SecTextConfig,18,85,-18,30,4)%VB%Vf(bdbabd)%alSets what information the player shows.
+%Vl(SecTextConfig,18,115,-18,30,4)%VB%Vf(bdbabd)%alThis affects all cases of music players.
+%Vl(SecTextConfig,18,157,444,174,-)%VB%Vb(393839)%xd(BoxTop)
+%dr(0,15,1,-,212021)%dr(442,15,1,-,212021)
+%dr(0,58,-,1,212021)%dr(0,114,-,1,212021)
+%Vl(SecTextConfig,18,316,444,30,-)%VB%Vb(393839)%xd(BoxBottom)
+%Vl(SecTextButtons,28,130,24,24,-)%?if(%LR,=,1)<%?Lc<%xd(RadioButton,2)|%xd(RadioButton,1)>>
+%Vl(SecTextConfig,72,169,-30,33,4)%VB%Vb(393839)%al%Sx(Album) %Sx(Title) and %Sx(Artist) Name
+%Vl(SecTextButtons,28,163,24,24,-)%?if(%LR,=,2)<%?Lc<%xd(RadioButton,2)|%xd(RadioButton,1)>>
+%Vl(SecTextConfig,72,226,330,33,4)%VB%Vb(393839)%al%Sx(Album) %Sx(Title)
+%Vl(SecTextButtons,28,196,24,24,-)%?if(%LR,=,3)<%?Lc<%xd(RadioButton,2)|%xd(RadioButton,1)>>
+%Vl(SecTextConfig,72,283,330,33,4)%VB%Vb(393839)%al%Sx(Artist) Name
+#
+%Vl(AlbumArtConfig,18,52,-18,30,3)%VB%al%Sx(Album) Art %Sx(Settings)
+%Vl(AlbumArtConfig,18,85,-18,30,4)%VB%Vf(bdbabd)%alSets album art corners to be round or not.
+%Vl(AlbumArtConfig,18,115,-18,30,4)%VB%Vf(bdbabd)%alThis affects all uses of album art.
+%Vl(AlbumArtConfig,18,157,444,159,-)%VB%Vb(393839)%xd(BoxTop)
+%dr(0,15,1,-,212021)%dr(442,15,1,-,212021)%dr(220,15,1,-,212021)
+%Vl(AlbumArtConfig,18,316,444,30,-)%VB%Vb(393839)%xd(BoxBottom)
+%Vl(AlbumArtButtons,25,127,24,24,-)%?if(%LR,=,1)<%?Lc<%xd(RadioButton,2)|%xd(RadioButton,1)>>
+%Vl(AlbumArtConfig,69,166,112,30,4)%VB%Vb(393839)%alRounded
+%Vl(AlbumArtButtons,246,103,24,24,-)%?if(%LR,=,2)<%?Lc<%xd(RadioButton,2)|%xd(RadioButton,1)>>
+%Vl(AlbumArtConfig,289,166,112,30,4)%VB%Vb(393839)%alSquared
+%Vl(AlbumArtConfig,60,208,135,102,-)%VB%?if(%St(wps), =, adwaitapod_simplified)<%xd(AlbumArtConfig,3)|%xd(AlbumArtConfig,1)>
+%Vl(AlbumArtConfig,285,208,135,102,-)%VB%?if(%St(wps), =, adwaitapod_simplified)<%xd(AlbumArtConfig,4)|%xd(AlbumArtConfig,2)>
+#
+%Vl(ScrollBarConfig,18,52,-18,30,3)%VB%al%Sx(Scroll Bar) %Sx(Settings)
+%Vl(ScrollBarConfig,18,85,-18,33,4)%VB%Vf(bdbabd)%alSet the %Sx(Scroll Bar Position).
+%Vl(ScrollBarConfig,18,115,-18,33,4)%VB%Vf(bdbabd)%alToggles rounded corners on set side.
+%Vl(ScrollBarConfig,18,157,444,174,-)%VB%Vb(393839)%xd(BoxTop)
+%dr(0,15,1,-,212021)%dr(442,15,1,-,212021)
+%dr(0,58,-,1,212021)%dr(0,114,-,1,212021)
+%Vl(ScrollBarConfig,18,316,444,30,-)%VB%Vb(393839)%xd(BoxBottom)
+%Vl(ScrollButtons,28,130,24,24,-)%?if(%LR,=,1)<%?Lc<%xd(RadioButton,2)|%xd(RadioButton,1)>>
+%Vl(ScrollBarConfig,72,169,-30,33,4)%VB%Vb(393839)%al%Sx(Off)
+%Vl(ScrollButtons,28,163,24,24,-)%?if(%LR,=,2)<%?Lc<%xd(RadioButton,2)|%xd(RadioButton,1)>>
+%Vl(ScrollBarConfig,72,226,330,33,4)%VB%Vb(393839)%al%Sx(Left)
+%Vl(ScrollButtons,28,196,24,24,-)%?if(%LR,=,3)<%?Lc<%xd(RadioButton,2)|%xd(RadioButton,1)>>
+%Vl(ScrollBarConfig,72,283,330,33,4)%VB%Vb(393839)%al%Sx(Right)
+#
+#------------ System Info Screen ------------#
+%Vl(SysInfo,18,241,97,97,-)%VB%xd(AdwaitaIcon)
+%Vl(SysInfo,132,235,330,94,-)%VB%Vb(393839)%xd(BoxTopSmall)%dr(0,15,1,-,212021)%dr(0,54,-,1,212021)%dr(328,15,1,-,212021)
+%Vl(SysInfo,147,246,87,33,4)%VB%Vb(393839)Theme
+%Vl(SysInfo,241,246,208,33,4)%VB%Vb(393839)%Vf(bdbabd)%aradwaitapod light
+%Vl(SysInfo,147,300,87,33,4)%VB%Vb(393839)%Sx(Version)
+%Vl(SysInfo,330,300,112,33,4)%VB%Vb(393839)%Vf(bdbabd)%ar3.4
+%Vl(SysInfo,132,330,330,30,4)%VB%Vb(393839)%xd(BoxBottomSmall)
