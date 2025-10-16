@@ -266,10 +266,10 @@
 %Vl(ScrollBarConfig,72,283,330,33,4)%VB%Vb(393839)%al%Sx(Right)
 #
 #------------ System Info Screen ------------#
-%Vl(SysInfo,18,241,97,97,-)%VB%xd(AdwaitaIcon)
-%Vl(SysInfo,132,235,330,94,-)%VB%Vb(393839)%xd(BoxTopSmall)%dr(0,15,1,-,212021)%dr(0,54,-,1,212021)%dr(328,15,1,-,212021)
-%Vl(SysInfo,147,246,87,33,4)%VB%Vb(393839)Theme
-%Vl(SysInfo,241,246,208,33,4)%VB%Vb(393839)%Vf(bdbabd)%aradwaitapod light
-%Vl(SysInfo,147,300,87,33,4)%VB%Vb(393839)%Sx(Version)
-%Vl(SysInfo,330,300,112,33,4)%VB%Vb(393839)%Vf(bdbabd)%ar3.4
-%Vl(SysInfo,132,330,330,30,4)%VB%Vb(393839)%xd(BoxBottomSmall)
+%Vl(SysInfo,355,90,97,97,-)%VB%xd(AdwaitaIcon)
+%Vl(SysInfo,132,200,330,94,-)%VB%xd(BoxTopSmall)%dr(0,15,1,-,212021)%dr(328,15,1,-,212021)
+%Vl(SysInfo,380,210,80,33,4)%VBTheme
+%Vl(SysInfo,241,240,208,33,4)%VB%Vf(6b6d6b)%aradwaitapod dark
+%Vl(SysInfo,370,275,80,33,4)%VB%Sx(Version)
+%Vl(SysInfo,330,300,112,33,4)%VB%Vf(6b6d6b)%ar3.4
+%Vl(SysInfo,132,330,330,30,4)%VB%xd(BoxBottomSmall)
