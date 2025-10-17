@@ -6,9 +6,9 @@ For more details on attributions and licenses please look into the files of the 
 | Theme | Original Author | Port Author | Changes |
 |:-----|:--------|:--------:|:--------:|
 | Adwaitapod | Dook | [davidcharles283-collab](https://github.com/davidcharles283-collab) & rockbox-y1 | Remove unsupported features, Scale fonts and images, adjust list padding |
-| Adwaitapod_Dark | CHUCK_LARDO | [davidcharles283-collab](https://github.com/davidcharles283-collab) & rockbox-y1 | Remove unsupported features, Scale fonts and images, adjust list padding |
+| Adwaitapod_Dark | Dook | [davidcharles283-collab](https://github.com/davidcharles283-collab) & rockbox-y1 | Remove unsupported features, Scale fonts and images, adjust list padding |
 | Adwaitapod_simplified | Dook | [davidcharles283-collab](https://github.com/davidcharles283-collab) & rockbox-y1 | Remove unsupported features, Scale fonts and images, adjust list padding |
-| Adwaitapod_simplified-dark | CHUCK_LARDO | [davidcharles283-collab](https://github.com/davidcharles283-collab) & rockbox-y1 | Remove unsupported features, Scale fonts and images, adjust list padding |
+| Adwaitapod_simplified-dark | Dook | [davidcharles283-collab](https://github.com/davidcharles283-collab) & rockbox-y1 | Remove unsupported features, Scale fonts and images, adjust list padding |
 | BONES | CHUCK_LARDO | rockbox-y1 | Scale fonts and images, adjust list padding |
 | die-bahn | Jihoon Kim | rockbox-y1 | Scale fonts and images, adjust list padding |
 | FreshOS-Y1_Dark | yuuiko | [u/elinks59](https://www.reddit.com/user/elinks59) & rockbox-y1 | Fix original theme to work on Y1, scale fonts and images, adjust list padding |
