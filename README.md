@@ -15,8 +15,8 @@ For more details on attributions and licenses please look into the files of the 
 | FreshOS-Y1_Light | yuuiko | [u/elinks59](https://www.reddit.com/user/elinks59) & rockbox-y1 | Fix original theme to work on Y1, scale fonts and images, adjust list padding |
 | Horizon | Jihoon Kim | rockbox-y1 | Scale fonts and images, adjust list padding |
 | iClassic_v1.2 | Humberto Santana | rockbox-y1 | Scale fonts and images, adjust list padding |
-| iClassic_v1.3 | Humberto Santana | [u/CarlosPixel_](https://www.reddit.com/user/CarlosPixel_) | Scale fonts and images, much better non-latin support |
-| iClassic_v1.3_Dark | Humberto Santana | [u/CarlosPixel_](https://www.reddit.com/user/CarlosPixel_) | Scale fonts and images, much better non-latin support |
+| iClassic_v1.4 | Humberto Santana | [u/CarlosPixel_](https://www.reddit.com/user/CarlosPixel_) | Scale fonts and images, much better non-latin support |
+| iClassic_v1.4_Dark | Humberto Santana | [u/CarlosPixel_](https://www.reddit.com/user/CarlosPixel_) | Scale fonts and images, much better non-latin support |
 | iLike | Alan Brito | [u/elinks59](https://www.reddit.com/user/elinks59) | Scale fonts and images |
 | iLike 360 Dark | Alan Brito | [u/elinks59](https://www.reddit.com/user/elinks59) | Dark variant of iLike, scale fonts and images |
 | iMMXX | FCorp | rockbox-y1 | Scale fonts and images, adjust list padding |
@@ -32,6 +32,7 @@ For more details on attributions and licenses please look into the files of the 
 | SNAZZ2 | Jihoon Kim | rockbox-y1 | Scale fonts and images, adjust list padding |
 | SNAZZ3 | Vera B | rockbox-y1 | Scale fonts and images, adjust list padding |
 | SNAZZx90 | DillMillz | rockbox-y1 | Scale fonts and images, adjust list padding |
+| Snowoasis_Y1 | [u/CarlosPixel_](https://www.reddit.com/user/CarlosPixel_) | - | Original cassette theme with great CJK (and more) support |
 | SPAZZ | CHUCK_LARDO | rockbox-y1 | Scale fonts and images, adjust list padding |
 | Themify | Dook | rockbox-y1 | Remove brightness options, scale fonts and images, adjust list padding |
 | Widepod | Christian Soffke | rockbox-y1 | Scale fonts and images, adjust list padding |

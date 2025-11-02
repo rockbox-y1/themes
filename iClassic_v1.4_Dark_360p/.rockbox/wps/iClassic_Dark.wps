@@ -4,8 +4,8 @@
 # License: Creative Commons Attribution-Share Alike 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
 # Attribution Note: Modified from iClassic theme for iPod (CC-BY-SA 3.0) by Humberto Santana
 #
-# Version 1.3
-# Last Update: October 7th, 2025
+# Version 1.4
+# Last Update: October 18th, 2025
 # First Version: February 14th, 2011
 #
 # WPS File
@@ -47,7 +47,7 @@
 %?St(battery display)<%Vd(nonumbat)|%Vd(numbat)>
 	
 # Viewport for battery percentage text
-%Vl(numbat,382,4,48,18,2)%Vf(FFFFFF)
+%Vl(numbat,382,0,52,24,2)%Vf(000000)
 %ac%bl%%
 
 # Play/Pause/Stop/FF/RW status icons
