@@ -40,3 +40,4 @@ For more details on attributions and licenses please look into the files of the 
 ## Support the original creators!
 - Dook, creator of Themify and Adwaitapod: [https://ko-fi.com/dook\_](https://ko-fi.com/dook\_)
 - yuuiko, creator of FreshOS: https://www.patreon.com/yuuiko
+- CarlosPixel_, creator of Snowoasis_Y1: https://paypal.me/Carl0sPixel
