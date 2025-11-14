@@ -1,0 +1,45 @@
+# =============================================================================
+# Snowoasis Y1 Sports — SBS (480x360)
+# Author: Carlos Pixel
+# Date: 2025-11-09
+# License: Creative Commons Attribution–NonCommercial 4.0 (CC BY-NC 4.0)
+# Notes: Attribution required; modifications allowed; any sale or revenue-generating use prohibited.
+# Target: Rockbox WPS engine
+# =============================================================================
+
+%wd
+%?Lt<>
+
+# Image loads
+%xl(B,Battery.bmp,0,0,14)
+%xl(P,PBstatus.bmp,0,0,5)
+
+
+# Fonts
+%Fl(2,23-arial-unicode-ms-bold.fnt)
+%Fl(5,29-arial-unicode-ms-bold.fnt)
+%Fl(7,23-arial-unicode-ms-bold.fnt)
+
+# ================= LIST / MENU =================
+%Vi(-,0,29,480,331,5)
+%Vf(000000)
+
+# ================= STATUS BAR =================
+# PlayStatus Icon
+%V(5,5,25,20,-)
+%?mp<%xd(Pa)|%xd(Pb)|%xd(Pc)|%xd(Pd)|%xd(Pe)>
+
+# Clock viewport
+%V(204,0,52,26,2)
+%Vf(000000)
+%Vb(000000)
+%ac%?cf<%cH:%cM|%cl:%cM>
+
+# Battery percentage text viewport (right-aligned)
+%V(400,0,37,24,2)
+%Vf(000000)
+%ar%bl
+
+# Battery icon viewport (20px tall sprites)
+%V(443,6,20,20,-)
+%?bp<%?bc<%t(1.0)%xd(Ba);%t(1.0)%xd(Bb)|%xd(Bc)>|%?bl<%xd(Bd)|%xd(Be)|%xd(Bf)|%xd(Bg)|%xd(Bh)|%xd(Bi)|%xd(Bj)|%xd(Bk)|%xd(Bl)|%xd(Bm)|%xd(Bn)>>
