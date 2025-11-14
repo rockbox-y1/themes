@@ -1,0 +1,123 @@
+# =============================================================================
+# Snowoasis Y1 Sports — WPS (480x360)
+# Author: Carlos Pixel
+# Date: 2025-11-09
+# License: Creative Commons Attribution–NonCommercial 4.0 (CC BY-NC 4.0)
+# Notes: Attribution required; modifications allowed; any sale or revenue-generating use prohibited.
+# Target: Rockbox WPS engine
+# =============================================================================
+
+%wd
+%X(bkg-Snowoasis_Y1.bmp)
+
+# Image loads
+%xl(C,r.bmp,0,0,9)
+%xl(D,r.bmp,0,0,9)
+%xl(T,tape.bmp,0,0,15)
+%xl(B,Battery.bmp,0,0,14)
+%xl(S,sr.bmp,0,0,6)
+%xl(P,PBstatus.bmp,0,0,5)
+
+# Fonts
+%Fl(2,23-arial-unicode-ms-bold.fnt)
+%Fl(5,29-arial-unicode-ms-bold.fnt)
+%Fl(7,23-arial-unicode-ms-bold.fnt)
+
+# --- Header row (y=0) ---
+
+# Clock viewport
+%V(204,0,52,26,2)
+%Vf(000000)
+%Vb(FFFFFF)
+%ac%?cf<%cH:%cM|%cl:%cM>
+
+# PlayStatus Icon
+%V(293,5,25,20,-)
+%?mp<%xd(Pa)|%xd(Pb)|%xd(Pc)|%xd(Pd)|%xd(Pe)>
+
+# Shuffle icon viewport (20×20) — if repeat=shuffle while shuffle off, force “on”
+%V(328,5,20,20,-)
+%?ps<%xd(Sb)|%?mm<%xd(Sa)|%xd(Sa)|%xd(Sa)|%xd(Sb)|%xd(Sa)>>
+
+# Repeat icon viewport (20×20) — off/all/one/ab; “shuffle” mapped to “all”
+%V(356,5,20,20,-)
+%?mm<%xd(Sc)|%xd(Sd)|%xd(Se)|%xd(Sd)|%xd(Sf)>
+
+# Battery percentage text viewport (right-aligned)
+%V(400,0,37,24,2)
+%Vf(000000)
+%ar%bl
+
+# Battery icon viewport (20px tall sprites)
+%V(443,6,20,20,-)
+%?bp<%?bc<%t(1.0)%xd(Ba);%t(1.0)%xd(Bb)|%xd(Bc)>|%?bl<%xd(Bd)|%xd(Be)|%xd(Bf)|%xd(Bg)|%xd(Bh)|%xd(Bi)|%xd(Bj)|%xd(Bk)|%xd(Bl)|%xd(Bm)|%xd(Bn)>>
+
+# Volume (dB) viewport
+%V(37,0,31,24,2)
+%Vf(000000)
+%al%St(volume)
+
+# Track counter viewport (“N of M”)
+%V(70,0,120,24,2)
+%Vf(000000)
+%ac%pp %Sx(of) %pe
+
+# --- Reels & tape window ---
+
+# Left reel viewport
+%V(112,112,60,60,-)
+%?mp<|%t(0.1)%xd(Ci);%t(0.1)%xd(Ch);%t(0.1)%xd(Cg);%t(0.1)%xd(Cf);%t(0.1)%xd(Ce);%t(0.1)%xd(Cd);%t(0.1)%xd(Cc);%t(0.1)%xd(Cb);%t(0.1)%xd(Ca);|%xd(Cc)|%t(0.1)%xd(Ci);%t(0.1)%xd(Cf);%t(0.1)%xd(Cc);|%t(0.1)%xd(Ca);%t(0.1)%xd(Cd);%t(0.1)%xd(Cg);>
+
+# Right reel viewport
+%V(308,112,60,60,-)
+%?mp<|%t(0.1)%xd(Di);%t(0.1)%xd(Dh);%t(0.1)%xd(Dg);%t(0.1)%xd(Df);%t(0.1)%xd(De);%t(0.1)%xd(Dd);%t(0.1)%xd(Dc);%t(0.1)%xd(Db);%t(0.1)%xd(Da);|%xd(Db)|%t(0.1)%xd(Di);%t(0.1)%xd(Df);%t(0.1)%xd(Dc);|%t(0.1)%xd(Da);%t(0.1)%xd(Dd);%t(0.1)%xd(Dg);>
+
+# Tape window viewport
+%V(187,117,105,50,-)
+%?px<%xd(Ta)|%xd(Tb)|%xd(Tc)|%xd(Td)|%xd(Te)|%xd(Tf)|%xd(Tg)|%xd(Th)|%xd(Ti)|%xd(Tj)|%xd(Tk)|%xd(Tl)|%xd(Tm)|%xd(Tn)|%xd(To)>
+
+# --- Cover art ---
+# Cover art viewport (150×150)
+%V(50,190,150,150,-)
+%Cl(0,0,150,150)
+%Cd
+
+# --- Title & metadata ---
+
+# Title viewport
+%Vd(current)
+%Vl(current,66,56,348,44,5)
+%Vf(FFFFFF)
+%s%ac%?it<%it|%fn>
+
+# Metadata line 1 (artist or filename)
+%V(247,204,212,28,7)
+%Vf(000000)
+%?ia<%al%s%ia|%al%s%fn>
+
+# Metadata line 2 (album)
+%V(247,234,212,28,7)
+%Vf(000000)
+%?id<%al%s%id|>
+
+# Metadata line 3 (year)
+%V(247,264,212,28,7)
+%Vf(000000)
+%al%iy
+
+# Metadata line 4 (codec • freq • bitrate)
+%V(246,294,212,28,7)
+%Vf(000000)
+%al%fc  •  %fb
+
+# --- Times ---
+
+# Elapsed time viewport
+%V(20,90,90,24,2)
+%Vf(FFFFFF)
+%ar%pc
+
+# Remaining time viewport
+%V(370,90,90,24,2)
+%Vf(FFFFFF)
+%al-%pr
