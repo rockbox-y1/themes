@@ -1,0 +1,104 @@
+#
+# SNAZZ3_i18n
+# by melianmiko
+# based on SPAZZ by CHUCK LARDO, SNAZZY by Phil Graves, SNAZZ2 by Jihoon Kim, SNAZZ3 by Vera B
+# license CC-BY-SA 4.0
+# target resolution 320x240
+# tested on iPod Video
+# SBS File
+#             480x360 Port:
+#    https://github.com/rockbox-y1 2025
+#__Status Bar Off
+%wd
+#
+#__Title Bar Off
+%?Lt<|>
+#
+#__Preload Fonts
+%Fl(3,26-IBMPlexMono-CJKmix.fnt)
+%Fl(4,36-IBMPlexMono-CJKmix.fnt)
+%Fl(5,48-IBMPlexMono-CJKmix.fnt)
+%Fl(6,108-KodeMono-Bold.fnt)
+#
+#__Preload Images
+%xl(PBK,playback_status.bmp,1,1,5)
+%xl(P,progress.bmp,1,0,12)
+%xl(B,bb_rbd_123.bmp,1,3)
+#
+#__USB screen
+%?if(%cs, =, 21)<%VI(clearScreen)%Vd(USB)|%VI(menuViewport)%?mv(3.5)<%Vd(volChange)|%?bp<%Vd(batCharge)|%Vd(bat)>>%Vd(info)%?pE(15)<%?mp<|%Vd(nextInfo)>|%Vd(curInfo)>>
+#
+#__Clear Screen
+%Vi(clearScreen,0,0,1,1,-)
+#
+#__Title
+%Vl(info,30,30,309,-,5)
+%al%s%?Lt<%Lt|Rockbox>
+#
+#__Hold / Time / Batt / Day
+%Vl(info,-123,21,93,-,3)
+%ar%t(4.5)%?mh<_|>%?cf<%cH:%cM|%?cl<1|2|3|4|5|6|7|8|9|10|11|12>:%cM%cp>;%ar%t(4.5)%?mh<_|>%cb %cd
+#
+#__Battery/Vol Text
+%Vl(bat,-129,48,99,25,3)
+%ac%xd(B) %bl%%%Vs(invert)
+#
+%Vl(batCharge,-129,48,99,25,3)
+%ac%t(8)CHARGING%Vs(invert);%t(8)%ac%xd(B) %bl%%%Vs(invert)
+#
+%Vl(volChange,-129,48,99,25,3)
+%acVOL %pv
+#
+#__Line
+%Vl(info,30,85,420,1,-)
+%dr(0,0,420,1)
+#
+#__UI Viewport
+%Vi(menuViewport,30,103,420,195,4)
+#
+#__Line
+%Vl(info,30,300,420,1,-)
+%dr(0,0,420,1)
+#
+#__Play/Pause Icons
+%Vl(info,30,321,31,16,-)
+%xd(PBK,%mp)
+#
+#__Now Playing
+%Vl(curInfo,64,314,351,-,3)
+%ac%s%?ia<%ia - %it|%fn>
+%Vl(curInfo,-52,316,22,22,-)
+%ac%?if(%px, >, 8)<%?if(%px, >, 17)<%?if(%px, >, 25)<%?if(%px, >, 33)<%?if(%px, >, 42)<%?if(%px, >, 50)<%?if(%px, >, 58)<%?if(%px, >, 67)<%?if(%px, >, 75)<%?if(%px, >, 83)<%?if(%px, >, 92)<%xd(Pl)|%xd(Pk)>|%xd(Pj)>|%xd(Pi)>|%xd(Ph)>|%xd(Pg)>|%xd(Pf)>|%xd(Pe)>|%xd(Pd)>|%xd(Pc)>|%xd(Pb)>|%xd(Pa)>
+#
+#__Next Up
+%Vl(nextInfo,63,316,33,30,3)
+%ac→%Vs(invert)
+%Vl(nextInfo,96,316,352,30,3)
+%ac%s%?Ia<%Ia%?It< - %It>|%Fn> %Vs(invert)
+#
+#
+#__USB Layer
+#
+#__USB Text
+%Vl(USB,30,30,321,-,5)
+%alUSB
+#
+#__Line
+%Vl(info,30,85,420,1,-)
+%dr(0,0,420,1)
+#
+#__USB Date
+%Vl(USB,30,97,420,75,5)
+%ac%cY-%cm-%cd %ca
+#
+#__USB Time
+%Vl(USB,54,150,367,90,6)
+%ac%?cf<%cH:%cM:%cS|%?cl<1|2|3|4|5|6|7|8|9|10|11|12>:%cM%cP>
+#
+#__Line
+%Vl(USB,30,300,420,1,-)
+%dr(0,0,420,1)
+#
+#__USB Eject/Readwrite Warning
+%Vl(USB,45,315,390,30,3)
+%ac%?lh<! DO NOT DISCONNECT !|! EJECT BEFORE DISCONNECTING !>

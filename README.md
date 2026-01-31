@@ -31,6 +31,7 @@ For more details on attributions and licenses please look into the files of the 
 | SNAZZ | Jihoon Kim | rockbox-y1 | Scale fonts and images, adjust list padding |
 | SNAZZ2 | Jihoon Kim | rockbox-y1 | Scale fonts and images, adjust list padding |
 | SNAZZ3 | Vera B | rockbox-y1 | Scale fonts and images, adjust list padding |
+| SNAZZ3_i18n | Vera B | rockbox-y1, melianmiko | Modification with CJK and Cyrilic compatible fonts |
 | SNAZZx90 | DillMillz | rockbox-y1 | Scale fonts and images, adjust list padding |
 | Snowoasis_Y1 | [u/CarlosPixel_](https://www.reddit.com/user/CarlosPixel_) | - | Original cassette theme with great CJK (and more) support |
 | Snowoasis_Y1_DARK | [u/CarlosPixel_](https://www.reddit.com/user/CarlosPixel_) | - | Original cassette theme dark with great CJK (and more) support |
