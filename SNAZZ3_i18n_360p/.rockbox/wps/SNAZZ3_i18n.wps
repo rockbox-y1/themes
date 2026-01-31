@@ -1,0 +1,162 @@
+#
+# SNAZZ3_i18n
+# by melianmiko
+# based on SPAZZ by CHUCK LARDO, SNAZZY by Phil Graves, SNAZZ2 by Jihoon Kim, SNAZZ3 by Vera B
+# license CC-BY-SA 4.0
+# target resolution 320x240
+# tested on iPod Video
+#             480x360 Port:
+#    https://github.com/rockbox-y1 2025
+# WPS File
+#
+#__Hide The Status Bar
+%wd
+#
+#__Preload Fonts
+%Fl(2,18-IBMPlexMono-CJKmix.fnt)
+%Fl(3,22-KodeMono-SemiBold.fnt)
+%Fl(4,36-IBMPlexMono-CJKmix.fnt)
+%Fl(5,48-IBMPlexMono-CJKmix.fnt)
+%Fl(6,108-KodeMono-Bold.fnt)
+%Fl(7,26-IBMPlexMono-CJKmix.fnt)
+#
+#
+#__Preload Images
+%xl(P,bb_rbd_123.bmp,1,3)
+%xl(PBB,pb_back.bmp,0,0)
+%xl(PB,pb.bmp,0,0)
+%xl(PBK,playback_status.bmp,1,1,5)
+%xl(BBB,bb_back.bmp,0,0)
+%xl(BB,bb.bmp,0,0)
+%xl(R,repeat_status.bmp,5)
+%xl(S,shuffle_status.bmp,0,1,2)
+%xl(X,seeking_icon.bmp,0,0)
+%xl(Q,eq_icon.bmp,0,0)
+%xl(A,album_icon.bmp,0,3,2)
+#
+#__Cover Art Preload
+%Cl(0,0,105,105,c,c)
+#
+#
+###__Main Display__###
+#
+#__Clear Screen
+%V(0,0,480,360,-)
+#
+#__Playtime Text
+%V(30,27,96,36,4)
+%ac%pc%Vs(invert)
+#%ac-%pr%Vs(invert)
+#
+%?mh<%Vd(hold)|%Vd(fileInfo)>
+%Vl(fileInfo,129,27,165,36,4)
+%t(8)%ac%s%?if(%ss(0, 7, %fs), =, %fs)<%?if(%ss(0, 6, %fs), =, %fs)<%?if(%ss(0, 5, %fs), =, %fs)<%?if(%ss(0, 4, %fs), =, %fs)<%?if(%ss(0, 3, %fs), =, %fs)<%?if(%ss(0, 2, %fs), =, %fs)<%fsKB|0.%ss(0, 1, %fs)MB>|%ss(0, 1, %fs).%ss(1, 1, %fs)MB>|%ss(0, 2, %fs)MB>|%ss(0, 3, %fs)MB>|%ss(0, 1, %fs)GB>|%ss(0, 2, %fs)GB> %?fc<MP1|MP2|MP3|AIFF|WAV|OGG|FLAC|MPC|AC3|WV|ALAC|AAC|SHN|SID|ADX|NSF|SPX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|W64|TRUAUD|WMAVOX|MPC|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>;%t(8)%ac%?fv<~>%fbkbps;%t(8)%ac%fkkHz
+#
+#__Hold
+%Vl(hold,132,27,157,45,4)
+%acLOCKED%Vs(invert)
+#
+#__Storage LED
+%V(297,27,16,16,2)
+%xd(X,%lh)
+#
+#__Eq
+%V(319,27,16,16,2)
+%?St(eq enabled)<%xd(Q)|>
+#
+#__Shuffle
+%V(297,46,16,16,2)
+%xd(S,%ps)
+#
+#__Repeat
+%V(319,46,16,16,2)
+%xd(R,%mm)
+#
+#__Volume BAR
+%V(-138,27,108,13,-)
+%pv(0,0,-,-,BB,backdrop,BBB)
+#
+#__Battery/Vol Screen Selector
+%?mv(3.5)<%Vd(volChange)|%?bp<%Vd(batCharge)|%Vd(bat)>>
+#
+#__Battery/Vol Text
+%Vl(bat,-138,42,108,24,3)
+%ac%t(8)%xd(P) %bl%%%Vs(invert)
+#
+%Vl(batCharge,-138,42,108,24,3)
+%ac%t(8)CHARGING%Vs(invert);%t(8)%ac%xd(P) %bl%%%Vs(invert)
+#
+%Vl(volChange,-138,42,108,24,3)
+%acVOL %pv
+#
+#__Track Progress Bar
+#__Line
+%V(30,70,420,1,-)
+%dr(0,0,420,1)
+#
+#__Slider
+%V(30,72,420,7,-)
+%pb(0,0,420,7,PBB,slider,PB)
+#
+#__Line
+%V(30,79,420,1,-)
+%dr(0,0,420,1)
+#
+#__Title/Album Indicator
+%V(30,140,19,25,-)
+%t(12)%xd(Aa);%t(12)%?id<%xd(Ab)|%xd(Aa)>
+#
+#__Cover Selector
+%?C<%Vd(withCover)|%Vd(woCover)>
+#
+
+
+
+
+#__Without Cover Art
+#__Artist
+%V(30,90,420,48,5)
+%al%s%?ia<%ia|UNKNOWN>
+#
+#__Track Title
+%V(52,138,397,25,7)
+%al%s%?id<%t(12)%?it<%it|%fn>;%t(12)%id|%?it<%it|%fn>>
+#
+
+
+
+
+#__Cover Art
+%Vl(withCover,-135,180,105,105,-)
+%Cd
+#
+#__Peak Meter Bars w/o cover
+%Vl(woCover,30,180,420,45,6)
+%pm
+#__Peak Meter Bars w/ cover
+%Vl(withCover,30,180,300,45,6)
+%pm
+#__Peak Meter Bars w/o cover
+%Vl(woCover,30,240,420,45,6)
+%pm
+#__Peak Meter Bars w/ cover
+%Vl(withCover,30,240,300,45,6)
+%pm
+
+#__Next Up Selector
+%?pE(20)<%?pS(8)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
+#
+#__Play/Pause Icons
+%V(30,321,31,16,-)
+%xd(PBK,%mp)
+#
+#__Playlist position/ File info / Playcount
+%Vl(curInfo,64,316,385,-,3)
+%al%pt%?and(%if(%rp,=,0),%if(%rr,=,0),%if(%ra,=,0))<%ar%pp/%pe|%ac%pp/%pe%ar%rpx %rr %| %ra>
+#
+#__Next Up
+%Vl(nextInfo,63,316,33,30,3)
+%ac→%Vs(invert)
+%Vl(nextInfo,96,316,352,30,3)
+%ac%s%?Ia<%Ia%?It< - %It>|%Fn> %Vs(invert)
+#
