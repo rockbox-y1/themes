@@ -115,7 +115,7 @@
 %s%ac%?cs<Rockbox||Recording|FM Radio|%Lt|%Lt|%Lt|%Lt|%Lt|%?cf<%cH:%cM|%cl:%cM %cP> - %?if(%bl, =, 100)<CGD|%bl%%>|%Lt|%Lt|%Lt|%Lt|%?if(%Lt, =,Context Menu)<Perform Action...|%Lt>|%Lt|%Lt|%Lt|%Lt|%Lt|Rockbox>
 #
 #	Smaller viewport to make room for larger bar on bottom
-%Vi(main,3,40,-3,-55,-)
+%Vi(main,3,40,-3,-50,-)
 %Vf(000000)
 %Vb(ffffff)
 #
