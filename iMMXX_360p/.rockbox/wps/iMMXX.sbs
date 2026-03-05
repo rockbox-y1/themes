@@ -28,7 +28,7 @@
 %xl(playmodes,playmodes.bmp,0,0,9)
 
 # Menu
-%Vi(-,2,51,476,256,-)
+%Vi(-,2,51,476,270,-)
 
 # Display Viewports
 %?if(%mp, =, 1)<%?if(%bc, =, c)<%Vd(usb)|%?if(%bp, =, p)<%Vd(usb)|%Vd(playbackmode)>>|%Vd(playbackmode)>
