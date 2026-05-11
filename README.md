@@ -21,6 +21,7 @@ For more details on attributions and licenses please look into the files of the 
 | iLike 360 Dark | Alan Brito | [u/elinks59](https://www.reddit.com/user/elinks59) | Dark variant of iLike, scale fonts and images |
 | iMMXX | FCorp | rockbox-y1 | Scale fonts and images, adjust list padding |
 | InfoMatrix | yuuiko | rockbox-y1 | Scale fonts and images, adjust list padding |
+| InfoMatrix_Dark | yuuiko Almalexia | rockbox-y1 | Scale fonts and images, adjust list padding |
 | Interpod | Christian Soffke | rockbox-y1 | Scale fonts and images, adjust list padding |
 | MacClassic | Billy Blair | rockbox-y1 | Scale fonts and images, adjust list padding |
 | OneBit_OLED | Jihoon Kim | rockbox-y1 | Scale fonts and images, adjust list padding |
