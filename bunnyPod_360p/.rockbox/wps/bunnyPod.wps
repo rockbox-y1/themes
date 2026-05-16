@@ -1,0 +1,165 @@
+# Theme: bunnyPod
+# Version: 1.0 (360p Scaled)
+# Last Update: 02/23/2026
+# License: CC-BY-SA 3.0
+# By: Monica G.
+# Description: Cute bunny theme :3 featuring LanaPixel font by eishiya
+# All pixel art is by me!!
+# Code based on: 1ST_GEN_REMIX by me! which was based on SNARTY by Simon Anden and BONES by Chuck Largo!
+# Note: if you want the hold screen to not show album art just switch the #'s for Show Album Art/Hide Album Art
+
+## WPS File ##
+
+#Hide The Status Bar
+%wd
+
+# Preload Backdrop #
+%xl(bunnyPod,bunnyPod.bmp,0,0)
+
+# Clear Backdrop
+%V(0,0,-,-,-)%VB
+%xd(bunnyPod)
+%V(0,0,-,-,-)
+
+# Preload Fonts
+%Fl(2,14-LanaPixel.fnt)
+%Fl(3,21-LanaPixel.fnt)
+
+# Preload Images
+%xl(playmodes,playmodes.bmp,0,0,9)
+%xl(repeat,repeat_status.bmp,0,0,5)
+%xl(shuffle,shuffle.bmp,0,0,2)
+%xl(battery,battery.bmp,0,0,12)
+%xl(PB,pb.bmp,0,0)
+%xl(PBB,pb_back.bmp,0,0)
+%xl(VB,vb.bmp,0,0)
+%xl(VBB,vb_back.bmp,0,0)
+%xl(disk,disk.bmp,0,0)
+%xl(lock,lock.bmp,0,0,2)
+%xl(closed_eyes,closed_eyes.bmp,0,0,2)
+
+# Show Album Art on Hold Screen (default)
+%Vd(mainDisplay)%?C<%Vd(mainDisplayArt)|%Vd(mainDisplayNoArt)>>
+
+# Hide Album Art on Hock Screen
+#%?mh<%Vd(mainDisplay)%Vd(holdScreen)|%Vd(mainDisplay)%?C<%Vd(mainDisplayArt)|%Vd(mainDisplayNoArt)>>
+
+# Clear Screen
+%Vl(mainDisplay,0,0,480,360,-)
+
+## Album Art ##
+%Vl(mainDisplayArt,194,60,113,113,-)
+%Cl(3,3,107,107)
+%dr(0,0,113,2)
+%dr(0,111,113,2)
+%dr(0,2,2,111)
+%dr(111,2,2,111)
+%?C<%Cd>
+
+## Main Display ##
+
+# Disk Icons
+%Vl(mainDisplay,387,56,29,27,-)
+%?lh<%t(0.5)%xd(disk);%t(0.5)|>
+
+# Hold (text)
+%Vl(mainDisplay,204,17,38,18,2)
+%?mh<HOLD|>
+
+# Hold Icon
+%Vl(mainDisplay,173,11,30,30,-)
+%?mh<%xd(lock,2)|%xd(lock,1)>
+
+# Closed Eyes on Hold
+%Vl(mainDisplay,27,260,51,18,-)
+%?mh<%xd(closed_eyes,2)|%xd(closed_eyes,1)>
+
+# Battery Icon
+%Vl(mainDisplay,390,9,81,35,2)
+%?bp<%xd(battery,7)|%?bl<%xd(battery,6)|%xd(battery,5)|%xd(battery,4)|%xd(battery,3)|%xd(battery,2)|%xd(battery,1)>>%?bp<%?bc<%?bl<%xd(battery,12)|%xd(battery,11)|%xd(battery,10)|%xd(battery,9)|%xd(battery,8)|%xd(battery,7)>|%?bl<%xd(battery,6)|%xd(battery,5)|%xd(battery,4)|%xd(battery,3)|%xd(battery,2)|%xd(battery,1)>>>
+
+# Playlist Number
+%Vl(mainDisplay,210,335,180,23,2)
+%ac%pp / %pe
+
+# Play/Pause Icons
+%Vl(mainDisplay,63,27,33,33,-)
+%?if(%mp, >, 1)<%xd(playmodes,%mp)|>
+
+# Repeat Icon
+%Vl(mainDisplay,11,89,38,33,-)
+%?mm<%xd(repeat,5)|%xd(repeat,1)|%xd(repeat,2)|%xd(repeat,3)|%xd(repeat,4)>
+
+# Shuffle Icon
+%Vl(mainDisplay,11,125,38,33,-)
+%?ps<%xd(shuffle,1)|%xd(shuffle,2)>
+
+# Time
+%Vl(mainDisplay,240,3,135,40,3)
+%ar%?cf<%cH|%cl>:%cM%?cf<| %cP>
+
+# Line
+%Vl(mainDisplay,120,273,270,2,-)
+%dr(0,0,270,2)
+
+# File Info
+%Vl(mainDisplay,135,275,240,23,2)
+%ac%s%fc | %fb kbps | %fk kHz
+
+# Volume Bar
+%Vl(mainDisplay,453,87,12,180,-)
+%pv(0,0,12,180,VBB,backdrop,VB)
+
+# Track Progress Bar
+%Vl(mainDisplay,135,312,330,21,-)%Vf(-)%Vb(-)
+%pb(0,0,-,21,PBB,backdrop,PB)
+
+# Time Elapsed
+%Vl(mainDisplay,135,335,75,23,2)
+%al%pc
+
+# Time Remaining
+%Vl(mainDisplay,390,335,75,23,2)
+%ar-%pr
+
+## Track info with album art ##
+
+# Album
+%Vl(mainDisplayArt,78,175,348,23,2)
+%ac%s%?id<%id>
+
+# Track Title
+%Vl(mainDisplayArt,75,196,353,55,3)
+%ac%s%?it<%s%it|%fn>
+
+# Artist
+%Vl(mainDisplayArt,107,246,293,25,2)
+%ac%s%?ia<%ia>
+
+## Track info with no album art ##
+
+# Album
+%Vl(mainDisplayNoArt,75,128,345,23,2)
+%ac%s%?id<%id>
+
+# Track Title
+%Vl(mainDisplayNoArt,75,150,345,50,3)
+%ac%s%?it<%s%it|%fn>
+
+# Artist
+%Vl(mainDisplayNoArt,75,195,345,23,2)
+%ac%s%?ia<%ia>
+
+## Hold Screen (hides album art on hold)##
+
+# Album
+%Vl(holdScreen,75,128,345,23,2)
+%ac%s%?id<%id>
+
+# Track Title
+%Vl(holdScreen,75,150,345,45,3)
+%ac%s%?it<%s%it|%fn>
+
+# Artist
+%Vl(holdScreen,75,195,345,23,2)
+%ac%s%?ia<%ia>

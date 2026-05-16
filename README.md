@@ -9,7 +9,9 @@ For more details on attributions and licenses please look into the files of the 
 | Adwaitapod_Dark | Dook | [davidcharles283-collab](https://github.com/davidcharles283-collab) & rockbox-y1 | Remove unsupported features, Scale fonts and images, adjust list padding |
 | Adwaitapod_simplified | Dook | [davidcharles283-collab](https://github.com/davidcharles283-collab) & rockbox-y1 | Remove unsupported features, Scale fonts and images, adjust list padding |
 | Adwaitapod_simplified-dark | Dook | [davidcharles283-collab](https://github.com/davidcharles283-collab) & rockbox-y1 | Remove unsupported features, Scale fonts and images, adjust list padding |
+| Adwaitapod_simplified-arcticons-dark | Dook | [joelchrono](https://codeberg.org/joelchrono) | True 360p version of AdwaitaPod Dark Simplified with Arcticons |
 | BONES | CHUCK_LARDO | rockbox-y1 | Scale fonts and images, adjust list padding |
+| BunnyPod | Monica G. | [u/Sphynx87](https://www.reddit.com/user/Sphynx87) | Scale fonts and images |
 | die-bahn | Jihoon Kim | rockbox-y1 | Scale fonts and images, adjust list padding |
 | FreshOS-Y1_Dark | yuuiko | [u/elinks59](https://www.reddit.com/user/elinks59) & rockbox-y1 | Fix original theme to work on Y1, scale fonts and images, adjust list padding |
 | FreshOS-Y1_Light | yuuiko | [u/elinks59](https://www.reddit.com/user/elinks59) & rockbox-y1 | Fix original theme to work on Y1, scale fonts and images, adjust list padding |
@@ -28,6 +30,7 @@ For more details on attributions and licenses please look into the files of the 
 | PodOne | Guillaume Cocatre-Zilgien | rockbox-y1 | Scale fonts and images, adjust list padding |
 | PodTwo | Guillaume Cocatre-Zilgien | rockbox-y1 | Scale fonts and images, adjust list padding |
 | SNARTY | Simon Andén | rockbox-y1 | Scale fonts and images, adjust list padding |
+| SnartyJPMod | [u/Sphynx87](https://www.reddit.com/user/Sphynx87) | - | Snarty variant with Japanese character suport and large font menus |
 | SNAZZ | Jihoon Kim | rockbox-y1 | Scale fonts and images, adjust list padding |
 | SNAZZ2 | Jihoon Kim | rockbox-y1 | Scale fonts and images, adjust list padding |
 | SNAZZ3 | Vera B | rockbox-y1 | Scale fonts and images, adjust list padding |
