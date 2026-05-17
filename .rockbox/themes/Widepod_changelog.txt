@@ -1,0 +1,85 @@
+┌─────────────────────────────────────────────────────────────────────────┐
+│     db   d8b   db d888888b d8888b. d88888b d8888b.  .d88b.  d8888b.     │
+│     88   I8I   88   `88'   88  `8D 88'     88  `8D .8P  Y8. 88  `8D     │
+│     88   I8I   88    88    88   88 88ooooo 88oodD' 88    88 88   88     │
+│     Y8   I8I   88    88    88   88 88~~~~~ 88~~~   88    88 88   88     │
+│     `8b d8'8b d8'   .88.   88  .8D 88.     88      `8b  d8' 88  .8D     │
+│      `8b8' `8d8'  Y888888P Y8888D' Y88888P 88       `Y88P'  Y8888D'     │
+│                                                                         │
+│                                                                         │
+│                              Rockbox Theme                              │
+│   Rev. 14                                         by Christian Soffke   │
+│   2024-03-24                                                 CC-BY-SA   │
+│                                                                         │
+│  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓  │
+│  ┃                                                                   ┃  │
+│  ┃               Inspired by David Barkan's AMusicPod                ┃  │
+│  ┃                                                                   ┃  │
+│  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛  │
+│                                                                         │
+│    Revision History:                                                    │
+│                                                                         │
+│    Rev. 14 (2024-03-24):                                                │
+│      - Ensure battery percentage stays visible on QuickScreen during    │
+│        volume adjustments                                               │
+│                                                                         │
+│    Rev. 13 (2023-08-06):                                                │
+│      - Fix: Selector type not applied                                   │
+│      - Remove unneeded fonts                                            │
+│                                                                         │
+│    Rev. 12 (2023-08-04):                                                │
+│      - New Pause Screen                                                 │
+│      - Moved lock icon back to top to make it more easily noticeable    │
+│      - Show progress info and volume indicator simultaneously           │
+│                                                                         │
+│    Rev. 11 (2023-07-29):                                                │
+│      - Modernized menu screens (SBS)                                    │
+│      - Tweaked WPS shadow                                               │
+│      - Adjusted position of lock icon and Sleep Timer                   │
+│      - Fixed cut-off >0dB indicator on WPS                              │
+│                                                                         │
+│    Rev. 10 (2023-07-24):                                                │
+│      - Refreshed design: Album art fills whole screen now               │
+│                                                                         │
+│    Rev. 9 (2023-06-10):                                                 │
+│      - Switch to 16bit BMP to prevent redundant dithering of backdrop   │
+│                                                                         │
+│    Rev. 8 (2023-06-10):                                                 │
+│      - Use %x instead of %xd for backdrop                               │
+│                                                                         │
+│    Rev. 7 (2023-06-10):                                                 │
+│      - Pre-dithered backdrop for improved compatibility with older      │
+│        builds of Rockbox                                                │
+│                                                                         │
+│    Rev. 6 (2023-06-10):                                                 │
+│      - New volume bar. Show warning when volume above 0dB               │
+│      - Fix flashing of lock icon and sleep timer during song changes    │
+│      - Show elapsed/remaining while ffw-ing or rewinding                │
+│      - Use "Rockbox" in list titles where "iPod" was used before        │
+│      - Set black as foreground color to improve usability of keyboard   │
+│      - Pink accent color now stays fixed (f24e61). Other theme variants │
+│        have been removed. You can still search&replace in WPS file      │
+│        to pick another value.                                           │
+│      - Fix visual glitch in bottom bar                                  │
+│                                                                         │
+│    Rev. 5 (2023-01-21):                                                 │
+│      - Adjust volume bar display duration                               │
+│                                                                         │
+│    Rev. 4 (2023-01-21):                                                 │
+│      - Larger album art                                                 │
+│      - Display track length and playlist position after volume change   │
+│                                                                         │
+│    Rev. 3 (2022-12-27):                                                 │
+│      - Optionally display battery percentage in all menus               │
+│      - Use longer track string if battery percentage is not displayed   │
+│                                                                         │
+│    Rev. 2 (2022-12-05):                                                 │
+│      - Vertically align album art to top                                │
+│                                                                         │
+│    Rev. 1 (2022-11-29):                                                 │
+│      - Add position in playlist                                         │
+│                                                                         │
+│    Rev. 0 (2022-11-25):                                                 │
+│      - Initial Release                                                  │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘

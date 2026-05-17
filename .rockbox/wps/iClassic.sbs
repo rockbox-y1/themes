@@ -1,0 +1,82 @@
+# Theme: iClassic
+# By: CarlosPixel (Based on the original iClassic theme by Humberto Santana)
+# Original Author: Humberto Santana (humbertosantana@hotmail.com)
+# License: Creative Commons Attribution-Share Alike 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
+# Attribution Note: Modified from iClassic theme for iPod Video (CC-BY-SA 3.0) by Humberto Santana
+# A few elements derived from iLike Theme for 320x240 by Alan Brito, which was ported from the 176x132 version by H. Pearce
+#
+# Version 1.4
+# Last Update: October 18th, 2025
+# First Version: February 14th, 2011
+#
+# SBS File
+#
+%wd
+%?Lt<|>
+%Fl(2,23-arial-unicode-ms-bold.fnt)
+
+# Conditional: Album Art or normal/radio display
+%?C<%Vd(a)|%?mp<%Vd(normal)|%Vd(normal)|%Vd(normal)|%Vd(normal)|%Vd(normal)|%Vd(normal)|%Vd(normal)|%Vd(radio)|%Vd(radio)>>
+
+# Album Art container viewport
+%Cl(0,0,360,360,c,c)
+
+# Album Art display area
+%Vl(a,180,0,300,360,-)
+%Cd
+
+# Album Art side margin
+%Vl(a,180,0,60,360,-)
+
+# Main menu list viewport
+%Vi(-,0,29,240,331,1)%Vf(000000)%Vb(FFFFFF)
+
+# Conditional viewport for different screen states
+%?cs<%Vd(t)|%Vd(n)|%Vd(n)|%Vd(n)|%Vd(n)>
+
+# Viewport for title/header text
+%Vl(t,3,0,171,21,2)%Vf(000000)
+# Static "iPod" title text
+%s%al iPod
+
+# Battery status icons
+%xl(B,Battery.bmp,0,0,24)
+
+# Viewport for battery icon display
+%V(201,6,37,16,-)
+%?bp<%?bc<%t(1.0)%xd(Ba);%t(1.0)%xd(Bb)|%xd(Bc)>|%?bl<%xd(Bd)|%xd(Bd)|%xd(Be)|%xd(Bf)|%xd(Bg)|%xd(Bh)|%xd(Bi)|%xd(Bj)|%xd(Bk)|%xd(Bl)|%xd(Bm)|%xd(Bn)|%xd(Bo)|%xd(Bp)|%xd(Bq)|%xd(Br)|%xd(Bs)|%xd(Bt)|%xd(Bu)|%xd(Bv)|%xd(Bw)|%xd(Bx)||>>
+
+# Hold switch icon
+%xl(h,Hold Icon.bmp,0,1)
+# Playback status icons
+%xl(P,Playing Status.bmp,0,0,4)
+
+# Viewport for hold/play status icons
+%V(177,4,24,19,-)
+
+# Conditional: Hold icon or playback status
+%?mh<%xd(h)|%?mp<|%xd(Pa)|%xd(Pb)|%xd(Pc)|%xd(Pd)|%xd(Pa)|%xd(Pb)|%xd(Pa)|%xd(Pb)>>
+
+# Viewport for track title in normal mode
+%Vl(normal,244,237,231,36,1)%Vf(ebeced)
+%t(6)%s%ac%?it<%it|%?fn<%fn|iClassic>>;%t(12)%ac%?it<%it|%?fn<%fn|iClassic>>
+
+# Viewport for artist/bitrate in normal mode
+%Vl(normal,244,280,231,21,2)%Vf(ebeced)
+%t(6)%ac%?fn<%?ia<%ia|%?d(2)<%d(2)|>>|v1.3>;%t(6)%s%ac%?fn<%?ia<%ia|%?d(2)<%d(2)|>>|v1.3>;%t(6)%ac%?fn<%?ia<%ia|%?d(2)<%d(2)|>>|v1.3>
+
+# Viewport for album/info in normal mode
+%Vl(normal,244,304,231,21,2)%Vf(ebeced)
+%t(12)%ac%?fn<%?id<%id|%?d(1)<%d(1)|>>|>;%t(6)%s%ac%?fn<%?id<%id|%?d(1)<%d(1)|>>|>
+
+# Viewport for radio frequency display
+%Vl(radio,244,237,231,36,1)%Vf(ebeced)
+%ac%tf Mhz
+
+# Viewport for radio station name
+%Vl(radio,244,280,231,21,2)%Vf(ebeced)
+%t(6)%s%ac%?Tn<%Tn|%?ty<%ty|%?tt<Tuned|tune>>>;%t(6)%ac%?Tn<%Tn|%?ty<%ty|%?tt<Tuned|tune>>>
+
+# Viewport for radio signal strength
+%Vl(radio,244,304,231,21,2)%Vf(ebeced)
+%t(6)%ac%?tz<%tz|Signal: %?tr<Faint/No Signal|Weak|Fair|Strong|Very Strong>>;%t(6)%s%ac%?tz<%tz|Signal: %?tr<Faint/No Signal|Weak|Fair|Strong|Very Strong>>

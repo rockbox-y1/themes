@@ -1,0 +1,75 @@
+
+     `....            `..           `..
+   `..    `..         `..       `.  `..
+ `..        `..`. `...`..         `.`. `.
+ `..        `.. `..   `.. `..  `..  `..
+ `..        `.. `..   `..   `..`..  `..
+   `..     `..  `..   `..   `..`..  `..
+     `....     `...   `.. `..  `..   `..
+
+                 Orbit 1.7
+             Chris Soffke 2025
+                  CC-BY-SA
+
+          inspired by Jihoon Kim's
+                  Horizon
+
+              2025-04-10 (1.7)
+              ================
+      * Improve WPS compatibility with
+               other base skins
+          * Clean up some graphics
+
+              2025-04-07 (1.6)
+              ================
+         * Show next track's title
+              before track ends
+         * Keep progress indicators
+            on screen permanently
+
+              2025-04-07 (1.5)
+              ================
+       * Keep progress bar on screen
+      when paused or adjusting volume
+
+              2025-04-06 (1.4)
+              ================
+        * New circular progress bar
+      * Remaining time always visible
+     * Volume indicator now disappears
+                 after 1.5s
+
+              2025-04-06 (1.3)
+              ================
+   * Adjust margins for improved cohesion
+   * Hide elapsed/remaining after 5s when
+   changing volume, instead of after 2.5s
+
+              2025-04-05 (1.2)
+              ================
+   * Add volume overlay to WPS that keeps
+      song title visible at all times
+    * Make pause indicator slightly more
+                 prominent
+     * Display elapsed/remaining while
+                  seeking
+  * Improve center-alignment of album art
+  * Don't have WPS depend on SBS anymore:
+   this allows you to freely combine the
+   WPS with  base skins from other themes
+    * Show remaining sleep timer on WPS
+    * Add single mode indicator to  WPS
+  * Add party party mode indicator to WPS
+
+              2025-03-19 (1.1)
+              ================
+    Adjust look of WPS, pause indicator
+
+             2025-03-17 (1.0.1)
+              ================
+      Remove unwanted visual artifact
+        from album placeholder image
+
+              2025-03-17 (1.0)
+              ================
+              Initial Release

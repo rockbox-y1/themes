@@ -1,0 +1,151 @@
+# Theme: iClassic
+# By: CarlosPixel (Based on the original iClassic theme by Humberto Santana)
+# Original Author: Humberto Santana (humbertosantana@hotmail.com)
+# License: Creative Commons Attribution-Share Alike 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
+# Attribution Note: Modified from iClassic theme for iPod (CC-BY-SA 3.0) by Humberto Santana
+#
+# Version 1.4
+# Last Update: October 18th, 2025
+# First Version: February 14th, 2011
+#
+# WPS File
+#
+%wd
+%X(iClassic_bg.bmp)
+%Fl(2,23-arial-unicode-ms-bold.fnt)
+%Fl(3,27-arial-unicode-ms-bold.fnt)
+
+# Conditional viewport for next/current track display
+%?pE(15)<%?Fn<%Vd(next)|%Vd(current)>|%Vd(current)>
+
+# Conditional viewport: Volume bar or Playback progress bar
+%?mv(2.0)<%Vd(volume)|%Vd(pb)>
+
+# Conditional viewport: Title, Title with battery, or Clock
+%?mv(5)<%?St(battery display)<%Vd(title)|%Vd(titlebat)>|%?St(battery display)<%?mp<%Vd(clock)|%Vd(clock)|%Vd(clock)|%Vd(title)|%Vd(title)>|%?mp<%Vd(clock)|%Vd(clock)|%Vd(clock)|%Vd(titlebat)|%Vd(titlebat)>>>
+
+# Viewport for the main title (without battery meter)
+%Vl(title,7,0,369,30,2)%Vf(000000)
+%s%al%?pE(15)<%?Fn<%Sx(Next Track:)|%Sx(End of Song List)>|%Sx(Now Playing)>
+
+# Viewport for the title when battery percentage is shown
+%Vl(titlebat,7,0,316,30,2)%Vf(000000)
+%s%al%?pE(15)<%?Fn<%Sx(Next Track:)|%Sx(End of Song List)>|%Sx(Now Playing)>
+
+# Viewport for the clock display
+%Vl(clock,7,0,316,30,2)%Vf(000000)
+%s%al%?pS(15)<%Sx(Now Playing)|%?pE(15)<%?Fn<%Sx(Next Track:)|%Sx(End of Song List)>|%?cf<%cH:%cM|%cl:%cM %cP>>>
+
+# Battery icons
+%xl(B,Battery.bmp,0,0,24)
+
+# Viewport for the battery icon container
+%V(436,6,37,16,-)
+%?bp<%?bc<%t(1.0)%xd(Ba);%t(1.0)%xd(Bb)|%xd(Bc)>|%?bl<%xd(Bd)|%xd(Bd)|%xd(Be)|%xd(Bf)|%xd(Bg)|%xd(Bh)|%xd(Bi)|%xd(Bj)|%xd(Bk)|%xd(Bl)|%xd(Bm)|%xd(Bn)|%xd(Bo)|%xd(Bp)|%xd(Bq)|%xd(Br)|%xd(Bs)|%xd(Bt)|%xd(Bu)|%xd(Bv)|%xd(Bw)|%xd(Bx)||>>
+
+# Conditional: Battery viewport with or without percentage
+%?St(battery display)<%Vd(nonumbat)|%Vd(numbat)>
+	
+# Viewport for battery percentage text
+%Vl(numbat,382,0,52,24,2)%Vf(000000)
+%ac%bl%%
+
+# Play/Pause/Stop/FF/RW status icons
+%xl(P,Playing Status.bmp,0,0,4)
+# Viewport for play status icon (with battery %)
+%Vl(numbat,354,4,24,19,-)
+%?mp<|%xd(Pa)|%xd(Pb)|%xd(Pc)|%xd(Pd)>
+# Viewport for play status icon (without battery %)
+%Vl(nonumbat,406,4,24,19,-)
+%?mp<|%xd(Pa)|%xd(Pb)|%xd(Pc)|%xd(Pd)>
+
+# Hold switch icon
+%xl(h,Hold Icon.bmp,0,1)
+# Disk activity icons
+%xl(M,Memory Access.bmp,0,0,6)
+# Viewport for hold/disk activity (with battery %)
+%Vl(numbat,327,4,19,19,-)
+%?lh<%t(0.1)%xd(Ma);%t(0.1)%xd(Mb);%t(0.1)%xd(Mc);%t(0.1)%xd(Md);%t(0.1)%xd(Me);%t(0.1)%xd(Mf)|%?mh<%xd(h)|>>
+# Viewport for hold/disk activity (without battery %)
+%Vl(nonumbat,379,4,19,19,-)
+%?lh<%t(0.1)%xd(Ma);%t(0.1)%xd(Mb);%t(0.1)%xd(Mc);%t(0.1)%xd(Md);%t(0.1)%xd(Me);%t(0.1)%xd(Mf)|%?mh<%xd(h)|>>
+
+# Repeat mode icons
+%xl(r,Repeat Icon.bmp,0,0,4)
+# Shuffle mode icon
+%xl(S,Shuffle Icon.bmp,0,0)
+# Viewport for the repeat mode icon
+%V(402,31,28,30,-)
+%?ps<%?mm<|%xd(ra)|%xd(rb)|%t(1.0)%xd(rc);%t(1.0)%xd(ra)|%xd(rd)>|>
+# Viewport for the shuffle mode icon
+%ax%V(441,31,28,30,-)
+%?ps<%xd(S)|%?mm<|%xd(ra)|%xd(rb)|%t(1.0)%xd(rc);%t(1.0)%xd(ra)|%xd(rd)>>
+
+# Viewport for the Album Art container
+%Cl(4,6,207,207,c,c)
+# Main viewport for the album art area
+%V(10,58,216,213,-)
+%Cd
+
+# Viewport for the CURRENT track name
+%Vl(current,240,81,235,38,1)%Vf(000000)
+%t(8)%s%al%?it<%it|%fn>;%t(16)%al%?it<%it|%fn>
+
+# Viewport for the NEXT track name
+%Vl(next,240,81,235,38,3)%Vf(444444)
+%t(8)%s%al%?It<%It|%Fn>;%t(16)%al%?It<%It|%Fn>
+
+# Viewport for the artist name or bitrate
+%V(240,115,235,32,3)%Vf(444444)
+%t(8)%al%?ia<%ia|%?d(2)<%d(2)|%fc %fbkbps>>;%t(8)%s%al%?ia<%ia|%?d(2)<%d(2)|%fc %fbkbps>>;%t(8)%al%?ia<%ia|%?d(2)<%d(2)|%fc %fbkbps>>
+
+# Viewport for the album name or sample rate
+%V(240,145,235,32,3)%Vf(444444)
+%t(16)%al%?id<%id|%?d(3)<%d(3)|%?Sr<kHz%fk|%fkkHz>>>;%t(8)%al%s%?id<%id|%?d(3)<%d(3)|%?Sr<kHz%fk|%fkkHz>>>
+
+# Rating stars icons
+%xl(R,Ratings.bmp,0,0,10)
+
+# Viewport for file format and bitrate
+%V(240,175,235,32,2)%Vf(444444)
+%al%fc %fbK
+
+# Viewport for current track progress (e.g., "1 of 15")
+%Vl(current,240,205,235,32,2)%Vf(444444)
+%s%al%pp %Sx(of) %pe
+
+# Viewport for "Now Playing" label when next track is shown
+%Vl(next,240,225,235,28,2)%Vf(000000)
+%s%al%Sx(Now Playing): %?it<%it|%fn>
+
+# Viewport for the playback progress bar
+%Vl(pb,87,309,306,34,-) 
+%pb(0,0,306,34,PB.bmp)
+
+# Viewport for the volume level bar
+%Vl(volume,87,309,306,34,-)
+%pv(0,0,306,34,PB.bmp)
+
+# Volume bar right cap
+%xl(V,Volume Right.bmp,0,0)
+# Viewport for volume bar right cap icon
+%Vl(volume,409,304,31,31,-)
+%xd(V)
+
+# Volume bar left cap
+%xl(v,Volume Left.bmp,0,0)
+# Viewport for volume bar left cap icon
+%Vl(volume,51,306,19,28,-)
+%xd(v)
+
+# Viewport for volume numeric display (dB)
+%Vl(volume,87,340,306,19,2)%Vf(000000)
+%ac%?St(volume display)<|%pv dB>
+
+# Viewport for elapsed time (right-aligned)
+%Vl(pb,0,307,67,21,2)%Vf(000000)
+%ar%pc
+
+# Viewport for remaining time (left-aligned)
+%Vl(pb,409,307,70,21,2)%Vf(000000)
+%al-%pr

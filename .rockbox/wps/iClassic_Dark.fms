@@ -1,0 +1,179 @@
+# Theme: iClassic_Dark
+# By: CarlosPixel (Based on the original iClassic theme by Humberto Santana)
+# Original Author: Humberto Santana (humbertosantana@hotmail.com)
+# License: Creative Commons Attribution-Share Alike 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
+# Attribution Note: Modified from iClassic theme for iPod Video (CC-BY-SA 3.0) by Humberto Santana
+# A few elements derived from iLike Theme for 320x240 by Alan Brito, which was ported from the 176x132 version by H. Pearce
+#
+# Version 1.4
+# Last Update: October 18th, 2025
+# First Version: February 8th, 2011
+#
+# FMS File
+#
+%wd
+%X(iClassic_Dark_bg.bmp)
+# Touch region: Menu button
+%T(0,0,324,27,menu)
+# Touch region: Cancel button
+%T(0,0,324,27,&cancel)
+# Touch region: Previous preset
+%T(0,300,87,37,prev)
+# Touch region: Rewind tuning
+%T(0,300,87,37,&rwd)
+# Touch region: Presets menu
+%T(160,198,97,22,presets)
+# Touch region: Next preset
+%T(262,300,87,37,next)
+# Touch region: Fast-forward tuning
+%T(262,300,87,37,&ffwd)
+# Touch region: Play/start
+%T(240,0,67,27,play)
+# Touch region: Stop
+%T(240,0,67,27,&stop)
+# Touch region: Progress bar
+%T(58,309,306,34,progressbar)
+%Fl(2,23-arial-unicode-ms-bold.fnt)
+%Fl(3,27-arial-unicode-ms-bold.fnt)
+
+# Conditional viewport: Title, Title with battery, or Clock
+%?mv(5)<%?St(battery display)<%Vd(title)|%Vd(titlebat)>|%?St(battery display)<%?mp<%Vd(clock)|%Vd(clock)|%Vd(clock)|%Vd(title)|%Vd(title)>|%?mp<%Vd(clock)|%Vd(clock)|%Vd(clock)|%Vd(titlebat)|%Vd(titlebat)>>>
+
+# Viewport for main title (without battery %)
+%Vl(title,7,0,369,21,2)%Vf(FFFFFF)
+%s%al%Sx(FM Radio)
+
+# Viewport for title when battery % is shown
+%Vl(titlebat,7,0,316,21,2)%Vf(FFFFFF)
+%s%al%Sx(FM Radio)
+
+# Viewport for clock display
+%Vl(clock,7,0,316,21,2)%Vf(FFFFFF)
+%t(10)%s%al%Sx(FM Radio);%t(30)%s%al%?cf<%cH:%cM|%cl:%cM %cP>
+
+# Battery status icons
+%xl(B,Battery.bmp,0,0,24)
+# Viewport for battery icon container
+%V(436,6,37,16,-)
+%?bp<%?bc<%t(1.0)%xd(Ba);%t(1.0)%xd(Bb)|%xd(Bc)>|%?bl<%xd(Bd)|%xd(Bd)|%xd(Be)|%xd(Bf)|%xd(Bg)|%xd(Bh)|%xd(Bi)|%xd(Bj)|%xd(Bk)|%xd(Bl)|%xd(Bm)|%xd(Bn)|%xd(Bo)|%xd(Bp)|%xd(Bq)|%xd(Br)|%xd(Bs)|%xd(Bt)|%xd(Bu)|%xd(Bv)|%xd(Bw)|%xd(Bx)||>>
+
+# Conditional: Battery viewport with or without percentage
+%?St(battery display)<%Vd(nonumbat)|%Vd(numbat)>
+
+# Viewport for battery percentage text
+%Vl(numbat,382,4,48,18,2)%Vf(FFFFFF)
+%ac%bl%%
+
+# Playback status icons
+%xl(P,Playing Status.bmp,0,0,4)
+# Viewport for play status (with battery %)
+%Vl(numbat,354,4,24,19,-)
+%?mp<|%xd(Pa)|%xd(Pb)|%xd(Pc)|%xd(Pd)|||%xd(Pa)|%xd(Pb)>
+# Viewport for play status (without battery %)
+%Vl(nonumbat,406,4,24,19,-)
+%?mp<|%xd(Pa)|%xd(Pb)|%xd(Pc)|%xd(Pd)|||%xd(Pa)|%xd(Pb)>
+
+# Hold switch icon
+%xl(h,Hold Icon.bmp,0,1)
+# Disk activity icons
+%xl(M,Memory Access.bmp,0,0,6)
+# Viewport for hold/disk activity (with battery %)
+%Vl(numbat,327,4,19,19,-)
+%?lh<%t(0.1)%xd(Ma);%t(0.1)%xd(Mb);%t(0.1)%xd(Mc);%t(0.1)%xd(Md);%t(0.1)%xd(Me);%t(0.1)%xd(Mf)|%?mh<%xd(h)|>>
+# Viewport for hold/disk activity (without battery %)
+%Vl(nonumbat,379,3,19,19,-)
+%?lh<%t(0.1)%xd(Ma);%t(0.1)%xd(Mb);%t(0.1)%xd(Mc);%t(0.1)%xd(Md);%t(0.1)%xd(Me);%t(0.1)%xd(Mf)|%?mh<%xd(h)|>>
+
+# Stereo reception icon
+%xl(s,Stereo Icon.bmp,0,0)
+# Viewport for stereo icon
+%V(442,31,25,21,-)
+# Show stereo icon when in stereo mode
+%?ts<%xd(s)|>
+
+# Conditional: Album Art or Radio icon
+%?C<%Vd(aa)|%Vd(na)>
+
+# Album Art Frame: Top
+%xl(w,FrameTop.bmp,0,0)
+# Album Art Frame: Left
+%xl(x,FrameLeft.bmp,0,19)
+# Album Art Frame: Right
+%xl(y,FrameRight.bmp,210,19)
+# Album Art Frame: Bottom
+%xl(z,FrameBottom.bmp,0,204)
+# Viewport for Album Art container
+%Cl(4,6,207,207,c,c)
+# Viewport for Album Art display
+%Vl(aa,10,58,216,213,-)
+# Draw album art with frame
+%Cd%xd(w)%xd(x)%xd(y)%xd(z)
+
+# Radio icon
+%xl(r,Radio Icon.bmp,6,6)
+# Viewport for Radio icon display
+%Vl(na,10,58,216,213,-)
+# Show radio icon
+%xd(r)
+
+# Viewport for frequency display
+%V(240,81,235,31,1)%Vf(FFFFFF)
+# Show current frequency in MHz
+%al%tf Mhz
+
+# Viewport for station name
+%V(240,115,235,28,3)%Vf(444444)
+# Show station name or tuning status
+%s%al%?Tn<%Tn|%?ty<%ty|%?tt<Tuned|tune>>>
+
+# Viewport for signal info
+%V(240,144,235,28,3)%Vf(444444)
+# Show RDS text or signal strength label
+%s%al%?tz<%tz|%Sx(Signal strength:)>
+
+# Signal strength icons (reusing ratings images)
+%xl(R,Ratings.bmp,0,0,10)
+# Viewport for signal strength indicator
+%V(240,174,99,19,-)
+# Show signal strength bars
+%?tr<|%xd(Ra)|%xd(Rb)|%xd(Rc)|%xd(Rd)|%xd(Re)|%xd(Rf)|%xd(Rg)|%xd(Rh)|%xd(Ri)|%xd(Rj)>
+
+# Viewport for scan/tuning info
+%V(240,201,235,21,2)%Vf(444444)
+# Show scan progress or preset info
+%s%al%?tm<%Sx(Scan)|%Ti %Sx(of) %Tc>
+
+# Conditional: Volume bar or Progress bar
+%?mv(2.0)<%Vd(volume)|%Vd(pb)>
+
+# Viewport for tuning progress bar
+%Vl(pb,87,309,306,34,-)
+%pb(0,0,306,34,PB.bmp)
+
+# Viewport for volume level bar
+%Vl(volume,87,309,306,34,-)
+%pv(0,0,204,23,PB.bmp)
+
+# Volume bar right cap
+%xl(V,Volume Right.bmp,0,0)
+# Viewport for volume bar right cap
+%Vl(volume,409,304,31,31,-)
+%xd(V)
+
+# Volume bar left cap
+%xl(v,Volume Left.bmp,0,0)
+# Viewport for volume bar left cap
+%Vl(volume,51,306,19,28,-)
+%xd(v)
+
+# Viewport for volume numeric display
+%Vl(volume,87,340,306,19,2)%Vf(FFFFFF)
+%ac%?St(volume display)<|%pv dB>
+
+# Viewport for start frequency/left info
+%Vl(pb,0,310,67,21,2)%Vf(FFFFFF)
+%ar%ta
+
+# Viewport for end frequency/right info
+%Vl(pb,409,310,70,21,2)%Vf(FFFFFF)
+%al%tb
