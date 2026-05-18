@@ -40,7 +40,7 @@
 ## Main Menu ##
 
 # Main Menu UI Viewport
-%Vi(mainMenu,15,75,315,255,3)
+%Vi(mainMenu,15,75,315,260,3)
 
 # Bunny SBS
 %Vl(mainMenu,336,157,144,203,-)
