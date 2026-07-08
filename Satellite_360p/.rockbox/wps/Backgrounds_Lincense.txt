@@ -1,0 +1,27 @@
+Applies to the following files: amber-d.bmp, fold-d.bmp, glass-chip-l.bmp, pixel-pusher-d.bmp, sheet-d.bmp, amber-d-sbs.bmp, fold-d-sbs.bmp, glass-chip-l-sbs.bmp, pixel-pusher-d-sbs.bmp, sheet-d-sbs.bmp
+
+Above files are a modified version of GNOME Backgrounds, found in https://gitlab.gnome.org/GNOME/gnome-backgrounds and licensed under CC BY-SA 3.0 Unported. Detailed informations can be found below and in the link. 
+
+AUTHORS:
+
+- amber*:
+
+  Copyright © 2023 David Lapshin <ddaudix@gmail.com> 
+  Licensed under Creative Commons Attribution-ShareAlike 3.0 License.
+
+- fold*:
+- glass-chip*:
+- pixels*:
+- sheet*:
+
+  Copyright © 2011-2023 Jakub Steiner <jimmac@gmail.com>
+  Licensed under Creative Commons Attribution-ShareAlike 3.0 License.
+
+
+COPYING:
+
+This work is licenced under the Creative Commons Attribution-Share Alike 3.0
+United States License. To view a copy of this licence, visit
+http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative
+Commons, 171 Second Street, Suite 300, San Francisco, California 94105, USA.
+
