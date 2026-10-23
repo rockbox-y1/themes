@@ -63,7 +63,7 @@
 
 # Viewport for artist/bitrate in normal mode
 %Vl(normal,244,280,231,21,2)%Vf(888888)
-%t(6)%ac%?fn<%?ia<%ia|%?d(2)<%d(2)|>>|v1.3>;%t(6)%s%ac%?fn<%?ia<%ia|%?d(2)<%d(2)|>>|v1.3>;%t(6)%ac%?fn<%?ia<%ia|%?d(2)<%d(2)|>>|v1.3>
+%t(6)%ac%?fn<%?ia<%ia|%?d(2)<%d(2)|>>|v1.4>;%t(6)%s%ac%?fn<%?ia<%ia|%?d(2)<%d(2)|>>|v1.4>;%t(6)%ac%?fn<%?ia<%ia|%?d(2)<%d(2)|>>|v1.4>
 
 # Viewport for album/info in normal mode
 %Vl(normal,244,304,231,21,2)%Vf(888888)
