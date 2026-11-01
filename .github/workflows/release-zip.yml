@@ -26,8 +26,28 @@ jobs:
           done
           zip -r themes_individual.zip "${THEME_DIRS[@]}"
 
-      - name: Upload to release
+      - name: Create themepack zip
+        run: |
+          mkdir -p themepack_tmp/.rockbox
+          for dir in */; do
+            theme_name="$(basename "$dir")"
+            [ "$theme_name" = "themepack_tmp" ] && continue
+            if [ -d "$dir/.rockbox" ]; then
+              cp -r "$dir/.rockbox/"* themepack_tmp/.rockbox/
+            fi
+          done
+          cd themepack_tmp
+          zip -r ../themepack.zip .
+          cd ..
+
+      - name: Upload themes_individual to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release upload for_the_gays_and_the_theys themes_individual.zip --clobber
+
+      - name: Upload themepack to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload for_the_gays_and_the_theys themepack.zip --clobber
