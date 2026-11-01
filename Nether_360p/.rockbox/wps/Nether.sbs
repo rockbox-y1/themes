@@ -1,0 +1,267 @@
+# Nether by Jihoon Kim
+# 360p conversion by rockbox-y1
+# Based on Obsede* by Serge Fnstll, based on OneBit_OLED by Jihoon Kim, based on OneBit_VFD by chronicallyoffline
+# CC BY-SA 3.0
+# Credits to Chuck Lardo and D0-0K for inspiration and assets reused under CC-BY-SA and GPL V3 respectively.
+# 2025-12-20 v1.1
+
+# Disable Status Bar
+%wd
+
+# Disable Title
+#%?Lt<|>
+
+# Preload Font
+%Fl(2,20-FiraSans-Regular.fnt)
+%Fl(3,32-FiraSansCompressed-Medium.fnt)
+
+# Preload Images
+%xl(battery,battery.bmp,0,0,12)
+%xl(playmodes,playmodes.bmp,0,0,9)
+%xl(usb,usb.bmp,0,0)
+%xl(L,lock.bmp)
+%xl(star,nocover.bmp,240,0)
+%xl(albumArtRefresher,empty.bmp,0,0)
+
+# Album Art Position Selector
+%?and(%if(%mp, >, 1),%C)<%?px<%Vd(prog0)|%Vd(prog1)|%Vd(prog2)|%Vd(prog3)|%Vd(prog4)|%Vd(prog5)|%Vd(prog6)|%Vd(prog7)|%Vd(prog8)|%Vd(prog9)|%Vd(prog10)|%Vd(prog11)|%Vd(prog12)|%Vd(prog13)|%Vd(prog14)|%Vd(prog15)|%Vd(prog16)|%Vd(prog17)|%Vd(prog18)|%Vd(prog19)|%Vd(prog20)|%Vd(prog21)|%Vd(prog22)|%Vd(prog23)|%Vd(prog24)|%Vd(prog25)|%Vd(prog26)|%Vd(prog27)|%Vd(prog28)|%Vd(prog29)|%Vd(prog30)|%Vd(prog31)|%Vd(prog32)|%Vd(prog33)|%Vd(prog34)|%Vd(prog35)|%Vd(prog36)|%Vd(prog37)|%Vd(prog38)|%Vd(prog39)|%Vd(prog40)>|%Vd(noAlbumArt)>
+
+# Album Art Preload
+%Cl(0,0,360,360,c,c)
+%?if(%cs, !=, 21)<%?C<%Vd(noStar)|%Vd(withStar)>>
+
+#__USB screen
+%?if(%cs, =, 21)<%VI(clearScreen)%Vd(usb)|%VI(menu)%Vd(info)%Vd(batt)>
+
+#__Clear Screen
+%Vi(clearScreen,0,0,2,2,-)
+
+# Display Viewports
+
+%Vl(prog0,240,0,240,360,-)%VB
+%Cd
+%Vl(prog1,237,0,243,360,-)%VB
+%Cd
+%Vl(prog2,234,0,246,360,-)%VB
+%Cd
+%Vl(prog3,231,0,249,360,-)%VB
+%Cd
+%Vl(prog4,228,0,252,360,-)%VB
+%Cd
+%Vl(prog5,225,0,255,360,-)%VB
+%Cd
+%Vl(prog6,222,0,258,360,-)%VB
+%Cd
+%Vl(prog7,219,0,261,360,-)%VB
+%Cd
+%Vl(prog8,216,0,264,360,-)%VB
+%Cd
+%Vl(prog9,213,0,267,360,-)%VB
+%Cd
+%Vl(prog10,210,0,270,360,-)%VB
+%Cd
+%Vl(prog11,207,0,273,360,-)%VB
+%Cd
+%Vl(prog12,204,0,276,360,-)%VB
+%Cd
+%Vl(prog13,201,0,279,360,-)%VB
+%Cd
+%Vl(prog14,198,0,282,360,-)%VB
+%Cd
+%Vl(prog15,195,0,285,360,-)%VB
+%Cd
+%Vl(prog16,192,0,288,360,-)%VB
+%Cd
+%Vl(prog17,189,0,291,360,-)%VB
+%Cd
+%Vl(prog18,186,0,294,360,-)%VB
+%Cd
+%Vl(prog19,183,0,297,360,-)%VB
+%Cd
+%Vl(prog20,180,0,300,360,-)%VB
+%Cd
+%Vl(prog21,177,0,303,360,-)%VB
+%Cd
+%Vl(prog22,174,0,306,360,-)%VB
+%Cd
+%Vl(prog23,171,0,309,360,-)%VB
+%Cd
+%Vl(prog24,168,0,312,360,-)%VB
+%Cd
+%Vl(prog25,165,0,315,360,-)%VB
+%Cd
+%Vl(prog26,162,0,318,360,-)%VB
+%Cd
+%Vl(prog27,159,0,321,360,-)%VB
+%Cd
+%Vl(prog28,156,0,324,360,-)%VB
+%Cd
+%Vl(prog29,153,0,327,360,-)%VB
+%Cd
+%Vl(prog30,150,0,330,360,-)%VB
+%Cd
+%Vl(prog31,147,0,333,360,-)%VB
+%Cd
+%Vl(prog32,144,0,336,360,-)%VB
+%Cd
+%Vl(prog33,141,0,339,360,-)%VB
+%Cd
+%Vl(prog34,138,0,342,360,-)%VB
+%Cd
+%Vl(prog35,135,0,345,360,-)%VB
+%Cd
+%Vl(prog36,132,0,348,360,-)%VB
+%Cd
+%Vl(prog37,129,0,351,360,-)%VB
+%Cd
+%Vl(prog38,126,0,354,360,-)%VB
+%Cd
+%Vl(prog39,123,0,357,360,-)%VB
+%Cd
+%Vl(prog40,120,0,360,360,-)%VB
+%Cd
+
+%Vl(prog0,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog1,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog2,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog3,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog4,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog5,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog6,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog7,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog8,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog9,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog10,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog11,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog12,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog13,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog14,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog15,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog16,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog17,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog18,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog19,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog20,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog21,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog22,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog23,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog24,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog25,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog26,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog27,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog28,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog29,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog30,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog31,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog32,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog33,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog34,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog35,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog36,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog37,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog38,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog39,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+%Vl(prog40,0,0,240,360,-)%VB
+%dr(-,-,-,-,000000)
+
+# --- Not Playing & No Album Art ---
+%Vl(noAlbumArt,-,-,-,-,-)%VB
+%dr(0,0,240,360,000000)
+%?if(%cs, !=, 21)<%xd(star)>
+
+
+%V(240,0,240,360,-)
+%?if(%mp, >, 1)<%xd(albumArtRefresher)>
+
+
+# Menu
+%Vi(menu,15,45,210,300,-)
+%Vf(5f605f)
+
+# Menu Title
+%Vl(info,15,11,126,21,2)
+%Vf(-)
+%al%s%?cs<Main Menu|%?Lt<%Lt>>
+
+# Battery (numerical)
+#%Vl(info,127,7,27,13,2)
+#%ar%bl%%
+
+# Playback Icons
+%Vl(info,168,11,20,19,-)
+%Vf(-)
+%?if(%mp, >, 1)<%xd(playmodes,%mp)|>
+
+# Hold
+%Vl(info,149,12,13,18,-)
+%Vf(ff9326)
+%?mh<%xd(L)>
+
+# Battery viewport selector (flash when low, animates when charging)
+%?bc<%Vd(battCharging)|%?if(%bl,>=,15)<%Vd(batt)|%Vd(lowBatt)>>
+
+# Battery (graphical)
+%Vl(batt,191,14,34,15,-)
+%Vf(-)
+%?if(%bl, =, 100)<%xd(battery,11)|%?if(%bl,>=,90)<%xd(battery,10)|%?if(%bl,>=,80)<%xd(battery,9)|%?if(%bl,>=,70)<%xd(battery,8)|%?if(%bl,>=,60)<%xd(battery,7)|%?if(%bl,>=,50)<%xd(battery,6)|%?if(%bl,>=,40)<%xd(battery,5)|%?if(%bl,>=,30)<%xd(battery,4)|%?if(%bl,>=,20)<%xd(battery,3)|%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>>>>>>>>>>
+
+%Vl(lowBatt,191,14,34,15,-)
+%Vf(990000)
+%t(1)%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>;%t(1)%xd(battery,12)
+
+%Vl(battCharging,191,14,34,15,-)
+%Vf(6aa84f)
+#%Vd(batt);%?if(%bl,>=,20)<%t(0)>%xd(battery,3);%?if(%bl,>=,40)<%t(0)>%xd(battery,5);%?if(%bl,>=,60)<%t(0)>%xd(battery,7);%?if(%bl,>=,80)<%t(0)>%xd(battery,9);%xd(battery,11)
+%t(1)%?if(%bl, =, 100)<%xd(battery,11)|%?if(%bl,>=,90)<%xd(battery,10)|%?if(%bl,>=,80)<%xd(battery,9)|%?if(%bl,>=,70)<%xd(battery,8)|%?if(%bl,>=,60)<%xd(battery,7)|%?if(%bl,>=,50)<%xd(battery,6)|%?if(%bl,>=,40)<%xd(battery,5)|%?if(%bl,>=,30)<%xd(battery,4)|%?if(%bl,>=,20)<%xd(battery,3)|%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>>>>>>>>>>;%t(1)%?if(%bl, =, 100)<%xd(battery,11)|%?if(%bl,>=,90)<%xd(battery,10)|%?if(%bl,>=,80)<%xd(battery,9)|%?if(%bl,>=,70)<%xd(battery,9)|%?if(%bl,>=,60)<%xd(battery,8)|%?if(%bl,>=,50)<%xd(battery,7)|%?if(%bl,>=,40)<%xd(battery,7)|%?if(%bl,>=,30)<%xd(battery,6)|%?if(%bl,>=,20)<%xd(battery,5)|%?if(%bl,>=,10)<%xd(battery,5)|%xd(battery,4)>>>>>>>>>>;%t(1)%?if(%bl,>=,90)<%xd(battery,11)|%?if(%bl,>=,80)<%xd(battery,10)|%?if(%bl,>=,70)<%xd(battery,10)|%?if(%bl,>=,60)<%xd(battery,10)|%?if(%bl,>=,50)<%xd(battery,9)|%?if(%bl,>=,40)<%xd(battery,9)|%?if(%bl,>=,30)<%xd(battery,9)|%?if(%bl,>=,20)<%xd(battery,8)|%?if(%bl,>=,10)<%xd(battery,8)|%xd(battery,8)>>>>>>>>>;%t(1)%xd(battery,11)
+
+# USB_screen
+
+#__USB
+%Vl(usb,45,38,390,195,-)%Vf(ff9326)
+%xd(usb)
+
+%Vl(usb,30,240,420,-,3)
+%acUSB CONNECTED
+
+%Vl(usb,30,296,420,-,2)
+%acEject Before Disconnecting

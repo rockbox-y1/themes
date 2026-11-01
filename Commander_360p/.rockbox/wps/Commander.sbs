@@ -1,0 +1,8 @@
+# Commander — меню в синей панели
+# 360p conversion by rockbox-y1
+%Fl(2,24-Terminus.fnt)
+%Vi(-,24,48,432,240,-)
+%V(312,0,168,24,2)%Vf(000000)
+%ar%bl%%  %?cc<%cH:%cM|>
+%V(132,312,24,24,2)%Vf(AAAAAA)
+%t(0.5)_;%t(0.5) 

@@ -1,0 +1,23 @@
+# SNESPOD FMS - FM radio - ipodvideo 320x240
+%wd
+%X(wps_bg.bmp)
+
+%Fl(2,superfami_16.fnt)
+%Fl(3,superfami_14.fnt)
+
+%xl(B,battery.bmp,0,0,10)
+
+%V(12,5,120,16,3)
+%cH:%cM
+
+%V(429,3,38,17,-)
+%?bl<%xd(Ba)|%xd(Bb)|%xd(Bc)|%xd(Bd)|%xd(Be)|%xd(Bf)|%xd(Bg)|%xd(Bh)|%xd(Bi)|%xd(Bj)>
+
+%V(66,135,348,36,2)%Vf(E0D4F2)
+%ac%tf
+
+%V(66,236,348,24,2)
+%ac%?ty<%ty|FM Radio>
+
+%V(66,260,348,21,3)
+%ac%?ts<STEREO|MONO>

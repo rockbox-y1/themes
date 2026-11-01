@@ -1,0 +1,114 @@
+#   ######:                       ######:                   ## ⠀⠀⠀⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#   #######               ##      #######:                  ## ⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#   ##   :##              ##      ##   :##                  ## ⠀⠀⣀⣼⠷⠀⠀⠁⢀⣿⠃⠀⠀⢀⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#   ##    ##   :####    #######   ##    ##   .####.    :###.## ⠴⣾⣯⣅⣀⠀⠀⠀⠈⢻⣦⡀⠒⠻⠿⣿⡿⠿⠓⠂⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀
+#   ##   :##   ######   #######   ##   :##  .######.  :####### ⠀⠀⠀⠉⢻⡇⣤⣾⣿⣷⣿⣿⣤⠀⠀⣿⠁⠀⠀⠀⢀⣴⣿⣿⠀⠀⠀⠀⠀⠀⠀
+#   #######:   #:  :##    ##      #######:  ###  ###  ###  ### ⠀⠀⠀⠀⠸⣿⡿⠏⠀⢀⠀⠀⠿⣶⣤⣤⣤⣄⣀⣴⣿⡿⢻⣿⡆⠀⠀⠀⠀⠀⠀
+#   ######      :#####    ##      ######:   ##.  .##  ##.  .## ⠀⠀ ⠀⠀⠟⠁⠀⢀⣼⠀⠀⠀⠹⣿⣟⠿⠿⠿⡿⠋⠀⠘⣿⣇⠀⠀⠀⠀⠀
+#   ##   ##.  .#######    ##      ##        ##    ##  ##    ## ⠀⠀⠀⠀⠀⢳⣶⣶⣿⣿⣇⣀⠀⠀⠙⣿⣆⠀⠀⠀⠀⠀⠀⠛⠿⣿⣦⣤⣀⠀
+#   ##   ##   ## .  ##    ##      ##        ##.  .##  ##.  .## ⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⠿⠋⠁⠀⣹⣿⠳⠀⠀⠀⠀⠀⠀⢀⣠⣽⣿⡿⠟⠃
+#   ##   :##  ##:  ###    ##.     ##        ###  ###  ###  ### ⠀⠀⠀⠀⢰⠿⠛⠻⢿⡇⠀⠀⠀⣰⣿⠏⠀⠀⢀⠀⠀⠀⣾⣿⠟⠋⠁⠀⠀⠀
+#   ##    ##: ########    #####   ##        .######.  :####### ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⣰⣿⣿⣾⣿⠿⢿⣷⣀⢀⣿⡇⠁⠀⠀⠀⠀⠀
+#   ##    ###   ###.##    .####   ##         .####.    :###.## ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠉⠁⠀⠀⠀⠀⠙⢿⣿⣿⠇⠀⠀⠀
+#                                                               ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⠀⠀⠀⠀⠀⠀⠀
+#   RatPod
+#   Version 1.0
+#   By: Jannis Bolzern
+# By: rockbox-y1 (360p conversion)
+#   License: CC-BY-SA 4.0
+#   Target resolution: 320x240
+#   Tested on: iPod Classic (6th gen)
+#   Last updated: 06/08/2026
+#
+#   RatPod is an adaptation from SnartyMono by E. Halpin and decends from a long line of themes:
+#   SPAZZ by Chuck Lardo, which led to SNAZZ and SNAZZ2 by Jihoon Kim, then SNAZZY by Phil Graves, then SNARTY by Simon Andén.
+#   The theme was inspired by bunnyPod by Monica G.                                             ⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀
+
+#__WPS File
+
+#__Hide the status bar
+%wd
+
+#__Backdrop (1-bit bmp on the backdrop layer, recoloured by the theme)
+%xl(RatPod,RatPod.bmp,0,0)
+%V(0,0,-,-,-)%VB
+%xd(RatPod)
+%V(0,0,-,-,-)
+
+#__Preload fonts
+%Fl(3,11-lanapixel.fnt)
+%Fl(4,35-FreeSerif.fnt)
+
+#__Preload images
+%xl(H,BatteryStatus.bmp,12)
+%xl(PBB,pb_back.bmp,0,0)
+%xl(PB,pb.bmp,0,0)
+%xl(VBB,vb_back.bmp,0,0)
+%xl(VB,vb.bmp,0,0)
+%xl(PBI,Playback_Icons.bmp,5)
+
+#__One screen, always drawn. No Lockscreen layer.
+%Vd(MainDisplay)
+
+#----------- Main Display ---------#
+
+#__Clear Screen - first member; repaints the backdrop on every refresh so nothing blanks on Hold
+%Vl(MainDisplay,0,0,480,360,-)
+
+#__Volume Text / LOCKED on hold
+%Vl(MainDisplay,332,51,120,47,3)
+%ar%?mh<LOCKED|Vol. %pv dB>
+
+#__Volume Bar
+%Vl(MainDisplay,30,86,420,1,-)
+%pv(0,0,420,1,VB,backdrop,VBB)
+
+#__Battery Text
+%Vl(MainDisplay,360,21,53,30,3)
+%ar%bl%%
+
+#__Battery Icon
+%Vl(MainDisplay,422,26,31,16,-)
+%?bp<%xd(Hl)|%?bl<%xd(Ha)|%xd(Hb)|%xd(Hc)|%xd(Hd)|%xd(He)|%xd(Hf)|%xd(Hg)|%xd(Hh)|%xd(Hi)|%xd(Hj)|%xd(Hk)>>
+
+#__Track Progress Bar
+%Vl(MainDisplay,30,291,420,2,-)
+%dr(0,0,420,2)
+%Vl(MainDisplay,30,293,420,7,-)
+%pb(0,0,420,7,PBB,slider,PB)
+%Vl(MainDisplay,30,300,420,2,-)
+%dr(0,0,420,2)
+
+#__Album Art
+%Vl(MainDisplay,32,104,171,171,-)
+%Cl(1,1,168,168,c,c)
+%dr(0,0,171,1)%dr(0,169,171,2)%dr(0,1,1,168)%dr(169,1,2,168)
+%Cd
+
+#__Track Title
+%Vl(MainDisplay,213,105,239,26,3)
+%al%s%?it<%it|%fn>
+
+#__Artist
+%Vl(MainDisplay,213,135,239,26,3)
+%al%s%?ia<%ia|NO TAG>
+
+#__Album
+%Vl(MainDisplay,212,173,238,63,4)
+%al%s%?id<%id|NO ALBUM>
+
+#__Album Year
+%Vl(MainDisplay,213,212,248,25,3)
+%al%s%?iy<Year: %iy|Year:  ---->
+
+#__File Info
+%Vl(MainDisplay,213,242,248,25,3)
+%al%s%fc | %fk kHz
+
+#__Play/Pause Icon
+%Vl(MainDisplay,30,321,32,17,-)
+%?mp<%xd(PBI,1)|%xd(PBI,2)|%xd(PBI,3)|%xd(PBI,4)|%xd(PBI,5)>
+
+#__Track Time / Playlist position / Clock
+%Vl(MainDisplay,65,317,385,30,3)
+%al%pc/%pt%ac%pp/<%ar%pp/%pe%ac%pp/%pe%ar%?cf<%cH:%cM|%ck:%cM %cp>

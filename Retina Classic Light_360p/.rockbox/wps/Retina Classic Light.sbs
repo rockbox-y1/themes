@@ -1,0 +1,383 @@
+# Retina Classic Light base skin
+# Device: Innioasis Y1 (480x360x16)
+# Version: wip (2026-10-30)
+# License: MIT
+# About: Clean, modern streaming-app look with pill selections, a split main menu and a mini player
+# Credits: Icons: Lucide (ISC), Ionicons 5 (MIT)
+# Credits: Font: Inter (SIL OFL 1.1)
+# Credits: Font: Droid Sans Mono, copyright 2007 Google Corporation (Apache 2.0), converted to a Rockbox bitmap font
+# 360p conversion by rockbox-y1
+# Generated with rockbox-theme-maker
+%Fl(2,29-Inter-700.fnt)
+%Fl(3,20-Inter-700.fnt)
+%Fl(4,18-Inter-500.fnt)
+%Fl(5,18-DroidSansMono.fnt)
+%Fl(6,96-Inter-700.fnt)
+%Fl(7,21-Inter-500.fnt)
+%xl(A,sbs-home-title-on.bmp,0,0)
+%xl(B,sbs-home-title-off.bmp,0,0)
+%xl(C,sbs-back-header-on.bmp,0,0)
+%xl(D,sbs-back-header-off.bmp,0,0)
+%xl(E,sbs-item-selected.bmp,0,0)
+%xl(F,sbs-item-normal.bmp,0,0)
+%xl(G,sbs-item-selected-2.bmp,0,0)
+%xl(H,sbs-item-icons.bmp,0,0,33)
+%xl(I,sbs-item-icons-selected.bmp,0,0,33)
+%xl(J,sbs-item-icons-2.bmp,0,0,33)
+%xl(K,sbs-item-icons-selected-2.bmp,0,0,33)
+%xl(L,sbs-scrollbar-slider.bmp,0,0)
+%xl(M,sbs-home-panel-on.bmp,0,0)
+%xl(N,sbs-home-panel-off.bmp,0,0)
+%xl(O,sbs-cover-placeholder.bmp,0,0)
+%xl(P,sbs-cover-corners.bmp,0,0)
+%xl(Q,sbs-home-playing-on.bmp,0,0)
+%xl(R,sbs-home-playing-off.bmp,0,0)
+%xl(S,sbs-home-progress-fill.bmp,0,0)
+%xl(T,sbs-home-progress-track.bmp,0,0)
+%xl(U,sbs-home-idle-on.bmp,0,0)
+%xl(V,sbs-home-idle-off.bmp,0,0)
+%xl(W,sbs-quickscreen-on.bmp,0,0)
+%xl(X,sbs-quickscreen-off.bmp,0,0)
+%xl(Y,sbs-quick-top-on.bmp,0,0)
+%xl(Z,sbs-quick-top-off.bmp,0,0)
+%xl(a,sbs-quick-left-on.bmp,0,0)
+%xl(b,sbs-quick-left-off.bmp,0,0)
+%xl(c,sbs-quick-right-on.bmp,0,0)
+%xl(d,sbs-quick-right-off.bmp,0,0)
+%xl(e,sbs-quick-bottom-on.bmp,0,0)
+%xl(f,sbs-quick-bottom-off.bmp,0,0)
+%xl(g,sbs-usb-on.bmp,0,0)
+%xl(h,sbs-usb-off.bmp,0,0)
+%xl(i,sbs-locked-on.bmp,0,0)
+%xl(j,sbs-locked-off.bmp,0,0)
+%xl(k,sbs-pill-hold-on.bmp,0,0)
+%xl(l,sbs-pill-hold-off.bmp,0,0)
+%xl(m,sbs-pill-idle-on.bmp,0,0)
+%xl(n,sbs-pill-idle-off.bmp,0,0)
+%xl(o,sbs-battery-charging-on.bmp,0,0)
+%xl(p,sbs-battery-charging-off.bmp,0,0)
+%xl(q,sbs-battery-charging-fill.bmp,0,0)
+%xl(r,sbs-battery-low-on.bmp,0,0)
+%xl(s,sbs-battery-low-off.bmp,0,0)
+%xl(t,sbs-battery-low-fill.bmp,0,0)
+%xl(u,sbs-battery-normal-on.bmp,0,0)
+%xl(v,sbs-battery-normal-off.bmp,0,0)
+%xl(w,sbs-battery-fill.bmp,0,0)
+%xl(x,sbs-backdrop.bmp,0,0)
+%?if(%cs, =, 1)<%?or(%if(%cs, =, 21), %mh)<%Vd(hr1c)|%Vd(sr1c)>|%Vd(hr1c)>
+%?or(%or(%if(%cs, =, 21), %mh), %if(%cs, =, 1))<%Vd(hr1d)|%Vd(sr1d)>
+%?or(%if(%cs, =, 1), %if(%cs, =, 10), %if(%cs, =, 21), %mh)<|%Vd(sr1n)>
+%?if(%cs, =, 1)<%?mh<%Vd(hr1q)|%Vd(sr1q)>|%Vd(hr1q)>
+%?if(%cs, =, 1)<%?mh<|%?if(%mp, >, 1)<%Vd(sr1s)|%Vd(hr1s)>>|>
+%?if(%cs, =, 1)<%?mh<|%?if(%mp, >, 1)<%Vd(hr23)|%Vd(sr23)>>|>
+%?if(%cs, =, 10)<%Vd(sr24)|%Vd(hr24)>
+%?if(%cs, =, 10)<%?if(%QT, !=, ERR)<%Vd(sr25)|%Vd(hr25)>|>
+%?if(%cs, =, 10)<%?if(%QL, !=, ERR)<%Vd(sr28)|%Vd(hr28)>|>
+%?if(%cs, =, 10)<%?if(%QR, !=, ERR)<%Vd(sr2b)|%Vd(hr2b)>|>
+%?if(%cs, =, 10)<%?if(%QB, !=, ERR)<%Vd(sr2e)|%Vd(hr2e)>|>
+%?if(%cs, =, 21)<%Vd(sr2h)|%Vd(hr2h)>
+%?mh<%Vd(sr2i)|%Vd(hr2i)>
+%?mh<%?if(%mp, >, 1)<%Vd(sr2l)|>|>
+%?mh<%Vd(sr2o)|%Vd(hr2o)>
+%?mh<%Vd(hr2p)|%Vd(sr2p)>
+%?bp<%Vd(sr2r)|%Vd(hr2r)>
+%?if(%bl, <, 20)<%?bp<%Vd(hr2u)|%?bp<%Vd(hr2u)|%Vd(sr2u)>>|%Vd(hr2u)>
+%?bp<%Vd(hr31)|%?if(%bl, <, 20)<%?bp<%Vd(sr31)|%Vd(hr31)>|%Vd(sr31)>>
+%?if(%cs, =, 21)<%VI(usb)|%?if(%cs, =, 1)<%?mh<%VI(main2)%Lb(item2,471,41)|%VI(main)%Lb(item,285,41)>|%VI(main2)%Lb(item2,471,41)>>
+# backdrop
+%V(0,0,480,360,-)%VB
+%xd(x)
+# home-title hidden
+%Vl(hr1c,0,0,336,51,-)%VB
+%xd(B)
+# back-header hidden
+%Vl(hr1d,0,0,336,51,-)%VB
+%xd(D)
+# home-panel hidden
+%Vl(hr1q,288,51,192,287,-)%VB
+%xd(N)
+# home-playing hidden
+%Vl(hr1s,288,231,192,107,-)%VB
+%xd(R)
+# home-idle hidden
+%Vl(hr23,288,231,192,107,-)%VB
+%xd(V)
+# quickscreen hidden
+%Vl(hr24,0,51,480,252,-)%VB
+%xd(X)
+# quick-top hidden
+%Vl(hr25,105,60,270,54,-)%VB
+%xd(Z)
+# quick-left hidden
+%Vl(hr28,15,123,219,54,-)%VB
+%xd(b)
+# quick-right hidden
+%Vl(hr2b,246,123,219,54,-)%VB
+%xd(d)
+# quick-bottom hidden
+%Vl(hr2e,105,186,270,54,-)%VB
+%xd(f)
+# usb hidden
+%Vl(hr2h,0,51,480,309,-)%VB
+%xd(h)
+# locked hidden
+%Vl(hr2i,0,0,480,360,-)%VB
+%xd(j)
+# pill-hold hidden
+%Vl(hr2o,335,11,131,30,-)%VB
+%xd(l)
+# pill-idle hidden
+%Vl(hr2p,335,11,131,30,-)%VB
+%xd(n)
+# battery-charging hidden
+%Vl(hr2r,421,17,38,18,-)%VB
+%xd(p)
+# battery-low hidden
+%Vl(hr2u,421,17,38,18,-)%VB
+%xd(s)
+# battery-normal hidden
+%Vl(hr31,421,17,38,18,-)%VB
+%xd(v)
+# home-title shown
+%Vl(sr1c,0,0,336,51,-)%VB
+%xd(A)
+# back-header shown
+%Vl(sr1d,0,0,336,51,-)%VB
+%xd(C)
+# home-panel shown
+%Vl(sr1q,288,51,192,287,-)%VB
+%xd(M)
+# home-playing shown
+%Vl(sr1s,288,231,192,107,-)%VB
+%xd(Q)
+# home-idle shown
+%Vl(sr23,288,231,192,107,-)%VB
+%xd(U)
+# quickscreen shown
+%Vl(sr24,0,51,480,252,-)%VB
+%xd(W)
+# quick-top shown
+%Vl(sr25,105,60,270,54,-)%VB
+%xd(Y)
+# quick-left shown
+%Vl(sr28,15,123,219,54,-)%VB
+%xd(a)
+# quick-right shown
+%Vl(sr2b,246,123,219,54,-)%VB
+%xd(c)
+# quick-bottom shown
+%Vl(sr2e,105,186,270,54,-)%VB
+%xd(e)
+# usb shown
+%Vl(sr2h,0,51,480,309,-)%VB
+%xd(g)
+# locked shown
+%Vl(sr2i,0,0,480,360,-)%VB
+%xd(i)
+# pill-hold shown
+%Vl(sr2o,335,11,131,30,-)%VB
+%xd(k)
+# pill-idle shown
+%Vl(sr2p,335,11,131,30,-)%VB
+%xd(m)
+# battery-charging shown
+%Vl(sr2r,421,17,38,18,-)%VB
+%xd(o)
+# battery-low shown
+%Vl(sr2u,421,17,38,18,-)%VB
+%xd(r)
+# battery-normal shown
+%Vl(sr31,421,17,38,18,-)%VB
+%xd(u)
+# show the backdrop buffer
+%V(0,0,480,360,-)
+# home-title shown, copy to screen
+%Vl(sr1c,0,0,336,51,-)
+# home-title hidden, copy to screen
+%Vl(hr1c,0,0,336,51,-)
+# back-header shown, copy to screen
+%Vl(sr1d,0,0,336,51,-)
+# back-header hidden, copy to screen
+%Vl(hr1d,0,0,336,51,-)
+# home-panel shown, copy to screen
+%Vl(sr1q,288,51,192,287,-)
+# home-panel hidden, copy to screen
+%Vl(hr1q,288,51,192,287,-)
+# home-playing shown, copy to screen
+%Vl(sr1s,288,231,192,107,-)
+# home-playing hidden, copy to screen
+%Vl(hr1s,288,231,192,107,-)
+# home-idle shown, copy to screen
+%Vl(sr23,288,231,192,107,-)
+# home-idle hidden, copy to screen
+%Vl(hr23,288,231,192,107,-)
+# quickscreen shown, copy to screen
+%Vl(sr24,0,51,480,252,-)
+# quickscreen hidden, copy to screen
+%Vl(hr24,0,51,480,252,-)
+# quick-top shown, copy to screen
+%Vl(sr25,105,60,270,54,-)
+# quick-top hidden, copy to screen
+%Vl(hr25,105,60,270,54,-)
+# quick-left shown, copy to screen
+%Vl(sr28,15,123,219,54,-)
+# quick-left hidden, copy to screen
+%Vl(hr28,15,123,219,54,-)
+# quick-right shown, copy to screen
+%Vl(sr2b,246,123,219,54,-)
+# quick-right hidden, copy to screen
+%Vl(hr2b,246,123,219,54,-)
+# quick-bottom shown, copy to screen
+%Vl(sr2e,105,186,270,54,-)
+# quick-bottom hidden, copy to screen
+%Vl(hr2e,105,186,270,54,-)
+# usb shown, copy to screen
+%Vl(sr2h,0,51,480,309,-)
+# usb hidden, copy to screen
+%Vl(hr2h,0,51,480,309,-)
+# locked shown, copy to screen
+%Vl(sr2i,0,0,480,360,-)
+# locked hidden, copy to screen
+%Vl(hr2i,0,0,480,360,-)
+# pill-hold shown, copy to screen
+%Vl(sr2o,335,11,131,30,-)
+# pill-hold hidden, copy to screen
+%Vl(hr2o,335,11,131,30,-)
+# pill-idle shown, copy to screen
+%Vl(sr2p,335,11,131,30,-)
+# pill-idle hidden, copy to screen
+%Vl(hr2p,335,11,131,30,-)
+# battery-charging shown, copy to screen
+%Vl(sr2r,421,17,38,18,-)
+# battery-charging hidden, copy to screen
+%Vl(hr2r,421,17,38,18,-)
+# battery-low shown, copy to screen
+%Vl(sr2u,421,17,38,18,-)
+# battery-low hidden, copy to screen
+%Vl(hr2u,421,17,38,18,-)
+# battery-normal shown, copy to screen
+%Vl(sr31,421,17,38,18,-)
+# battery-normal hidden, copy to screen
+%Vl(hr31,421,17,38,18,-)
+# title
+%Vl(sr1d,51,9,279,35,2)
+%Vf(000000)
+%s%al%?if(%cs, =, 10)<Quick Settings|%?Lt<%Lt|Rockbox>>
+# USB screen: tiny UI viewport hides the stock USB logo
+%Vi(usb,0,0,1,1,-)
+# lists and menus: home
+%Vi(main,0,54,285,284,1)
+%Vf(000000)
+# item background
+%Vl(item,0,0,285,41,-)
+%?Lc<%xd(E)|%xd(F)>
+# item text
+%Vl(item,27,7,210,28,1)
+%Vf(000000)
+%Vg(000000,000000,FFFFFF)
+%?Lc<%Vs(gradient)%s%al%LT|%Vs(clear)%al%LT>
+# lists and menus
+%Vi(main2,0,54,471,284,1)
+%Vf(000000)
+# item background
+%Vl(item2,0,0,471,41,-)
+%?Lc<%xd(G)|>
+# item icon
+%Vl(item2,24,7,27,27,-)
+%?Lc<%xd(I,%LI,2)|%xd(H,%LI,2)>
+# item text
+%Vl(item2,63,7,360,28,1)
+%Vf(000000)
+%Vg(000000,000000,FFFFFF)
+%?Lc<%Vs(gradient)%s%al%LT|%Vs(clear)%al%LT>
+# item icon
+%Vl(item2,436,11,20,20,-)
+%?Lc<%xd(K,%LI,2)|%xd(J,%LI,2)>
+# scrollbar
+%Vl(sr1n,473,59,5,274,-)
+%?LB<%LB(0,0,5,274,nobar,slider,L,vertical,invert)|>
+# cover
+%Vl(sr1q,297,57,168,168,-)
+%Cl(0,0,168,168,c,c)
+%?C<%Cd|%xd(O)>
+%xd(P)
+# home-title
+%Vl(sr1s,297,251,174,24,3)
+%Vf(000000)
+%s%al%?it<%it|%fn>
+# home-artist
+%Vl(sr1s,297,275,174,21,4)
+%Vf(8A8A8E)
+%s%al%ia
+# home-progress
+%Vl(sr1s,297,303,174,6,-)
+%pb(0,0,174,6,image,S,backdrop,T)
+# home-elapsed
+%Vl(sr1s,297,314,84,21,5)
+%Vf(8A8A8E)
+%al%pc
+# home-remaining
+%Vl(sr1s,387,314,84,21,5)
+%Vf(8A8A8E)
+%ar–%pr
+# text-25
+%Vl(sr25,150,63,213,21,4)
+%Vf(8A8A8E)
+%al%QT
+# text-26
+%Vl(sr25,150,86,213,24,3)
+%Vf(000000)
+%al%Qt
+# text-28
+%Vl(sr28,60,126,162,21,4)
+%Vf(8A8A8E)
+%al%QL
+# text-29
+%Vl(sr28,60,149,162,24,3)
+%Vf(000000)
+%al%Ql
+# text-31
+%Vl(sr2b,291,126,162,21,4)
+%Vf(8A8A8E)
+%al%QR
+# text-32
+%Vl(sr2b,291,149,162,24,3)
+%Vf(000000)
+%al%Qr
+# text-34
+%Vl(sr2e,150,189,213,21,4)
+%Vf(8A8A8E)
+%al%QB
+# text-35
+%Vl(sr2e,150,212,213,24,3)
+%Vf(000000)
+%al%Qb
+# lock-clock
+%Vl(sr2i,0,99,480,116,6)
+%Vf(000000)
+%ac%?cf<%cH|%cl>:%cM
+# lock-date
+%Vl(sr2i,0,216,480,25,7)
+%Vf(FA2D48)
+%ac%ca%, %cd %cb
+# lock-title
+%Vl(sr2l,18,302,444,24,3)
+%Vf(000000)
+%s%al%?it<%it|%fn>
+# lock-artist
+%Vl(sr2l,18,326,444,21,4)
+%Vf(8A8A8E)
+%s%al%ia
+# clock
+%V(364,15,54,21,4)
+%Vf(000000)
+%ac%?cf<%cH:%cM|%cl:%cM>
+# battery-charging
+%Vl(sr2r,426,22,24,9,-)
+%bl(0,0,24,9,image,q)
+# battery-low
+%Vl(sr2u,426,22,24,9,-)
+%bl(0,0,24,9,image,t)
+# battery
+%Vl(sr31,426,22,24,9,-)
+%bl(0,0,24,9,image,w)

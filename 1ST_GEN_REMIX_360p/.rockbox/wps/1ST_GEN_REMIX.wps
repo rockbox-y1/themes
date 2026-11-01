@@ -1,0 +1,171 @@
+# Theme: 1ST_GEN_REMIX
+# Version 1.0
+# Last Update: 01/26/2026
+# License: CC-BY-SA 3.0
+# By: Monica G.
+# By: rockbox-y1 (360p conversion)
+# Description: Theme based on the iPod classic 1st generation's UI with some added features.
+# Icons & viewers based on Susan Kare's classic Macintosh icons.
+# Code based on: BACKBONE and Pixel Computer by me! which are based on SNARTY by Simon Anden and BONES by Chuck Largo!
+# Hold screen is stripped back from the WPS to make room for album art.
+
+## WPS File ##
+
+#Hide The Status Bar
+%wd
+
+# Clear Backdrop
+%V(0,0,-,-,-)%VB
+%V(0,0,-,-,-)
+
+# Preload Fonts
+%Fl(2,21-ChicagoFLF.fnt)
+%Fl(3,29-ChicagoFLF.fnt)
+
+# Preload Images
+%xl(playmodes,playmodes.bmp,0,0,9)
+%xl(repeat,repeat_status.bmp,0,0,5)
+%xl(shuffle,shuffle.bmp,0,0,2)
+%xl(battery,battery.bmp,0,0,12)
+%xl(PB,pb.bmp,0,0)
+%xl(PBB,pb_back.bmp,0,0)
+%xl(slider,slider.bmp,0,0)
+%xl(VB,vb.bmp,0,0)
+%xl(VBB,vb_back.bmp,0,0)
+%xl(album_mac,album_mac.bmp)
+%xl(disk,disk.bmp,0,0)
+
+# Show Main Display unless Hold Switch is on
+%?mh<%Vd(holdScreen)|%Vd(mainDisplay)>
+
+## Main Display ##
+
+# Clear Screen
+%Vl(mainDisplay,0,0,480,360,-)
+
+# Play/Pause Icons
+%Vl(mainDisplay,15,11,33,33,-)
+%?if(%mp, >, 1)<%xd(playmodes,%mp)|>
+
+# Disk Icons
+%Vl(mainDisplay,57,14,26,27,-)
+%?lh<%t(0.5)%xd(disk);%t(0.5)|>
+
+# Now Playing / Playlist Name
+%Vl(mainDisplay,90,15,300,38,3)
+%ac%s%?pn<%t(5)Now Playing;%t(5)%pn|%acNow Playing>
+
+# Battery
+%Vl(mainDisplay,390,11,81,34,2)
+%?bp<%xd(battery,7)|%?bl<%xd(battery,6)|%xd(battery,5)|%xd(battery,4)|%xd(battery,3)|%xd(battery,2)|%xd(battery,1)>>|%?bp<%?bc<%?bl<%xd(battery,12)|%xd(battery,11)|%xd(battery,10)|%xd(battery,9)|%xd(battery,8)>|%xd(battery,7)>|%?bl<%xd(battery,6)|%xd(battery,5)|%xd(battery,4)|%xd(battery,3)|%xd(battery,2)|%xd(battery,1)>>>
+
+# Line
+%Vl(mainDisplay,8,54,465,3,-)
+%dr(0,0,465,3)
+
+# Playlist Number
+%Vl(mainDisplay,12,69,108,30,2)
+%?if(%pp, =, %pe)<%pp %Sx(of) %pe|%pp %Sx(of) %pe|%pp %Sx(of) %pe|%pp %Sx(of) %pe|%pp %Sx(of) %pe>
+
+# Repeat Icon
+%Vl(mainDisplay,390,62,38,33,-)
+%?mm<%xd(repeat,5)|%xd(repeat,1)|%xd(repeat,2)|%xd(repeat,3)|%xd(repeat,4)>
+
+# Shuffle Icon
+%Vl(mainDisplay,434,62,37,33,-)
+%?ps<%xd(shuffle,1)|%xd(shuffle,2)>
+
+# Track Title
+%Vl(mainDisplay,15,113,450,45,3)
+%ac%s%?it<%s%it|%fn>
+
+# Artist
+%Vl(mainDisplay,15,156,450,45,3)
+%ac%s%?ia<%ia>
+
+# Album
+%Vl(mainDisplay,15,198,450,45,3)
+%ac%s%?id<%id>
+
+# Next track
+%Vl(mainDisplay,8,231,465,30,2)
+%ac%?pE(20)<%?It<%ac%s%Sx(Next Track:) %It - %Ia|>|>
+
+# Volume Bar
+%Vl(mainDisplay,68,260,345,12,-)
+%pv(0,0,345,12,VBB,backdrop,VB)
+
+# Volume Text
+%Vl(mainDisplay,15,255,38,27,2)
+%acVOL
+
+# Volume Level
+%Vl(mainDisplay,419,255,60,30,2)
+%ac%pvdb
+
+# Track Progress Bar
+%Vl(mainDisplay,30,285,420,21,-)%Vf(-)%Vb(-)
+%pb(0,0,-,21,PBB,backdrop,PB)
+
+# Time Elapsed
+%Vl(mainDisplay,30,315,75,38,3)
+%al%pc
+
+# Time Remaining
+%Vl(mainDisplay,375,315,75,38,3)
+%ar-%pr
+
+## Hold Screen ##
+
+# Clear Screen
+%Vl(holdScreen,0,0,480,360,-)
+
+# Hold Screen Album Art
+%Vl(holdScreen,164,66,153,153,-)
+%Cl(1,2,150,150,c,c)
+%dr(0,0,153,2)%dr(0,152,153,1)%dr(0,2,1,150)%dr(151,2,2,151)
+%?C<%Cd|%xd(album_mac)>
+
+# Play/Pause Icons
+%Vl(holdScreen,15,11,33,33,-)
+%?if(%mp, >, 1)<%xd(playmodes,%mp)|>
+
+# Line
+%Vl(holdScreen,8,54,465,3,-)
+%dr(0,0,465,3)
+
+# Playlist Number
+%Vl(holdScreen,12,69,108,30,2)
+%?if(%pp, =, %pe)<%pp %Sx(of) %pe|%pp %Sx(of) %pe|%pp %Sx(of) %pe|%pp %Sx(of) %pe|%pp %Sx(of) %pe>
+
+# Repeat Icon
+%Vl(holdScreen,390,62,38,33,-)
+%?mm<%xd(repeat,5)|%xd(repeat,1)|%xd(repeat,2)|%xd(repeat,3)|%xd(repeat,4)>
+
+# Shuffle Icon
+%Vl(holdScreen,434,62,37,33,-)
+%?ps<%xd(shuffle,1)|%xd(shuffle,2)>
+
+# Battery
+%Vl(holdScreen,390,11,81,34,2)
+%?bp<%xd(battery,7)|%?bl<%xd(battery,6)|%xd(battery,5)|%xd(battery,4)|%xd(battery,3)|%xd(battery,2)|%xd(battery,1)>>|%?bp<%?bc<%?bl<%xd(battery,12)|%xd(battery,11)|%xd(battery,10)|%xd(battery,9)|%xd(battery,8)>|%xd(battery,7)>|%?bl<%xd(battery,6)|%xd(battery,5)|%xd(battery,4)|%xd(battery,3)|%xd(battery,2)|%xd(battery,1)>>>
+
+# Time
+%Vl(holdScreen,90,15,300,38,3)
+%?mh<%t(5)%acHOLD|%t(5)%ac%?cf<%ac%cH|%cl>:%cM%?cf<| %cP>>
+
+# Track Title
+%Vl(holdScreen,30,230,420,36,3)
+%ac%s%?it<%s%it|%fn>
+
+# Artist / Album
+%Vl(holdScreen,30,266,420,36,3)
+%ac%s%t(10)%ia;%ac%s%t(10)%id
+
+# Volume Bar
+%Vl(holdScreen,68,309,345,12,-)
+%pv(0,0,345,12,VBB,backdrop,VB)
+
+# Track Progress Bar
+%Vl(holdScreen,30,330,420,21,-)%Vf(-)%Vb(-)
+%pb(0,0,-,21,PBB,backdrop,PB)

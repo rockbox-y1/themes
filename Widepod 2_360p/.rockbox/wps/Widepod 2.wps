@@ -1,0 +1,101 @@
+# Widepod 2
+# Requires Rockbox ≥ 4.1
+#
+# 2.3 (2026-07-02)
+# Chris Soffke CC-BY-SA
+# 360p conversion by rockbox-y1
+#
+%wd
+%Fl(3,23-Inter-Bold.fnt)
+%Fl(8,30-Inter-SemiBold.fnt)
+%Fl(9,30-Inter-V.fnt)
+%xl(vb_backdrop,vb_backdrop.bmp)
+%xl(pos,pos.bmp)
+%xl(pos_l,pos_l.bmp)
+%xl(playlist_pos,playlist_pos.bmp,72)
+%xl(sleep_tab,sleep_tab.bmp,330,5)
+%xl(mode_tab,mode_tab.bmp,29,5)
+%?mh<%Vd(locked)>
+%?bs<%Vd(sleeptimer)>
+%Vd(batt)
+%?if(%mp,=,3)<%Vd(paused)%?mh<|%Vd(unlocked_paused)>>
+%?if(%mp,>=,4)<%Vd(seek)|%?mv(2.5)<%Vd(volume)%Vd(progress)|%?if(%ps,=,s)<%?mm<%Vd(shuffle)%Vd(artist_s)|%Vd(shuffle_r_all)%Vd(artist_xs)|%Vd(shuffle_r_one)%Vd(artist_xxs)|%Vd(shuffle_r_shuffle)%Vd(artist_xxs)|%Vd(shuffle_r_ab)%Vd(artist_xxs)>|%?mm<%Vd(artist_l)|%Vd(r_all)%Vd(artist_s)|%Vd(r_one)%Vd(artist_xs)|%Vd(r_shuffle)%Vd(artist_xs)|%Vd(r_ab)%Vd(artist_xs)>>>%Vd(track)>
+#
+%V(0,0,-,-,-)%VB
+%Cl(0,0,480,480,c,t)
+%Cd
+%x(backdrop,wps_backdrop.bmp,0,273)
+%x(batt_tab,batt_tab.bmp,435,5)
+%?bs<%xd(sleep_tab)>
+%?or(%if(%St(party mode),!=,off),%if(%St(single mode),!=,off))<%xd(mode_tab)%Vd(mode)>
+#
+%V(0,0,-,-,-)
+%pb(0,348,-,-,image,pb.bmp,slider,pos)
+#
+%Vl(paused,0,0,-,-87,-)
+%x(paused_backdrop,wps_paused_backdrop.bmp)
+#
+%Vl(batt,-45,5,-,25,3)
+%ac%bl%?if(%bl,!=,100)<%?bp<+>>
+#
+%Vl(mode,29,5,135,25,3)
+%ac%?if(%St(party mode),!=,off)<party mode|%?if(%St(single mode),!=,off)<%St(single mode)>>
+#
+%Vl(r_all,-52,-45,-,23,-)
+%x(r_all,r_all.bmp)
+%Vl(r_one,-81,-45,-,23,-)
+%x(r_one,r_one.bmp)
+%Vl(r_shuffle,-81,-45,-,23,-)
+%x(r_shuffle,r_shuffle.bmp)
+%Vl(r_ab,-84,-45,-,23,-)
+%x(r_ab,r_ab.bmp)
+%Vl(shuffle,-52,-45,-,23,-)
+%x(shuffle,shuffle.bmp)
+%Vl(shuffle_r_all,-81,-45,-,23,-)
+%x(shuffle_r_all,shuffle_r_all.bmp)
+%Vl(shuffle_r_one,-108,-45,-,23,-)
+%x(shuffle_r_one,shuffle_r_one.bmp)
+%Vl(shuffle_r_shuffle,-108,-45,-,23,-)
+%x(shuffle_r_shuffle,shuffle_r_shuffle.bmp)
+%Vl(shuffle_r_ab,-111,-45,-,23,-)
+%x(shuffle_r_ab,shuffle_r_ab.bmp)
+#
+%Vl(locked,0,6,29,23,-)
+%?C<%x(lock,lock_wps.bmp,0,0)|%x(lock_sbs,lock.bmp,9,2)>
+#
+%Vl(unlocked_paused,0,6,29,23,-)
+%x(unlocked_paused,unlocked_paused.bmp,0,0)
+#
+%Vl(sleeptimer,-135,5,-45,24,3)
+%ac%bs
+#
+%Vl(track,15,-82,-60,33,8)
+%s%al%?it<%it|%fn>
+#
+%Vl(artist_l,15,-49,-15,33,9)
+%al%s%?ia<%t(5)%?if(%ig,=,Classical)<%?ic<By %ic - >%ia|%ia>|%?it<%fn>>;%s%?id<%t(5)%id|%t(0)>
+%Vl(artist_s,15,-49,-57,33,9)
+%al%s%?ia<%t(5)%?if(%ig,=,Classical)<%?ic<By %ic - >%ia|%ia>|%?it<%fn>>;%s%?id<%t(5)%id|%t(0)>
+%Vl(artist_xs,15,-49,-88,33,9)
+%al%s%?ia<%t(5)%?if(%ig,=,Classical)<%?ic<By %ic - >%ia|%ia>|%?it<%fn>>;%s%?id<%t(5)%id|%t(0)>
+%Vl(artist_xxs,15,-49,-115,33,9)
+%al%s%?ia<%t(5)%?if(%ig,=,Classical)<%?ic<By %ic - >%ia|%ia>|%?it<%fn>>;%s%?id<%t(5)%id|%t(0)>
+#
+%Vl(progress,15,-40,-15,22,3)
+%al%pc/%pt%ar%pp/%pe
+%Vl(track,-42,-79,27,27,-)
+%?if(%pP,=,100)<%x(coda,coda.bmp)|%xd(playlist_pos,%pP,1)>
+#
+%Vl(seek,15,-75,105,23,3)
+%al%pc
+%Vl(seek,120,-75,-120,23,3)
+%s%ac%?it<%it|%fn>
+%Vl(seek,-120,-75,-15,23,3)
+%ar-%pr
+%Vl(seek,0,-42,-,-12,-)
+%pb(0,0,-,-,nobar,slider,pos_l)
+#
+%Vl(volume,177,-33,126,14,-)
+%pv(0,0,-,-,vb.bmp,backdrop,vb_backdrop)
+%?if(%pv, >, 0)<%pv(0,0,-,-,vb_clip.bmp,backdrop,vb_backdrop)>
+#

@@ -41,6 +41,24 @@ For more details on attributions and licenses please look into the files of the 
 | Snowoasis_Y1_Sports | [u/CarlosPixel_](https://www.reddit.com/user/CarlosPixel_) | - | Original cassette theme based on Sony Walkman Sport with great CJK (and more) support |
 | SPAZZ | CHUCK_LARDO | rockbox-y1 | Scale fonts and images, adjust list padding |
 | Themify | Dook | rockbox-y1 | Remove brightness options, scale fonts and images, adjust list padding |
+| Pixel_Computer | Monica G. | rockbox-y1 | Scale fonts and images, 360p conversion |
+| RatPod | Jannis Bolzern | rockbox-y1 | Scale fonts and images, 360p conversion |
+| Retina Classic Dark | rockbox-theme-maker | rockbox-y1 | 360p conversion |
+| Retina Classic Light | rockbox-theme-maker | rockbox-y1 | 360p conversion |
+| SKIDMARK | Jihoon Kim | rockbox-y1 | Scale fonts and images, 360p conversion |
+| SNAZZPKT | Jihoon Kim, CHUCK_LARDO | rockbox-y1 | 360p conversion |
+| Satellite | Jihoon Kim | rockbox-y1 | Scale fonts and images, 360p conversion |
+| Widepod 2 | Chris Soffke | rockbox-y1 | Scale fonts and images, 360p conversion |
+| bayer | Glocean | rockbox-y1 | 360p conversion |
+| crowPod | Monica G. | rockbox-y1 | Scale fonts and images, 360p conversion |
+| entune_audio | Monica G. | rockbox-y1 | Scale fonts and images, 360p conversion |
+| iris-dawn | Rosé Pine | rockbox-y1 | 360p conversion |
+| iris-morning | Rosé Pine | rockbox-y1 | 360p conversion |
+| iris-night | Rosé Pine | rockbox-y1 | 360p conversion |
+| minimal_RTCsync | Monica G. | rockbox-y1 | Scale fonts and images, 360p conversion |
+| snespod | Matthew Pelegrin | rockbox-y1 | Scale fonts and images, 360p conversion |
+| Terminal320 | Dylan Westford | rockbox-y1 | 360p conversion |
+| yayPod | Humberto Santana, Awwnigiri | rockbox-y1 | 360p conversion |
 | Widepod | Christian Soffke | rockbox-y1 | Scale fonts and images, adjust list padding |
 
 ## Support the original creators!

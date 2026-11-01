@@ -1,0 +1,135 @@
+#
+# SKIDMARK v1.0
+# by Jihoon Kim
+# by rockbox-y1 (360p conversion)
+# based on SPAZZ by CHUCK LARDO, SNAZZY by Phil Graves, SNAZZ2 by Jihoon Kim, SNAZZ3 by Vera B
+# license CC-BY-SA 4.0
+# target resolution 320x240
+# tested on Surfans F20
+# WPS File
+#
+#__Hide The Status Bar
+%wd
+#
+#__Preload Fonts
+%Fl(2,15-KodeMono-SemiBold.fnt)
+%Fl(3,22-KodeMono-SemiBold.fnt)
+%Fl(4,29-KodeMono-SemiBold.fnt)
+%Fl(5,29-KodeMono-SemiBold.fnt)
+%Fl(6,72-KodeMono-Bold.fnt)
+#
+#
+#__Preload Images
+%xl(BTD,bb_disch.bmp,0,0)
+%xl(BTC,bb_charg.bmp,0,0)
+%xl(PBP,pb-play.bmp,0,0)
+%xl(PBM,pb-pause.bmp,0,0)
+%xl(PBF,pb-ff.bmp,0,0)
+%xl(PBR,pb-rw.bmp,0,0)
+%xl(BBB,bb_back.bmp,0,0)
+%xl(BB,bb.bmp,0,0)
+%xl(PkL,peakL.bmp,0,0)
+%xl(PkR,peakR.bmp,0,0)
+%xl(Alb,AlbumArt.bmp,0,0)
+%xl(A,album_icon.bmp,0,3,2)
+%xl(R,repeat_status.bmp,62,0,5)
+%xl(S,shuffle_status.bmp,6,0)
+#
+#__Cover Art Preload
+%Cl(0,0,114,114,c,c)
+#
+#
+###__Main Display__###
+#
+#__Clear Screen
+%V(0,0,480,360,-)
+#
+#__Hold
+#%Vl(hold,88,18,105,30,4)
+#%acLOCKED%Vs(invert)
+#
+#__Shuffle
+#%V(198,31,11,11,2)
+#%xd(S,%ps)
+#
+#__Repeat
+#%V(213,31,11,11,2)
+#%xd(R,%mm)
+#
+#__Battery/Vol Screen Selector
+#%?mv(3.5)<%Vd(volChange)|%?bp<%Vd(batCharge)|%Vd(bat)>>
+
+
+#__Cover Selector
+#__Cover Art
+%V(-144,60,114,114,-)
+%?C<%Cd|%xd(Alb)>
+#
+#__Peak Meter Bars w/ cover
+%V(30,60,300,45,-)
+%pL(-,-,-,45,PkL)
+#
+#
+#__Peak Meter Bars w/ cover
+%V(30,128,300,45,-)
+%pR(-,-,-,45,PkR)
+
+#%V(222,40,6,30,6)
+#  %?if(%pL,=,32768)<%Vs(invert)| >
+#%V(222,85,6,30,6)
+#  %?if(%pR,=,32768)<%Vs(invert)| >
+
+#__Track Progress Bar
+%V(30,108,-144,17,-)
+%?mp<%pb(0,0,-,17,nobar,slider,PBS)|%pb(0,0,-,17,nobar,slider,PBP)|%pb(0,0,-,17,nobar,slider,PBM)|%pb(0,0,-,17,nobar,slider,PBF)|%pb(0,0,-,17,nobar,slider,PBR)>
+
+
+#
+#__Title/Album Indicator
+%V(30,240,20,26,-)
+%t(12)%xd(Aa);%t(12)%?id<%xd(Ab)|%xd(Aa)>
+#
+#
+
+
+#__Without Cover Art
+#__Artist
+%V(30,192,300,48,5)
+%al%s%?ia<%ia|UNKNOWN>
+#
+#__Track Title
+%V(53,240,277,26,3)
+%al%s%?id<%t(12)%?it<%it|%fn>;%t(12)%id|%?it<%it|%fn>>
+
+#
+#__Volume BAR
+%V(-144,197,114,16,-)
+%pv(0,0,-,16,nobar,backdrop,BBB,slider,BB)
+#__Battery BAR
+%V(-144,218,114,16,-)
+%?bp<%bl(0,0,-,16,nobar,backdrop,BBB,slider,BTC)|%bl(0,0,-,16,nobar,backdrop,BBB,slider,BTD)>
+
+#
+#__Repeat/Shuffle Indicator
+%V(-144,240,114,26,-)
+%xd(R,%mm)
+%?ps<%xd(S)>
+
+#
+#__Next Up Selector
+%?pE(20)<%?pS(8)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
+#
+#__Playlist position/ File info / Playcount
+%Vl(curInfo,30,287,-30,30,3)
+%al%pc/%pt%?and(%if(%rp,=,0),%if(%rr,=,0),%if(%ra,=,0))<%ar%pp/%pe|%ac%pp/%pe%ar%rpx %rr %| %ra>
+#%?pL<%pL>-%?pR<%pR>
+#
+#__Next Up
+%Vl(nextInfo,30,287,33,30,3)
+%ac→%Vs(invert)
+%Vl(nextInfo,63,287,-30,30,3)
+%ac%s%?Ia<%Ia%?It< - %It>|%Fn> %Vs(invert)
+#
+
+%V(30,317,-30,-,3)
+%ac%?cf<%cH:%cM|%cI:%cM%cp>%ar

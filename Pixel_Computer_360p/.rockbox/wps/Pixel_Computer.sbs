@@ -1,0 +1,123 @@
+
+# Theme: Pixel Computer
+# Version 1.0
+# Last Update: 06Dec25
+# License: CC-BY-SA 3.0
+# By: Monica G.
+# By: rockbox-y1 (360p conversion)
+# Description: Simple pixel art of an old PC, changing the background color changes some elements in the WPS, but kept all other menus/screens grey-scale.
+# Code based on OneBit_OLED by Jihoon Kim and SNARTY by Simon Anden!
+# Icons/elements also altered from OneBit_OLED by Jihoon Kim and SNARTY by Simon Anden!
+
+# Disable Status Bar
+%wd
+
+# Disable Title
+%?Lt<|>
+
+# Load Background
+%X(pc_sbs.bmp)
+
+# Preload Font
+%Fl(2,16-Terminus.fnt)
+%Fl(3,18-Terminus.fnt)
+%Fl(4,22-Terminus.fnt)
+
+# Preload Images
+%xl(battery,battery.bmp,0,0,12)
+%xl(playmodes_sbs,playmodes_sbs.bmp,0,0,9)
+%xl(pc_usb,pc_usb.bmp,0,0)
+%xl(repeat,repeat_status_sbs.bmp,0,0,5)
+%xl(lock,lock.bmp,0,0,2)
+%xl(X,seeking_icon.bmp,0,0,2)
+%xl(shuffle,shuffle.bmp,0,0,2)
+
+# Display Viewports
+%?if(%cs, =, 21)<%VI(clearScreen)%Vd(pc_usb)|%Vd(info)<%VI(menu)%Vd(info)>>
+
+# Clear Screen
+%Vi(clearScreen,0,0,2,2,-)
+
+# Display Viewports
+
+# Menu
+%Vi(menu,30,35,240,210,-)%Vf(ffffff)
+
+# Menu Title
+%Vl(info,30,8,240,22,3)%Vf(c3c3c3)
+%al%s%Lt
+
+# Clock
+%Vl(info,323,75,142,75,4)%Vf(ffffff)
+%ac%?cf<%cH:%cM:%cS|%?cl<1|2|3|4|5|6|7|8|9|10|11|12>:%cM%cP>
+
+# Battery (numerical)
+%Vl(info,399,5,41,20,2)%Vf(ffffff)
+%ar%bl%%
+
+# Now Playing
+%Vl(info,45,345,390,14,2)%Vf(ffffff)%Vb(000000)
+%?if(%mp, >, 1)<%ac%s %?it<%it|%fn>%?ia< - %ia>%?id< - %id>|>
+
+# Playback Icons
+%Vl(info,375,135,33,33,-)
+%?if(%mp, >, 1)<%xd(playmodes_sbs,%mp)|>
+
+# Repeat Icon
+%Vl(info,336,135,33,33,-)
+%?mm<%xd(repeat,1)|%xd(repeat,2)|%xd(repeat,3)|%xd(repeat,4)|%xd(repeat,5)>
+
+# Shuffle Icon
+%Vl(info,414,135,33,33,-)
+%?ps<%xd(shuffle,2)|%xd(shuffle,1)>
+
+# Storage Access
+%Vl(info,308,2,18,18,-)
+%?lh<%t(0.1)%xd(X,1);%t(0.1)%xd(X,2)|>
+
+# Hold Status
+%Vl(info,386,2,16,21,-)
+%?mh<%xd(lock,1)|%xd(lock,2)>
+%Vl(info,324,0,60,20,2)%Vf(ffffff)
+%?mh<%acLOCKED|>
+
+# Battery viewport selector (flash when low, animates when charging)
+%?bc<%Vd(battCharging)|%?if(%bl,>=,15)<%Vd(batt)|%Vd(lowBatt)>>
+
+# Battery (graphical)
+%Vl(batt,443,5,34,15,-)
+%Vf(-)
+%?bl<%xd(battery,1)|%xd(battery,2)|%xd(battery,3)|%xd(battery,4)|%xd(battery,5)|%xd(battery,6)|%xd(battery,7)|%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>
+
+%Vl(lowBatt,443,5,34,15,-)
+%Vf(-)
+%t(1)%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>;%t(1)%xd(battery,12)
+
+%Vl(battCharging,443,5,34,15,-)
+%Vf(-)
+%t(0.1)%?bl<%xd(battery,1)|%xd(battery,2)|%xd(battery,3)|%xd(battery,4)|%xd(battery,5)|%xd(battery,6)|%xd(battery,7)|%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>;%t(0.1)%?bl<%xd(battery,4)|%xd(battery,5)|%xd(battery,6)|%xd(battery,7)|%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>;%t(0.1)%?bl<%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>;%t(1)%xd(battery,11)
+
+## USB Screen ##
+
+%Vl(pc_usb,0,0,480,360,-)
+%xd(pc_usb)
+
+%Vl(pc_usb,323,75,142,45,4)%Vf(808080)
+%ac%?cf<%cH:%cM:%cS|%?cl<1|2|3|4|5|6|7|8|9|10|11|12>:%cM%cP>
+
+%Vl(pc_usb,443,5,34,15,-)
+%Vf(-)
+%?bl<%xd(battery,1)|%xd(battery,2)|%xd(battery,3)|%xd(battery,4)|%xd(battery,5)|%xd(battery,6)|%xd(battery,7)|%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>
+
+%Vl(pc_usb,399,0,41,20,2)%Vf(C3C3C3)
+%ar%bl%%
+
+# Hold Status
+%Vl(pc_usb,386,2,16,21,-)
+%?mh<%xd(lock,1)|%xd(lock,2)>
+%Vl(pc_usb,324,0,60,20,2)%Vf(ffffff)
+%?mh<%acLOCKED|>
+
+%Vl(pc_usb,23,150,270,45,3)%Vf(808080)
+%ac%t(5)USB CONNECTED;%t(1)%ac
+%ac%t(5)Eject before Disconnecting;%t(1)%ac

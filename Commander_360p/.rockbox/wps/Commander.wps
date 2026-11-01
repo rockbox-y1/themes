@@ -1,0 +1,40 @@
+# Commander — Rockbox WPS в стиле Norton Commander / FAR (320x240, сетка 40x15)
+# 360p conversion by rockbox-y1
+%wd
+%X(bg.bmp)
+%Fl(2,24-Terminus.fnt)
+%Cl(0,0,192,192,c,c)
+%xl(N,noart.bmp,0,0)
+
+# --- строка меню: батарея и часы ---
+%V(312,0,168,24,2)%Vf(000000)
+%ar%bl%%  %?cc<%cH:%cM|>
+
+# --- левая панель: "файлы" ---
+%V(12,72,216,24,2)%Vf(55FFFF)
+..
+%V(12,96,216,24,2)%Vf(000000)
+%s%fn
+%V(12,120,216,24,2)%Vf(55FFFF)
+%s%?Fn<%Fn|>
+
+# --- левая панель: информация ---
+%V(12,168,216,24,2)%Vf(FFFF55)
+%s%?it<%it|%fn>
+%V(12,192,216,96,2)%Vf(55FFFF)
+%s%?ia<%ia|>
+%s%?id<%id|>
+%s%?iy<%iy |>%?ig<%ig|>
+%fc %fbK %pp/%pe
+
+# --- правая панель: Quick view ---
+%V(264,60,192,192,-)
+%?C<%Cd|%xd(N)>
+%V(252,264,216,24,2)%Vf(55FFFF)
+%al%?mp<Stopped|Playing|Paused|Fwd|Rew>%ar%?ps<Shuf|>%?mm<| Rpt| Rpt1| RptS| A-B>
+
+# --- командная строка: прогресс ---
+%V(48,315,264,18,-)
+%pb(0,0,264,18,pb.bmp)
+%V(312,312,168,24,2)%Vf(AAAAAA)
+%ar%pc/%pt

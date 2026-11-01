@@ -1,0 +1,79 @@
+# LookAtMe by Serge Fnstll
+# 360p conversion by rockbox-y1
+# 2026-06-23 v1.0
+
+# Disable Status Bar
+%wd
+
+# Preload Font
+%Fl(3,24-SFPro-Bold-CJK.fnt)
+%Fl(4,24-SFPro-Regular-CJK.fnt)
+
+# Preload Images
+%xl(volbg,volbg.bmp,0,0)
+#%xl(vol,vol.bmp,0,0)
+%xl(f,rf.bmp,0,0)
+%xl(prog,prog.bmp,0,0)
+%xl(progbg,progbg.bmp,0,0)
+%xl(L,lock.bmp)
+%xl(ncm,nocover_main_2.bmp)
+%xl(ncf,nocover_main.bmp)
+%xl(back,bg.bmp)
+%Cl(0,-63,480,480,r,c)
+
+# Viewport Rules
+
+# Screen changer
+%?or(%if(%mp,=,1),%if(%mp,=,3),%if(%mp,=,4),%if(%mp,=,5),%mv(5),%pS(5),%mh)<%Vd(meta)%Vd(lock)%Vd(prog)%?mv(5)<%Vd(volume)|>%?C<%Vd(metac)%Vd(metaback)|%Vd(metanc)%Vd(metaback)>|%Vd(prog)%?C<%Vd(full)|%Vd(fullnc)>>
+
+# Display Viewports
+
+# Album Art (Fullscreen)
+%Vl(full,0,0,480,354,-)
+%Cd
+
+# Album Art (Fullscreen)
+%Vl(fullnc,0,0,480,354,-)
+%xd(ncf)
+
+# Album Art (Meta-screen)
+%Vl(metac,0,0,480,285,-)%VB
+%Cd
+%Vl(metac,0,0,480,285,-)
+
+# Album Art (Meta-screen)
+%Vl(metanc,0,0,480,285,-)%VB
+%xd(ncm)
+%Vl(metanc,0,0,480,285,-)
+
+# Transparent foreground status
+%Vl(meta,0,0,480,285,-)
+%?if(%mp, =, 3)<%xd(f)|>
+
+# Background (Meta-screen)
+%Vl(metaback,0,285,480,69,-)%VB
+%xd(back)
+%Vl(metaback,0,285,480,69,-)
+
+# Title
+%Vl(meta,15,291,450,24,3)%Vf(e3e3e3)
+%al%s%it
+
+# Artist
+%Vl(meta,15,321,330,24,4)%Vf(c3c3c3)
+%al%s%ia
+
+# Volume bar
+%Vl(volume,360,333,105,5,-)%VB
+%?mv(5)<%?mh<|%xd(volbg)>|>
+%Vl(volume,360,333,105,5,-)-
+%?mv(5)<%?mh<|%pv(0,0,105,5,noborder)%Vf(e3e3e3)>|>
+
+# Lock
+%Vl(lock,453,326,12,15,-)
+%?mh<%xd(L)>
+%?mh<%Vd(lock)|%Vd(volume)>
+
+# Progress Bar
+%Vl(prog,0,354,480,6,-)%Vf(-)
+%pb(0,0,480,6,prog,backdrop,progbg)

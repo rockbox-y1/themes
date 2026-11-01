@@ -1,0 +1,148 @@
+# Iris Night - neutral dark - base skin
+#
+# Fonts
+# 360p conversion by rockbox-y1
+%Fl(2,17-Inter-SemiBold.fnt)
+%Fl(3,18-Inter-Regular.fnt)
+%Fl(4,24-Inter-Bold.fnt)
+%Fl(5,90-Inter-SemiBold.fnt)
+#
+# rotated clock strips
+%xl(cm,clock-m.bmp,15,0,60)
+%xl(ch,clock-h24.bmp,15,18,24)
+%xl(cj,clock-h12.bmp,15,18,12)
+#
+# lock screen logic
+%?mh<%VI(h)|%VI(m)>
+%?mh<%Vd(lkbg)%Vd(lkc)%Vd(lkd)%?if(%mp, >, 1)<%Vd(lkb)%Vd(lkt)%Vd(lka)%Vd(lke)%Vd(lkp)%Vd(lkr)>|%?if(%cs, =, 2)<%Vd(tbnp)|%?if(%mp, >, 1)<%Vd(tbsa)%Vd(tbst)>>>
+#
+# playback state dot: playing circle, paused solid square, stopped hollow square
+%?if(%mp, =, 3)<%Vd(psu)|%?if(%mp, >, 1)<%Vd(psp)|%Vd(pss)>>
+#
+# ---------------- Sidebar ----------------
+%V(0,0,42,360,-)
+%Vf(b8acc8)
+%Vb(282430)
+%dr(17,12,9,9,b8acc8)
+#
+# playback dot, playing - solid circle
+%Vl(psp,17,12,9,9,-)
+%Vb(282430)
+%dr(1,0,6,9,b8acc8)
+%dr(0,2,9,6,b8acc8)
+#
+# playback dot, paused - solid square
+%Vl(psu,17,12,9,9,-)
+%Vb(282430)
+%dr(0,0,9,9,b8acc8)
+#
+# playback dot, stopped - hollow square
+%Vl(pss,17,12,9,9,-)
+%Vb(282430)
+%dr(0,0,9,9,b8acc8)
+%dr(1,2,6,6,282430)
+#
+# volume bar
+%V(17,165,9,84,-)
+%Vf(b8acc8)
+%Vb(404048)
+%pv(0,0,9,84,vertical,noborder)
+#
+# clock HH:MM, rotated 90 deg CCW
+%V(0,266,42,40,-)
+%Vb(282430)
+%xd(cm,%cM,1)
+%?cf<%xd(ch,%cH,1)|%xd(cj,%cl)>
+#
+# battery pill, rotated 90 deg CCW
+%V(0,323,42,27,-)
+%Vf(908c98)
+%Vb(282430)
+%dr(18,0,6,3,908c98)
+%dr(15,3,12,24,908c98)
+%dr(17,4,9,21,282430)
+%bl(18,6,6,18,noborder)
+#
+# ---------------- Topbar ----------------
+%V(42,0,438,27,-)
+%Vb(181418)
+%dr(0,26,438,1,282430)
+#
+# screen title
+%V(57,5,248,18,2)
+%Vf(908c98)
+%Vb(181418)
+%al%?mh<L O C K E D|%?cs<R O C K B O X|N O W  P L A Y I N G|R E C O R D I N G|F M  R A D I O|P L A Y L I S T|S E T T I N G S|F I L E S|D A T A B A S E|P L U G I N S|Q U I C K  S E T T I N G S|P I T C H|%Lt|P L A Y L I S T S|P L U G I N|M E N U|S Y S T E M|T I M E  &  D A T E|B O O K M A R K S|S H O R T C U T S|T R A C K  I N F O|U S B|%Lt>>
+#
+# topbar: playlist position on WPS
+%Vl(tbnp,-120,5,108,19,3)
+%Vf(908c98)
+%Vb(181418)
+%ar%pp / %pe
+#
+# topbar: now playing info + album thumb
+%Vl(tbsa,450,5,18,18,-)
+%Vb(181418)
+%Cl(0,0,18,18,c,c)
+%Cd
+#
+%Vl(tbst,248,5,198,19,3)
+%Vf(908c98)
+%Vb(181418)
+%s%ar%?it<%it|%fn>%?ia< — %ia|>
+#
+# ---------------- Lists ----------------
+%Vi(m,42,27,438,333,-)
+%Vf(d8dce0)
+%Vb(181418)
+#
+# collapsed 1x1 stub used while locked
+%Vi(h,42,27,2,2,-)
+%Vf(181418)
+%Vb(181418)
+#
+# ---------------- Lock screen ----------------
+%Vl(lkbg,42,27,438,333,-)
+%Vb(181418)
+%dr(0,0,438,333,181418)
+#
+%Vl(lkc,42,87,438,96,5)
+%Vf(d8dce0)
+%Vb(181418)
+%ac%?cf<%cH|%cl>:%cM
+#
+%Vl(lkd,42,189,438,18,2)
+%Vf(908c98)
+%Vb(181418)
+%ac%ca %cd %cb
+#
+# bottom strip: track info and seek bar
+%Vl(lkb,42,285,438,75,-)
+%Vb(202028)
+%dr(0,0,438,75,202028)
+%dr(0,0,438,2,282430)
+#
+%Vl(lkt,60,294,402,26,4)
+%Vf(d8dce0)
+%Vb(202028)
+%s%al%?it<%it|%fn>
+#
+%Vl(lka,60,323,402,19,3)
+%Vf(908c98)
+%Vb(202028)
+%s%al%ia%?id< — %id|>
+#
+%Vl(lke,60,342,66,18,3)
+%Vf(706c78)
+%Vb(202028)
+%al%pc
+#
+%Vl(lkp,132,350,261,4,-)
+%Vf(b8acc8)
+%Vb(404048)
+%pb(0,0,261,4,noborder)
+#
+%Vl(lkr,-81,342,69,18,3)
+%Vf(706c78)
+%Vb(202028)
+%ar%pt

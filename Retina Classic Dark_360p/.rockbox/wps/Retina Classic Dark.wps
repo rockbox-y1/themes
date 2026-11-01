@@ -1,0 +1,250 @@
+# Retina Classic Dark while playing screen
+# Device: Innioasis Y1 (480x360x16)
+# Version: wip (2026-10-30)
+# License: MIT
+# About: Clean, modern streaming-app look with pill selections, a split main menu and a mini player
+# Credits: Icons: Lucide (ISC), Ionicons 5 (MIT)
+# Credits: Font: Inter (SIL OFL 1.1)
+# Credits: Font: Droid Sans Mono, copyright 2007 Google Corporation (Apache 2.0), converted to a Rockbox bitmap font
+# 360p conversion by rockbox-y1
+# Generated with rockbox-theme-maker
+%wd
+%Fl(2,96-Inter-700.fnt)
+%Fl(3,21-Inter-500.fnt)
+%Fl(4,20-Inter-700.fnt)
+%Fl(5,18-Inter-500.fnt)
+%Fl(6,26-Inter-700.fnt)
+%Fl(7,15-Inter-700.fnt)
+%Fl(8,18-DroidSansMono.fnt)
+%xl(A,wps-playing-on.bmp,0,0)
+%xl(B,wps-playing-off.bmp,0,0)
+%xl(C,wps-cover-placeholder.bmp,0,0)
+%xl(D,wps-cover-corners.bmp,0,0)
+%xl(E,wps-badge-hires-on.bmp,0,0)
+%xl(F,wps-badge-hires-off.bmp,0,0)
+%xl(G,wps-badge-lossless-on.bmp,0,0)
+%xl(H,wps-badge-lossless-off.bmp,0,0)
+%xl(I,wps-badge-lossy-on.bmp,0,0)
+%xl(J,wps-badge-lossy-off.bmp,0,0)
+%xl(K,wps-shuffle.bmp,0,0,2)
+%xl(L,wps-repeat.bmp,0,0,5)
+%xl(M,wps-progress-fill.bmp,0,0)
+%xl(N,wps-progress-track.bmp,0,0)
+%xl(O,wps-volume-on.bmp,0,0)
+%xl(P,wps-volume-off.bmp,0,0)
+%xl(Q,wps-volume-fill.bmp,0,0)
+%xl(R,wps-volume-track.bmp,0,0)
+%xl(S,wps-up-next-on.bmp,0,0)
+%xl(T,wps-up-next-off.bmp,0,0)
+%xl(U,wps-hold-on.bmp,0,0)
+%xl(V,wps-hold-off.bmp,0,0)
+%xl(W,wps-status.bmp,0,0,5)
+%xl(X,wps-battery-charging-on.bmp,0,0)
+%xl(Y,wps-battery-charging-off.bmp,0,0)
+%xl(Z,wps-battery-charging-fill.bmp,0,0)
+%xl(a,wps-battery-low-on.bmp,0,0)
+%xl(b,wps-battery-low-off.bmp,0,0)
+%xl(c,wps-battery-low-fill.bmp,0,0)
+%xl(d,wps-battery-normal-on.bmp,0,0)
+%xl(e,wps-battery-normal-off.bmp,0,0)
+%xl(f,wps-battery-fill.bmp,0,0)
+%xl(g,wps-backdrop.bmp,0,0)
+%?mh<%Vd(srk4)|>
+%?mh<%?if(%mp, >, 1)<%Vd(srk7)|>|>
+%?mh<%Vd(hrka)|%Vd(srka)>
+%?mh<|%?and(%or(%if(%fc, =, FLAC), %if(%fc, =, ALAC), %if(%fc, =, WAV), %if(%fc, =, AIFF), %if(%fc, =, APE), %if(%fc, =, WV), %if(%fc, =, SHN)), %if(%fk, >, 48))<%Vd(srkf)|%Vd(hrkf)>>
+%?mh<|%?or(%if(%fc, =, FLAC), %if(%fc, =, ALAC), %if(%fc, =, WAV), %if(%fc, =, AIFF), %if(%fc, =, APE), %if(%fc, =, WV), %if(%fc, =, SHN))<%?and(%or(%if(%fc, =, FLAC), %if(%fc, =, ALAC), %if(%fc, =, WAV), %if(%fc, =, AIFF), %if(%fc, =, APE), %if(%fc, =, WV), %if(%fc, =, SHN)), %if(%fk, >, 48))<%Vd(hrkg)|%Vd(srkg)>|%Vd(hrkg)>>
+%?mh<|%?or(%and(%or(%if(%fc, =, FLAC), %if(%fc, =, ALAC), %if(%fc, =, WAV), %if(%fc, =, AIFF), %if(%fc, =, APE), %if(%fc, =, WV), %if(%fc, =, SHN)), %if(%fk, >, 48)), %or(%if(%fc, =, FLAC), %if(%fc, =, ALAC), %if(%fc, =, WAV), %if(%fc, =, AIFF), %if(%fc, =, APE), %if(%fc, =, WV), %if(%fc, =, SHN)))<%Vd(hrkh)|%Vd(srkh)>>
+%?mh<|%?mv<%Vd(srks)|%Vd(hrks)>>
+%?mh<|%?mv<%Vd(hrkv)|%Vd(srkv)>>
+%?mh<%Vd(srl1)|%Vd(hrl1)>
+%?mh<|%Vd(srl2)>
+%?bp<%Vd(srl6)|%Vd(hrl6)>
+%?if(%bl, <, 20)<%?bp<%Vd(hrl9)|%?bp<%Vd(hrl9)|%Vd(srl9)>>|%Vd(hrl9)>
+%?bp<%Vd(hrlc)|%?if(%bl, <, 20)<%?bp<%Vd(srlc)|%Vd(hrlc)>|%Vd(srlc)>>
+# backdrop
+%V(0,0,480,360,-)%VB
+%xd(g)
+# playing hidden
+%Vl(hrka,0,0,480,360,-)%VB
+%xd(B)
+# badge-hires hidden
+%Vl(hrkf,222,170,240,26,-)%VB
+%xd(F)
+# badge-lossless hidden
+%Vl(hrkg,222,170,240,26,-)%VB
+%xd(H)
+# badge-lossy hidden
+%Vl(hrkh,222,170,240,26,-)%VB
+%xd(J)
+# volume hidden
+%Vl(hrks,18,282,444,66,-)%VB
+%xd(P)
+# up-next hidden
+%Vl(hrkv,18,282,444,66,-)%VB
+%xd(T)
+# hold hidden
+%Vl(hrl1,346,18,18,18,-)%VB
+%xd(V)
+# battery-charging hidden
+%Vl(hrl6,421,17,38,18,-)%VB
+%xd(Y)
+# battery-low hidden
+%Vl(hrl9,421,17,38,18,-)%VB
+%xd(b)
+# battery-normal hidden
+%Vl(hrlc,421,17,38,18,-)%VB
+%xd(e)
+# playing shown
+%Vl(srka,0,0,480,360,-)%VB
+%xd(A)
+# badge-hires shown
+%Vl(srkf,222,170,240,26,-)%VB
+%xd(E)
+# badge-lossless shown
+%Vl(srkg,222,170,240,26,-)%VB
+%xd(G)
+# badge-lossy shown
+%Vl(srkh,222,170,240,26,-)%VB
+%xd(I)
+# volume shown
+%Vl(srks,18,282,444,66,-)%VB
+%xd(O)
+# up-next shown
+%Vl(srkv,18,282,444,66,-)%VB
+%xd(S)
+# hold shown
+%Vl(srl1,346,18,18,18,-)%VB
+%xd(U)
+# battery-charging shown
+%Vl(srl6,421,17,38,18,-)%VB
+%xd(X)
+# battery-low shown
+%Vl(srl9,421,17,38,18,-)%VB
+%xd(a)
+# battery-normal shown
+%Vl(srlc,421,17,38,18,-)%VB
+%xd(d)
+# show the backdrop buffer
+%V(0,0,480,360,-)
+# playing shown, copy to screen
+%Vl(srka,0,0,480,360,-)
+# playing hidden, copy to screen
+%Vl(hrka,0,0,480,360,-)
+# badge-hires shown, copy to screen
+%Vl(srkf,222,170,240,26,-)
+# badge-hires hidden, copy to screen
+%Vl(hrkf,222,170,240,26,-)
+# badge-lossless shown, copy to screen
+%Vl(srkg,222,170,240,26,-)
+# badge-lossless hidden, copy to screen
+%Vl(hrkg,222,170,240,26,-)
+# badge-lossy shown, copy to screen
+%Vl(srkh,222,170,240,26,-)
+# badge-lossy hidden, copy to screen
+%Vl(hrkh,222,170,240,26,-)
+# volume shown, copy to screen
+%Vl(srks,18,282,444,66,-)
+# volume hidden, copy to screen
+%Vl(hrks,18,282,444,66,-)
+# up-next shown, copy to screen
+%Vl(srkv,18,282,444,66,-)
+# up-next hidden, copy to screen
+%Vl(hrkv,18,282,444,66,-)
+# hold shown, copy to screen
+%Vl(srl1,346,18,18,18,-)
+# hold hidden, copy to screen
+%Vl(hrl1,346,18,18,18,-)
+# battery-charging shown, copy to screen
+%Vl(srl6,421,17,38,18,-)
+# battery-charging hidden, copy to screen
+%Vl(hrl6,421,17,38,18,-)
+# battery-low shown, copy to screen
+%Vl(srl9,421,17,38,18,-)
+# battery-low hidden, copy to screen
+%Vl(hrl9,421,17,38,18,-)
+# battery-normal shown, copy to screen
+%Vl(srlc,421,17,38,18,-)
+# battery-normal hidden, copy to screen
+%Vl(hrlc,421,17,38,18,-)
+# lock-clock
+%Vl(srk4,0,99,480,116,2)
+%Vf(FFFFFF)
+%ac%?cf<%cH|%cl>:%cM
+# lock-date
+%Vl(srk4,0,216,480,25,3)
+%Vf(FC3C54)
+%ac%ca%, %cd %cb
+# lock-title
+%Vl(srk7,18,302,444,24,4)
+%Vf(FFFFFF)
+%s%al%?it<%it|%fn>
+# lock-artist
+%Vl(srk7,18,326,444,21,5)
+%Vf(8E8E93)
+%s%al%ia
+# cover
+%Vl(srka,18,72,186,186,-)
+%Cl(0,0,186,186,c,c)
+%?C<%Cd|%xd(C)>
+%xd(D)
+# title
+%Vl(srka,222,75,240,31,6)
+%Vf(FFFFFF)
+%s%al%?it<%it|%fn>
+# artist
+%Vl(srka,222,108,240,25,3)
+%Vf(FC3C54)
+%s%al%ia
+# album
+%Vl(srka,222,135,240,25,3)
+%Vf(8E8E93)
+%s%al%id
+# format
+%Vl(srkh,254,175,117,19,7)
+%Vf(8E8E93)
+%al%fc %fb kbps
+# shuffle
+%Vl(srka,222,198,27,27,-)
+%?ps<%xd(Ka)|%xd(Kb)>
+# repeat
+%Vl(srka,257,198,27,27,-)
+%?mm<%xd(La)|%xd(Lb)|%xd(Lc)|%xd(Ld)|%xd(Le)>
+# progress
+%Vl(srka,222,228,240,6,-)
+%pb(0,0,240,6,image,M,backdrop,N)
+# elapsed
+%Vl(srka,222,240,105,21,8)
+%Vf(8E8E93)
+%al%pc
+# position
+%Vl(srka,309,240,66,21,8)
+%Vf(3A3A3C)
+%ac%pp/%pe
+# remaining
+%Vl(srka,357,240,105,21,8)
+%Vf(8E8E93)
+%ar–%pr
+# volume
+%Vl(srks,78,308,324,8,-)
+%pv(0,0,324,8,image,Q,backdrop,R)
+# next
+%Vl(srkv,18,321,444,25,3)
+%Vf(8E8E93)
+%s%al%?It<%It|—>
+# status
+%Vl(srl2,346,18,18,18,-)
+%?mp<%xd(Wa)|%xd(Wb)|%xd(Wc)|%xd(Wd)|%xd(We)>
+# clock
+%V(364,15,54,21,5)
+%Vf(FFFFFF)
+%ac%?cf<%cH:%cM|%cl:%cM>
+# battery-charging
+%Vl(srl6,426,22,24,9,-)
+%bl(0,0,24,9,image,Z)
+# battery-low
+%Vl(srl9,426,22,24,9,-)
+%bl(0,0,24,9,image,c)
+# battery
+%Vl(srlc,426,22,24,9,-)
+%bl(0,0,24,9,image,f)

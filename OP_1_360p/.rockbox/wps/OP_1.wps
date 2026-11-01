@@ -1,0 +1,101 @@
+#
+#__OP_1
+#__by__CHUCK_LARDO
+#__by__rockbox-y1_(360p_conversion)
+#__licence__CC-BY-SA 4.0
+#__version__1.0
+#__2025
+#__target resolution 320x240
+#__tested on iPod Classic
+#
+#
+#
+#__WPS File
+#
+#__Hide The Status Bar
+%wd
+#
+#
+#__Load Backdrop
+%X(OP_backdrop.bmp)
+#
+#__Preload Fonts
+%Fl(2,32-Terminus.fnt)
+%Fl(3,32-Terminus-Bold.fnt)
+%Fl(4,35-Nimbus.fnt)
+%Fl(5,32-Terminus-Bold.fnt)
+
+#
+#__Preload Images
+%xl(E,reel.bmp,0,0,4)
+%xl(T,stop_icon.bmp,0,0)
+%xl(L,play_icon.bmp,0,0)
+%xl(Z,pause_icon.bmp,0,0)
+%xl(F,forward_icon.bmp,0,0)
+%xl(R,rewind_icon.bmp,0,0)
+%xl(PBB,pb_back.bmp,0,0)
+%xl(PB,pb.bmp,0,0)
+#
+#
+#__Viewport Start
+#
+#__Track Number
+%V(30,8,45,48,4)
+%pp
+#
+#__Time Elapsed
+%V(180,30,120,30,5)
+%ac%pc
+#
+#__Repeat
+%V(390,15,60,48,2)%Vf(A369F7)
+%ar%?ps<S|0>_%?mm<0|R|R|R|R>
+#
+#__Reel Left
+%V(87,53,111,111,-)
+%al%?mp<%xd(Eb)|%t(0.6)%xd(Ed);%t(0.6)%xd(Ec);%t(0.6)%xd(Eb);%t(0.6)%xd(Ea)|%xd(Eb)|%t(0.3)%xd(Ed);%t(0.1)%xd(Ec);%t(0.3)%xd(Eb);%t(0.1)%xd(Ea)|%t(0.1)%xd(Ea);%t(0.3)%xd(Eb);%t(0.1)%xd(Ec);%t(0.3)%xd(Ed)>
+#
+#__Reel Right
+%V(282,53,111,111,-)
+%al%?mp<%xd(Ed)|%t(0.3)%xd(Ed);%t(0.3)%xd(Ec);%t(0.3)%xd(Eb);%t(0.3)%xd(Ea)|%xd(Ed)|%t(0.1)%xd(Ed);%t(0.3)%xd(Ec);%t(0.1)%xd(Eb);%t(0.3)%xd(Ea)|%t(0.3)%xd(Ea);%t(0.1)%xd(Eb);%t(0.3)%xd(Ec);%t(0.1)%xd(Ed)>
+#
+#__Play/Pause Icons
+%V(209,75,63,33,-)
+%?mp<%xd(T)|%xd(L)|%xd(Z)|%xd(F)|%xd(R)>
+#
+#__Battery Bar
+%V(215,126,45,23,-)%Vf(556471)
+%bl(0,0,45,23)
+%V(260,132,3,11,-)%Vf(556471)
+%dr(0,0,3,11)
+#
+#__Hold
+%V(30,170,57,21,-)%Vf(556471)
+%ac%?mh<HOLD|---->
+#
+#__Track Progress Bar
+%V(30,197,420,51,-)
+%pb(0,0,420,51,PBB,slider,PB)
+#
+#__Line
+%V(30,251,420,7,-)%Vf(49392F)
+%dr(0,0,420,7)
+#
+#__Volume Bar
+%V(443,60,6,135,-)%Vf(F6230A)
+%pv(0,0,6,135,vertical)
+#
+#__Track Info
+%V(30,273,300,33,3)
+%al%s%it
+%V(30,309,300,21,-)%Vb(49392F)
+%al%s%ia
+#
+#__Battery Charging Text
+%V(345,276,105,33,-)%Vf(A369F7)
+%ac%?bp<%t(.6)CHARGING;%t(.6)|%fbkbs>%Vs(invert)
+#
+#__File Type
+%V(345,309,105,21,-)%Vf(1AE89E)
+%ac%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|A52|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|UNKNOWN?>%Vs(invert)
+#

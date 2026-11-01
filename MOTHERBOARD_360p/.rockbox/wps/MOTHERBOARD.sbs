@@ -1,0 +1,134 @@
+
+# Theme: MOTHERBOARD
+# Version 2.0
+# Updates: Fixed 24hr time position and hold icon. Slightly repositioned play status/repeat/shuffle icons
+# Last Update: 02/12/2026
+# License: CC-BY-SA 3.0
+# By: Monica G.
+# By: rockbox-y1 (360p conversion)
+# Description: Pixel Art of the iPod 5th gen motherboard! Changing the background color changes some elements in the WPS, but kept all other menus/screens grey-scale.
+# Using element from Pixel Computer by me! Code based on OneBit_OLED by Jihoon Kim and SNARTY by Simon Anden!
+# Icons/elements from Pixel Computer, originally altered from OneBit_OLED by Jihoon Kim and SNARTY by Simon Anden!
+
+# Disable Status Bar
+%wd
+
+# Disable Title
+%?Lt<|>
+
+# Load Background
+%X(MOTHERBOARD_SBS.bmp)
+
+# Preload Font
+%Fl(3,18-Terminus.fnt)
+%Fl(4,28-Terminus-Bold.fnt)
+
+# Preload Images
+%xl(battery,battery.bmp,0,0,12)
+%xl(playmodes_wps,playmodes_wps.bmp,0,0,9)
+%xl(EJECT,EJECT.bmp,0,0)
+%xl(repeat,repeat_status_wps.bmp,0,0,5)
+%xl(lock,lock.bmp,0,0,2)
+%xl(X,seeking_icon.bmp,0,0,2)
+%xl(shuffle,shuffle_wps.bmp,0,0,2)
+
+# Display Viewports
+%?if(%cs, =, 21)<%VI(clearScreen)%Vd(MOTHERBOARD_USB)|%Vd(info)<%VI(menu)%Vd(info)>>
+
+# Clear Screen
+%Vi(clearScreen,0,0,2,2,-)
+
+# Display Viewports
+
+# Menu
+%Vi(menu,72,54,240,180,-)%Vf(ffffff)
+
+# Menu Title
+%Vl(info,158,0,217,23,3)%Vf(ffffff)
+%ac%s%Lt
+
+# Clock
+%Vl(info,372,90,108,75,4)%Vf(ffffff)%Vb(000000)
+%ac%?cf<%cH:%cM|%?cl<1|2|3|4|5|6|7|8|9|10|11|12>:%cM%cP>
+
+# Battery (numerical)
+%Vl(info,380,18,40,21,3)%Vf(ffffff)
+%ar%bl%%
+
+# Now Playing
+%Vl(info,30,341,420,19,3)%Vf(ffffff)%Vb(000000)
+%?if(%mp, >, 1)<%ac%s %?it<%it|%fn>%?ia< - %ia>%?id< - %id>|>
+
+# Playback Icons
+%Vl(info,23,206,37,37,-)
+%?if(%mp, >, 1)<%xd(playmodes_wps,%mp)|>
+
+# Repeat Icon
+%Vl(info,24,251,38,37,-)
+%?mm<%xd(repeat,1)|%xd(repeat,2)|%xd(repeat,3)|%xd(repeat,4)|%xd(repeat,5)>
+
+# Shuffle Icon
+%Vl(info,68,251,37,37,-)
+%?ps<%xd(shuffle,2)|%xd(shuffle,1)>
+
+# Storage Access
+%Vl(info,27,5,18,18,-)
+%?lh<%t(0.1)%xd(X,1);%t(0.1)%xd(X,2)|>
+
+# Date
+%Vl(info,353,309,117,21,3)%Vf(ffffff)
+%ar%ca, %cb %cd
+
+# Hold Status
+%Vl(info,11,12,18,24,-)
+%?mh<%xd(lock,1)|%xd(lock,2)>
+%Vl(info,386,45,90,20,3)%Vf(ffffff)
+%?mh<%ac--LOCKED--|>
+
+# Battery viewport selector (flash when low, animates when charging)
+%?bc<%Vd(battCharging)|%?if(%bl,>=,15)<%Vd(batt)|%Vd(lowBatt)>>
+
+# Battery (graphical)
+%Vl(batt,437,20,34,15,-)
+%Vf(-)
+%?bl<%xd(battery,1)|%xd(battery,2)|%xd(battery,3)|%xd(battery,4)|%xd(battery,5)|%xd(battery,6)|%xd(battery,7)|%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>
+
+%Vl(lowBatt,437,20,34,15,-)
+%Vf(-)
+%t(1)%?if(%bl,>=,10)<%xd(battery,2)|%xd(battery,1)>;%t(1)%xd(battery,12)
+
+%Vl(battCharging,437,20,34,15,-)
+%Vf(-)
+%t(0.1)%?bl<%xd(battery,1)|%xd(battery,2)|%xd(battery,3)|%xd(battery,4)|%xd(battery,5)|%xd(battery,6)|%xd(battery,7)|%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>;%t(0.1)%?bl<%xd(battery,4)|%xd(battery,5)|%xd(battery,6)|%xd(battery,7)|%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>;%t(0.1)%?bl<%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>;%t(1)%xd(battery,11)
+
+## USB Screen ##
+
+#%Vl(MOTHERBOARD_USB,0,0,320,240,-)
+#%xd(MOTHERBOARD_USB)
+
+%Vl(MOTHERBOARD_USB,372,90,108,75,4)%Vf(ffffff)
+%ac%?cf<%cH:%cM|%?cl<1|2|3|4|5|6|7|8|9|10|11|12>:%cM%cP>
+
+%Vl(MOTHERBOARD_USB,437,20,34,15,-)
+%Vf(-)
+%?bl<%xd(battery,1)|%xd(battery,2)|%xd(battery,3)|%xd(battery,4)|%xd(battery,5)|%xd(battery,6)|%xd(battery,7)|%xd(battery,8)|%xd(battery,9)|%xd(battery,10)|%xd(battery,11)>
+
+%Vl(MOTHERBOARD_USB,380,18,40,21,3)%Vf(ffffff)
+%ar%bl%%
+
+# Hold Status
+%Vl(MOTHERBOARD_USB,11,12,18,24,-)
+%?mh<%xd(lock,1)|%xd(lock,2)>
+%Vl(MOTHERBOARD_USB,386,0,90,20,3)%Vf(ffffff)
+%?mh<%ac--LOCKED--|>
+
+# Menu Title
+%Vl(MOTHERBOARD_USB,158,0,217,23,3)%Vf(ffffff)
+%ac%t(2)USB CONNECTED;%t(2)%ac
+
+# Date
+%Vl(MOTHERBOARD_USB,353,309,117,21,3)%Vf(ffffff)
+%ar%ca, %cb %cd
+
+%Vl(MOTHERBOARD_USB,23,39,304,251,-)
+%xd(EJECT)

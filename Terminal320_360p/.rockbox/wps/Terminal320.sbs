@@ -1,0 +1,222 @@
+# Theme Name: Terminal320
+# Theme design: Dylan Westford
+# 360p conversion by rockbox-y1
+# Target: Aigo Eros Q, 320x240 colour LCD; standard Rockbox build
+# Version: 1.4
+# Last updated: 2026-10-28
+# Original skin/layout and graphics: CC0 1.0 Universal.
+# Third-party font licenses: see /.rockbox/docs/Terminal320/FONT-SOURCES.txt
+# Font-pack dependency: 16-Terminus-Bold.fnt (not bundled).
+# FILE ROLE: menus, menu lock screen, shared status/footer and USB screen.
+# EDITING BASICS: lines starting with # are comments and are not displayed.
+# Each viewport is a rectangle: x, y, width, height, font ID, all in pixels.
+# Origin is the screen's top-left; x moves right and y moves down (320 x 240).
+# %V declares a visible viewport. %Vl(label,...) declares a named viewport;
+# %Vd(label) enables every viewport with that label. Keep each tag on its line.
+# %Vf sets text colour; %Vb sets background. Colours use six-digit RGB hex.
+# Palette: 72F6A4 track text, 32975C muted labels, FFB000 amber, 000000 black.
+# %s makes an overflowing text line scroll. %ac centres; %ar aligns right.
+# Conditional syntax: %?tag<first branch|second branch|...>.
+# Keep the < > and | delimiters intact when editing nested conditionals.
+# WPS and SBS duplicate playback elements: edit both to keep lock mode identical.
+# %mp branches: stopped / playing / paused / fast-forward / rewind.
+# State icons indicate the CURRENT state, not the action a button performs.
+# SETUP: hide the stock status bar so the theme draws its own.
+%wd
+# BACKGROUND: load the black terminal backdrop and separator artwork.
+%X(backdrop.bmp)
+# FONTS: IDs below are used as the last argument of each viewport.
+# 2 = Terminus Bold 16 (small UI); 3 = LanaPixel 20 (artist, album, menus).
+# 4 = LanaPixel 33-pixel cell (same title glyph scale, full descenders); 5 = Digital-7 Mono (original time glyphs).
+# Third %Fl argument caps cached glyphs; 128 reduces cold-start preloading.
+# Missing cached characters still load on demand; Unicode coverage is unchanged.
+# Time font keeps the original ASCII glyph pixels in a compact, memory-loaded file.
+# To change a font, install its .fnt file under /.rockbox/fonts and edit its name.
+%Fl(2,24-Terminus-Bold.fnt,128)
+%Fl(3,20-LanaPixel-T320.fnt)
+%Fl(4,33-LanaPixel-T320.fnt,128)
+%Fl(5,15-Digital7-T320-Time.fnt,128)
+# IMAGE ASSETS: files live in /.rockbox/wps/Terminal320/.
+# %xl loads a bitmap under an ID; final number is the number of sprite frames.
+# %xd draws a loaded image/frame. ba means image b, first frame; bb is second.
+# b=battery (6 frames), l=previous (2), r=next (2), c=state (3).
+# e=empty progress bar; s=menu selection background.
+%xl(b,battery.bmp,0,0,6)
+%xl(l,previous.bmp,0,0,2)
+%xl(r,next.bmp,0,0,2)
+%xl(c,state.bmp,0,0,3)
+%xl(e,progress-empty.bmp,0,0)
+%xl(s,selection.bmp,0,0)
+# All USB assets are preloaded before disk access is suspended.
+%xl(u,usb-screen.bmp,0,0)
+# Custom list viewport. Locking hides the list and displays WPS content.
+# MENU LIST AREA: normal menus use this 300 x 120 rectangle and font ID 3.
+# lock and usbhide use tiny rectangles to keep the standard UI out of view.
+%Vi(menu,15,84,450,180,3)
+%Vi(lock,0,0,2,2,2)
+%Vi(usbhide,0,0,2,2,-)
+# SCREEN ROUTING: %cs=21 is the USB screen on the tested Eros Q firmware.
+# USB: hide standard UI and draw usb. Otherwise draw shared header/footer.
+# Locked: hide menu, enable playback body and cursor. Unlocked: show menu and ticker.
+# Keep this conditional intact unless changing which screens are displayed.
+%?if(%cs,=,21)<%VI(usbhide)%Vd(usb)|%Vd(shared)%?mh<%VI(lock)%Vd(body)%Vd(cursor)|%VI(menu)%Vd(menutitle)%Vd(ticker)>>
+# MENU ROW TEMPLATE: repeat viewports labelled row in 300 x 24 pixel slots.
+# 120 pixels of list height gives five visible rows.
+%Lb(row,300,24)
+# HEADER: terminal prompt and playback status.
+# When keys are locked (%mh), show locked; otherwise read playback mode (%mp).
+%Vl(shared,15,9,399,24,2)
+%Vf(72F6A4)
+%Vb(000000)
+status@rockbox:~$ %?mh<locked|%?mp<stopped|playing|pause|playing|playing|recording|pause|playing|pause>>
+# BATTERY: choose one of six icon frames using battery level (%bl).
+# The percentage is used internally and is not printed.
+%Vl(shared,423,12,42,18,2)
+%Vf(72F6A4)
+%Vb(000000)
+%?bl<%xd(ba)|%xd(bb)|%xd(bc)|%xd(bd)|%xd(be)|%xd(bf)>
+# ELAPSED TIME: %pc, rendered with Digital-7 Mono (font ID 5).
+%Vl(shared,12,273,63,24,5)
+%Vf(72F6A4)
+%Vb(000000)
+%s%pc
+# TOTAL DURATION: %pt, right-aligned, Digital-7 Mono (font ID 5).
+%Vl(shared,405,273,63,24,5)
+%Vf(72F6A4)
+%Vb(000000)
+%s%ar%pt
+# PROGRESS BAR: 216 x 10 pixels between the two time readouts.
+# progress-fill.bmp is the filled bar; preloaded image e supplies the empty bar.
+%Vl(shared,78,278,324,15,2)
+%Vf(72F6A4)
+%Vb(000000)
+%pb(0,0,324,15,progress-fill.bmp,backdrop,e)
+# VOLUME: %pv displays the current volume value.
+%Vl(shared,15,308,159,24,2)
+%Vf(32975C)
+%Vb(000000)
+%sVOL %pv
+# SHUFFLE: %ps selects ON or OFF; centre the text in this viewport.
+%Vl(shared,174,308,162,24,2)
+%Vf(32975C)
+%Vb(000000)
+%acSHUF %?ps<ON|OFF>
+# REPEAT: %mm selects OFF / ALL / ONE / SHUF / A-B; right-align.
+%Vl(shared,336,308,129,24,2)
+%Vf(32975C)
+%Vb(000000)
+%arREP %?mm<OFF|ALL|ONE|SHUF|A-B>
+# FOOTER PROMPT: fixed terminal $ at the bottom-left.
+%Vl(shared,15,336,18,24,2)
+%Vf(72F6A4)
+%Vb(000000)
+$
+# PREVIOUS / REWIND ICON: normal frame la; highlighted frame lb while rewinding.
+%Vl(shared,363,338,24,21,2)
+%Vf(72F6A4)
+%Vb(000000)
+%?mp<%xd(la)|%xd(la)|%xd(la)|%xd(la)|%xd(lb)>
+# CURRENT PLAYBACK ICON: ca=stopped, cb=playing, cc=paused.
+# During either seek direction keep cb (play); never use a seek icon here.
+%Vl(shared,402,338,24,21,2)
+%Vf(72F6A4)
+%Vb(000000)
+%?mp<%xd(ca)|%xd(cb)|%xd(cc)|%xd(cb)|%xd(cb)>
+# NEXT / FAST-FORWARD ICON: normal frame ra; highlighted rb while fast-forwarding.
+%Vl(shared,441,338,24,21,2)
+%Vf(72F6A4)
+%Vb(000000)
+%?mp<%xd(ra)|%xd(ra)|%xd(ra)|%xd(rb)|%xd(ra)>
+# TRACK AREA: clear a black rectangle behind the playback information.
+%Vl(body,15,45,450,224,2)
+%Vf(72F6A4)
+%Vb(000000)
+%dr(0,0,450,224,000000)
+# SECTION LABEL: small NOW PLAYING text above the title.
+%Vl(body,15,48,450,24,2)
+%Vf(32975C)
+%Vb(000000)
+NOW PLAYING
+# TITLE PROMPT: amber > symbol. %> prints a literal > character.
+%Vl(body,15,80,27,51,4)
+%Vf(FFB000)
+%Vb(000000)
+%>
+# TRACK TITLE: largest font (ID 4), same green as artist and album.
+# Scroll (%s); use title (%it), then filename without extension (%fn), then No track.
+# Title y=53, height=34: fits the 33-pixel font cell plus one spare pixel.
+# Same glyph scale and width as before; full 9-pixel descenders, not squeezed to 4.
+# Shifted upward to balance the full glyph bounds between the existing rows.
+%Vl(body,48,80,417,51,4)
+%Vf(72F6A4)
+%Vb(000000)
+%s%?it<%it|%?fn<%fn|No track>>
+# ARTIST LABEL: muted text at the left of the artist row.
+%Vl(body,15,147,96,30,3)
+%Vf(32975C)
+%Vb(000000)
+artist
+# ARTIST VALUE: font ID 3; scroll long names; fallback Unknown artist.
+%Vl(body,123,147,342,30,3)
+%Vf(72F6A4)
+%Vb(000000)
+%s%?ia<%ia|Unknown artist>
+# ALBUM LABEL: muted text at the left of the album row.
+%Vl(body,15,186,96,30,3)
+%Vf(32975C)
+%Vb(000000)
+album
+# ALBUM VALUE: font ID 3; scroll long names; fallback Unknown album.
+%Vl(body,123,186,342,30,3)
+%Vf(72F6A4)
+%Vb(000000)
+%s%?id<%id|Unknown album>
+# FORMAT DETAILS: codec (%fc), bitrate (%fb), sample rate (%fk).
+# Hide the line when stopped; scroll it if it overflows.
+%Vl(body,15,227,450,24,2)
+%Vf(32975C)
+%Vb(000000)
+%s%?mp<|%fc / %fb kbps / %fk kHz|%fc / %fb kbps / %fk kHz|%fc / %fb kbps / %fk kHz|%fc / %fb kbps / %fk kHz>
+# MENU HEADING: prefix the current list title (%Lt) with ~/; fallback menu.
+%Vl(menutitle,15,48,450,30,3)
+%Vf(32975C)
+%Vb(000000)
+%s~/%?Lt<%Lt|menu>
+# MENU FOOTER TICKER: scrolling title - artist - album between $ and icons.
+# Keep width within 210 pixels to avoid the playback controls.
+%Vl(ticker,36,336,315,24,2)
+%Vf(72F6A4)
+%Vb(000000)
+%s%?it<%it|%?fn<%fn|No track>> - %?ia<%ia|Unknown artist> - %?id<%id|Unknown album>
+# TERMINAL CURSOR: small rectangle after the $ prompt.
+%Vl(cursor,36,336,12,24,2)
+%Vf(72F6A4)
+%Vb(000000)
+%dr(0,2,12,21)
+# MENU ROW BACKGROUND: row coordinates are relative to each repeated row.
+# Draw selection.bmp (image s) only for the selected item (%Lc).
+%Vl(row,0,0,450,36,3)
+%Vf(72F6A4)
+%Vb(000000)
+%?Lc<%xd(s)>
+# MENU ROW PROMPT: amber > for the selected row; space for other rows.
+# %Vg sets gradient colours and selected text; %Vs applies or clears selection style.
+%Vl(row,0,3,33,30,3)
+%Vf(FFB000)
+%Vb(000000)
+%Vg(083C20,083C20,FFB000)
+%?Lc<%Vs(gradient)%>|%Vs(clear) >
+# MENU ROW TEXT: %LT is this row text; %s scrolls overflowing entries.
+# Selected text is mint CDFFE8 over dark green 083C20; other text is green.
+%Vl(row,33,3,417,30,3)
+%Vf(72F6A4)
+%Vb(000000)
+%Vg(083C20,083C20,CDFFE8)
+%?Lc<%Vs(gradient)|%Vs(clear)>%s%LT
+# USB SCREEN: full-screen monochrome terminal artwork, preloaded as image u.
+# Edit usb-screen.bmp to change the USB graphic or its baked-in text.
+# It is a static bitmap, so font/colour tags here do not recolour its pixels.
+%Vl(usb,0,0,480,360,2)
+%Vf(72F6A4)
+%Vb(000000)
+%xd(u)

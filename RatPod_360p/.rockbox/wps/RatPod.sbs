@@ -1,0 +1,134 @@
+#   ######:                       ######:                   ## ⠀⠀⠀⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#   #######               ##      #######:                  ## ⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#   ##   :##              ##      ##   :##                  ## ⠀⠀⣀⣼⠷⠀⠀⠁⢀⣿⠃⠀⠀⢀⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#   ##    ##   :####    #######   ##    ##   .####.    :###.## ⠴⣾⣯⣅⣀⠀⠀⠀⠈⢻⣦⡀⠒⠻⠿⣿⡿⠿⠓⠂⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀
+#   ##   :##   ######   #######   ##   :##  .######.  :####### ⠀⠀⠀⠉⢻⡇⣤⣾⣿⣷⣿⣿⣤⠀⠀⣿⠁⠀⠀⠀⢀⣴⣿⣿⠀⠀⠀⠀⠀⠀⠀
+#   #######:   #:  :##    ##      #######:  ###  ###  ###  ### ⠀⠀⠀⠀⠸⣿⡿⠏⠀⢀⠀⠀⠿⣶⣤⣤⣤⣄⣀⣴⣿⡿⢻⣿⡆⠀⠀⠀⠀⠀⠀
+#   ######      :#####    ##      ######:   ##.  .##  ##.  .## ⠀⠀ ⠀⠀⠟⠁⠀⢀⣼⠀⠀⠀⠹⣿⣟⠿⠿⠿⡿⠋⠀⠘⣿⣇⠀⠀⠀⠀⠀
+#   ##   ##.  .#######    ##      ##        ##    ##  ##    ## ⠀⠀⠀⠀⠀⢳⣶⣶⣿⣿⣇⣀⠀⠀⠙⣿⣆⠀⠀⠀⠀⠀⠀⠛⠿⣿⣦⣤⣀⠀
+#   ##   ##   ## .  ##    ##      ##        ##.  .##  ##.  .## ⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⠿⠋⠁⠀⣹⣿⠳⠀⠀⠀⠀⠀⠀⢀⣠⣽⣿⡿⠟⠃
+#   ##   :##  ##:  ###    ##.     ##        ###  ###  ###  ### ⠀⠀⠀⠀⢰⠿⠛⠻⢿⡇⠀⠀⠀⣰⣿⠏⠀⠀⢀⠀⠀⠀⣾⣿⠟⠋⠁⠀⠀⠀
+#   ##    ##: ########    #####   ##        .######.  :####### ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⣰⣿⣿⣾⣿⠿⢿⣷⣀⢀⣿⡇⠁⠀⠀⠀⠀⠀
+#   ##    ###   ###.##    .####   ##         .####.    :###.## ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠉⠁⠀⠀⠀⠀⠙⢿⣿⣿⠇⠀⠀⠀
+#                                                               ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⠀⠀⠀⠀⠀⠀⠀
+#   By Eucharitid                                               ⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀
+# 360p conversion by rockbox-y1
+
+#__SBS File
+
+#__Hide the status bar
+%wd
+
+#__Disable Title
+%?Lt<|>
+
+#__Backdrop (1-bit bmp on the backdrop layer, recoloured by the theme)
+%xl(RatPod,RatPod.bmp,0,0)
+%V(0,0,-,-,-)%VB
+%xd(RatPod)
+%V(0,0,-,-,-)
+
+#__Preload fonts
+%Fl(3,14-LanaPixel.fnt)
+%Fl(4,14-LanaPixel.fnt)
+
+#__Preload images
+%xl(PBI,Playback_Icons.bmp,5)
+%xl(H,BatteryStatus.bmp,12)
+%xl(PBB,pb_back.bmp,0,0)
+%xl(PB,pb.bmp,0,0)
+%xl(VBB,vb_back.bmp,0,0)
+%xl(VB,vb.bmp,0,0)
+
+#__Quickscreen Images
+%xl(Slider,Slider.bmp,0,0)
+%xl(SliderBack,QuickSliderBack.bmp,0,0)
+%xl(BrightnessIcons,QuickBrightness.bmp,0,0)
+%xl(VolumeIcons,VolumeIcons.bmp,4)
+
+#------------- Status Bar Layer -----------#
+
+#__Battery Text
+%V(360,21,53,30,3)
+%ar%bl%%
+
+#__Battery Icon
+%V(422,26,31,16,-)
+%?bp<%xd(Hl)|%?bl<%xd(Ha)|%xd(Hb)|%xd(Hc)|%xd(Hd)|%xd(He)|%xd(Hf)|%xd(Hg)|%xd(Hh)|%xd(Hi)|%xd(Hj)|%xd(Hk)>>
+
+#__Volume Text / LOCKED on hold
+%V(332,51,120,47,3)
+%ar%?mh<LOCKED|Vol. %pv dB>
+
+#------------ Main Screen Layer -----------#
+
+#__USB Screen
+%?if(%cs, =, 21)<%VI(clearScreen)%Vd(USB)|%VI(menuViewport)%Vd(MainDisplay)>
+
+#__Clear Screen
+%Vi(clearScreen,0,0,2,2,-)
+
+#__Volume Bar
+%Vl(MainDisplay,30,86,420,1,-)
+%pv(0,0,420,1,VB,backdrop,VBB)
+
+#__UI Viewport
+%Vi(menuViewport,30,104,420,180,4)
+
+#__Track Progress Bar
+%Vl(MainDisplay,30,291,420,2,-)
+%dr(0,0,420,2)
+%Vl(MainDisplay,30,293,420,7,-)
+%pb(0,0,420,7,PBB,slider,PB)
+%Vl(MainDisplay,30,300,420,2,-)
+%dr(0,0,420,2)
+
+#__Play/Pause Icons
+%Vl(MainDisplay,30,321,32,17,-)
+%?mp<%xd(PBI,1)|%xd(PBI,2)|%xd(PBI,3)|%xd(PBI,4)|%xd(PBI,5)>
+
+#__Now Playing
+%Vl(MainDisplay,65,317,292,30,3)
+%al%s%?ia<%ia - %it|%fn>
+
+#----------- Quick Screen Layer -----------#
+
+#__Clear Screen
+%V(0,0,0,0,-)
+
+#__Quick Screen Default Location
+%?if(%cs, =, 10)<%Vd(Quickscreen)%VI(QuickDefault)>
+
+#__Quick Screen Sliders
+%Vl(Quickscreen,39,111,24,21,-)
+%?if(%pv, =, -90)<%xd(VolumeIcons,1)>
+%?and(%if(%pv, <=, -60),%if(%pv, >, -90))<%xd(VolumeIcons,2)>
+%?and(%if(%pv, <=, -30),%if(%pv, >, -60))<%xd(VolumeIcons,3)>
+%?if(%pv, >, -30)<%xd(VolumeIcons,4)>
+%Vl(Quickscreen,72,113,369,18,-)%pv(0,0,369,18,Slider,backdrop,SliderBack)
+%Vl(Quickscreen,39,146,39,40,-)%xd(BrightnessIcons,1)
+%Vl(Quickscreen,72,149,369,18,-)%St(0,0,369,18,Slider,backdrop,SliderBack,setting,brightness)
+
+#__Default Quickscreen
+%Vi(QuickDefault,23,176,433,105,3)
+
+#---------------  USB Layer ---------------#
+
+#__USB
+%?if(%cs, =, 21)<%Vd(USB)>
+
+#__USB Text
+%Vl(USB,30,135,420,45,4)
+%acUSB CONNECTED%Vs(invert)
+
+#__USB Line Top
+%Vl(USB,30,86,420,1,-)
+%dr(0,0,420,1)
+
+#__USB Line Bottom
+%Vl(USB,30,300,420,2,-)
+%dr(0,0,420,2)
+
+#__USB Eject Warning
+%Vl(USB,45,195,390,30,3)
+%ac%t(1)! EJECT BEFORE DISCONNECTING !;%t(.1)%ac

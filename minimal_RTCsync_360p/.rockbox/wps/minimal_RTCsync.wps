@@ -1,0 +1,145 @@
+# Theme: minimal_RTCsync
+# Version 1.0
+# Last Update: 05/15/2026
+# License: CC-BY-SA 3.0
+# By: Monica G.
+# By: rockbox-y1 (360p conversion)
+# Description: Minimalist but modern theme. All pixel art is by me. The picture on the menu changes according to the time of day (changes at 6 AM, 12 PM, and 6 PM). 
+# Code based on: BACKBONE and Pixel Computer by me! which are based on SNARTY by Simon Anden and BONES by Chuck Largo!
+# Icons & viewers from my 1ST_GEN_REMIX theme with some small changes. Hold screen does not show album art.
+# The San Francisco font is owned by Apple Inc. and this theme does not claim any ownership over the font.
+
+## WPS File ##
+
+#Hide The Status Bar
+%wd
+
+# Clear Backdrop
+%V(0,0,-,-,-)%VB
+%V(0,0,-,-,-)
+
+# Preload Fonts
+%Fl(5,21-SFProDisplay-Heavy.fnt)
+%Fl(6,24-SFProText-SemiboldItalic.fnt)
+%Fl(7,30-SFProText-Regular.fnt)
+%Fl(8,30-SFProText-Bold.fnt)
+%Fl(9,39-SFProText-Bold.fnt)
+
+# Preload Images
+%xl(playmodes,playmodes.bmp,0,0,9)
+%xl(repeat,repeat_status.bmp,0,0,5)
+%xl(shuffle,shuffle.bmp,0,0,2)
+%xl(battery,battery.bmp,0,0,12)
+%xl(PB,pb.bmp,0,0)
+%xl(PBB,pb_back.bmp,0,0)
+%xl(VB,vb.bmp,0,0)
+%xl(VBB,vb_back.bmp,0,0)
+%xl(rtc_album,rtc_album.bmp)
+%xl(disk,disk.bmp,0,0)
+
+# Show Main Display unless Hold Switch is on
+%?mh<%Vd(mainDisplay)%Vd(holdScreen)|%Vd(mainDisplay)%Vd(playScreen)>
+
+## Main Display ##
+
+# Clear Screen
+%Vl(mainDisplay,0,0,480,360,-)
+
+# Play/Pause Icons
+%Vl(mainDisplay,15,11,33,33,-)
+%?if(%mp, >, 1)<%xd(playmodes,%mp)|>
+
+# Disk Icons
+%Vl(mainDisplay,57,14,26,27,-)
+%?lh<%t(0.5)%xd(disk);%t(0.5)|>
+
+# Now Playing / Playlist Name
+%Vl(mainDisplay,90,15,300,38,7)
+%s%?pn<%?pS(20)<%acNow Playing|%ac%pn>|%acNow Playing>
+
+# Battery
+%Vl(mainDisplay,390,11,81,34,-)
+%?bp<%xd(battery,7)|%?bl<%xd(battery,6)|%xd(battery,5)|%xd(battery,4)|%xd(battery,3)|%xd(battery,2)|%xd(battery,1)>>%?bp<%?bc<%?bl<%xd(battery,12)|%xd(battery,11)|%xd(battery,10)|%xd(battery,9)|%xd(battery,8)|%xd(battery,7)>|%?bl<%xd(battery,6)|%xd(battery,5)|%xd(battery,4)|%xd(battery,3)|%xd(battery,2)|%xd(battery,1)>>>
+
+# Line
+%Vl(mainDisplay,8,54,465,3,-)
+%dr(0,0,465,3)
+
+# Playlist Number
+%Vl(mainDisplay,12,60,108,30,6)
+%pp of %pe
+
+# Repeat Icon
+%Vl(mainDisplay,390,62,38,33,-)
+%?mm<%xd(repeat,5)|%xd(repeat,1)|%xd(repeat,2)|%xd(repeat,3)|%xd(repeat,4)>
+
+# Shuffle Icon
+%Vl(mainDisplay,434,62,37,33,-)
+%?ps<%xd(shuffle,1)|%xd(shuffle,2)>
+
+# Volume Bar
+%Vl(mainDisplay,68,282,345,12,-)
+%pv(0,0,345,12,VBB,backdrop,VB)
+
+# Volume Text
+%Vl(mainDisplay,15,276,38,27,5)
+%acVOL
+
+# Volume Level
+%Vl(mainDisplay,419,276,60,30,5)
+%ac%pvdb
+
+# Track Progress Bar
+%Vl(mainDisplay,30,308,420,21,-)%Vf(-)%Vb(-)
+%pb(0,0,-,21,PBB,backdrop,PB)
+
+# Time Elapsed
+%Vl(mainDisplay,30,330,75,30,7)
+%al%pc
+
+# Time Remaining
+%Vl(mainDisplay,375,330,75,30,7)
+%ar-%pr
+
+# Play Screen Album Art
+%Vl(playScreen,12,90,183,183,-)
+%Cl(2,2,180,180,c,c)
+%?C<%Cd|%xd(rtc_album)>
+%dr(0,0,183,2)
+%dr(0,182,183,1)
+%dr(0,2,2,180)
+%dr(182,2,1,180)
+
+# Album
+%Vl(playScreen,203,98,270,30,7)
+%al%s%?id<%id>
+
+# Track Title
+%Vl(playScreen,203,132,270,39,9)
+%al%s%?it<%s%it|%fn>
+
+# Artist
+%Vl(playScreen,203,180,270,30,8)
+%al%s%?ia<%ia>
+
+# File Info
+%Vl(playScreen,203,218,255,22,5)
+%al%s%fc | %fb kbps | %fk kHz
+
+## Hold Screen ##
+
+# Album
+%Vl(holdScreen,15,113,450,30,7)
+%ac%s%?id<%id>
+
+# Track Title
+%Vl(holdScreen,15,158,450,45,9)
+%ac%s%?it<%s%it|%fn>
+
+# Artist
+%Vl(holdScreen,15,210,450,30,8)
+%ac%s%?ia<%ia>
+
+# Next track
+#%Vl(holdScreen,5,157,310,20,2)
+#%ac%?pE(20)<%?It<%ac%s%Sx(Next Track:) %It|>|>
