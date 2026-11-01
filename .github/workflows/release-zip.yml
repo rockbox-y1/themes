@@ -1,0 +1,32 @@
+name: Release Themes Zip
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Create themes zip
+        run: |
+          THEME_DIRS=()
+          for dir in */; do
+            THEME_DIRS+=("$(basename "$dir")")
+          done
+          zip -r themes_individual.zip "${THEME_DIRS[@]}"
+
+      - name: Upload to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload for_the_gays_and_the_theys themes_individual.zip --clobber
